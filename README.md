@@ -1,5 +1,7 @@
 # AMEL
+# Richie Zins
+## Dimitri Cognata 
 ## Neil Marcellini
-## Richie Zins
 ## Jeffrey Romero
 ## Tristan
+
