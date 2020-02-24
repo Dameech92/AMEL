@@ -37,7 +37,7 @@ struct ContentView: View {
                     Text("Radar Jam")
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color.black)
+                    .background(Color.red)
                 }
                 Spacer()
                 Button(action: {self.doSomething = self.doSomething + 1}){
