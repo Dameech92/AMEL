@@ -1,5 +1,5 @@
 //
-//  LocationManager.swift
+//  Event.swift
 //  logLocation
 //
 //  Created by Neil Marcellini on 2/25/20.
