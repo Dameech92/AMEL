@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31708B7624043CF000280B2F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31708B7524043CF000280B2F /* LocationManager.swift */; };
 		31BB170D23FF1535009A3767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BB170C23FF1535009A3767 /* AppDelegate.swift */; };
 		31BB170F23FF1535009A3767 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BB170E23FF1535009A3767 /* SceneDelegate.swift */; };
 		31BB171223FF1535009A3767 /* CoreDataTut.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31BB171023FF1535009A3767 /* CoreDataTut.xcdatamodeld */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31708B7524043CF000280B2F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		31BB170923FF1535009A3767 /* CoreDataTut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataTut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31BB170C23FF1535009A3767 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31BB170E23FF1535009A3767 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				31BB170E23FF1535009A3767 /* SceneDelegate.swift */,
 				31BB171323FF1535009A3767 /* ContentView.swift */,
 				31BB172523FF2473009A3767 /* TodoItemView.swift */,
+				31708B7524043CF000280B2F /* LocationManager.swift */,
 				31BB172323FF163B009A3767 /* TodoItem.swift */,
 				31BB171523FF1539009A3767 /* Assets.xcassets */,
 				31BB171A23FF1539009A3767 /* LaunchScreen.storyboard */,
@@ -158,6 +161,7 @@
 				31BB172423FF163B009A3767 /* TodoItem.swift in Sources */,
 				31BB171223FF1535009A3767 /* CoreDataTut.xcdatamodeld in Sources */,
 				31BB170D23FF1535009A3767 /* AppDelegate.swift in Sources */,
+				31708B7624043CF000280B2F /* LocationManager.swift in Sources */,
 				31BB171423FF1535009A3767 /* ContentView.swift in Sources */,
 				31BB170F23FF1535009A3767 /* SceneDelegate.swift in Sources */,
 				31BB172623FF2473009A3767 /* TodoItemView.swift in Sources */,

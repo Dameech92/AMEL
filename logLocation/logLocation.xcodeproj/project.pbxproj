@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		318DA70424059EC6007D79B6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DA70324059EC6007D79B6 /* LocationManager.swift */; };
+		318DA7062405A84A007D79B6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DA7052405A84A007D79B6 /* Event.swift */; };
+		318DA7082405B1F9007D79B6 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DA7072405B1F9007D79B6 /* EventView.swift */; };
 		4CED17542404851200E6D4F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED17532404851200E6D4F6 /* AppDelegate.swift */; };
 		4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED17552404851200E6D4F6 /* SceneDelegate.swift */; };
 		4CED17592404851200E6D4F6 /* logLocation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CED17572404851200E6D4F6 /* logLocation.xcdatamodeld */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		318DA70324059EC6007D79B6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		318DA7052405A84A007D79B6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		318DA7072405B1F9007D79B6 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		4CED17502404851200E6D4F6 /* logLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = logLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CED17532404851200E6D4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CED17552404851200E6D4F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +67,9 @@
 				4CED17532404851200E6D4F6 /* AppDelegate.swift */,
 				4CED17552404851200E6D4F6 /* SceneDelegate.swift */,
 				4CED175A2404851200E6D4F6 /* ContentView.swift */,
+				318DA7072405B1F9007D79B6 /* EventView.swift */,
+				318DA70324059EC6007D79B6 /* LocationManager.swift */,
+				318DA7052405A84A007D79B6 /* Event.swift */,
 				4CED175C2404851300E6D4F6 /* Assets.xcassets */,
 				4CED17612404851300E6D4F6 /* LaunchScreen.storyboard */,
 				4CED17642404851300E6D4F6 /* Info.plist */,
@@ -150,8 +159,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CED17592404851200E6D4F6 /* logLocation.xcdatamodeld in Sources */,
+				318DA7082405B1F9007D79B6 /* EventView.swift in Sources */,
 				4CED17542404851200E6D4F6 /* AppDelegate.swift in Sources */,
+				318DA70424059EC6007D79B6 /* LocationManager.swift in Sources */,
 				4CED175B2404851200E6D4F6 /* ContentView.swift in Sources */,
+				318DA7062405A84A007D79B6 /* Event.swift in Sources */,
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
