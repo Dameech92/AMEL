@@ -23,7 +23,7 @@
 		318DA70324059EC6007D79B6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		318DA7052405A84A007D79B6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		318DA7072405B1F9007D79B6 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
-		4CED17502404851200E6D4F6 /* logLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = logLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CED17502404851200E6D4F6 /* AMEL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMEL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CED17532404851200E6D4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CED17552404851200E6D4F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4CED17582404851200E6D4F6 /* logLocation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = logLocation.xcdatamodel; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		4CED17472404851200E6D4F6 = {
 			isa = PBXGroup;
 			children = (
-				4CED17522404851200E6D4F6 /* logLocation */,
+				4CED17522404851200E6D4F6 /* AMEL */,
 				4CED17512404851200E6D4F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,12 +56,12 @@
 		4CED17512404851200E6D4F6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4CED17502404851200E6D4F6 /* logLocation.app */,
+				4CED17502404851200E6D4F6 /* AMEL.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4CED17522404851200E6D4F6 /* logLocation */ = {
+		4CED17522404851200E6D4F6 /* AMEL */ = {
 			isa = PBXGroup;
 			children = (
 				4CED17532404851200E6D4F6 /* AppDelegate.swift */,
@@ -76,7 +76,7 @@
 				4CED17572404851200E6D4F6 /* logLocation.xcdatamodeld */,
 				4CED175E2404851300E6D4F6 /* Preview Content */,
 			);
-			path = logLocation;
+			path = AMEL;
 			sourceTree = "<group>";
 		};
 		4CED175E2404851300E6D4F6 /* Preview Content */ = {
@@ -90,9 +90,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4CED174F2404851200E6D4F6 /* logLocation */ = {
+		4CED174F2404851200E6D4F6 /* AMEL */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4CED17672404851300E6D4F6 /* Build configuration list for PBXNativeTarget "logLocation" */;
+			buildConfigurationList = 4CED17672404851300E6D4F6 /* Build configuration list for PBXNativeTarget "AMEL" */;
 			buildPhases = (
 				4CED174C2404851200E6D4F6 /* Sources */,
 				4CED174D2404851200E6D4F6 /* Frameworks */,
@@ -102,9 +102,9 @@
 			);
 			dependencies = (
 			);
-			name = logLocation;
+			name = AMEL;
 			productName = logLocation;
-			productReference = 4CED17502404851200E6D4F6 /* logLocation.app */;
+			productReference = 4CED17502404851200E6D4F6 /* AMEL.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -122,7 +122,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4CED174B2404851200E6D4F6 /* Build configuration list for PBXProject "logLocation" */;
+			buildConfigurationList = 4CED174B2404851200E6D4F6 /* Build configuration list for PBXProject "AMEL" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -135,7 +135,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4CED174F2404851200E6D4F6 /* logLocation */,
+				4CED174F2404851200E6D4F6 /* AMEL */,
 			);
 		};
 /* End PBXProject section */
@@ -301,15 +301,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"logLocation/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AMEL/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = logLocation/Info.plist;
+				INFOPLIST_FILE = AMEL/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.logLocation;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AMEL;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -320,15 +320,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"logLocation/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AMEL/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = logLocation/Info.plist;
+				INFOPLIST_FILE = AMEL/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.logLocation;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = AMEL;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -337,7 +337,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4CED174B2404851200E6D4F6 /* Build configuration list for PBXProject "logLocation" */ = {
+		4CED174B2404851200E6D4F6 /* Build configuration list for PBXProject "AMEL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CED17652404851300E6D4F6 /* Debug */,
@@ -346,7 +346,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4CED17672404851300E6D4F6 /* Build configuration list for PBXNativeTarget "logLocation" */ = {
+		4CED17672404851300E6D4F6 /* Build configuration list for PBXNativeTarget "AMEL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4CED17682404851300E6D4F6 /* Debug */,
