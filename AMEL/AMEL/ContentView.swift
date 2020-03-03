@@ -11,23 +11,21 @@ import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
-    @State var rand = 0
+	@ObservedObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
-    @State private var eventName = "Missile"
-    
+    let buttonAction = ButtonAction()
+	
     var body: some View {
-        ///
-            VStack{
-                Text("Lat/Long/Alt")
-                 LocationView()
-            HStack{
-                VStack{
-                
+		VStack {
+			Text("Lat/Long/Alt")
+			LocationView()
+            HStack {
+                VStack {
                     Button(action: {
-                        self.rand = self.rand + 1}) {
+						self.buttonAction.record("PRESS!", self.locationManager, self.managedObjectContext)
+					}) {
                         Text("PRESS!")
-                            
                     }.frame(minWidth: 0, maxWidth: .infinity)
                         .frame(minHeight: 0, maxHeight: .infinity)
                         .padding()
@@ -36,7 +34,10 @@ struct ContentView: View {
                         .cornerRadius(40)
                         Spacer()
                     
-                    Button(action: {self.rand = self.rand + 1}){ Text("Radar!")
+                    Button(action: {
+						self.buttonAction.record("Radar", self.locationManager, self.managedObjectContext)
+					}) {
+						Text("Radar!")
                     }.frame(minWidth: 0, maxWidth: .infinity)
                         .frame(minHeight: 0, maxHeight: .infinity)
                         .padding()
@@ -45,8 +46,11 @@ struct ContentView: View {
                         .cornerRadius(40)
                         Spacer()
                     
-                    Button(action: {self.rand = self.rand + 1}){ Text("Button!")
-                        }.frame(minWidth: 0, maxWidth: .infinity)
+                    Button(action: {
+						self.buttonAction.record("Button!", self.locationManager, self.managedObjectContext)
+					}) {
+						Text("Button!")
+					}.frame(minWidth: 0, maxWidth: .infinity)
                         .frame(minHeight: 0, maxHeight: .infinity)
                         .padding()
                         .foregroundColor(.black)
@@ -54,42 +58,50 @@ struct ContentView: View {
                         .cornerRadius(40)
                     Spacer()
                         
-                }
+                } // end VStack
                 
-                VStack{
-                    
-                        Button(action: {self.rand = self.rand + 1}){
-                            Text("Missle!")
-                        }.frame(minWidth: 0, maxWidth: .infinity)
-                        .frame(minHeight: 0, maxHeight: .infinity)
-                        .padding()
-                            .foregroundColor(.black)
-                            .background(Color.gray)
-                            .cornerRadius(40)
-                            Spacer()
-                
-                        Button(action: {self.rand = self.rand + 1}){ Text("Radar!")
-                        }.frame(minWidth: 0, maxWidth: .infinity)
-                         .frame(minHeight: 0, maxHeight: .infinity)
-                         .padding()
-                         .foregroundColor(.black)
-                         .background(Color.gray)
-                         .cornerRadius(40)
-                        Spacer()
-                        
-                        Button(action: {self.rand = self.rand + 1}){ Text("Button!")
-                        }.frame(minWidth: 0, maxWidth: .infinity)
-                         .frame(minHeight: 0, maxHeight: .infinity)
-                         .padding()
-                         .foregroundColor(.black)
-                         .background(Color.gray)
-                         .cornerRadius(40)
-                        Spacer()
-                            
-                    }
-            }
+                VStack {
+					Button(action: {
+						self.buttonAction.record("Missile", self.locationManager, self.managedObjectContext)
+					}) {
+						Text("Missle!")
+					}.frame(minWidth: 0, maxWidth: .infinity)
+					.frame(minHeight: 0, maxHeight: .infinity)
+					.padding()
+					.foregroundColor(.black)
+					.background(Color.gray)
+					.cornerRadius(40)
+					
+					Spacer()
+			
+					Button(action: {
+						self.buttonAction.record("Radar!", self.locationManager, self.managedObjectContext)
+					}) {
+						Text("Radar!")
+					}.frame(minWidth: 0, maxWidth: .infinity)
+					 .frame(minHeight: 0, maxHeight: .infinity)
+					 .padding()
+					 .foregroundColor(.black)
+					 .background(Color.gray)
+					 .cornerRadius(40)
+					
+					Spacer()
+					
+					Button(action: {
+						self.buttonAction.record("Button!", self.locationManager, self.managedObjectContext)
+					}) {
+						Text("Button!")
+					}.frame(minWidth: 0, maxWidth: .infinity)
+					.frame(minHeight: 0, maxHeight: .infinity)
+					.padding()
+					.foregroundColor(.black)
+					.background(Color.gray)
+					.cornerRadius(40)
+					Spacer()
+				} // end VStack
+            } // end HStack
             .padding(10.0)
-        }
+        } // end VStack
     }
 }
 
