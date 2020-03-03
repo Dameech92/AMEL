@@ -14,7 +14,6 @@ struct ContentView: View {
 	@ObservedObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
-    let buttonAction = ButtonAction()
 	
     var body: some View {
 		VStack {
@@ -23,7 +22,7 @@ struct ContentView: View {
             HStack {
                 VStack {
                     Button(action: {
-						self.buttonAction.record("PRESS!", self.locationManager, self.managedObjectContext)
+						ButtonAction.record("PRESS!", self.locationManager, self.managedObjectContext)
 					}) {
                         Text("PRESS!")
                     }.frame(minWidth: 0, maxWidth: .infinity)
@@ -35,7 +34,7 @@ struct ContentView: View {
                         Spacer()
                     
                     Button(action: {
-						self.buttonAction.record("Radar", self.locationManager, self.managedObjectContext)
+						ButtonAction.record("Radar", self.locationManager, self.managedObjectContext)
 					}) {
 						Text("Radar!")
                     }.frame(minWidth: 0, maxWidth: .infinity)
@@ -47,7 +46,7 @@ struct ContentView: View {
                         Spacer()
                     
                     Button(action: {
-						self.buttonAction.record("Button!", self.locationManager, self.managedObjectContext)
+						ButtonAction.record("Button!", self.locationManager, self.managedObjectContext)
 					}) {
 						Text("Button!")
 					}.frame(minWidth: 0, maxWidth: .infinity)
@@ -62,7 +61,7 @@ struct ContentView: View {
                 
                 VStack {
 					Button(action: {
-						self.buttonAction.record("Missile", self.locationManager, self.managedObjectContext)
+						ButtonAction.record("Missile", self.locationManager, self.managedObjectContext)
 					}) {
 						Text("Missle!")
 					}.frame(minWidth: 0, maxWidth: .infinity)
@@ -75,7 +74,7 @@ struct ContentView: View {
 					Spacer()
 			
 					Button(action: {
-						self.buttonAction.record("Radar!", self.locationManager, self.managedObjectContext)
+						ButtonAction.record("Radar!", self.locationManager, self.managedObjectContext)
 					}) {
 						Text("Radar!")
 					}.frame(minWidth: 0, maxWidth: .infinity)
@@ -88,7 +87,7 @@ struct ContentView: View {
 					Spacer()
 					
 					Button(action: {
-						self.buttonAction.record("Button!", self.locationManager, self.managedObjectContext)
+						ButtonAction.record("Button!", self.locationManager, self.managedObjectContext)
 					}) {
 						Text("Button!")
 					}.frame(minWidth: 0, maxWidth: .infinity)
