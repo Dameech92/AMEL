@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:logLocation.xcodeproj">
+      location = "self:/Users/richard.zins447/Documents/AMEL/AMEL/AMEL.xcodeproj">
    </FileRef>
 </Workspace>
