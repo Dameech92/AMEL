@@ -4,58 +4,92 @@
 //
 //  Created by Marcellini, Neil on 2/24/20.
 //  Copyright © 2020 Marcellini, Neil. All rights reserved.
-//
+//  Created by Cognata, Dimitri on 3/2/20.
+//  Copyright © 2020 Marcellini, Neil. All rights reserved.
 
 import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
-    @ObservedObject private var locationManager = LocationManager()
+    @State var rand = 0
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
-    
     @State private var eventName = "Missile"
     
     var body: some View {
-        let coordinate = self.locationManager.location != nil ? self.locationManager.location!.coordinate : CLLocationCoordinate2D()
-        let truncatedLatitude = String(format: "%.4f", coordinate.latitude)
-        let truncatedLongitude = String(format: "%.4f", coordinate.longitude)
-        let altitude = self.locationManager.location != nil ? self.locationManager.location!.altitude : CLLocationDistance()
-        let truncatedAltitude = String(format: "%.2f", altitude)
-        return VStack{
-            Spacer()
-            Button(action: {
-                let newEvent = Event(context: self.managedObjectContext)
-                newEvent.name = self.eventName
-                newEvent.latitude = coordinate.latitude as NSNumber
-                newEvent.longitude = coordinate.longitude as NSNumber
-                newEvent.altitude = altitude as NSNumber
-                newEvent.time = Date()
+        ///
+            VStack{
+                Text("Lat/Long/Alt")
+                 LocationView()
+            HStack{
+                VStack{
                 
-                do {
-                    try self.managedObjectContext.save()
-                } catch {
-                    print("Error saving")
+                    Button(action: {
+                        self.rand = self.rand + 1}) {
+                        Text("PRESS!")
+                            
+                    }.frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(minHeight: 0, maxHeight: .infinity)
+                        .padding()
+                        .foregroundColor(.black)
+                        .background(Color.gray)
+                        .cornerRadius(40)
+                        Spacer()
+                    
+                    Button(action: {self.rand = self.rand + 1}){ Text("Radar!")
+                    }.frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(minHeight: 0, maxHeight: .infinity)
+                        .padding()
+                        .foregroundColor(.black)
+                        .background(Color.gray)
+                        .cornerRadius(40)
+                        Spacer()
+                    
+                    Button(action: {self.rand = self.rand + 1}){ Text("Button!")
+                        }.frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(minHeight: 0, maxHeight: .infinity)
+                        .padding()
+                        .foregroundColor(.black)
+                        .background(Color.gray)
+                        .cornerRadius(40)
+                    Spacer()
+                        
                 }
                 
-            }) {
-                Text(eventName)
-                .background(Color.black)
-                .padding()
-                .foregroundColor(Color.white)
-            }
-            Text("Lat/Lng/Alt")
-            Text("\(truncatedLatitude)/\(truncatedLongitude)/\(truncatedAltitude)")
-            Spacer()
-            List {
-                Section(header: Text("Events")) {
-                    ForEach(self.events) { (event: Event) in
-                        EventView(name: event.name, time: event.time, latitude: event.latitude.doubleValue, longitude: event.longitude.doubleValue, altitude: event.altitude.doubleValue)
+                VStack{
+                    
+                        Button(action: {self.rand = self.rand + 1}){
+                            Text("Missle!")
+                        }.frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(minHeight: 0, maxHeight: .infinity)
+                        .padding()
+                            .foregroundColor(.black)
+                            .background(Color.gray)
+                            .cornerRadius(40)
+                            Spacer()
+                
+                        Button(action: {self.rand = self.rand + 1}){ Text("Radar!")
+                        }.frame(minWidth: 0, maxWidth: .infinity)
+                         .frame(minHeight: 0, maxHeight: .infinity)
+                         .padding()
+                         .foregroundColor(.black)
+                         .background(Color.gray)
+                         .cornerRadius(40)
+                        Spacer()
+                        
+                        Button(action: {self.rand = self.rand + 1}){ Text("Button!")
+                        }.frame(minWidth: 0, maxWidth: .infinity)
+                         .frame(minHeight: 0, maxHeight: .infinity)
+                         .padding()
+                         .foregroundColor(.black)
+                         .background(Color.gray)
+                         .cornerRadius(40)
+                        Spacer()
+                            
                     }
-                }
             }
+            .padding(10.0)
         }
-        
     }
 }
 

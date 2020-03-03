@@ -17,6 +17,7 @@
 		4CED175D2404851300E6D4F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CED175C2404851300E6D4F6 /* Assets.xcassets */; };
 		4CED17602404851300E6D4F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CED175F2404851300E6D4F6 /* Preview Assets.xcassets */; };
 		4CED17632404851300E6D4F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CED17612404851300E6D4F6 /* LaunchScreen.storyboard */; };
+		FC4C8B8E240DCFC400A90DB2 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C8B8D240DCFC400A90DB2 /* LocationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4CED175F2404851300E6D4F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4CED17622404851300E6D4F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CED17642404851300E6D4F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC4C8B8D240DCFC400A90DB2 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				4CED17532404851200E6D4F6 /* AppDelegate.swift */,
 				4CED17552404851200E6D4F6 /* SceneDelegate.swift */,
 				4CED175A2404851200E6D4F6 /* ContentView.swift */,
+				FC4C8B8D240DCFC400A90DB2 /* LocationView.swift */,
 				318DA7072405B1F9007D79B6 /* EventView.swift */,
 				318DA70324059EC6007D79B6 /* LocationManager.swift */,
 				318DA7052405A84A007D79B6 /* Event.swift */,
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CED17592404851200E6D4F6 /* logLocation.xcdatamodeld in Sources */,
+				FC4C8B8E240DCFC400A90DB2 /* LocationView.swift in Sources */,
 				318DA7082405B1F9007D79B6 /* EventView.swift in Sources */,
 				4CED17542404851200E6D4F6 /* AppDelegate.swift in Sources */,
 				318DA70424059EC6007D79B6 /* LocationManager.swift in Sources */,
