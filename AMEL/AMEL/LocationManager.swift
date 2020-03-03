@@ -29,6 +29,7 @@ extension LocationManager: CLLocationManagerDelegate {
         }
         self.location = location
     }
+    // default updates on 1 degree or greater change
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading){
         self.heading = newHeading
     }
