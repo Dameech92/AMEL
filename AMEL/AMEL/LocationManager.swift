@@ -12,12 +12,14 @@ import CoreLocation
 class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     @Published var location: CLLocation? = nil
+    @Published var heading: CLHeading? = nil
     override init() {
         super.init()
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
+        self.locationManager.startUpdatingHeading()
     }
 }
 extension LocationManager: CLLocationManagerDelegate {
@@ -26,5 +28,8 @@ extension LocationManager: CLLocationManagerDelegate {
             return
         }
         self.location = location
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading){
+        self.heading = newHeading
     }
 }

@@ -13,8 +13,7 @@ import CoreLocation
 struct LocationView: View {
     @ObservedObject private var locationManager = LocationManager()
     var body: some View {
-         
-           let coordinate = self.locationManager.location != nil ?
+        let coordinate = self.locationManager.location != nil ?
                self.locationManager.location!.coordinate : CLLocationCoordinate2D()
         let truncatedLatitude = String(format: "%.4f", coordinate.latitude)
         let truncatedLongitude = String(format: "%.4f", coordinate.longitude)
