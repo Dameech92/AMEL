@@ -1,9 +1,9 @@
 //
 //  SceneDelegate.swift
-//  EventModel
+//  logLocation
 //
-//  Created by Zins, Richard on 3/2/20.
-//  Copyright © 2020 Zins, Richard. All rights reserved.
+//  Created by Marcellini, Neil on 2/24/20.
+//  Copyright © 2020 Marcellini, Neil. All rights reserved.
 //
 
 import UIKit

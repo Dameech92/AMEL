@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 public class Event: NSManagedObject, Identifiable {
-    @NSManaged public var  dateTime:Date?
+    @NSManaged public var  time:Date?
     @NSManaged public var name:String?
     @NSManaged public var latitude:NSNumber?
     @NSManaged public var longitude:NSNumber?

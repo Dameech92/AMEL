@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:EventModel.xcodeproj">
+      location = "self:/Users/richard.zins447/Documents/AMEL/AMEL/AMEL.xcodeproj">
    </FileRef>
 </Workspace>
