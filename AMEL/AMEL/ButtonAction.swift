@@ -10,13 +10,10 @@ import Foundation
 import CoreData
 import CoreLocation
 
-class ButtonAction {
-	// cannot create locationManager and managedObjectContext here since those two are part of the view
+struct ButtonAction {
+	// cannot create locationManager and managedObjectContext here since those two are part of ContentView
 	
-	// default constructor
-	init() {}
-	
-	public func record(_ eventName:String, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
+	public static func record(_ eventName:String, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
 		let coordinate = locationManager.location != nil ? locationManager.location!.coordinate : CLLocationCoordinate2D()
 		let altitude = locationManager.location != nil ? locationManager.location!.altitude : CLLocationDistance()
 		let newEvent = Event(context: managedObjectContext)
@@ -25,7 +22,7 @@ class ButtonAction {
 		newEvent.longitude = coordinate.longitude as NSNumber
 		newEvent.altitude = altitude as NSNumber
 		newEvent.time = Date()
-		print("\(newEvent.time)")
+		
 		do {
 			try managedObjectContext.save()
 		} catch {
