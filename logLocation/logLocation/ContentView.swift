@@ -17,41 +17,56 @@ struct ContentView: View {
     @State private var eventName = "Missile"
     
     var body: some View {
-        ///
+        ZStack{
+            Color("stealth").edgesIgnoringSafeArea(.all)
             VStack{
                 Text("Lat/Long/Alt")
+                    .font(.largeTitle)
                  LocationView()
             HStack{
                 VStack{
                 
                     Button(action: {
                         self.rand = self.rand + 1}) {
-                        Text("PRESS!")
+                        Text("FIRE!")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(minHeight: 0, maxHeight: .infinity)
+                        .font(.largeTitle)
+                        .padding()
+                        .foregroundColor(.primary)
+                        .background(Color("buttonBackGround"))
+                        .cornerRadius(40)
+                        //.padding(20)
+                        .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
+                        
+                    }
+                        Spacer()
+                    
+                    Button(action: {self.rand = self.rand + 1}){
+                            Text("Radar!")
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .frame(minHeight: 0, maxHeight: .infinity)
+                            .font(.largeTitle)
+                            .padding()
+                            .foregroundColor(.primary)
+                            .background(Color("buttonBackGround"))
+                            .cornerRadius(40)
+                            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
                             
-                    }.frame(minWidth: 0, maxWidth: .infinity)
-                        .frame(minHeight: 0, maxHeight: .infinity)
-                        .padding()
-                        .foregroundColor(.black)
-                        .background(Color.gray)
-                        .cornerRadius(40)
+                    }
                         Spacer()
                     
-                    Button(action: {self.rand = self.rand + 1}){ Text("Radar!")
-                    }.frame(minWidth: 0, maxWidth: .infinity)
+                    Button(action: {self.rand = self.rand + 1}){
+                        Text("BOMB!")
+                        .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(minHeight: 0, maxHeight: .infinity)
+                        .font(.largeTitle)
                         .padding()
-                        .foregroundColor(.black)
-                        .background(Color.gray)
+                        .foregroundColor(.primary)
+                        .background(Color("buttonBackGround"))
                         .cornerRadius(40)
-                        Spacer()
-                    
-                    Button(action: {self.rand = self.rand + 1}){ Text("Button!")
-                        }.frame(minWidth: 0, maxWidth: .infinity)
-                        .frame(minHeight: 0, maxHeight: .infinity)
-                        .padding()
-                        .foregroundColor(.black)
-                        .background(Color.gray)
-                        .cornerRadius(40)
+                        .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
+                        }
                     Spacer()
                         
                 }
@@ -59,37 +74,49 @@ struct ContentView: View {
                 VStack{
                     
                         Button(action: {self.rand = self.rand + 1}){
-                            Text("Missle!")
-                        }.frame(minWidth: 0, maxWidth: .infinity)
-                        .frame(minHeight: 0, maxHeight: .infinity)
-                        .padding()
-                            .foregroundColor(.black)
-                            .background(Color.gray)
+                            Text("NUKE EM!")
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .frame(minHeight: 0, maxHeight: .infinity)
+                            .font(.largeTitle)
+                            .padding()
+                            .foregroundColor(.primary)
+                            .background(Color("buttonBackGround"))
                             .cornerRadius(40)
-                            Spacer()
+                            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
+                        }
+                        Spacer()
                 
-                        Button(action: {self.rand = self.rand + 1}){ Text("Radar!")
-                        }.frame(minWidth: 0, maxWidth: .infinity)
-                         .frame(minHeight: 0, maxHeight: .infinity)
-                         .padding()
-                         .foregroundColor(.black)
-                         .background(Color.gray)
-                         .cornerRadius(40)
+                        Button(action: {self.rand = self.rand + 1}){
+                            Text("JAMMER!")
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .frame(minHeight: 0, maxHeight: .infinity)
+                            .font(.largeTitle)
+                            .padding()
+                            .foregroundColor(.primary)
+                            .background(Color("buttonBackGround"))
+                            .cornerRadius(40)
+                            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
+                        }
                         Spacer()
                         
-                        Button(action: {self.rand = self.rand + 1}){ Text("Button!")
-                        }.frame(minWidth: 0, maxWidth: .infinity)
-                         .frame(minHeight: 0, maxHeight: .infinity)
-                         .padding()
-                         .foregroundColor(.black)
-                         .background(Color.gray)
-                         .cornerRadius(40)
+                        Button(action: {self.rand = self.rand + 1}){
+                            Text("SETTINGS!")
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .frame(minHeight: 0, maxHeight: .infinity)
+                            .font(.largeTitle)
+                            .padding()
+                            .foregroundColor(.primary)
+                            .background(Color("buttonBackGround"))
+                            .cornerRadius(40)
+                            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
+                        }
                         Spacer()
                             
                     }
             }
             .padding(10.0)
-        }
+         }
+       }
     }
 }
 
