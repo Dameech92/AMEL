@@ -11,112 +11,102 @@ import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
-    @State var rand = 0
+	@ObservedObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
-    @State private var eventName = "Missile"
-    
+	
     var body: some View {
-        ZStack{
-            Color("stealth").edgesIgnoringSafeArea(.all)
-            VStack{
-                Text("Lat/Long/Alt")
-                    .font(.largeTitle)
-                 LocationView()
-            HStack{
-                VStack{
-                
+		VStack {
+			Text("Lat/Long/Alt")
+			LocationView()
+            HStack {
+                VStack {
                     Button(action: {
-                        self.rand = self.rand + 1}) {
-                        Text("FIRE!")
+						ButtonAction.record("PRESS!", self.locationManager, self.managedObjectContext)
+					}) {
+                        Text("PRESS!")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(minHeight: 0, maxHeight: .infinity)
-                        .font(.largeTitle)
                         .padding()
-                        .foregroundColor(.primary)
-                        .background(Color("buttonBackGround"))
+                        .foregroundColor(.black)
+                        .background(Color.gray)
                         .cornerRadius(40)
-                        //.padding(20)
-                        .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
-                        
                     }
                         Spacer()
                     
-                    Button(action: {self.rand = self.rand + 1}){
-                            Text("Radar!")
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .frame(minHeight: 0, maxHeight: .infinity)
-                            .font(.largeTitle)
-                            .padding()
-                            .foregroundColor(.primary)
-                            .background(Color("buttonBackGround"))
-                            .cornerRadius(40)
-                            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
-                            
+                    Button(action: {
+						ButtonAction.record("Radar", self.locationManager, self.managedObjectContext)
+					}) {
+						Text("Radar!")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(minHeight: 0, maxHeight: .infinity)
+                        .padding()
+                        .foregroundColor(.black)
+                        .background(Color.gray)
+                        .cornerRadius(40)
                     }
                         Spacer()
                     
-                    Button(action: {self.rand = self.rand + 1}){
-                        Text("BOMB!")
+                    Button(action: {
+						ButtonAction.record("Button!", self.locationManager, self.managedObjectContext)
+					}) {
+						Text("Button!")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(minHeight: 0, maxHeight: .infinity)
-                        .font(.largeTitle)
                         .padding()
-                        .foregroundColor(.primary)
-                        .background(Color("buttonBackGround"))
+                        .foregroundColor(.black)
+                        .background(Color.gray)
                         .cornerRadius(40)
-                        .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
-                        }
+					}
                     Spacer()
                         
-                }
+                } // end VStack
                 
-                VStack{
-                    
-                        Button(action: {self.rand = self.rand + 1}){
-                            Text("NUKE EM!")
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .frame(minHeight: 0, maxHeight: .infinity)
-                            .font(.largeTitle)
-                            .padding()
-                            .foregroundColor(.primary)
-                            .background(Color("buttonBackGround"))
-                            .cornerRadius(40)
-                            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
-                        }
-                        Spacer()
-                
-                        Button(action: {self.rand = self.rand + 1}){
-                            Text("JAMMER!")
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .frame(minHeight: 0, maxHeight: .infinity)
-                            .font(.largeTitle)
-                            .padding()
-                            .foregroundColor(.primary)
-                            .background(Color("buttonBackGround"))
-                            .cornerRadius(40)
-                            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
-                        }
-                        Spacer()
-                        
-                        Button(action: {self.rand = self.rand + 1}){
-                            Text("SETTINGS!")
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .frame(minHeight: 0, maxHeight: .infinity)
-                            .font(.largeTitle)
-                            .padding()
-                            .foregroundColor(.primary)
-                            .background(Color("buttonBackGround"))
-                            .cornerRadius(40)
-                            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
-                        }
-                        Spacer()
-                            
-                    }
-            }
+                VStack {
+					Button(action: {
+						ButtonAction.record("Missile", self.locationManager, self.managedObjectContext)
+					}) {
+						Text("Missle!")
+						.frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(minHeight: 0, maxHeight: .infinity)
+                        .padding()
+                        .foregroundColor(.black)
+                        .background(Color.gray)
+                        .cornerRadius(40)
+					}
+					
+					Spacer()
+			
+					Button(action: {
+						ButtonAction.record("Radar!", self.locationManager, self.managedObjectContext)
+					}) {
+						Text("Radar!")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(minHeight: 0, maxHeight: .infinity)
+                        .padding()
+                        .foregroundColor(.black)
+                        .background(Color.gray)
+                        .cornerRadius(40)
+					}
+					
+					Spacer()
+					
+					Button(action: {
+						ButtonAction.record("Button!", self.locationManager, self.managedObjectContext)
+					}) {
+						Text("Button!")
+						.frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(minHeight: 0, maxHeight: .infinity)
+                        .padding()
+                        .foregroundColor(.black)
+                        .background(Color.gray)
+                        .cornerRadius(40)
+					}
+					Spacer()
+				} // end VStack
+            } // end HStack
             .padding(10.0)
-         }
-       }
+        } // end VStack
     }
 }
 

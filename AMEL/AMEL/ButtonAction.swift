@@ -11,11 +11,21 @@ import CoreData
 import CoreLocation
 
 struct ButtonAction {
-	// cannot create locationManager and managedObjectContext here since those two are part of ContentView
-	
+	// when a button is pressed, record information such as where and when the button was pressed
 	public static func record(_ eventName:String, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
-		let coordinate = locationManager.location != nil ? locationManager.location!.coordinate : CLLocationCoordinate2D()
-		let altitude = locationManager.location != nil ? locationManager.location!.altitude : CLLocationDistance()
+		var coordinate:CLLocationCoordinate2D
+		var altitude:CLLocationDistance
+		
+		if (locationManager.location != nil) {
+			// location data is already present so unwrap it
+			coordinate = locationManager.location!.coordinate
+			altitude = locationManager.location!.altitude
+		} else {
+			// receive the location data
+			coordinate = CLLocationCoordinate2D()
+			altitude = CLLocationDistance()
+		}
+    
 		let newEvent = Event(context: managedObjectContext)
 		newEvent.name = eventName
 		newEvent.latitude = coordinate.latitude as NSNumber
