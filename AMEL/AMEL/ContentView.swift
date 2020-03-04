@@ -25,36 +25,39 @@ struct ContentView: View {
 						ButtonAction.record("PRESS!", self.locationManager, self.managedObjectContext)
 					}) {
                         Text("PRESS!")
-                    }.frame(minWidth: 0, maxWidth: .infinity)
+			    .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(minHeight: 0, maxHeight: .infinity)
                         .padding()
                         .foregroundColor(.black)
                         .background(Color.gray)
                         .cornerRadius(40)
+                    }
                         Spacer()
                     
                     Button(action: {
 						ButtonAction.record("Radar", self.locationManager, self.managedObjectContext)
 					}) {
 						Text("Radar!")
-                    }.frame(minWidth: 0, maxWidth: .infinity)
+			    .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(minHeight: 0, maxHeight: .infinity)
                         .padding()
                         .foregroundColor(.black)
                         .background(Color.gray)
                         .cornerRadius(40)
+                    }
                         Spacer()
                     
                     Button(action: {
 						ButtonAction.record("Button!", self.locationManager, self.managedObjectContext)
 					}) {
 						Text("Button!")
-					}.frame(minWidth: 0, maxWidth: .infinity)
+			    .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(minHeight: 0, maxHeight: .infinity)
                         .padding()
                         .foregroundColor(.black)
                         .background(Color.gray)
                         .cornerRadius(40)
+					}
                     Spacer()
                         
                 } // end VStack
@@ -64,12 +67,13 @@ struct ContentView: View {
 						ButtonAction.record("Missile", self.locationManager, self.managedObjectContext)
 					}) {
 						Text("Missle!")
-					}.frame(minWidth: 0, maxWidth: .infinity)
+						.frame(minWidth: 0, maxWidth: .infinity)
 					.frame(minHeight: 0, maxHeight: .infinity)
 					.padding()
 					.foregroundColor(.black)
 					.background(Color.gray)
 					.cornerRadius(40)
+					}
 					
 					Spacer()
 			
@@ -77,12 +81,13 @@ struct ContentView: View {
 						ButtonAction.record("Radar!", self.locationManager, self.managedObjectContext)
 					}) {
 						Text("Radar!")
-					}.frame(minWidth: 0, maxWidth: .infinity)
+						.frame(minWidth: 0, maxWidth: .infinity)
 					 .frame(minHeight: 0, maxHeight: .infinity)
 					 .padding()
 					 .foregroundColor(.black)
 					 .background(Color.gray)
 					 .cornerRadius(40)
+					}
 					
 					Spacer()
 					
@@ -90,12 +95,13 @@ struct ContentView: View {
 						ButtonAction.record("Button!", self.locationManager, self.managedObjectContext)
 					}) {
 						Text("Button!")
-					}.frame(minWidth: 0, maxWidth: .infinity)
+						.frame(minWidth: 0, maxWidth: .infinity)
 					.frame(minHeight: 0, maxHeight: .infinity)
 					.padding()
 					.foregroundColor(.black)
 					.background(Color.gray)
 					.cornerRadius(40)
+					}
 					Spacer()
 				} // end VStack
             } // end HStack
