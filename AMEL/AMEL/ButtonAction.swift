@@ -25,7 +25,7 @@ struct ButtonAction {
 			coordinate = CLLocationCoordinate2D()
 			altitude = CLLocationDistance()
 		}
-		
+    
 		let newEvent = Event(context: managedObjectContext)
 		newEvent.name = eventName
 		newEvent.latitude = coordinate.latitude as NSNumber
