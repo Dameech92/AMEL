@@ -7,10 +7,17 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct HeadingView: View {
+    @ObservedObject private var locationManager = LocationManager()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        var magHeading = 0.0
+        if self.locationManager.heading != nil {
+            magHeading = self.locationManager.heading!.magneticHeading
+        }
+        let truncatedMagHeading = String(format: "%.1f", magHeading)
+        return Text("\(truncatedMagHeading)")
     }
 }
 

@@ -13,7 +13,7 @@ public class Event: NSManagedObject, Identifiable {
     @NSManaged public var latitude:NSNumber?
     @NSManaged public var longitude:NSNumber?
     @NSManaged public var altitude:NSNumber?
-    @NSManaged public var heading:NSNumber?
+    @NSManaged public var magneticHeading:NSNumber?
 }
 extension Event {
     static func getEvents() -> NSFetchRequest<Event> {

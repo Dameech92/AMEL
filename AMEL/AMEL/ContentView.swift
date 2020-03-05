@@ -17,8 +17,20 @@ struct ContentView: View {
 	
     var body: some View {
 		VStack {
-			Text("Lat/Long/Alt")
-			LocationView()
+            HStack {
+                Spacer()
+                VStack{
+                    Text("Lat/Long/Alt")
+                    LocationView()
+                }
+                Spacer()
+                VStack{
+                    Text("Heading:")
+                     HeadingView()
+                }
+                Spacer()
+            }
+			
             HStack {
                 VStack {
                     Button(action: {

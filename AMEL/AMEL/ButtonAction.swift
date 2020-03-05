@@ -25,11 +25,12 @@ struct ButtonAction {
 			coordinate = CLLocationCoordinate2D()
 			altitude = CLLocationDistance()
 		}
-    
+		
 		let newEvent = Event(context: managedObjectContext)
 		newEvent.name = eventName
 		newEvent.latitude = coordinate.latitude as NSNumber
 		newEvent.longitude = coordinate.longitude as NSNumber
+		newEvent.magneticHeading = locationManager.heading!.magneticHeading as NSNumber
 		newEvent.altitude = altitude as NSNumber
 		newEvent.time = Date()
 		
