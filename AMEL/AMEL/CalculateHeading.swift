@@ -10,5 +10,5 @@ import Foundation
 import CoreLocation
 
 struct CalculateHeading {
-	CLDeviceOrientation
+	
 }
