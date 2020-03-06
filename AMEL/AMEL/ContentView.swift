@@ -19,14 +19,24 @@ struct ContentView: View {
 		ZStack{
             Color("stealth").edgesIgnoringSafeArea(.all)
             VStack{
-                Text("Lat/Long/Alt")
-                    .font(.largeTitle)
-                 LocationView()
+                HStack{
+                    Spacer()
+                    VStack{
+                        Text("Lat/Long/Alt")
+                           .font(.largeTitle)
+                        LocationView()
+                    }
+                    Spacer()
+                    VStack {
+                        Text("Heading:")
+                        HeadingView()
+                    }
+                    Spacer()
+                }
             HStack{
                 VStack{
                 
-                    Button(action: {
-                        self.rand = self.rand + 1}) {
+                    Button(action: {ButtonAction.record("Fire", self.locationManager, self.managedObjectContext)}) {
                         Text("FIRE!")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(minHeight: 0, maxHeight: .infinity)
@@ -41,7 +51,7 @@ struct ContentView: View {
                     }
                         Spacer()
                     
-                    Button(action: {self.rand = self.rand + 1}){
+                    Button(action: {ButtonAction.record("Radar!", self.locationManager, self.managedObjectContext)}){
                             Text("Radar!")
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .frame(minHeight: 0, maxHeight: .infinity)
@@ -55,7 +65,7 @@ struct ContentView: View {
                     }
                         Spacer()
                     
-                    Button(action: {self.rand = self.rand + 1}){
+                    Button(action: {ButtonAction.record("BOMB", self.locationManager, self.managedObjectContext)}){
                         Text("BOMB!")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(minHeight: 0, maxHeight: .infinity)
@@ -72,7 +82,7 @@ struct ContentView: View {
                 
                 VStack{
                     
-                        Button(action: {self.rand = self.rand + 1}){
+                        Button(action: {ButtonAction.record("NUKE EM!", self.locationManager, self.managedObjectContext)}){
                             Text("NUKE EM!")
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .frame(minHeight: 0, maxHeight: .infinity)
@@ -85,7 +95,7 @@ struct ContentView: View {
                         }
                         Spacer()
                 
-                        Button(action: {self.rand = self.rand + 1}){
+                        Button(action: {ButtonAction.record("JAMMER!", self.locationManager, self.managedObjectContext)}){
                             Text("JAMMER!")
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .frame(minHeight: 0, maxHeight: .infinity)
@@ -98,7 +108,7 @@ struct ContentView: View {
                         }
                         Spacer()
                         
-                        Button(action: {self.rand = self.rand + 1}){
+                        Button(action: {ButtonAction.record("SETTINGS!", self.locationManager, self.managedObjectContext)}){
                             Text("SETTINGS!")
                             .frame(minWidth: 0, maxWidth: .infinity)
                             .frame(minHeight: 0, maxHeight: .infinity)
