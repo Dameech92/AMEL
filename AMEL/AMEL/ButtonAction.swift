@@ -15,6 +15,7 @@ struct ButtonAction {
 	public static func record(_ eventName:String, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
 		var coordinate:CLLocationCoordinate2D
 		var altitude:CLLocationDistance
+        var magHeading:CLLocationDirection
 		
 		if (locationManager.location != nil) {
 			// location data is already present so unwrap it
@@ -26,11 +27,17 @@ struct ButtonAction {
 			altitude = CLLocationDistance()
 		}
 		
+        if (locationManager.heading != nil) {
+            magHeading = locationManager.heading!.magneticHeading
+        } else {
+            magHeading = 0.0
+        }
+        
 		let newEvent = Event(context: managedObjectContext)
 		newEvent.name = eventName
 		newEvent.latitude = coordinate.latitude as NSNumber
 		newEvent.longitude = coordinate.longitude as NSNumber
-		newEvent.magneticHeading = locationManager.heading!.magneticHeading as NSNumber
+		newEvent.magneticHeading = magHeading as NSNumber
 		newEvent.altitude = altitude as NSNumber
 		newEvent.time = Date()
 		
