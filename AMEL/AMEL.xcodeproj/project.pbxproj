@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F944148240E193600E3F633 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944147240E193600E3F633 /* ButtonAction.swift */; };
 		1F9FABD024158555002FF99B /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FABCF24158555002FF99B /* ButtonView.swift */; };
+		31757AA32415B64700A92EF8 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31757AA22415B64700A92EF8 /* LogView.swift */; };
 		318DA70424059EC6007D79B6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DA70324059EC6007D79B6 /* LocationManager.swift */; };
 		318DA7062405A84A007D79B6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DA7052405A84A007D79B6 /* Event.swift */; };
 		318DA7082405B1F9007D79B6 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DA7072405B1F9007D79B6 /* EventView.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		1F944147240E193600E3F633 /* ButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
 		1F9FABCF24158555002FF99B /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		31757AA22415B64700A92EF8 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		318DA70324059EC6007D79B6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		318DA7052405A84A007D79B6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		318DA7072405B1F9007D79B6 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				4CED17552404851200E6D4F6 /* SceneDelegate.swift */,
 				4CED175A2404851200E6D4F6 /* ContentView.swift */,
 				FC4C8B8D240DCFC400A90DB2 /* LocationView.swift */,
+				31757AA22415B64700A92EF8 /* LogView.swift */,
 				319B7A06240F047D00B7E7D8 /* HeadingView.swift */,
 				318DA7072405B1F9007D79B6 /* EventView.swift */,
 				318DA70324059EC6007D79B6 /* LocationManager.swift */,
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CED17592404851200E6D4F6 /* logLocation.xcdatamodeld in Sources */,
+				31757AA32415B64700A92EF8 /* LogView.swift in Sources */,
 				319B7A07240F047D00B7E7D8 /* HeadingView.swift in Sources */,
 				FC4C8B8E240DCFC400A90DB2 /* LocationView.swift in Sources */,
 				318DA7082405B1F9007D79B6 /* EventView.swift in Sources */,
