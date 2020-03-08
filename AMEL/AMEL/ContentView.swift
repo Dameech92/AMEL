@@ -11,121 +11,28 @@ import SwiftUI
 import CoreLocation
 
 struct ContentView: View {
-	@ObservedObject private var locationManager = LocationManager()
-    @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
+	init() {
+		// initialize the appearance of the tab bar
+		UITabBar.appearance().backgroundColor = UIColor.darkGray
+	}
+	
+	@State var selected = 3 // the ID of the current tab
 	
     var body: some View {
-		ZStack{
-            Color("stealth").edgesIgnoringSafeArea(.all)
-            VStack{
-                HStack{
-                    Spacer()
-                    VStack{
-                        Text("Lat/Long/Alt")
-                           .font(.largeTitle)
-                        LocationView()
-                    }
-                    Spacer()
-                    VStack {
-                        Text("Heading:")
-                        HeadingView()
-                    }
-                    Spacer()
-                }
-            HStack{
-                VStack{
-                
-                    Button(action: {ButtonAction.record("Fire", self.locationManager, self.managedObjectContext)}) {
-                        Text("FIRE!")
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .frame(minHeight: 0, maxHeight: .infinity)
-                        .font(.largeTitle)
-                        .padding()
-                        .foregroundColor(.primary)
-                        .background(Color("buttonBackGround"))
-                        .cornerRadius(40)
-                        //.padding(20)
-                        .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
-                        
-                    }
-                        Spacer()
-                    
-                    Button(action: {ButtonAction.record("Radar!", self.locationManager, self.managedObjectContext)}){
-                            Text("Radar!")
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .frame(minHeight: 0, maxHeight: .infinity)
-                            .font(.largeTitle)
-                            .padding()
-                            .foregroundColor(.primary)
-                            .background(Color("buttonBackGround"))
-                            .cornerRadius(40)
-                            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
-                            
-                    }
-                        Spacer()
-                    
-                    Button(action: {ButtonAction.record("BOMB", self.locationManager, self.managedObjectContext)}){
-                        Text("BOMB!")
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .frame(minHeight: 0, maxHeight: .infinity)
-                        .font(.largeTitle)
-                        .padding()
-                        .foregroundColor(.primary)
-                        .background(Color("buttonBackGround"))
-                        .cornerRadius(40)
-                        .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
-                        }
-                    Spacer()
-                        
-                }
-                
-                VStack{
-                    
-                        Button(action: {ButtonAction.record("NUKE EM!", self.locationManager, self.managedObjectContext)}){
-                            Text("NUKE EM!")
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .frame(minHeight: 0, maxHeight: .infinity)
-                            .font(.largeTitle)
-                            .padding()
-                            .foregroundColor(.primary)
-                            .background(Color("buttonBackGround"))
-                            .cornerRadius(40)
-                            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
-                        }
-                        Spacer()
-                
-                        Button(action: {ButtonAction.record("JAMMER!", self.locationManager, self.managedObjectContext)}){
-                            Text("JAMMER!")
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .frame(minHeight: 0, maxHeight: .infinity)
-                            .font(.largeTitle)
-                            .padding()
-                            .foregroundColor(.primary)
-                            .background(Color("buttonBackGround"))
-                            .cornerRadius(40)
-                            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
-                        }
-                        Spacer()
-                        
-                        Button(action: {ButtonAction.record("SETTINGS!", self.locationManager, self.managedObjectContext)}){
-                            Text("SETTINGS!")
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .frame(minHeight: 0, maxHeight: .infinity)
-                            .font(.largeTitle)
-                            .padding()
-                            .foregroundColor(.primary)
-                            .background(Color("buttonBackGround"))
-                            .cornerRadius(40)
-                            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
-                        }
-                        Spacer()
-                            
-                    }
-            }
-            .padding(10.0)
-         }
-       }
+		TabView(selection: $selected) {
+			ButtonView().tabItem({
+				Image("folder").font(.title)
+				Text("rrr")
+			}).tag(0)
+			LocationView().tabItem({
+				Image("folder").font(.title)
+				Text("asd")
+			}).tag(1)
+			HeadingView().tabItem({
+				Image("share").font(.title)
+				Text("zxc")
+			}).tag(2)
+		}
     }
 }
 
