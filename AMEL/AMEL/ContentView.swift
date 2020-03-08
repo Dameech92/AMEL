@@ -16,7 +16,7 @@ struct ContentView: View {
 		UITabBar.appearance().backgroundColor = UIColor.darkGray
 	}
 	
-	@State var selected = 3 // the ID of the current tab
+	@State var selected = 0 // the ID of the current tab
 	
     var body: some View {
 		TabView(selection: $selected) {
@@ -24,14 +24,10 @@ struct ContentView: View {
 				Image("folder").font(.title)
 				Text("rrr")
 			}).tag(0)
-			LocationView().tabItem({
+			LogView().tabItem({
 				Image("folder").font(.title)
 				Text("asd")
 			}).tag(1)
-			HeadingView().tabItem({
-				Image("share").font(.title)
-				Text("zxc")
-			}).tag(2)
 		}
     }
 }
