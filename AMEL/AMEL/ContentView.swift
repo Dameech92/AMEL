@@ -14,7 +14,8 @@ struct ContentView: View {
 	@ObservedObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
-	
+    private let locationVM = LocationViewModel()
+    private let headingVM = HeadingViewModel()
     var body: some View {
 		ZStack{
             Color("stealth").edgesIgnoringSafeArea(.all)
@@ -24,12 +25,12 @@ struct ContentView: View {
                     VStack{
                         Text("Lat/Long/Alt")
                            .font(.largeTitle)
-                        LocationView()
+                        Text("\(locationVM.getLatitude())/\(locationVM.getLongitude())/\(locationVM.getAltitude())")
                     }
                     Spacer()
                     VStack {
                         Text("Heading:")
-                        HeadingView()
+                        Text("\(headingVM.getMagHeading())")
                     }
                     Spacer()
                 }
