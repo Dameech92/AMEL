@@ -18,7 +18,7 @@ public class Event: NSManagedObject, Identifiable {
 extension Event {
     static func getEvents() -> NSFetchRequest<Event> {
         let request: NSFetchRequest<Event> = Event.fetchRequest() as! NSFetchRequest<Event>
-        let sortDescriptor = NSSortDescriptor(key: "time", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "time", ascending: false)
         request.sortDescriptors = [sortDescriptor]
         return request
     }

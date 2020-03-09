@@ -1,38 +1,34 @@
 //
 //  ContentView.swift
-//  logLocation
+//  AMEL
 //
-//  Created by Marcellini, Neil on 2/24/20.
+//  Created by Neil Marcellini on 3/8/20.
 //  Copyright © 2020 Marcellini, Neil. All rights reserved.
-//  Created by Cognata, Dimitri on 3/2/20.
-//  Copyright © 2020 Marcellini, Neil. All rights reserved.
+//
 
 import SwiftUI
-import CoreLocation
 
 struct ContentView: View {
-	init() {
-		// initialize the appearance of the tab bar
-		UITabBar.appearance().backgroundColor = UIColor.darkGray
-	}
-	
-	@State var selected = 3 // the ID of the current tab
-	
+    init() {
+        // initialize the appearance of the tab bar
+        UITabBar.appearance().backgroundColor = UIColor.darkGray
+    }
+    @State var selected = 0 // the ID of the current tab
     var body: some View {
-		TabView(selection: $selected) {
-			ButtonView().tabItem({
-				Image("folder").font(.title)
-				Text("rrr")
-			}).tag(0)
-			LocationView().tabItem({
-				Image("folder").font(.title)
-				Text("asd")
-			}).tag(1)
-			HeadingView().tabItem({
-				Image("share").font(.title)
-				Text("zxc")
-			}).tag(2)
-		}
+        TabView(selection: $selected) {
+            RecordView().tabItem({
+                Image(systemName: "play").font(.title)
+                Text("Record Events")
+            }).tag(0)
+            LogView().tabItem({
+                Image(systemName: "book").font(.title)
+                Text("Log")
+            }).tag(1)
+            SettingsView().tabItem({
+                Image(systemName: "gear").font(.title)
+                Text("Settings")
+            }).tag(2)
+        }
     }
 }
 

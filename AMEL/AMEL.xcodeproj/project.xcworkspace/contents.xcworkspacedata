@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/richard.zins447/Documents/AMEL/AMEL/AMEL.xcodeproj">
+      location = "group:/Users/NeilMarcellini/Xcode/AMEL/AMEL/AMEL/HeadingViewModel.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/NeilMarcellini/Xcode/AMEL/AMEL/AMEL/LocationViewModel.swift">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
