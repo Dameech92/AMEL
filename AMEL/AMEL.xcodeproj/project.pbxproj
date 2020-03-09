@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,21 @@
 		4CED17602404851300E6D4F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CED175F2404851300E6D4F6 /* Preview Assets.xcassets */; };
 		4CED17632404851300E6D4F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CED17612404851300E6D4F6 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		314AEF352416B326004EFD48 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			runOncePerArchitecture = 0;
+			script = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
 		1F944147240E193600E3F633 /* ButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
@@ -123,6 +138,7 @@
 				4CED174E2404851200E6D4F6 /* Resources */,
 			);
 			buildRules = (
+				314AEF352416B326004EFD48 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
