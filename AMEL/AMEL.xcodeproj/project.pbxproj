@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F944148240E193600E3F633 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944147240E193600E3F633 /* ButtonAction.swift */; };
-		1F9FABD024158555002FF99B /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FABCF24158555002FF99B /* ButtonView.swift */; };
+		1F9FABD024158555002FF99B /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FABCF24158555002FF99B /* RecordView.swift */; };
 		3151263F2415BAE900C5294F /* HeadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3151263E2415BAE900C5294F /* HeadingViewModel.swift */; };
 		315126412415BAF000C5294F /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315126402415BAF000C5294F /* LocationViewModel.swift */; };
 		31757AA32415B64700A92EF8 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31757AA22415B64700A92EF8 /* LogView.swift */; };
@@ -16,6 +16,8 @@
 		318DA7062405A84A007D79B6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DA7052405A84A007D79B6 /* Event.swift */; };
 		318DA7082405B1F9007D79B6 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DA7072405B1F9007D79B6 /* EventView.swift */; };
 		31B4DF752415C91B00C567E7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4DF742415C91B00C567E7 /* SettingsView.swift */; };
+		31E1CDF72416A76300643653 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1CDF62416A76300643653 /* RecordButton.swift */; };
+		31E1CDF92416A84900643653 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1CDF82416A84900643653 /* ButtonView.swift */; };
 		31E860592415F6EE00B4BAE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E860582415F6EE00B4BAE6 /* ContentView.swift */; };
 		4CED17542404851200E6D4F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED17532404851200E6D4F6 /* AppDelegate.swift */; };
 		4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED17552404851200E6D4F6 /* SceneDelegate.swift */; };
@@ -27,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		1F944147240E193600E3F633 /* ButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
-		1F9FABCF24158555002FF99B /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		1F9FABCF24158555002FF99B /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		3151263E2415BAE900C5294F /* HeadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeadingViewModel.swift; path = /Users/NeilMarcellini/Xcode/AMEL/AMEL/AMEL/HeadingViewModel.swift; sourceTree = "<absolute>"; };
 		315126402415BAF000C5294F /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationViewModel.swift; path = /Users/NeilMarcellini/Xcode/AMEL/AMEL/AMEL/LocationViewModel.swift; sourceTree = "<absolute>"; };
 		31757AA22415B64700A92EF8 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
@@ -35,6 +37,8 @@
 		318DA7052405A84A007D79B6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		318DA7072405B1F9007D79B6 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		31B4DF742415C91B00C567E7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		31E1CDF62416A76300643653 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		31E1CDF82416A84900643653 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		31E860582415F6EE00B4BAE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4CED17502404851200E6D4F6 /* AMEL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMEL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CED17532404851200E6D4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,9 +82,11 @@
 			children = (
 				3151263E2415BAE900C5294F /* HeadingViewModel.swift */,
 				315126402415BAF000C5294F /* LocationViewModel.swift */,
-				1F9FABCF24158555002FF99B /* ButtonView.swift */,
+				1F9FABCF24158555002FF99B /* RecordView.swift */,
 				1F944147240E193600E3F633 /* ButtonAction.swift */,
+				31E1CDF82416A84900643653 /* ButtonView.swift */,
 				4CED17532404851200E6D4F6 /* AppDelegate.swift */,
+				31E1CDF62416A76300643653 /* RecordButton.swift */,
 				4CED17552404851200E6D4F6 /* SceneDelegate.swift */,
 				31E860582415F6EE00B4BAE6 /* ContentView.swift */,
 				31757AA22415B64700A92EF8 /* LogView.swift */,
@@ -178,14 +184,16 @@
 			files = (
 				4CED17592404851200E6D4F6 /* logLocation.xcdatamodeld in Sources */,
 				31757AA32415B64700A92EF8 /* LogView.swift in Sources */,
+				31E1CDF92416A84900643653 /* ButtonView.swift in Sources */,
 				318DA7082405B1F9007D79B6 /* EventView.swift in Sources */,
 				4CED17542404851200E6D4F6 /* AppDelegate.swift in Sources */,
 				3151263F2415BAE900C5294F /* HeadingViewModel.swift in Sources */,
 				1F944148240E193600E3F633 /* ButtonAction.swift in Sources */,
-				1F9FABD024158555002FF99B /* ButtonView.swift in Sources */,
+				1F9FABD024158555002FF99B /* RecordView.swift in Sources */,
 				315126412415BAF000C5294F /* LocationViewModel.swift in Sources */,
 				318DA70424059EC6007D79B6 /* LocationManager.swift in Sources */,
 				31B4DF752415C91B00C567E7 /* SettingsView.swift in Sources */,
+				31E1CDF72416A76300643653 /* RecordButton.swift in Sources */,
 				31E860592415F6EE00B4BAE6 /* ContentView.swift in Sources */,
 				318DA7062405A84A007D79B6 /* Event.swift in Sources */,
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,

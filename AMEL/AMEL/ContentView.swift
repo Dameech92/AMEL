@@ -16,7 +16,7 @@ struct ContentView: View {
     @State var selected = 0 // the ID of the current tab
     var body: some View {
         TabView(selection: $selected) {
-            ButtonView().tabItem({
+            RecordView().tabItem({
                 Image(systemName: "play").font(.title)
                 Text("Record Events")
             }).tag(0)
