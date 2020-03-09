@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B555714C2415BC4F00DCE91B"
+               BuildableName = "AMELTests.xctest"
+               BlueprintName = "AMELTests"
+               ReferencedContainer = "container:AMEL.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B555715A2415BE1F00DCE91B"
+               BuildableName = "AMELUITests.xctest"
+               BlueprintName = "AMELUITests"
+               ReferencedContainer = "container:AMEL.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

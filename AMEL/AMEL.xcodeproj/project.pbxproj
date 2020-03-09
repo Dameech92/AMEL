@@ -20,8 +20,27 @@
 		4CED175D2404851300E6D4F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CED175C2404851300E6D4F6 /* Assets.xcassets */; };
 		4CED17602404851300E6D4F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CED175F2404851300E6D4F6 /* Preview Assets.xcassets */; };
 		4CED17632404851300E6D4F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CED17612404851300E6D4F6 /* LaunchScreen.storyboard */; };
+		B55571502415BC4F00DCE91B /* AMELTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B555714F2415BC4F00DCE91B /* AMELTests.swift */; };
+		B555715E2415BE1F00DCE91B /* AMELUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B555715D2415BE1F00DCE91B /* AMELUITests.swift */; };
 		FC4C8B8E240DCFC400A90DB2 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C8B8D240DCFC400A90DB2 /* LocationView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B55571522415BC4F00DCE91B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CED17482404851200E6D4F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CED174F2404851200E6D4F6;
+			remoteInfo = AMEL;
+		};
+		B55571602415BE1F00DCE91B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CED17482404851200E6D4F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CED174F2404851200E6D4F6;
+			remoteInfo = AMEL;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1F944147240E193600E3F633 /* ButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
@@ -39,11 +58,31 @@
 		4CED175F2404851300E6D4F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4CED17622404851300E6D4F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CED17642404851300E6D4F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B555714D2415BC4F00DCE91B /* AMELTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMELTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B555714F2415BC4F00DCE91B /* AMELTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMELTests.swift; sourceTree = "<group>"; };
+		B55571512415BC4F00DCE91B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B555715B2415BE1F00DCE91B /* AMELUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMELUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B555715D2415BE1F00DCE91B /* AMELUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMELUITests.swift; sourceTree = "<group>"; };
+		B555715F2415BE1F00DCE91B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC4C8B8D240DCFC400A90DB2 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4CED174D2404851200E6D4F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B555714A2415BC4F00DCE91B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B55571582415BE1F00DCE91B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -57,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				4CED17522404851200E6D4F6 /* AMEL */,
+				B555714E2415BC4F00DCE91B /* AMELTests */,
+				B555715C2415BE1F00DCE91B /* AMELUITests */,
 				4CED17512404851200E6D4F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				4CED17502404851200E6D4F6 /* AMEL.app */,
+				B555714D2415BC4F00DCE91B /* AMELTests.xctest */,
+				B555715B2415BE1F00DCE91B /* AMELUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,6 +142,24 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		B555714E2415BC4F00DCE91B /* AMELTests */ = {
+			isa = PBXGroup;
+			children = (
+				B555714F2415BC4F00DCE91B /* AMELTests.swift */,
+				B55571512415BC4F00DCE91B /* Info.plist */,
+			);
+			path = AMELTests;
+			sourceTree = "<group>";
+		};
+		B555715C2415BE1F00DCE91B /* AMELUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B555715D2415BE1F00DCE91B /* AMELUITests.swift */,
+				B555715F2415BE1F00DCE91B /* Info.plist */,
+			);
+			path = AMELUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,6 +180,42 @@
 			productReference = 4CED17502404851200E6D4F6 /* AMEL.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B555714C2415BC4F00DCE91B /* AMELTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B55571562415BC4F00DCE91B /* Build configuration list for PBXNativeTarget "AMELTests" */;
+			buildPhases = (
+				B55571492415BC4F00DCE91B /* Sources */,
+				B555714A2415BC4F00DCE91B /* Frameworks */,
+				B555714B2415BC4F00DCE91B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B55571532415BC4F00DCE91B /* PBXTargetDependency */,
+			);
+			name = AMELTests;
+			productName = AMELTests;
+			productReference = B555714D2415BC4F00DCE91B /* AMELTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B555715A2415BE1F00DCE91B /* AMELUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B55571622415BE1F00DCE91B /* Build configuration list for PBXNativeTarget "AMELUITests" */;
+			buildPhases = (
+				B55571572415BE1F00DCE91B /* Sources */,
+				B55571582415BE1F00DCE91B /* Frameworks */,
+				B55571592415BE1F00DCE91B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B55571612415BE1F00DCE91B /* PBXTargetDependency */,
+			);
+			name = AMELUITests;
+			productName = AMELUITests;
+			productReference = B555715B2415BE1F00DCE91B /* AMELUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -131,6 +228,14 @@
 				TargetAttributes = {
 					4CED174F2404851200E6D4F6 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					B555714C2415BC4F00DCE91B = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 4CED174F2404851200E6D4F6;
+					};
+					B555715A2415BE1F00DCE91B = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 4CED174F2404851200E6D4F6;
 					};
 				};
 			};
@@ -148,6 +253,8 @@
 			projectRoot = "";
 			targets = (
 				4CED174F2404851200E6D4F6 /* AMEL */,
+				B555714C2415BC4F00DCE91B /* AMELTests */,
+				B555715A2415BE1F00DCE91B /* AMELUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -160,6 +267,20 @@
 				4CED17632404851300E6D4F6 /* LaunchScreen.storyboard in Resources */,
 				4CED17602404851300E6D4F6 /* Preview Assets.xcassets in Resources */,
 				4CED175D2404851300E6D4F6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B555714B2415BC4F00DCE91B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B55571592415BE1F00DCE91B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +305,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B55571492415BC4F00DCE91B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B55571502415BC4F00DCE91B /* AMELTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B55571572415BE1F00DCE91B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B555715E2415BE1F00DCE91B /* AMELUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B55571532415BC4F00DCE91B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CED174F2404851200E6D4F6 /* AMEL */;
+			targetProxy = B55571522415BC4F00DCE91B /* PBXContainerItemProxy */;
+		};
+		B55571612415BE1F00DCE91B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CED174F2404851200E6D4F6 /* AMEL */;
+			targetProxy = B55571602415BE1F00DCE91B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4CED17612404851300E6D4F6 /* LaunchScreen.storyboard */ = {
@@ -350,6 +500,80 @@
 			};
 			name = Release;
 		};
+		B55571542415BC4F00DCE91B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AMELTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.AMELTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AMEL.app/AMEL";
+			};
+			name = Debug;
+		};
+		B55571552415BC4F00DCE91B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AMELTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.AMELTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AMEL.app/AMEL";
+			};
+			name = Release;
+		};
+		B55571632415BE1F00DCE91B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AMELUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.AMELUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AMEL;
+			};
+			name = Debug;
+		};
+		B55571642415BE1F00DCE91B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AMELUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.AMELUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AMEL;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -367,6 +591,24 @@
 			buildConfigurations = (
 				4CED17682404851300E6D4F6 /* Debug */,
 				4CED17692404851300E6D4F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B55571562415BC4F00DCE91B /* Build configuration list for PBXNativeTarget "AMELTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B55571542415BC4F00DCE91B /* Debug */,
+				B55571552415BC4F00DCE91B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B55571622415BE1F00DCE91B /* Build configuration list for PBXNativeTarget "AMELUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B55571632415BE1F00DCE91B /* Debug */,
+				B55571642415BE1F00DCE91B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
