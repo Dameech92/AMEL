@@ -11,10 +11,12 @@ import SwiftUI
 struct LogView: View {
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
     var body: some View {
-        Section(header: Text("To Do's")) {
-            ForEach(self.events) { (event:Event) in
-                EventView(name: event.name, time: event.time, latitude: event.latitude as! Double, longitude: event.longitude as! Double, altitude: event.altitude as! Double)
-           }
+        List {
+            Section(header: Text("Events")) {
+                ForEach(self.events) { (event:Event) in
+                    EventView(name: event.name, time: event.time, latitude: event.latitude as! Double, longitude: event.longitude as! Double, altitude: event.altitude as! Double)
+               }
+            }
         }
     }
 }
