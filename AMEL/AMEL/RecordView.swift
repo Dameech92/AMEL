@@ -11,6 +11,8 @@ import SwiftUI
 struct RecordView: View {
         private let locationVM = LocationViewModel()
         private let headingVM = HeadingViewModel()
+        @ObservedObject private var locationManager = LocationManager()
+        @Environment(\.managedObjectContext) var managedObjectContext
         var body: some View {
         ZStack{
              Color("stealth").edgesIgnoringSafeArea(.all)
