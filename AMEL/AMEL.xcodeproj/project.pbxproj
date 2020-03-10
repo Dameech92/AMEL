@@ -25,6 +25,8 @@
 		4CED175D2404851300E6D4F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CED175C2404851300E6D4F6 /* Assets.xcassets */; };
 		4CED17602404851300E6D4F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CED175F2404851300E6D4F6 /* Preview Assets.xcassets */; };
 		4CED17632404851300E6D4F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CED17612404851300E6D4F6 /* LaunchScreen.storyboard */; };
+		5A23230D2416ED2F0055BAF8 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23230C2416ED2F0055BAF8 /* EventViewModel.swift */; };
+		5A23230F2416EDC50055BAF8 /* EventTitleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -63,6 +65,8 @@
 		4CED175F2404851300E6D4F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4CED17622404851300E6D4F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CED17642404851300E6D4F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A23230C2416ED2F0055BAF8 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTitleBackground.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 				31757AA22415B64700A92EF8 /* LogView.swift */,
 				31B4DF742415C91B00C567E7 /* SettingsView.swift */,
 				318DA7072405B1F9007D79B6 /* EventView.swift */,
+				5A23230C2416ED2F0055BAF8 /* EventViewModel.swift */,
+				5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */,
 				318DA70324059EC6007D79B6 /* LocationManager.swift */,
 				318DA7052405A84A007D79B6 /* Event.swift */,
 				4CED175C2404851300E6D4F6 /* Assets.xcassets */,
@@ -211,7 +217,9 @@
 				31B4DF752415C91B00C567E7 /* SettingsView.swift in Sources */,
 				31E1CDF72416A76300643653 /* RecordButton.swift in Sources */,
 				31E860592415F6EE00B4BAE6 /* ContentView.swift in Sources */,
+				5A23230D2416ED2F0055BAF8 /* EventViewModel.swift in Sources */,
 				318DA7062405A84A007D79B6 /* Event.swift in Sources */,
+				5A23230F2416EDC50055BAF8 /* EventTitleBackground.swift in Sources */,
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
