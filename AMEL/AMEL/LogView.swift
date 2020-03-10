@@ -13,7 +13,7 @@ struct LogView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
     var body: some View {
-        let viewModel = EventViewModel(managedObjectContext)
+        let viewModel = EventViewModel()
         var FormattedEvents: [EventFormattedForView] = viewModel.GetAllFormattedEvents()
         
         return List {

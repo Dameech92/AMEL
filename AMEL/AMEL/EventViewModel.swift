@@ -16,11 +16,15 @@ import UIKit
 
 class EventViewModel{
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
-    @Environment(\.managedObjectContext) var managedObjectContext
 
-
+    var managedObjectContext: NSManagedObjectContext
+    
+    init(context: NSManagedObjectContext){
+        managedObjectContext = context
+    }
 
     func GetAllFormattedEvents()->Array<EventFormattedForView>{
+        
         
         var FormattedEvents: [EventFormattedForView] = []
         var temp = (self.events.count)
