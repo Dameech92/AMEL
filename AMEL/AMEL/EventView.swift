@@ -74,8 +74,7 @@ struct EventView: View{
 
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = EventViewModel()
-        let event = viewModel.returnBlankEventForTesting()
+        let event = EventViewModel.returnBlankEventForTesting()
         return EventView(event: event)
     }
 }

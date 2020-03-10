@@ -15,21 +15,23 @@ import UIKit
 
 
 class EventViewModel{
-    @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
-
-    var managedObjectContext: NSManagedObjectContext
+    //@FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
+    var managedObjectContext: NSManagedObjectContext?
     
     init(context: NSManagedObjectContext){
         managedObjectContext = context
     }
 
     func GetAllFormattedEvents()->Array<EventFormattedForView>{
+        var events:Array<Event> = []
         
-        
+        do{
+            try  events = managedObjectContext!.fetch(Event.getEvents())
+        }catch{
+            print("error")
+        }
         var FormattedEvents: [EventFormattedForView] = []
-        var temp = (self.events.count)
-        print("hello")
-        self.events.forEach { (rawEvent) in
+        events.forEach { (rawEvent) in
             FormattedEvents.append(convertEventToFormatted(event: rawEvent))
         }
     
@@ -41,11 +43,13 @@ class EventViewModel{
             let latitude = event.latitude
             let altitude = event.altitude
             let magHeading = event.magneticHeading
-            return EventFormattedForView(name: "Missile", time: Date(), latitude: latitude, longitude: longitude, altitude: altitude,heading: magHeading);
+            let Time = event.time
+            let name = event.name
+            return EventFormattedForView(name: name!, time: Time!, latitude: latitude, longitude: longitude, altitude: altitude,heading: magHeading);
 
         }
     
-    func returnBlankEventForTesting() -> EventFormattedForView{
+    static func returnBlankEventForTesting() -> EventFormattedForView{
         return EventFormattedForView(name: "Missile", time: Date(), latitude: nil, longitude: nil, altitude: nil,heading: nil);
     }
 }
