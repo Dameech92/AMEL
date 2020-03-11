@@ -35,14 +35,33 @@ struct EventView: View{
         return ZStack{
                 
                 HStack{
-                    VStack{
-                    EventTitleBackground(name:name).rotationEffect(.degrees(270))
-                       .frame(minHeight: 0, maxHeight: .infinity)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                    }
-                    .frame(alignment: .leading)
-                    //.fixedSize()
-                    .layoutPriority(2)
+                    //VStack{
+                    //EventTitleBackground(name:name)
+                       //frame(minHeight: 0, maxHeight: .infinity)
+                        //frame(minWidth: 0, maxWidth: .infinity)
+                       // .padding()
+                        //.rotationEffect(.degrees(270))
+                    //}
+                    //.frame(alignment: .leading)
+                        //.layoutPriority(2)
+                    ZStack{
+                            
+                            RoundedRectangle(cornerRadius: 0)
+                               .fill(Color.blue)
+
+
+                        
+                            Text(name)
+                                .frame(minWidth: 0, maxWidth: 100)
+                                .frame(minHeight: 0, maxHeight: .infinity)
+                                .font(.headline)
+                                .foregroundColor(Color.white)
+                                .rotationEffect(.degrees(270))
+                                .fixedSize()
+
+                                //.fixedSize()
+                        }.frame(alignment: .leading)
+                        .layoutPriority(2)
 
 
                     Spacer()

@@ -96,7 +96,7 @@ class EventFormattedForView{
     
     func getLatitude()->String{
         if(latitude != nil){
-            return String(format: "N%.4f", latitude!)
+            return String(format: "N%.4f", latitude! as! Double)
         }else{
             return "123.65656"
         }
@@ -104,7 +104,7 @@ class EventFormattedForView{
     
     func getLongitude()->String{
         if(longitude != nil){
-            return String(format: "W%.4f", longitude!)
+            return String(format: "W%.4f", longitude! as! Double)
         }else{
             return "66.65656"
         }
@@ -112,7 +112,7 @@ class EventFormattedForView{
     
     func getAltitude()->String{
         if(altitude != nil){
-            return String(format: "%.1f ft", altitude!)
+            return String(format: "%.1f ft", altitude! as! Double)
         }else{
             return "5000ft"
         }
@@ -132,7 +132,7 @@ class EventFormattedForView{
     
     func getHeading()->String{
         if(heading != nil){
-            return String(format: "%.f ", heading!)
+            return String(format: "%.f ", heading! as! Double)
         }else{
             return "120"
         }
