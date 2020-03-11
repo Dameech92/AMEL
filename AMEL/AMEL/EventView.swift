@@ -33,21 +33,32 @@ struct EventView: View{
         let groundSpeed = currEvent.getGroundSpeed()
 
         return ZStack{
+                
                 HStack{
-                    Text(name)
-                        .font(.title)
-                        .rotationEffect(Angle(degrees: Double(-90)))
-                        .foregroundColor(Color.white)
-                        .background(EventTitleBackground())
+                    VStack{
+                    EventTitleBackground(name:name).rotationEffect(.degrees(270))
+                       .frame(minHeight: 0, maxHeight: .infinity)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                    }
+                    .frame(alignment: .leading)
+                    //.fixedSize()
+                    .layoutPriority(2)
+
+
                     Spacer()
                     VStack(alignment: .leading){
                         Text(time)
                             .font(.title)
+                        Spacer()
                         Text("\(truncatedLatitude)  \(truncatedLongitude)")
                             .font(.title)
+                        Spacer()
+
                         Text("Altitude: \(truncatedAltitude)")
                             .font(.title)
+
                     }
+                    .layoutPriority(4)
                     Spacer()
                     VStack(alignment: .leading){
                         HStack{
@@ -57,18 +68,24 @@ struct EventView: View{
                                 .font(.body)
 
                         }
+                        Spacer()
                         Text("Heading | Course: \(heading) | \(heading)")
                             .font(.title)
+                        Spacer()
                         Text("Groundspeed: \(groundSpeed)")
                             .font(.title)
+
                     }
+                    .layoutPriority(4)
                     Spacer()
                 }
             RoundedRectangle(cornerRadius: CGFloat(10))
                 .stroke(Color.black, lineWidth: 5)
-                .frame(height: 100)
+                .frame(minHeight: 0, maxHeight: .infinity)
         }
         .background(Color("buttonBackGround"))
+        .frame(minHeight: 0, maxHeight: .infinity)
+
     }
 }
 

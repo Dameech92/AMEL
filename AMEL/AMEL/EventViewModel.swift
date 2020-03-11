@@ -132,7 +132,7 @@ class EventFormattedForView{
     
     func getHeading()->String{
         if(heading != nil){
-            return String(format: "%.4f ", heading!)
+            return String(format: "%.f ", heading!)
         }else{
             return "120"
         }

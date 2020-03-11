@@ -14,21 +14,17 @@ struct LogView: View {
 
     var body: some View {
         let viewModel = EventViewModel(context :managedObjectContext)
-        var FormattedEvents: [EventFormattedForView] = viewModel.GetAllFormattedEvents()
+        let FormattedEvents: [EventFormattedForView] = viewModel.GetAllFormattedEvents()
         
         return List {
             Section(header: Text("Events")) {
                 
                 ForEach((0...(FormattedEvents.count-1)), id: \.self) {
-                        EventView(event:FormattedEvents[$0])
-                       //Text("\($0)…")
+                    EventView(event:FormattedEvents[$0])
                    }
-
-                //for formattedEvent in FormattedEvents{
-                 //   EventView(event: formattedEvent)
-                //}
             }
-        }
+        } .background(Color.white)
+
     }
 }
 

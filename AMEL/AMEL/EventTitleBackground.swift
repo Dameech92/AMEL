@@ -9,10 +9,22 @@
 import SwiftUI
 
 struct EventTitleBackground: View {
+    var name: String?
+    
     var body: some View {
-        RoundedRectangle(cornerRadius: 0)
-            .fill(Color.blue)
-            .frame(height: 100)
+        ZStack{
+            
+            RoundedRectangle(cornerRadius: 0)
+                .fill(Color.blue)
+
+        
+            Text(name!)
+                .font(.title)
+                .foregroundColor(Color.white)
+                .fixedSize()
+        }
+
+
     }
 }
 
