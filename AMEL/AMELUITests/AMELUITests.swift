@@ -23,9 +23,9 @@ class AMELUITests: XCTestCase {
 
     func testExample() {
         // UI tests must launch the application that they test.
+    
         let app = XCUIApplication()
         app.launch()
-        
         app.buttons["Bomb"].tap()
         app.buttons["Missile"].tap()
         app.buttons["Radar Jam"].tap()

@@ -12,10 +12,9 @@ import CoreData
 @testable import AMEL
 
 class AMELTests: XCTestCase {
-    
-    @Environment(\.managedObjectContext) var managedObjectContext
-    @ObservedObject private var lm = LocationManager()
-    @FetchRequest(fetchRequest: Event.getEvents()) var eventItems:FetchedResults<Event>
+    let rb = RecordButton(name: "test")
+    let lm = LocationViewModel()
+    let hlm = HeadingViewModel()
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -30,21 +29,15 @@ class AMELTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
-        //Tests that way for getting lat and lng work
-        let coordinate = self.lm.location != nil ?
-            self.lm.location!.coordinate : CLLocationCoordinate2D()
-        XCTAssertNotNil(coordinate)
+        //Tests that getLongitude() and getLatitude() work
+        XCTAssertNotNil(lm.getLongitude())
+        XCTAssertNotNil(lm.getLatitude())
         
-        //Tests that our way gettin altittude works
-        let altitude = self.lm.location != nil ? self.lm.location!.altitude : CLLocationDistance()
-        XCTAssertNotNil(altitude)
+        //Tests our getAltitude() works
+        XCTAssertNotNil(lm.getAltitude())
         
-        //Tests that our way for getting magnetic heading works
-        var magHeading = 0.0
-        if self.lm.heading != nil {
-            magHeading = self.lm.heading!.magneticHeading
-        }
-        XCTAssertNotNil(magHeading)
+        //Tests our getMagHeading works
+        XCTAssertNotNil(hlm.getMagHeading())
         
         //Tets our way of getting the date works
         let date = Date()
@@ -54,25 +47,9 @@ class AMELTests: XCTestCase {
         let eventResults = Event.getEvents()
         XCTAssertNotNil(eventResults)
         
-        let event = Event(context: managedObjectContext)
-        let name = "test"
-        event.name = name
-        event.altitude = altitude as NSNumber
-        event.magneticHeading = magHeading as NSNumber
-        event.longitude = coordinate.longitude as NSNumber
-        event.latitude = coordinate.latitude as NSNumber
-        event.time = date
-               
-        do {
-            try managedObjectContext.save()
-        } catch {
-            print("Error saving")
-        }
-        
-        for event in self.eventItems {
-            XCTAssertEqual(event.name, name)
-        }
-
+        //Tests that our getName function works
+        XCTAssertNotNil(rb.getName())
+        XCTAssertEqual(rb.getName(), "test")
     }
     
     //Dont need performance testing at the moment
