@@ -77,6 +77,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func sendContext() -> NSManagedObjectContext{
+        return persistentContainer.viewContext
+    }
 
 }
 

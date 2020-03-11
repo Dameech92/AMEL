@@ -35,33 +35,10 @@ struct EventView: View{
         return ZStack{
                 
                 HStack{
-                    //VStack{
-                    //EventTitleBackground(name:name)
-                       //frame(minHeight: 0, maxHeight: .infinity)
-                        //frame(minWidth: 0, maxWidth: .infinity)
-                       // .padding()
-                        //.rotationEffect(.degrees(270))
-                    //}
-                    //.frame(alignment: .leading)
-                        //.layoutPriority(2)
-                    ZStack{
-                            
-                            RoundedRectangle(cornerRadius: 0)
-                               .fill(Color.blue)
+                    EventTitleBackground(name: name)
+                        .frame(minWidth:120, maxWidth: .infinity)
+                        .layoutPriority(1)
 
-
-                        
-                            Text(name)
-                                .frame(minWidth: 0, maxWidth: 100)
-                                .frame(minHeight: 0, maxHeight: .infinity)
-                                .font(.headline)
-                                .foregroundColor(Color.white)
-                                .rotationEffect(.degrees(270))
-                                .fixedSize()
-
-                                //.fixedSize()
-                        }.frame(alignment: .leading)
-                        .layoutPriority(2)
 
 
                     Spacer()
@@ -78,6 +55,7 @@ struct EventView: View{
 
                     }
                     .layoutPriority(4)
+                    .padding()
                     Spacer()
                     VStack(alignment: .leading){
                         HStack{
@@ -96,6 +74,7 @@ struct EventView: View{
 
                     }
                     .layoutPriority(4)
+                    .padding()
                     Spacer()
                 }
             RoundedRectangle(cornerRadius: CGFloat(10))

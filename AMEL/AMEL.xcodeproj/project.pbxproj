@@ -27,6 +27,7 @@
 		4CED17632404851300E6D4F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CED17612404851300E6D4F6 /* LaunchScreen.storyboard */; };
 		5A23230D2416ED2F0055BAF8 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23230C2416ED2F0055BAF8 /* EventViewModel.swift */; };
 		5A23230F2416EDC50055BAF8 /* EventTitleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */; };
+		5ADE287C24199A8C005A9A33 /* EventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE287B24199A8C005A9A33 /* EventViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -43,6 +44,23 @@
 			script = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXBuildRule section */
+
+/* Begin PBXContainerItemProxy section */
+		5ADE286F241998C4005A9A33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CED17482404851200E6D4F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CED174F2404851200E6D4F6;
+			remoteInfo = AMEL;
+		};
+		5ADE287E24199A8C005A9A33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CED17482404851200E6D4F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CED174F2404851200E6D4F6;
+			remoteInfo = AMEL;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1F2962022416E41400BBC97F /* HeadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingViewModel.swift; sourceTree = "<group>"; };
@@ -67,10 +85,28 @@
 		4CED17642404851300E6D4F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A23230C2416ED2F0055BAF8 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
 		5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTitleBackground.swift; sourceTree = "<group>"; };
+		5ADE286A241998C4005A9A33 /* EventViewModeltests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventViewModeltests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ADE287924199A8C005A9A33 /* EventViewModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventViewModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ADE287B24199A8C005A9A33 /* EventViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModelTests.swift; sourceTree = "<group>"; };
+		5ADE287D24199A8C005A9A33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4CED174D2404851200E6D4F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5ADE2867241998C4005A9A33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5ADE287624199A8C005A9A33 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -84,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				4CED17522404851200E6D4F6 /* AMEL */,
+				5ADE287A24199A8C005A9A33 /* EventViewModelTests */,
 				4CED17512404851200E6D4F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				4CED17502404851200E6D4F6 /* AMEL.app */,
+				5ADE286A241998C4005A9A33 /* EventViewModeltests.xctest */,
+				5ADE287924199A8C005A9A33 /* EventViewModelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,6 +171,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5ADE287A24199A8C005A9A33 /* EventViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				5ADE287B24199A8C005A9A33 /* EventViewModelTests.swift */,
+				5ADE287D24199A8C005A9A33 /* Info.plist */,
+			);
+			path = EventViewModelTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,6 +201,42 @@
 			productReference = 4CED17502404851200E6D4F6 /* AMEL.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5ADE2869241998C4005A9A33 /* EventViewModeltests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5ADE2873241998C4005A9A33 /* Build configuration list for PBXNativeTarget "EventViewModeltests" */;
+			buildPhases = (
+				5ADE2866241998C4005A9A33 /* Sources */,
+				5ADE2867241998C4005A9A33 /* Frameworks */,
+				5ADE2868241998C4005A9A33 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5ADE2870241998C4005A9A33 /* PBXTargetDependency */,
+			);
+			name = EventViewModeltests;
+			productName = EventViewModeltests;
+			productReference = 5ADE286A241998C4005A9A33 /* EventViewModeltests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5ADE287824199A8C005A9A33 /* EventViewModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5ADE288024199A8C005A9A33 /* Build configuration list for PBXNativeTarget "EventViewModelTests" */;
+			buildPhases = (
+				5ADE287524199A8C005A9A33 /* Sources */,
+				5ADE287624199A8C005A9A33 /* Frameworks */,
+				5ADE287724199A8C005A9A33 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5ADE287F24199A8C005A9A33 /* PBXTargetDependency */,
+			);
+			name = EventViewModelTests;
+			productName = EventViewModelTests;
+			productReference = 5ADE287924199A8C005A9A33 /* EventViewModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -165,6 +249,14 @@
 				TargetAttributes = {
 					4CED174F2404851200E6D4F6 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					5ADE2869241998C4005A9A33 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 4CED174F2404851200E6D4F6;
+					};
+					5ADE287824199A8C005A9A33 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 4CED174F2404851200E6D4F6;
 					};
 				};
 			};
@@ -182,6 +274,8 @@
 			projectRoot = "";
 			targets = (
 				4CED174F2404851200E6D4F6 /* AMEL */,
+				5ADE2869241998C4005A9A33 /* EventViewModeltests */,
+				5ADE287824199A8C005A9A33 /* EventViewModelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -194,6 +288,20 @@
 				4CED17632404851300E6D4F6 /* LaunchScreen.storyboard in Resources */,
 				4CED17602404851300E6D4F6 /* Preview Assets.xcassets in Resources */,
 				4CED175D2404851300E6D4F6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5ADE2868241998C4005A9A33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5ADE287724199A8C005A9A33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +332,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5ADE2866241998C4005A9A33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5ADE287524199A8C005A9A33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5ADE287C24199A8C005A9A33 /* EventViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5ADE2870241998C4005A9A33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CED174F2404851200E6D4F6 /* AMEL */;
+			targetProxy = 5ADE286F241998C4005A9A33 /* PBXContainerItemProxy */;
+		};
+		5ADE287F24199A8C005A9A33 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CED174F2404851200E6D4F6 /* AMEL */;
+			targetProxy = 5ADE287E24199A8C005A9A33 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4CED17612404851300E6D4F6 /* LaunchScreen.storyboard */ = {
@@ -392,6 +528,82 @@
 			};
 			name = Release;
 		};
+		5ADE2871241998C4005A9A33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EventViewModeltests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AMEL.EventViewModeltests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AMEL.app/AMEL";
+			};
+			name = Debug;
+		};
+		5ADE2872241998C4005A9A33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EventViewModeltests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AMEL.EventViewModeltests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AMEL.app/AMEL";
+			};
+			name = Release;
+		};
+		5ADE288124199A8C005A9A33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EventViewModelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AMEL.EventViewModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AMEL.app/AMEL";
+			};
+			name = Debug;
+		};
+		5ADE288224199A8C005A9A33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EventViewModelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AMEL.EventViewModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AMEL.app/AMEL";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -409,6 +621,24 @@
 			buildConfigurations = (
 				4CED17682404851300E6D4F6 /* Debug */,
 				4CED17692404851300E6D4F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5ADE2873241998C4005A9A33 /* Build configuration list for PBXNativeTarget "EventViewModeltests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5ADE2871241998C4005A9A33 /* Debug */,
+				5ADE2872241998C4005A9A33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5ADE288024199A8C005A9A33 /* Build configuration list for PBXNativeTarget "EventViewModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5ADE288124199A8C005A9A33 /* Debug */,
+				5ADE288224199A8C005A9A33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

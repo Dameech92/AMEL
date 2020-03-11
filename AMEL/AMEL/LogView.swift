@@ -9,7 +9,6 @@
 import SwiftUI
 import UIKit
 struct LogView: View {
-   // @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
     @Environment(\.managedObjectContext) var managedObjectContext
 
     var body: some View {

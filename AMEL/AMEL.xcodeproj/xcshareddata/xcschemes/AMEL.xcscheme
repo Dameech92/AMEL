@@ -28,6 +28,31 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5ADE2869241998C4005A9A33"
+               BuildableName = "EventViewModeltests.xctest"
+               BlueprintName = "EventViewModeltests"
+               ReferencedContainer = "container:AMEL.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5ADE287824199A8C005A9A33"
+               BuildableName = "EventViewModelTests.xctest"
+               BlueprintName = "EventViewModelTests"
+               ReferencedContainer = "container:AMEL.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "EventViewModeltests">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

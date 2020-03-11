@@ -15,7 +15,6 @@ import UIKit
 
 
 class EventViewModel{
-    //@FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
     var managedObjectContext: NSManagedObjectContext?
     
     init(context: NSManagedObjectContext){
