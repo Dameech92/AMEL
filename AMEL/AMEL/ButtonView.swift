@@ -12,13 +12,14 @@ struct ButtonView: View {
     @ObservedObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) var managedObjectContext
     private var name:String
-    
-    init(name:String) {
+    private var color:Color
+    init(name:String, color: Color) {
         self.name = name
+        self.color = color
     }
     
     var body: some View {
-        Button(action: {ButtonAction.record(self.name, self.locationManager, self.managedObjectContext)}) {
+        Button(action: {ButtonAction.record(self.name, color: self.color, self.locationManager, self.managedObjectContext)}) {
             Text(self.name)
             .frame(minWidth: 0, maxWidth: .infinity)
             .frame(minHeight: 0, maxHeight: .infinity)
@@ -36,6 +37,6 @@ struct ButtonView: View {
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(name: "test")
+        ButtonView(name: "test", color: Color.blue)
     }
 }

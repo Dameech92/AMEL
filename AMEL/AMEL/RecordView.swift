@@ -33,20 +33,20 @@ struct RecordView: View {
                  }
                 HStack{
                  VStack{
-                    ButtonView(name: "Bomb")
+                    ButtonView(name: "Bomb", color: Color.blue)
                     Spacer()
-                     ButtonView(name: "Missile")
+                    ButtonView(name: "Missile", color: Color.green)
                      Spacer()
-                     ButtonView(name: "Radar Jam")
+                    ButtonView(name: "Radar Jam", color: Color.red)
                      Spacer()
                      }
                          
                     VStack{
-                    ButtonView(name: "Custom 1")
+                        ButtonView(name: "Custom 1", color: Color.purple)
                          Spacer()
-                        ButtonView(name: "Custom 2")
+                        ButtonView(name: "Custom 2", color: Color.yellow)
                          Spacer()
-                         ButtonView(name: "Custom 3")
+                        ButtonView(name: "Custom 3", color: Color.orange)
                          Spacer()
                              
                      }

@@ -9,10 +9,11 @@
 import Foundation
 import CoreData
 import CoreLocation
+import SwiftUI
 
 struct ButtonAction {
 	// when a button is pressed, record information such as where and when the button was pressed
-	public static func record(_ eventName:String, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
+    public static func record(_ eventName:String, color:Color, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
         let latitude: CLLocationDegrees
         let longitude: CLLocationDegrees
         let altitude: CLLocationDistance
@@ -42,6 +43,11 @@ struct ButtonAction {
         newEvent.altitude = altitude as NSNumber
         newEvent.magneticHeading = magHeading as NSNumber
         newEvent.time = Date()
+        do {
+            try newEvent.color = NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false)
+        } catch {
+            newEvent.color = nil
+        }
         
         do {
             try managedObjectContext.save()
