@@ -22,12 +22,17 @@ struct RecordView: View {
                      VStack{
                          Text("Lat/Long/Alt")
                             .font(.largeTitle)
+                            
                          Text("\(locationVM.getLatitude())/\(locationVM.getLongitude())/\(locationVM.getAltitude())")
+                             .font(.title)
+                             .padding()
                      }
                      Spacer()
                      VStack {
                          Text("Heading:")
+                            .font(.title)
                          Text("\(headingVM.getMagHeading())")
+                            .font(.title)
                      }
                      Spacer()
                  }
@@ -37,16 +42,17 @@ struct RecordView: View {
                     Spacer()
                      ButtonView(name: "Missile")
                      Spacer()
-                     ButtonView(name: "Radar Jam")
+                     ButtonView(name: "Navigation")
                      Spacer()
+                    
                      }
                          
                     VStack{
-                    ButtonView(name: "Custom 1")
+                    ButtonView(name: "NUKE EM!")
                          Spacer()
-                        ButtonView(name: "Custom 2")
+                        ButtonView(name: "Jammer")
                          Spacer()
-                         ButtonView(name: "Custom 3")
+                         ButtonView(name: "Custom")
                          Spacer()
                              
                      }
