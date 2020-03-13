@@ -13,7 +13,7 @@ import SwiftUI
 
 struct ButtonAction {
 	// when a button is pressed, record information such as where and when the button was pressed
-    public static func record(_ eventName:String, color:Color, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
+    public static func record(_ eventName:String, color:UIColor, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
         let latitude: CLLocationDegrees
         let longitude: CLLocationDegrees
         let altitude: CLLocationDistance

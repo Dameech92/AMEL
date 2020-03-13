@@ -31,6 +31,7 @@ struct EventView: View{
         let bobrLargeText = currEvent.getBobrLargeText()
         let bobrSmallText = currEvent.getBobrSmallText()
         let groundSpeed = currEvent.getGroundSpeed()
+        let color = currEvent.getColor()
 
         return ZStack{
                 
@@ -42,7 +43,7 @@ struct EventView: View{
                                 .frame(minHeight: 0, maxHeight: 150)
                                 .frame(minWidth: 0, maxWidth: 100)
 
-                    EventTitleBackground(name: name)
+                        EventTitleBackground(name: name, color: color)
                         .frame(minWidth:120, maxWidth: .infinity)
                         .layoutPriority(1)
 

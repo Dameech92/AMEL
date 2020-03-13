@@ -37,12 +37,23 @@ class EventViewModel{
             let magHeading = event.magneticHeading
             let Time = event.time
             let name = event.name
-            return EventFormattedForView(name: name!, time: Time!, latitude: latitude, longitude: longitude, altitude: altitude,heading: magHeading);
-
+            var color : Color
+        
+        if( event.color != nil){
+            do{
+                try color = Color(NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: event.color!)!)
+            }catch{
+                color = Color.blue
+            }
+        }else{
+            color = Color.blue
+        }
+        
+        return EventFormattedForView(name: name!, time: Time!, latitude: latitude, longitude: longitude, altitude: altitude,heading: magHeading, color: color);
         }
     
     static func returnBlankEventForTesting() -> EventFormattedForView{
-        return EventFormattedForView(name: "Missile", time: Date(), latitude: nil, longitude: nil, altitude: nil,heading: nil);
+        return EventFormattedForView(name: "Missile", time: Date(), latitude: nil, longitude: nil, altitude: nil,heading: nil, color: Color.blue);
     }
 }
 
@@ -53,6 +64,7 @@ class EventFormattedForView{
     var longitude: NSNumber?
     var altitude: NSNumber?
     var heading: NSNumber?
+    var color: Any?
     let dateFormatterGet = DateFormatter()
     let groundSpeed = "500nm/hr"
     let bobrLargeText = "191/56"
@@ -60,7 +72,7 @@ class EventFormattedForView{
 
 
 
-    init(name: String, time: Date, latitude : NSNumber?, longitude : NSNumber?, altitude : NSNumber?, heading: NSNumber?){
+    init(name: String, time: Date, latitude : NSNumber?, longitude : NSNumber?, altitude : NSNumber?, heading: NSNumber?, color : Any?){
         dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
         self.name = name
         self.time = time
@@ -76,6 +88,7 @@ class EventFormattedForView{
         if(heading != nil){
             self.heading = heading!
         }
+        self.color = color
     }
     
     func getEventName() -> String{
@@ -120,6 +133,11 @@ class EventFormattedForView{
     
     func getGroundSpeed()->String{
         return groundSpeed
+    }
+    
+    func getColor()->Color{
+        let colorFormated = color as! Color
+        return colorFormated
     }
     
     func getHeading()->String{

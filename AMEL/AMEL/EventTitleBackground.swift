@@ -10,12 +10,13 @@ import SwiftUI
 
 struct EventTitleBackground: View {
     var name: String?
+    var color: Color?
     
     var body: some View {
         ZStack{
             
             RoundedRectangle(cornerRadius: 0)
-                .fill(Color.blue)
+                .fill(color!)
 
         
             Text(name!)
