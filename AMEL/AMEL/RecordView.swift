@@ -52,7 +52,7 @@ struct RecordView: View {
                          Spacer()
                         ButtonView(name: "Jammer")
                          Spacer()
-                         ButtonView(name: "Custom")
+                         ButtonView(name: "Eject")
                          Spacer()
                              
                      }
