@@ -5,7 +5,6 @@
 //  Created by Jeffrey Brian Romero on 3/8/20.
 //  Copyright © 2020 Marcellini, Neil. All rights reserved.
 //
-
 import SwiftUI
 
 struct RecordView: View {
@@ -22,12 +21,17 @@ struct RecordView: View {
                      VStack{
                          Text("Lat/Long/Alt")
                             .font(.largeTitle)
+                            
                          Text("\(locationVM.getLatitude())/\(locationVM.getLongitude())/\(locationVM.getAltitude())")
+                             .font(.title)
+                             .padding()
                      }
                      Spacer()
                      VStack {
                          Text("Heading:")
+                            .font(.title)
                          Text("\(headingVM.getMagHeading())")
+                            .font(.title)
                      }
                      Spacer()
                  }
@@ -35,18 +39,19 @@ struct RecordView: View {
                  VStack{
                     ButtonView(name: "Bomb", color: UIColor.blue)
                     Spacer()
-                    ButtonView(name: "Missile", color: UIColor.green)
+                     ButtonView(name: "Missile", color: UIColor.green)
                      Spacer()
-                    ButtonView(name: "Radar Jam", color: UIColor.red)
+                     ButtonView(name: "Navigation", color: UIColor.red)
                      Spacer()
+                    
                      }
                          
                     VStack{
-                        ButtonView(name: "Custom 1", color: UIColor.purple)
+                    ButtonView(name: "NUKE EM!", color: UIColor.purple)
                          Spacer()
-                        ButtonView(name: "Custom 2", color: UIColor.yellow)
+                        ButtonView(name: "Jammer", color: UIColor.brown)
                          Spacer()
-                        ButtonView(name: "Custom 3", color: UIColor.orange)
+                         ButtonView(name: "Eject", color: UIColor.orange)
                          Spacer()
                              
                      }

@@ -31,7 +31,7 @@ struct ButtonView: View {
             //.padding(20)
             .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
             
-        }
+        }.padding()
     }
 }
 

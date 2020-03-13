@@ -19,7 +19,7 @@ struct LogView: View {
         return List {
             Section(header: Text("Events")) {
                 
-                ForEach((0...(FormattedEvents.count-1)), id: \.self) {
+                ForEach((0..<(FormattedEvents.count)), id: \.self) {
                     EventView(event:FormattedEvents[$0])
                    }.onDelete { indexSet in
                    if indexSet.first != nil {
