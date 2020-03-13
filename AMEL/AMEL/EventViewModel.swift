@@ -22,14 +22,7 @@ class EventViewModel{
         managedObjectContext = context
     }
 
-    func GetAllFormattedEvents()->Array<EventFormattedForView>{
-        var events:Array<Event> = []
-        
-        do{
-            try  events = managedObjectContext!.fetch(Event.getEvents())
-        }catch{
-            print("error")
-        }
+    func GetAllFormattedEvents(events:FetchedResults<Event>)->Array<EventFormattedForView>{
         var FormattedEvents: [EventFormattedForView] = []
         events.forEach { (rawEvent) in
             FormattedEvents.append(convertEventToFormatted(event: rawEvent))

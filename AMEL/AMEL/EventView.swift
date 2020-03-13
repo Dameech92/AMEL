@@ -48,6 +48,8 @@ struct EventView: View{
                             
                             RoundedRectangle(cornerRadius: 0)
                                .fill(Color.blue)
+                                .frame(minHeight: 0, maxHeight: 150)
+                                .frame(minWidth: 0, maxWidth: 100)
 
 
                         
