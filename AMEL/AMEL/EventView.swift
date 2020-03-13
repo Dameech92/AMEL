@@ -42,7 +42,6 @@ struct EventView: View{
                                .fill(Color.blue)
                                 .frame(minHeight: 0, maxHeight: 150)
                                 .frame(minWidth: 0, maxWidth: 100)
-
                         EventTitleBackground(name: name, color: color)
                         .frame(minWidth:120, maxWidth: .infinity)
                         .layoutPriority(1)
@@ -87,7 +86,7 @@ struct EventView: View{
                     Spacer()
                 }
             RoundedRectangle(cornerRadius: CGFloat(10))
-                .stroke(Color.black, lineWidth: 5)
+                .stroke(Color.black, lineWidth: 8)
                 .frame(minHeight: 0, maxHeight: .infinity)
         }
         .background(Color("buttonBackGround"))

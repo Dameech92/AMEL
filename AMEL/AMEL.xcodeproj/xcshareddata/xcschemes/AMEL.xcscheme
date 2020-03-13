@@ -53,6 +53,26 @@
                </Test>
             </SkippedTests>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7E9E166E241C4EB50043EEE1"
+               BuildableName = "AMELTests.xctest"
+               BlueprintName = "AMELTests"
+               ReferencedContainer = "container:AMEL.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7E9E167C241C4EC10043EEE1"
+               BuildableName = "AMELUITests.xctest"
+               BlueprintName = "AMELUITests"
+               ReferencedContainer = "container:AMEL.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

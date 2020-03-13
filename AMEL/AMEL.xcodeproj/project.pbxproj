@@ -27,6 +27,8 @@
 		5A23230D2416ED2F0055BAF8 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23230C2416ED2F0055BAF8 /* EventViewModel.swift */; };
 		5A23230F2416EDC50055BAF8 /* EventTitleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */; };
 		5ADE287C24199A8C005A9A33 /* EventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE287B24199A8C005A9A33 /* EventViewModelTests.swift */; };
+		7E9E1672241C4EB50043EEE1 /* AMELTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E1671241C4EB50043EEE1 /* AMELTests.swift */; };
+		7E9E1680241C4EC10043EEE1 /* AMELUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -53,6 +55,20 @@
 			remoteInfo = AMEL;
 		};
 		5ADE287E24199A8C005A9A33 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CED17482404851200E6D4F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CED174F2404851200E6D4F6;
+			remoteInfo = AMEL;
+		};
+		7E9E1674241C4EB50043EEE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CED17482404851200E6D4F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CED174F2404851200E6D4F6;
+			remoteInfo = AMEL;
+		};
+		7E9E1682241C4EC10043EEE1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4CED17482404851200E6D4F6 /* Project object */;
 			proxyType = 1;
@@ -87,6 +103,12 @@
 		5ADE287924199A8C005A9A33 /* EventViewModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventViewModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADE287B24199A8C005A9A33 /* EventViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModelTests.swift; sourceTree = "<group>"; };
 		5ADE287D24199A8C005A9A33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E9E166F241C4EB50043EEE1 /* AMELTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMELTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E9E1671241C4EB50043EEE1 /* AMELTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMELTests.swift; sourceTree = "<group>"; };
+		7E9E1673241C4EB50043EEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E9E167D241C4EC10043EEE1 /* AMELUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMELUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMELUITests.swift; sourceTree = "<group>"; };
+		7E9E1681241C4EC10043EEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +133,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7E9E166C241C4EB50043EEE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E9E167A241C4EC10043EEE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -119,6 +155,8 @@
 			children = (
 				4CED17522404851200E6D4F6 /* AMEL */,
 				5ADE287A24199A8C005A9A33 /* EventViewModelTests */,
+				7E9E1670241C4EB50043EEE1 /* AMELTests */,
+				7E9E167E241C4EC10043EEE1 /* AMELUITests */,
 				4CED17512404851200E6D4F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,6 +167,8 @@
 				4CED17502404851200E6D4F6 /* AMEL.app */,
 				5ADE286A241998C4005A9A33 /* EventViewModeltests.xctest */,
 				5ADE287924199A8C005A9A33 /* EventViewModelTests.xctest */,
+				7E9E166F241C4EB50043EEE1 /* AMELTests.xctest */,
+				7E9E167D241C4EC10043EEE1 /* AMELUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,6 +215,24 @@
 				5ADE287D24199A8C005A9A33 /* Info.plist */,
 			);
 			path = EventViewModelTests;
+			sourceTree = "<group>";
+		};
+		7E9E1670241C4EB50043EEE1 /* AMELTests */ = {
+			isa = PBXGroup;
+			children = (
+				7E9E1671241C4EB50043EEE1 /* AMELTests.swift */,
+				7E9E1673241C4EB50043EEE1 /* Info.plist */,
+			);
+			path = AMELTests;
+			sourceTree = "<group>";
+		};
+		7E9E167E241C4EC10043EEE1 /* AMELUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */,
+				7E9E1681241C4EC10043EEE1 /* Info.plist */,
+			);
+			path = AMELUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +292,42 @@
 			productReference = 5ADE287924199A8C005A9A33 /* EventViewModelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		7E9E166E241C4EB50043EEE1 /* AMELTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E9E1678241C4EB50043EEE1 /* Build configuration list for PBXNativeTarget "AMELTests" */;
+			buildPhases = (
+				7E9E166B241C4EB50043EEE1 /* Sources */,
+				7E9E166C241C4EB50043EEE1 /* Frameworks */,
+				7E9E166D241C4EB50043EEE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E9E1675241C4EB50043EEE1 /* PBXTargetDependency */,
+			);
+			name = AMELTests;
+			productName = AMELTests;
+			productReference = 7E9E166F241C4EB50043EEE1 /* AMELTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7E9E167C241C4EC10043EEE1 /* AMELUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E9E1684241C4EC10043EEE1 /* Build configuration list for PBXNativeTarget "AMELUITests" */;
+			buildPhases = (
+				7E9E1679241C4EC10043EEE1 /* Sources */,
+				7E9E167A241C4EC10043EEE1 /* Frameworks */,
+				7E9E167B241C4EC10043EEE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E9E1683241C4EC10043EEE1 /* PBXTargetDependency */,
+			);
+			name = AMELUITests;
+			productName = AMELUITests;
+			productReference = 7E9E167D241C4EC10043EEE1 /* AMELUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -255,6 +349,14 @@
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = 4CED174F2404851200E6D4F6;
 					};
+					7E9E166E241C4EB50043EEE1 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 4CED174F2404851200E6D4F6;
+					};
+					7E9E167C241C4EC10043EEE1 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 4CED174F2404851200E6D4F6;
+					};
 				};
 			};
 			buildConfigurationList = 4CED174B2404851200E6D4F6 /* Build configuration list for PBXProject "AMEL" */;
@@ -273,6 +375,8 @@
 				4CED174F2404851200E6D4F6 /* AMEL */,
 				5ADE2869241998C4005A9A33 /* EventViewModeltests */,
 				5ADE287824199A8C005A9A33 /* EventViewModelTests */,
+				7E9E166E241C4EB50043EEE1 /* AMELTests */,
+				7E9E167C241C4EC10043EEE1 /* AMELUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -296,6 +400,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5ADE287724199A8C005A9A33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E9E166D241C4EB50043EEE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E9E167B241C4EC10043EEE1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -343,6 +461,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7E9E166B241C4EB50043EEE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E9E1672241C4EB50043EEE1 /* AMELTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E9E1679241C4EC10043EEE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E9E1680241C4EC10043EEE1 /* AMELUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -355,6 +489,16 @@
 			isa = PBXTargetDependency;
 			target = 4CED174F2404851200E6D4F6 /* AMEL */;
 			targetProxy = 5ADE287E24199A8C005A9A33 /* PBXContainerItemProxy */;
+		};
+		7E9E1675241C4EB50043EEE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CED174F2404851200E6D4F6 /* AMEL */;
+			targetProxy = 7E9E1674241C4EB50043EEE1 /* PBXContainerItemProxy */;
+		};
+		7E9E1683241C4EC10043EEE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4CED174F2404851200E6D4F6 /* AMEL */;
+			targetProxy = 7E9E1682241C4EC10043EEE1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -600,6 +744,80 @@
 			};
 			name = Release;
 		};
+		7E9E1676241C4EB50043EEE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AMELTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.AMELTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AMEL.app/AMEL";
+			};
+			name = Debug;
+		};
+		7E9E1677241C4EB50043EEE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AMELTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.AMELTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AMEL.app/AMEL";
+			};
+			name = Release;
+		};
+		7E9E1685241C4EC10043EEE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AMELUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.AMELUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AMEL;
+			};
+			name = Debug;
+		};
+		7E9E1686241C4EC10043EEE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = AMELUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.AMELUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AMEL;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -635,6 +853,24 @@
 			buildConfigurations = (
 				5ADE288124199A8C005A9A33 /* Debug */,
 				5ADE288224199A8C005A9A33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E9E1678241C4EB50043EEE1 /* Build configuration list for PBXNativeTarget "AMELTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E9E1676241C4EB50043EEE1 /* Debug */,
+				7E9E1677241C4EB50043EEE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E9E1684241C4EC10043EEE1 /* Build configuration list for PBXNativeTarget "AMELUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E9E1685241C4EC10043EEE1 /* Debug */,
+				7E9E1686241C4EC10043EEE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
