@@ -9,17 +9,35 @@
 import SwiftUI
 import UIKit
 struct LogView: View {
-    @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
+   @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
+    @Environment(\.managedObjectContext) var managedObjectContext
+
     var body: some View {
-        List {
+        let viewModel = EventViewModel(context :managedObjectContext)
+        let FormattedEvents: [EventFormattedForView] = viewModel.GetAllFormattedEvents(events: events)
+        
+        return List {
             Section(header: Text("Events")) {
-                ForEach(self.events) { (event:Event) in
-                    EventView(name: event.name, time: event.time, latitude: event.latitude as! Double, longitude: event.longitude as! Double, altitude: event.altitude as! Double)
-               }
+                
+                ForEach((0..<(FormattedEvents.count)), id: \.self) {
+                    EventView(event:FormattedEvents[$0])
+                   }.onDelete { indexSet in
+                   if indexSet.first != nil {
+                       let deleteEvent = self.events[indexSet.first!]
+                       self.managedObjectContext.delete(deleteEvent)
+                       do {
+                           try self.managedObjectContext.save()
+                       }catch {
+                               print(error)
+                       }
+                   }
+                }
             }
-        }
+        } .background(Color.white)
+
     }
 }
+
 
 struct LogView_Previews: PreviewProvider {
     static var previews: some View {

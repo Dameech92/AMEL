@@ -5,7 +5,6 @@
 //  Created by Jeffrey Brian Romero on 3/8/20.
 //  Copyright © 2020 Marcellini, Neil. All rights reserved.
 //
-
 import SwiftUI
 
 struct RecordView: View {
@@ -38,21 +37,21 @@ struct RecordView: View {
                  }
                 HStack{
                  VStack{
-                    ButtonView(name: "Bomb")
+                    ButtonView(name: "Bomb", color: UIColor.blue)
                     Spacer()
-                     ButtonView(name: "Missile")
+                     ButtonView(name: "Missile", color: UIColor.green)
                      Spacer()
-                     ButtonView(name: "Navigation")
+                     ButtonView(name: "Navigation", color: UIColor.red)
                      Spacer()
                     
                      }
                          
                     VStack{
-                    ButtonView(name: "NUKE EM!")
+                    ButtonView(name: "NUKE EM!", color: UIColor.purple)
                          Spacer()
-                        ButtonView(name: "Jammer")
+                        ButtonView(name: "Jammer", color: UIColor.brown)
                          Spacer()
-                         ButtonView(name: "Eject")
+                         ButtonView(name: "Eject", color: UIColor.orange)
                          Spacer()
                              
                      }

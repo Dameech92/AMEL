@@ -12,7 +12,6 @@ import CoreData
 @testable import AMEL
 
 class AMELTests: XCTestCase {
-    let rb = RecordButton(name: "test")
     let lm = LocationViewModel()
     let hlm = HeadingViewModel()
     
@@ -46,10 +45,6 @@ class AMELTests: XCTestCase {
         //Tests our query into core data returns any data
         let eventResults = Event.getEvents()
         XCTAssertNotNil(eventResults)
-        
-        //Tests that our getName function works
-        XCTAssertNotNil(rb.getName())
-        XCTAssertEqual(rb.getName(), "test")
     }
     
     //Dont need performance testing at the moment

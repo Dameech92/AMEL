@@ -14,6 +14,7 @@ public class Event: NSManagedObject, Identifiable {
     @NSManaged public var longitude:NSNumber?
     @NSManaged public var altitude:NSNumber?
     @NSManaged public var magneticHeading:NSNumber?
+    @NSManaged public var color:Data?
 }
 extension Event {
     static func getEvents() -> NSFetchRequest<Event> {
@@ -22,4 +23,6 @@ extension Event {
         request.sortDescriptors = [sortDescriptor]
         return request
     }
+    
+
 }

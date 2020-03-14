@@ -32,7 +32,33 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7E55E08F2416E8EF005ED7C6"
+               BlueprintIdentifier = "5ADE2869241998C4005A9A33"
+               BuildableName = "EventViewModeltests.xctest"
+               BlueprintName = "EventViewModeltests"
+               ReferencedContainer = "container:AMEL.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5ADE287824199A8C005A9A33"
+               BuildableName = "EventViewModelTests.xctest"
+               BlueprintName = "EventViewModelTests"
+               ReferencedContainer = "container:AMEL.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "EventViewModeltests">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7E9E166E241C4EB50043EEE1"
+
                BuildableName = "AMELTests.xctest"
                BlueprintName = "AMELTests"
                ReferencedContainer = "container:AMEL.xcodeproj">
@@ -42,7 +68,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7E55E09D2416E8F8005ED7C6"
+               BlueprintIdentifier = "7E9E167C241C4EC10043EEE1"
                BuildableName = "AMELUITests.xctest"
                BlueprintName = "AMELUITests"
                ReferencedContainer = "container:AMEL.xcodeproj">
