@@ -58,6 +58,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7E9E166E241C4EB50043EEE1"
+
                BuildableName = "AMELTests.xctest"
                BlueprintName = "AMELTests"
                ReferencedContainer = "container:AMEL.xcodeproj">

@@ -45,7 +45,6 @@ class AMELTests: XCTestCase {
         //Tests our query into core data returns any data
         let eventResults = Event.getEvents()
         XCTAssertNotNil(eventResults)
-        
     }
     
     //Dont need performance testing at the moment
