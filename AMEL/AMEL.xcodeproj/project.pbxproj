@@ -29,7 +29,6 @@
 		5ADE287C24199A8C005A9A33 /* EventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE287B24199A8C005A9A33 /* EventViewModelTests.swift */; };
 		7E9E1672241C4EB50043EEE1 /* AMELTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E1671241C4EB50043EEE1 /* AMELTests.swift */; };
 		7E9E1680241C4EC10043EEE1 /* AMELUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -48,7 +47,6 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
-
 		5ADE286F241998C4005A9A33 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4CED17482404851200E6D4F6 /* Project object */;
@@ -785,7 +783,6 @@
 			name = Release;
 		};
 		7E9E1685241C4EC10043EEE1 /* Debug */ = {
-
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -804,7 +801,6 @@
 			name = Debug;
 		};
 		7E9E1686241C4EC10043EEE1 /* Release */ = {
-
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
