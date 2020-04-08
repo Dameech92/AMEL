@@ -20,13 +20,18 @@ class PDFRenderer: NSObject {
     
     func makePDF(events:FetchedResults<Event>) ->String {
         for event in events {
-            getLogItem(event: event)
+            let eventFormatter = EventFormatter(event: event)
+            let itemHTML = getLogItem(eventFormatter: eventFormatter)
         }
     }
-    func getLogItem(event:Event)-> String?{
+    func getLogItem(eventFormatter: EventFormatter)-> String?{
         do {
             var htmlContent = try String(contentsOfFile: pathToLogItemTemplate!)
-            htmlContent = htmlContent.replacingOccurrences(of: <#T##StringProtocol#>, with: <#T##StringProtocol#>)
+            htmlContent = htmlContent.replacingOccurrences(of: "#BOX_COLOR#", with: eventFormatter.getHexColor())
+            htmlContent = htmlContent.replacingOccurrences(of: "#EVENT_NAME#", with: eventFormatter.getName())
+            htmlContent = htmlContent.replacingOccurrences(of: "#TIME#", with: eventFormatter.getTime())
+            htmlContent = htmlContent.replacingOccurrences(of: "#BOBR#", with: eventFormatter.getBoBR())
+            htmlContent = htmlContent.replacingOccurrences(of: "#LAT-LNG#", with: eventFormatter.)
         }catch {
             print("Unable to open html template")
         }
