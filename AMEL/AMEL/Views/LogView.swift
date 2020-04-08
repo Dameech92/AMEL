@@ -45,10 +45,11 @@ struct LogView: View {
                     }
                 }
             } .background(Color.white)
-    }.sheet(isPresented: $showShareSheet) {
-        ShareSheet(activityItems: [(pdfRenderer.makePDF(logViewController: self.logViewController))!])
+        }.sheet(isPresented: $showShareSheet) {
+            ShareSheet(activityItems: [self.pdfRenderer.makePDF(events: self.events)!])
     }
         
+    }
 }
 
 
