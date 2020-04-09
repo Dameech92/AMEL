@@ -36,11 +36,12 @@ struct EventFormatter{
         }
     }
     
-    func getLatitude()->String {
-        if(event.latitude != nil){
-            return String(format: "N%.4f", event.latitude! as! Double)
+    func getLatLng()->String {
+        if(event.latitude != nil && event.longitude != nil){
+            let formatter = LatLngFormatter(latitude: event.latitude as! Double, longitude: event.longitude as! Double)
+            return formatter.getLatLng()
         }else{
-            return "123.65656"
+            return "0"
         }
     }
     

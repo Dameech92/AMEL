@@ -65,7 +65,7 @@ class HTMLGenerator {
             htmlContent = htmlContent.replacingOccurrences(of: "#EVENT_NAME#", with: eventFormatter.getName())
             htmlContent = htmlContent.replacingOccurrences(of: "#TIME#", with: eventFormatter.getTime())
             htmlContent = htmlContent.replacingOccurrences(of: "#BOBR#", with: eventFormatter.getBoBR())
-            htmlContent = htmlContent.replacingOccurrences(of: "#LAT_LNG#", with: eventFormatter.getLatitude())
+            htmlContent = htmlContent.replacingOccurrences(of: "#LAT_LNG#", with: eventFormatter.getLatLng())
             htmlContent = htmlContent.replacingOccurrences(of: "#HEADING_COURSE#", with: eventFormatter.getHeading())
             htmlContent = htmlContent.replacingOccurrences(of: "#ALT#", with: eventFormatter.getAltitude())
             htmlContent = htmlContent.replacingOccurrences(of: "#GROUNDSPEED#", with: eventFormatter.getGroundSpeed())
