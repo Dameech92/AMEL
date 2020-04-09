@@ -23,6 +23,7 @@
 		31C6FD23243E876D007F677F /* LatLngFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6FD22243E876D007F677F /* LatLngFormatter.swift */; };
 		31C6FD2B243E9241007F677F /* log_item.html in Resources */ = {isa = PBXBuildFile; fileRef = 31C6FD2A243E8F0A007F677F /* log_item.html */; };
 		31C6FD2C243E9241007F677F /* log.html in Resources */ = {isa = PBXBuildFile; fileRef = 31C6FD29243E8F07007F677F /* log.html */; };
+		31D2CB36243FBDB500356BCF /* HTMLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D2CB35243FBDB500356BCF /* HTMLGenerator.swift */; };
 		31E1CDF92416A84900643653 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1CDF82416A84900643653 /* ButtonView.swift */; };
 		31E860592415F6EE00B4BAE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E860582415F6EE00B4BAE6 /* ContentView.swift */; };
 		4CED17542404851200E6D4F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED17532404851200E6D4F6 /* AppDelegate.swift */; };
@@ -101,6 +102,7 @@
 		31C6FD22243E876D007F677F /* LatLngFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLngFormatter.swift; sourceTree = "<group>"; };
 		31C6FD29243E8F07007F677F /* log.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = log.html; sourceTree = "<group>"; };
 		31C6FD2A243E8F0A007F677F /* log_item.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = log_item.html; sourceTree = "<group>"; };
+		31D2CB35243FBDB500356BCF /* HTMLGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLGenerator.swift; sourceTree = "<group>"; };
 		31E1CDF82416A84900643653 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		31E860582415F6EE00B4BAE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4CED17502404851200E6D4F6 /* AMEL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMEL.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				31C6FD28243E8EFB007F677F /* HTML_Templates */,
+				31D2CB35243FBDB500356BCF /* HTMLGenerator.swift */,
 				31C6FD18243E75FF007F677F /* PDFRenderer.swift */,
 				310AE7A3243E632800796D11 /* PrintPageRenderer.swift */,
 				31C6FD1A243E781B007F677F /* ShareSheet.swift */,
@@ -503,6 +506,7 @@
 				31C6FD23243E876D007F677F /* LatLngFormatter.swift in Sources */,
 				1F944148240E193600E3F633 /* ButtonAction.swift in Sources */,
 				1F9FABD024158555002FF99B /* RecordView.swift in Sources */,
+				31D2CB36243FBDB500356BCF /* HTMLGenerator.swift in Sources */,
 				318DA70424059EC6007D79B6 /* LocationManager.swift in Sources */,
 				31B4DF752415C91B00C567E7 /* SettingsView.swift in Sources */,
 				31E860592415F6EE00B4BAE6 /* ContentView.swift in Sources */,

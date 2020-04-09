@@ -10,64 +10,33 @@ import Foundation
 import UIKit
 import SwiftUI
 
-class PDFRenderer: NSObject {
-    let pathToLogTemplate = Bundle.main.path(forResource: "log", ofType: "html")
-    let pathToLogItemTemplate = Bundle.main.path(forResource: "log_item", ofType: "html")
-    
-    override init() {
-        super.init()
+class PDFRenderer {
+    var htmlPages: [String]?
+    var renderer: PrintPageRenderer
+    var events: FetchedResults<Event>
+    let htmlGenerator: HTMLGenerator
+    init(events: FetchedResults<Event>){
+        self.events = events
+        self.htmlGenerator = HTMLGenerator(events: self.events)
+        self.htmlPages = htmlGenerator.getHTMLPages()
+        self.renderer = PrintPageRenderer()
     }
     
-    func makePDF(events:FetchedResults<Event>) -> NSURL? {
-        var logContent = ""
-        do {
-            logContent = try String(contentsOfFile: pathToLogTemplate!)
-        }
-        catch {
-            return nil
-        }
-        var logItems = ""
-        // make log items for each event
-        for event in events {
-            let eventFormatter = EventFormatter(event: event)
-            let itemHTML = getLogItem(eventFormatter: eventFormatter)
-            logItems += itemHTML ?? ""
-        }
-        logContent = logContent.replacingOccurrences(of: "#LOG_ITEMS#", with: logItems)
-        return exportHTMLContentToPDF(HTMLContent: logContent)
-        
-    }
-    func getLogItem(eventFormatter: EventFormatter)-> String?{
-        do {
-            var htmlContent = try String(contentsOfFile: pathToLogItemTemplate!)
-            htmlContent = htmlContent.replacingOccurrences(of: "#BOX_COLOR#", with: eventFormatter.getHexColor())
-            htmlContent = htmlContent.replacingOccurrences(of: "#EVENT_NAME#", with: eventFormatter.getName())
-            htmlContent = htmlContent.replacingOccurrences(of: "#TIME#", with: eventFormatter.getTime())
-            htmlContent = htmlContent.replacingOccurrences(of: "#BOBR#", with: eventFormatter.getBoBR())
-            htmlContent = htmlContent.replacingOccurrences(of: "#LAT-LNG#", with: eventFormatter.getLatitude())
-            htmlContent = htmlContent.replacingOccurrences(of: "#HEADING_COURSE#", with: eventFormatter.getHeading())
-            htmlContent = htmlContent.replacingOccurrences(of: "#ALT#", with: eventFormatter.getAltitude())
-            htmlContent = htmlContent.replacingOccurrences(of: "#GROUNDSPEED#", with: eventFormatter.getGroundSpeed())
-            return htmlContent
-        }catch {
-            print("Unable to open html template")
-        }
-        return nil
-        
-    }
+    func makePDF() -> NSURL? {
+        self.renderer = makeRenderer(htmlContent: htmlPages![0], index:0)
+        let pdfData = drawPDF()
+        return getPDFURL(data: pdfData)
     
-    
-    func exportHTMLContentToPDF(HTMLContent: String)->NSURL? {
+    }
+
+    func makeRenderer(htmlContent: String, index: Int)->PrintPageRenderer {
         let printPageRenderer = PrintPageRenderer()
-        let printFormatter = UIMarkupTextPrintFormatter(markupText: HTMLContent)
-        printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
-        let pdfData = drawPDFUsingPrintPageRenderer(printPageRender: printPageRenderer)
-        let pdfFileURL = saveViewPdf(data: pdfData)
-        return pdfFileURL
+        let printFormatter = UIMarkupTextPrintFormatter(markupText: htmlContent)
+        printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: index)
+        return printPageRenderer
     }
-    // Save pdf file in document directory
-    func saveViewPdf(data: NSMutableData) -> NSURL? {
-        
+    
+    func getPDFURL(data: NSMutableData) -> NSURL? {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let docDirectoryPath = paths[0]
         let pdfPath = docDirectoryPath.appendingPathComponent("viewPdf.pdf")
@@ -79,13 +48,21 @@ class PDFRenderer: NSObject {
         }
     }
     
-    func drawPDFUsingPrintPageRenderer(printPageRender: UIPrintPageRenderer) -> NSMutableData {
+    func drawPDF() -> NSMutableData {
         let data = NSMutableData()
         UIGraphicsBeginPDFContextToData(data, CGRect.zero, nil)
-        UIGraphicsBeginPDFPage()
-        printPageRender.drawPage(at: 0, in: UIGraphicsGetPDFContextBounds())
+        for i in 0..<self.htmlPages!.endIndex {
+            updateRendererData(pageIndex: i)
+            UIGraphicsBeginPDFPage()
+            self.renderer.drawPage(at: i, in: UIGraphicsGetPDFContextBounds())
+        }
         UIGraphicsEndPDFContext()
         return data
     }
+    
+    func updateRendererData(pageIndex: Int) {
+        self.renderer = makeRenderer(htmlContent: self.htmlPages![pageIndex], index: pageIndex)
+    }
+    
 }
 

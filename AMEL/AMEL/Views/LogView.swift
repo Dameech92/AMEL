@@ -12,11 +12,10 @@ struct LogView: View {
     @State private var showShareSheet = false
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
     @Environment(\.managedObjectContext) var managedObjectContext
-    let pdfRenderer = PDFRenderer()
     var body: some View {
         let viewModel = EventViewModel(context :managedObjectContext)
         let FormattedEvents: [EventFormattedForView] = viewModel.GetAllFormattedEvents(events: events)
-        
+        let pdfRenderer = PDFRenderer(events: self.events)
         return VStack {
                 Spacer()
                 Button(action: {
@@ -46,7 +45,7 @@ struct LogView: View {
                 }
             } .background(Color.white)
         }.sheet(isPresented: $showShareSheet) {
-            ShareSheet(activityItems: [self.pdfRenderer.makePDF(events: self.events)!])
+            ShareSheet(activityItems: [pdfRenderer.makePDF()!])
     }
         
     }
