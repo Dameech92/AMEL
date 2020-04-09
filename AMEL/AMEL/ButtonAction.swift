@@ -11,13 +11,25 @@ import CoreData
 import CoreLocation
 import SwiftUI
 
+// when a button is pressed, record information such as where and when the button was pressed
 struct ButtonAction {
-	// when a button is pressed, record information such as where and when the button was pressed
+	
+	// If a location already exists (not nil), then fetch the existing data
+	private func fetchExistingLocationData() {
+		
+	}
+	
+	// Location does not exist (locationManager is nil), so initialize a new location with default values of 0.
+	private func initializeDefaultLocationData(_ latitude:CLLocationDegrees, _ longitude:CLLocationDegrees, _ altitude:CLLocationDistance) {
+		
+	}
+	
     public static func record(_ eventName:String, color:UIColor, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
         let latitude: CLLocationDegrees
         let longitude: CLLocationDegrees
         let altitude: CLLocationDistance
         let magHeading: CLLocationDirection
+		
 		if locationManager.location != nil {
             latitude = locationManager.location!.coordinate.latitude
             longitude = locationManager.location!.coordinate.longitude
