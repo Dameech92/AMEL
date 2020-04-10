@@ -25,21 +25,31 @@ struct ButtonAction {
 		ButtonAction.altitude = locationManager.location!.altitude
 	}
 	
-	private static func initializeEvent() {
-		
+	public static func createEvent(_ managedObjectContext:NSManagedObjectContext) -> Event {
+		return Event(context: managedObjectContext)
 	}
 	
-	private static func logEvent(_ newEvent:Event, _ eventName:String, _ color:UIColor) {
+	public static func logEvent(_ newEvent:Event, _ eventName:String, _ color:UIColor, _ managedObjectContext:NSManagedObjectContext) {
+		// Store the data calculated from the record function within newEvent
 		newEvent.name = eventName
         newEvent.latitude = latitude as NSNumber
         newEvent.longitude = longitude as NSNumber
         newEvent.altitude = altitude as NSNumber
         newEvent.magneticHeading = magHeading as NSNumber
         newEvent.time = Date()
+		
+		// Fetch the event color
 		do {
             try newEvent.color = NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false)
         } catch {
             newEvent.color = nil
+        }
+		
+		// update the object
+		do {
+            try managedObjectContext.save()
+        } catch {
+            print("Error saving")
         }
 	}
 	
@@ -51,16 +61,6 @@ struct ButtonAction {
         
         if locationManager.heading != nil {
             magHeading = locationManager.heading!.magneticHeading
-        }
-        
-        let newEvent = Event(context: managedObjectContext)
-		logEvent(newEvent, eventName, color)
-        
-		// update the object context
-        do {
-            try managedObjectContext.save()
-        } catch {
-            print("Error saving")
         }
 	}
 }
