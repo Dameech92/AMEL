@@ -9,42 +9,57 @@
 import SwiftUI
 
 struct SettingsView: View {
+	@State private var userNumOfButtons = UserDefaults.standard.integer(forKey: "numOfButtons")
+	
     var body: some View {
-		VStack {
+//		VStack {
 			ZStack {
-//				Image("stealth").resizable().frame(height: 150)
-//				Image("buttonBackGround").edgesIgnoringSafeArea(.all)
-				HStack {
-//					Image("buttonBackGround").resizable().frame(height: 150)
-					
-					Spacer()
+				Color("stealth").edgesIgnoringSafeArea(.all)
+				Button(action: {
+					self.userNumOfButtons += 1
+					UserDefaults.standard.set(self.userNumOfButtons, forKey: "numOfButtons")
+				}) {
+					VStack {
+						Text("Add new button/Num of buttons: \(userNumOfButtons)")
+						Image(systemName: "plus.square.fill")
+					}
 				}
 				
-				HStack {
-					VStack(alignment: .leading, spacing: 45, content: {
-						Button(action: {
-							
-						}) {
-							Image("chevron.left").font(.title)
-						}
-						
-						Text("Settings").font(.title)
-					}).foregroundColor(Color.black.opacity(0.5))
-					
-					Spacer()
-				}.padding()
-					.padding(.top, 10)
+//				Image("stealth").resizable().frame(height: 150)
+//				Color("buttonBackGround").edgesIgnoringSafeArea(.all)
+//				List {
+//					Section(header: Text("Buttons")) {
+//						ForEach((0..<(userNumOfButtons)), id: \.self) {
+//
+//						}
+//					}
+//				} .background(Color.white)
 				
-				VStack {
-					Image("name").overlay(Text("K").foregroundColor(.white).font(.title))
-					
-					Spacer()
-				}.padding(.top, 30)
+//				HStack {
+//					VStack(alignment: .leading, spacing: 45, content: {
+//						Button(action: {
+//
+//						}) {
+//							Image("chevron.left").font(.title)
+//						}
+//
+//						Text("Settings").font(.title)
+//					}).foregroundColor(Color.black.opacity(0.5))
+//
+//					Spacer()
+//				}.padding()
+//					.padding(.top, 10)
+//
+//				VStack {
+//					Image("name").overlay(Text("K").foregroundColor(.white).font(.title))
+//
+//					Spacer()
+//				}.padding(.top, 30)
 				
-			}.frame(height: 175)
+			}
 			
-			Spacer()
-		}.background(Color.white)
+//			Spacer()
+//		}.background(Color.white)
 	}
 }
 
