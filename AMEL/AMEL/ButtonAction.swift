@@ -11,48 +11,56 @@ import CoreData
 import CoreLocation
 import SwiftUI
 
+// when a button is pressed, record information such as where and when the button was pressed
 struct ButtonAction {
-	// when a button is pressed, record information such as where and when the button was pressed
-    public static func record(_ eventName:String, color:UIColor, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
-        let latitude: CLLocationDegrees
-        let longitude: CLLocationDegrees
-        let altitude: CLLocationDistance
-        let magHeading: CLLocationDirection
-		if locationManager.location != nil {
-            latitude = locationManager.location!.coordinate.latitude
-            longitude = locationManager.location!.coordinate.longitude
-            altitude = locationManager.location!.altitude
-		}
-        else{
-            latitude = 0.0
-            longitude = 0.0
-            altitude = 0.0
-        }
-        
-        if locationManager.heading != nil {
-            magHeading = locationManager.heading!.magneticHeading
-        }
-        else {
-            magHeading = 0.0
-        }
-        
-        let newEvent = Event(context: managedObjectContext)
-        newEvent.name = eventName
+	private static var latitude: CLLocationDegrees = 0.0
+	private static var longitude: CLLocationDegrees = 0.0
+	private static var altitude: CLLocationDistance = 0.0
+	private static var magHeading: CLLocationDirection = 0.0
+	
+	// If a location already exists (not nil), then fetch the existing data
+	private static func fetchExistingLocationData(_ locationManager: LocationManager) {
+		ButtonAction.latitude = locationManager.location!.coordinate.latitude
+		ButtonAction.longitude = locationManager.location!.coordinate.longitude
+		ButtonAction.altitude = locationManager.location!.altitude
+	}
+	
+	public static func createEvent(_ managedObjectContext:NSManagedObjectContext) -> Event {
+		return Event(context: managedObjectContext)
+	}
+	
+	public static func logEvent(_ newEvent:Event, _ eventName:String, _ color:UIColor, _ managedObjectContext:NSManagedObjectContext) {
+		// Store the data calculated from the record function within newEvent
+		newEvent.name = eventName
         newEvent.latitude = latitude as NSNumber
         newEvent.longitude = longitude as NSNumber
         newEvent.altitude = altitude as NSNumber
         newEvent.magneticHeading = magHeading as NSNumber
         newEvent.time = Date()
-        do {
+		
+		// Fetch the event color
+		do {
             try newEvent.color = NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false)
         } catch {
             newEvent.color = nil
         }
-        
-        do {
+		
+		// update the object
+		do {
             try managedObjectContext.save()
         } catch {
             print("Error saving")
+        }
+	}
+	
+    public static func record(_ eventName:String, _ color:UIColor, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
+		
+		if locationManager.location != nil {
+            fetchExistingLocationData(locationManager)
+		}
+        
+        if locationManager.heading != nil {
+            magHeading = locationManager.heading!.magneticHeading
         }
 	}
 }

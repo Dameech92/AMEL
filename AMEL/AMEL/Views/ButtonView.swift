@@ -19,7 +19,11 @@ struct ButtonView: View {
     }
     
     var body: some View {
-        Button(action: {ButtonAction.record(self.name, color: self.color, self.locationManager, self.managedObjectContext)}) {
+        Button(action: {
+			ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext)
+			let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
+			ButtonAction.logEvent(newEvent, self.name, self.color, self.managedObjectContext)
+		}) {
             Text(self.name)
             .frame(minWidth: 0, maxWidth: .infinity)
             .frame(minHeight: 0, maxHeight: .infinity)

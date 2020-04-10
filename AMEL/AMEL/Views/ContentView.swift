@@ -27,12 +27,12 @@ struct ContentView: View {
                     Text("Log")
                 }
             }).tag(1)
-            //SettingsView().tabItem({
-                //VStack{
-                    //Image(systemName: "gear").font(.title)
-                    //Text("Settings")
-                //}
-            //}).tag(2)
+            SettingsView().tabItem({
+                VStack{
+                    Image(systemName: "gear").font(.title)
+                    Text("Settings")
+                }
+            }).tag(2)
         }.accentColor(Color.red)
     }
 }
