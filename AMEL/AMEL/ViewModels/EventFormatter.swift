@@ -27,12 +27,11 @@ struct EventFormatter{
     
     func getTime()->String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .medium
+        formatter.dateFormat = "HH:mm:ss (dd-MMM-YY)"
         if(event.time != nil){
             return formatter.string(from: event.time!)
         }else{
-            return "Now"
+            return "error"
         }
     }
     
@@ -83,13 +82,17 @@ struct EventFormatter{
         }
         return UIColor.blue
     }
-    func getHeading()->String{
-        if(event.magneticHeading != nil){
-            return String(format: "%.f ", event.magneticHeading! as! Double)
-        }else{
-            return "120"
+    func getHeadingCourse()->String {
+        if(event.magneticHeading != nil && event.course != nil) {
+            let heading = String(format: "%03d", Int(truncating: event.magneticHeading!))
+            let course = String(format: "%03d", Int(truncating: event.course!))
+            return "Heading/Course: " + heading + "° / " + course + "°"
+        }
+        else {
+            return "Heading/Course: Unavailable"
         }
     }
+    
     func getBoBR()->String {
         return "BoBR: 191/56 B/E rock 125"
     }

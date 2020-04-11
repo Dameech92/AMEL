@@ -13,8 +13,6 @@ struct LogView: View {
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
     @Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
-        let viewModel = EventViewModel(context :managedObjectContext)
-        let FormattedEvents: [EventFormattedForView] = viewModel.GetAllFormattedEvents(events: events)
         let pdfRenderer = PDFRenderer(events: self.events)
         return VStack {
                 Spacer()
@@ -29,8 +27,8 @@ struct LogView: View {
                 List {
                 Section(header: Text("Events")) {
                     
-                    ForEach((0..<(FormattedEvents.count)), id: \.self) {
-                        EventView(event:FormattedEvents[$0])
+                    ForEach(self.events, id: \.time) { event in
+                        EventView(event: event)
                        }.onDelete { indexSet in
                        if indexSet.first != nil {
                            let deleteEvent = self.events[indexSet.first!]

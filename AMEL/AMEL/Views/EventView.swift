@@ -9,30 +9,9 @@
 import SwiftUI
 
 struct EventView: View{
-    
-    init(event: EventFormattedForView){
-        self.currEvent = event
-    }
-    
-    var currEvent: EventFormattedForView
-    var name: String?
-    var time: Date?
-    var latitude: Double = 0
-    var longitude: Double = 0
-    var altitude: Double = 0
-    
+    let event: Event
     var body: some View {
-        let name = currEvent.getEventName()
-        let time = currEvent.getEventTime()
-        let truncatedLatitude = currEvent.getLatitude()
-        let truncatedLongitude = currEvent.getLongitude()
-        let truncatedAltitude = currEvent.getAltitude()
-        let heading = currEvent.getHeading()
-        let bobrLargeText = currEvent.getBobrLargeText()
-        let bobrSmallText = currEvent.getBobrSmallText()
-        let groundSpeed = currEvent.getGroundSpeed()
-        let color = currEvent.getColor()
-
+        let viewModel = EventFormatter(event: event)
         return ZStack{
                 
                 HStack{
@@ -42,7 +21,7 @@ struct EventView: View{
                                .fill(Color.blue)
                                 .frame(minHeight: 0, maxHeight: 150)
                                 .frame(minWidth: 0, maxWidth: 100)
-                        EventTitleBackground(name: name, color: color)
+                        EventTitleBackground(name: viewModel.getName(), color: viewModel.getColor())
                         .frame(minWidth:120, maxWidth: .infinity)
                         .layoutPriority(1)
 
@@ -51,14 +30,14 @@ struct EventView: View{
 
                     Spacer()
                     VStack(alignment: .leading){
-                        Text(time)
+                        Text(viewModel.getTime())
                             .font(.title)
                         Spacer()
-                        Text("\(truncatedLatitude)  \(truncatedLongitude)")
+                        Text(viewModel.getLatLng())
                             .font(.title)
                         Spacer()
 
-                        Text("Altitude: \(truncatedAltitude)")
+                        Text(viewModel.getAltitude())
                             .font(.title)
 
                     }
@@ -67,17 +46,14 @@ struct EventView: View{
                     Spacer()
                     VStack(alignment: .leading){
                         HStack{
-                            Text("BOBR: \(bobrLargeText)")
+                            Text(viewModel.getBoBR())
                                 .font(.title)
-                            Text(" \(bobrSmallText)")
-                                .font(.body)
-
                         }
                         Spacer()
-                        Text("Heading | Course: \(heading) | \(heading)")
+                        Text(viewModel.getHeadingCourse())
                             .font(.title)
                         Spacer()
-                        Text("Groundspeed: \(groundSpeed)")
+                        Text(viewModel.getGroundSpeed())
                             .font(.title)
 
                     }
@@ -97,7 +73,6 @@ struct EventView: View{
 
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        let event = EventViewModel.returnBlankEventForTesting()
-        return EventView(event: event)
+        return EventView(event: Event())
     }
 }
