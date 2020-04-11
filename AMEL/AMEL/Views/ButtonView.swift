@@ -37,6 +37,14 @@ struct ButtonView: View {
             
         }.padding()
     }
+	
+	public mutating func changeButtonName(_ newName:String) {
+		self.name = newName
+	}
+	
+	public mutating func changeButtonColor(_ newColor:UIColor) {
+		self.color = newColor
+	}
 }
 
 struct ButtonView_Previews: PreviewProvider {

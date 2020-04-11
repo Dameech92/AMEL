@@ -10,20 +10,76 @@ import SwiftUI
 
 struct SettingsView: View {
 	@State private var userNumOfButtons = UserDefaults.standard.integer(forKey: "numOfButtons")
+	@State private var colorIndex = 0 // the index of the currently picked color
+	private var colors = ["Red", "Green", "Blue"]
+	@State private var buttonColorIndex = [0, 0, 0, 0, 0, 0]
 	
     var body: some View {
 //		VStack {
 			ZStack {
 				Color("stealth").edgesIgnoringSafeArea(.all)
-				Button(action: {
-					self.userNumOfButtons += 1
-					UserDefaults.standard.set(self.userNumOfButtons, forKey: "numOfButtons")
-				}) {
-					VStack {
-						Text("Add new button/Num of buttons: \(userNumOfButtons)")
-						Image(systemName: "plus.square.fill")
+				
+				VStack {
+					Button(action: {
+						self.userNumOfButtons += 1
+						UserDefaults.standard.set(self.userNumOfButtons, forKey: "numOfButtons")
+					}) {
+						VStack {
+							Text("Add new button/Num of buttons: \(userNumOfButtons)")
+							Image(systemName: "plus.square.fill")
+						}
+					}
+					
+					Divider()
+					
+					NavigationView {
+						Form {
+							Section {
+								Picker(selection: $buttonColorIndex[0], label: Text("Button 1")) {
+									ForEach(0 ..< colors.count) {
+										Text(self.colors[$0]).tag($0) // tag = key
+									}
+								}
+							}
+							Section {
+								Picker(selection: $buttonColorIndex[1], label: Text("Button 2")) {
+									ForEach(0 ..< colors.count) {
+										Text(self.colors[$0]).tag($0) // tag = key
+									}
+								}
+							}
+							Section {
+								Picker(selection: $buttonColorIndex[2], label: Text("Button 3")) {
+									ForEach(0 ..< colors.count) {
+										Text(self.colors[$0]).tag($0) // tag = key
+									}
+								}
+							}
+							Section {
+								Picker(selection: $buttonColorIndex[3], label: Text("Button 4")) {
+									ForEach(0 ..< colors.count) {
+										Text(self.colors[$0]).tag($0) // tag = key
+									}
+								}
+							}
+							Section {
+								Picker(selection: $buttonColorIndex[4], label: Text("Button 5")) {
+									ForEach(0 ..< colors.count) {
+										Text(self.colors[$0]).tag($0) // tag = key
+									}
+								}
+							}
+							Section {
+								Picker(selection: $buttonColorIndex[5], label: Text("Button 6")) {
+									ForEach(0 ..< colors.count) {
+										Text(self.colors[$0]).tag($0) // tag = key
+									}
+								}
+							}
+						}.navigationBarTitle(Text("Button List"))
 					}
 				}
+				
 				
 //				Image("stealth").resizable().frame(height: 150)
 //				Color("buttonBackGround").edgesIgnoringSafeArea(.all)
