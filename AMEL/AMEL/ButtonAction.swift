@@ -53,7 +53,7 @@ struct ButtonAction {
         }
 	}
 	
-    public static func record(_ eventName:String, _ color:UIColor, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
+    public static func record(_ locationManager:LocationManager) {
 		
 		if locationManager.location != nil {
             fetchExistingLocationData(locationManager)

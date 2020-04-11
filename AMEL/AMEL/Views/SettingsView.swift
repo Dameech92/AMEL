@@ -9,113 +9,105 @@
 import SwiftUI
 
 struct SettingsView: View {
-	@State private var userNumOfButtons = UserDefaults.standard.integer(forKey: "numOfButtons")
-	@State private var colorIndex = 0 // the index of the currently picked color
-	private var colors = ["Red", "Green", "Blue"]
-	@State private var buttonColorIndex = [0, 0, 0, 0, 0, 0]
+	@State public var userNumOfButtons = UserDefaults.standard.integer(forKey: "numOfButtons")
+	public var colors = ["Red", "Green", "Blue"]
+	@State public var buttonColorIndex = [0, 0, 0, 0, 0, 0]
 	
     var body: some View {
-//		VStack {
-			ZStack {
-				Color("stealth").edgesIgnoringSafeArea(.all)
+		ZStack {
+			Color("stealth").edgesIgnoringSafeArea(.all)
+			
+			VStack {
 				
-				VStack {
+				// ADD/REMOVE BUTTONS HERE FOR TESTING RIGHT NOW. SUBJECT TO CHANGE.
+				Text("Number of buttons: \(self.userNumOfButtons)")
+				HStack {
+					// adds a new button to the record events page
 					Button(action: {
 						self.userNumOfButtons += 1
 						UserDefaults.standard.set(self.userNumOfButtons, forKey: "numOfButtons")
 					}) {
 						VStack {
-							Text("Add new button/Num of buttons: \(userNumOfButtons)")
+							Text("Add new button")
 							Image(systemName: "plus.square.fill")
 						}
 					}
 					
 					Divider()
 					
-					NavigationView {
-						Form {
-							Section {
-								Picker(selection: $buttonColorIndex[0], label: Text("Button 1")) {
-									ForEach(0 ..< colors.count) {
-										Text(self.colors[$0]).tag($0) // tag = key
-									}
-								}
-							}
-							Section {
-								Picker(selection: $buttonColorIndex[1], label: Text("Button 2")) {
-									ForEach(0 ..< colors.count) {
-										Text(self.colors[$0]).tag($0) // tag = key
-									}
-								}
-							}
-							Section {
-								Picker(selection: $buttonColorIndex[2], label: Text("Button 3")) {
-									ForEach(0 ..< colors.count) {
-										Text(self.colors[$0]).tag($0) // tag = key
-									}
-								}
-							}
-							Section {
-								Picker(selection: $buttonColorIndex[3], label: Text("Button 4")) {
-									ForEach(0 ..< colors.count) {
-										Text(self.colors[$0]).tag($0) // tag = key
-									}
-								}
-							}
-							Section {
-								Picker(selection: $buttonColorIndex[4], label: Text("Button 5")) {
-									ForEach(0 ..< colors.count) {
-										Text(self.colors[$0]).tag($0) // tag = key
-									}
-								}
-							}
-							Section {
-								Picker(selection: $buttonColorIndex[5], label: Text("Button 6")) {
-									ForEach(0 ..< colors.count) {
-										Text(self.colors[$0]).tag($0) // tag = key
-									}
-								}
-							}
-						}.navigationBarTitle(Text("Button List"))
+					// removes a button from the record events page
+					Button(action: {
+						self.userNumOfButtons -= 1
+						UserDefaults.standard.set(self.userNumOfButtons, forKey: "numOfButtons")
+					}) {
+						VStack {
+							Text("Remove button")
+							Image(systemName: "minus.square.fill")
+						}
 					}
+				}.frame(height:60)
+				
+				Divider()
+				
+				NavigationView {
+					Form {
+						ForEach(0 ..< self.userNumOfButtons) {_ in
+							Section {
+								// $buttonColorIndex is the button identifier (button 1, button 2, button ...)
+								Picker(selection: self.$buttonColorIndex[0], label: Text("Button 1")) {
+									ForEach(0 ..< self.colors.count) {
+										Text(self.colors[$0]).tag($0) // tag = key
+									}
+								}
+							}
+						}
+//						Section {
+//							// $buttonColorIndex is the button identifier (button 1, button 2, button ...)
+//							Picker(selection: $buttonColorIndex[0], label: Text("Button 1")) {
+//								ForEach(0 ..< colors.count) {
+//									Text(self.colors[$0]).tag($0) // tag = key
+//								}
+//							}
+//						}
+//						Section {
+//							Picker(selection: $buttonColorIndex[1], label: Text("Button 2")) {
+//								ForEach(0 ..< colors.count) {
+//									Text(self.colors[$0]).tag($0)
+//								}
+//							}
+//						}
+//						Section {
+//							Picker(selection: $buttonColorIndex[2], label: Text("Button 3")) {
+//								ForEach(0 ..< colors.count) {
+//									Text(self.colors[$0]).tag($0)
+//								}
+//							}
+//						}
+//						Section {
+//							Picker(selection: $buttonColorIndex[3], label: Text("Button 4")) {
+//								ForEach(0 ..< colors.count) {
+//									Text(self.colors[$0]).tag($0)
+//								}
+//							}
+//						}
+//						Section {
+//							Picker(selection: $buttonColorIndex[4], label: Text("Button 5")) {
+//								ForEach(0 ..< colors.count) {
+//									Text(self.colors[$0]).tag($0)
+//								}
+//							}
+//						}
+//						Section {
+//							Picker(selection: $buttonColorIndex[5], label: Text("Button 6")) {
+//								ForEach(0 ..< colors.count) {
+//									Text(self.colors[$0]).tag($0)
+//								}
+//							}
+//						}
+					}.navigationBarTitle(Text("Button List"))
 				}
-				
-				
-//				Image("stealth").resizable().frame(height: 150)
-//				Color("buttonBackGround").edgesIgnoringSafeArea(.all)
-//				List {
-//					Section(header: Text("Buttons")) {
-//						ForEach((0..<(userNumOfButtons)), id: \.self) {
-//
-//						}
-//					}
-//				} .background(Color.white)
-				
-//				HStack {
-//					VStack(alignment: .leading, spacing: 45, content: {
-//						Button(action: {
-//
-//						}) {
-//							Image("chevron.left").font(.title)
-//						}
-//
-//						Text("Settings").font(.title)
-//					}).foregroundColor(Color.black.opacity(0.5))
-//
-//					Spacer()
-//				}.padding()
-//					.padding(.top, 10)
-//
-//				VStack {
-//					Image("name").overlay(Text("K").foregroundColor(.white).font(.title))
-//
-//					Spacer()
-//				}.padding(.top, 30)
-				
 			}
-			
-//			Spacer()
-//		}.background(Color.white)
+		}
 	}
 }
 

@@ -20,20 +20,21 @@ struct ButtonView: View {
     
     var body: some View {
         Button(action: {
-			ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext)
+			ButtonAction.record(self.locationManager)
 			let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
 			ButtonAction.logEvent(newEvent, self.name, self.color, self.managedObjectContext)
 		}) {
-            Text(self.name)
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .frame(minHeight: 0, maxHeight: .infinity)
-            .font(.largeTitle)
-            .padding(10)
-            .foregroundColor(.primary)
-                .background(Color(self.color))
-            .cornerRadius(40)
-            //.padding(20)
-            //.overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
+			CustomizableButton(self.name, self.color)//.font(.largeTitle).padding(20)
+//            Text(self.name)
+//            .frame(minWidth: 0, maxWidth: .infinity)
+//            .frame(minHeight: 0, maxHeight: .infinity)
+//            .font(.largeTitle)
+//            .padding(10)
+//            .foregroundColor(.primary)
+//                .background(Color(self.color))
+//            .cornerRadius(40)
+//            .padding(20)
+//            .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
             
         }.padding()
     }
