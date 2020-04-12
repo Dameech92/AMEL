@@ -16,13 +16,32 @@ struct LogView: View {
         let pdfRenderer = PDFRenderer(events: self.events)
         return VStack {
                 Spacer()
-                Button(action: {
-                    self.showShareSheet = true
-                }) {
-                    Image(systemName: "square.and.arrow.up")
-                    .font(.system(size: 30))
+                HStack {
+                    Button(action: {
+                        for event in self.events {
+                            self.managedObjectContext.delete(event)
+                            do {
+                                try self.managedObjectContext.save()
+                            }catch {
+                                    print(error)
+                            }
+                        }
+                    }) {
+                        Text("Clear All")
+                    }
+                    .padding()
+                    Spacer()
+                    Button(action: {
+                        self.showShareSheet = true
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                        .font(.system(size: 30))
+                        .frame(alignment: .leading)
+                    }
+                    .padding()
+                    
                 }
-                .frame(alignment: .leading)
+                
                 Spacer()
                 List {
                 Section(header: Text("Events")) {
