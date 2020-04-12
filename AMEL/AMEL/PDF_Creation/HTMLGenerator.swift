@@ -36,6 +36,7 @@ class HTMLGenerator {
             let itemHTML = getLogItem(eventFormatter: eventFormatter)
             self.logItems += itemHTML ?? ""
         }
+        addPage()
         return self.htmlPages
     }
     func pageShouldBeMade(index: Int)->Bool {

@@ -32,7 +32,9 @@ struct LogView: View {
                     .padding()
                     Spacer()
                     Button(action: {
-                        self.showShareSheet = true
+                        if self.events.count > 0 {
+                             self.showShareSheet = true
+                        }
                     }) {
                         Image(systemName: "square.and.arrow.up")
                         .font(.system(size: 30))
