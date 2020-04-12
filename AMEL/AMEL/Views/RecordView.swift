@@ -37,12 +37,16 @@ struct RecordView: View {
                  }
                 HStack{
                  VStack{
-                    ButtonView(name: "Bomb", color: UIColor.blue)
-                    Spacer()
-                     ButtonView(name: "Missile", color: UIColor.green)
-                     Spacer()
-                     ButtonView(name: "Navigation", color: UIColor.red)
-                     Spacer()
+					ForEach(0 ..< SettingsView.getNumOfButtons()) {_ in
+						ButtonView(name: "Bomb", color: UIColor.blue)
+						Spacer()
+					}
+//                    ButtonView(name: "Bomb", color: UIColor.blue)
+//                    Spacer()
+//                     ButtonView(name: "Missile", color: UIColor.green)
+//                     Spacer()
+//                     ButtonView(name: "Navigation", color: UIColor.red)
+//                     Spacer()
                     
                      }
                          

@@ -19,9 +19,11 @@ struct CustomizableButton: View {
 	
 	var body: some View {
 		ZStack {
-			RoundedRectangle(cornerRadius: 5).frame(width: 300, height: 110).foregroundColor(Color("buttonBackGround"))
+			// iphone friendly = width: 150, height: 55
+			RoundedRectangle(cornerRadius: 5).frame(width: 300, height: 110).foregroundColor(Color("buttonBackGround")).padding(20)
 			Text(self.buttonName).bold()
 			
+			// Colored left side of the button. Make sure that the frame/dimensions of both the button and this LeftCorner match. The trim is fine and doesn't need to be modified.
 			LeftCorner().trim(from: 0.41, to: 0.59).fill(Color(self.buttonColor)).frame(width: 300, height: 110)
 		}
 	}
@@ -40,4 +42,3 @@ struct CustomizableButton_Previews: PreviewProvider {
 		CustomizableButton("test", UIColor.blue)
 	}
 }
-
