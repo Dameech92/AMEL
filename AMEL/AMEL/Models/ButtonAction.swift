@@ -17,12 +17,17 @@ struct ButtonAction {
 	private static var longitude: CLLocationDegrees = 0.0
 	private static var altitude: CLLocationDistance = 0.0
 	private static var magHeading: CLLocationDirection = 0.0
+    private static var course: CLLocationDirection = 0.0
+    private static var speed: CLLocationSpeed = 0.0
 	
-	// If a location already exists (not nil), then fetch the existing data
-	private static func fetchExistingLocationData(_ locationManager: LocationManager) {
+    
+	private static func fetchCurrentLocationData(_ locationManager: LocationManager) {
 		ButtonAction.latitude = locationManager.location!.coordinate.latitude
 		ButtonAction.longitude = locationManager.location!.coordinate.longitude
 		ButtonAction.altitude = locationManager.location!.altitude
+        ButtonAction.course = locationManager.location!.course
+        ButtonAction.speed = locationManager.location!.speed
+        
 	}
 	
 	public static func createEvent(_ managedObjectContext:NSManagedObjectContext) -> Event {
@@ -37,6 +42,8 @@ struct ButtonAction {
         newEvent.altitude = altitude as NSNumber
         newEvent.magneticHeading = magHeading as NSNumber
         newEvent.time = Date()
+        newEvent.course = course as NSNumber
+        newEvent.speed = speed as NSNumber
 		
 		// Fetch the event color
 		do {
@@ -56,7 +63,7 @@ struct ButtonAction {
     public static func record(_ eventName:String, _ color:UIColor, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
 		
 		if locationManager.location != nil {
-            fetchExistingLocationData(locationManager)
+            fetchCurrentLocationData(locationManager)
 		}
         
         if locationManager.heading != nil {

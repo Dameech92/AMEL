@@ -22,7 +22,7 @@ struct RecordView: View {
                          Text("Lat/Long/Alt")
                             .font(.largeTitle)
                             
-                         Text("\(locationVM.getLatitude())/\(locationVM.getLongitude())/\(locationVM.getAltitude())")
+                        Text(locationVM.getLatLng())
                              .font(.title)
                              .padding()
                      }
@@ -34,6 +34,12 @@ struct RecordView: View {
                             .font(.title)
                      }
                      Spacer()
+                    VStack {
+                        Text("Speed: " + locationVM.getSpeed())
+                        Text("Speed accuracy: " + locationVM.getSpeedAccuracy())
+                    }
+                    
+                    Spacer()
                  }
                 HStack{
                  VStack{

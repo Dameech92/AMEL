@@ -12,6 +12,17 @@ struct LocationViewModel {
     @ObservedObject private var locationManager = LocationManager()
     init() {
     }
+    
+    func getLatLng()->String {
+        if self.locationManager.location != nil {
+            let locFormatter = LatLngFormatter(latitude: self.locationManager.location!.coordinate.latitude, longitude: self.locationManager.location!.coordinate.longitude)
+            return locFormatter.getLatLng()
+        }
+       else{
+           return "0.0"
+       }
+        
+    }
     func getLatitude()->(String){
         if self.locationManager.location != nil {
             return String(format: "%.4f", locationManager.location!.coordinate.latitude)
@@ -31,6 +42,23 @@ struct LocationViewModel {
     func getAltitude()->(String){
         if self.locationManager.location != nil {
             return String(format: "%.4f", locationManager.location!.altitude)
+        }
+        else{
+            return "0.0"
+        }
+    }
+    func getSpeed()->String {
+        if self.locationManager.location != nil {
+            return String(format: "%.4f", locationManager.location!.speed)
+        }
+        else{
+            return "0.0"
+        }
+    }
+    
+    func getSpeedAccuracy()->String {
+        if self.locationManager.location != nil {
+            return String(format: "%.4f", locationManager.location!.speedAccuracy)
         }
         else{
             return "0.0"
