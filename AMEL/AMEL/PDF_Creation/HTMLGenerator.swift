@@ -36,6 +36,7 @@ class HTMLGenerator {
             let itemHTML = getLogItem(eventFormatter: eventFormatter)
             self.logItems += itemHTML ?? ""
         }
+        addPage()
         return self.htmlPages
     }
     func pageShouldBeMade(index: Int)->Bool {
@@ -66,7 +67,7 @@ class HTMLGenerator {
             htmlContent = htmlContent.replacingOccurrences(of: "#TIME#", with: eventFormatter.getTime())
             htmlContent = htmlContent.replacingOccurrences(of: "#BOBR#", with: eventFormatter.getBoBR())
             htmlContent = htmlContent.replacingOccurrences(of: "#LAT_LNG#", with: eventFormatter.getLatLng())
-            htmlContent = htmlContent.replacingOccurrences(of: "#HEADING_COURSE#", with: eventFormatter.getHeading())
+            htmlContent = htmlContent.replacingOccurrences(of: "#HEADING_COURSE#", with: eventFormatter.getHeadingCourse())
             htmlContent = htmlContent.replacingOccurrences(of: "#ALT#", with: eventFormatter.getAltitude())
             htmlContent = htmlContent.replacingOccurrences(of: "#GROUNDSPEED#", with: eventFormatter.getGroundSpeed())
             return htmlContent

@@ -10,9 +10,6 @@ import CoreData
 import SwiftUI
 import UIKit
 
-
-
-
 struct EventFormatter{
     
     let event: Event
@@ -21,18 +18,17 @@ struct EventFormatter{
         if(event.name != nil){
            return event.name!
        }else{
-           return "Missile"
+           return ""
        }
     }
     
     func getTime()->String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .medium
+        formatter.dateFormat = "HH:mm:ss (dd-MMM-YY)"
         if(event.time != nil){
             return formatter.string(from: event.time!)
         }else{
-            return "Now"
+            return "error"
         }
     }
     
@@ -45,20 +41,17 @@ struct EventFormatter{
         }
     }
     
-    func getLongitude()->String{
-        if(event.longitude != nil){
-            return String(format: "W%.4f", event.longitude! as! Double)
-        }else{
-            return "66.65656"
-        }
-    }
     
     func getAltitude()->String{
         if(event.altitude != nil){
-            return String(format: "%.1f ft", event.altitude! as! Double)
+            let altitude =  String(format: "%d", Int(altToFeet(altMeters: event.altitude!)))
+            return "Altitude: " + altitude + "ft HAE"
         }else{
-            return "5000ft"
+            return "Altitude: unavailable"
         }
+    }
+    private func altToFeet(altMeters: NSNumber)->Double {
+        return Double(truncating: altMeters) * 3.2808
     }
     
     func getColor() -> Color {
@@ -83,18 +76,41 @@ struct EventFormatter{
         }
         return UIColor.blue
     }
-    func getHeading()->String{
-        if(event.magneticHeading != nil){
-            return String(format: "%.f ", event.magneticHeading! as! Double)
-        }else{
-            return "120"
+    func getHeadingCourse()->String {
+        if(event.magneticHeading != nil && event.course != nil) {
+            let heading = String(format: "%03d", Int(truncating: event.magneticHeading!))
+            let course: String
+            // only set course if it accurate, i.e it is positive
+            if Int(truncating: event.course!) >= 0 {
+                course = String(format: "%03d", Int(truncating: event.course!))
+            }
+            else {
+               course = "---"
+            }
+            
+            return "Heading/Course: " + heading + "°/" + course + "°"
+        }
+        else {
+            return "Heading/Course: Unavailable"
         }
     }
+    
     func getBoBR()->String {
         return "BoBR: 191/56 B/E rock 125"
     }
     func getGroundSpeed()->String {
-        return "543 nm/hr"
+        var groundSpeed = "Groundspeed: unavailable"
+        if event.speed != nil{
+            let speed = speedToNM(speedMPS: event.speed!)
+            // set speed only if it is accurate, i.e positive
+            if speed >= 0 {
+                groundSpeed = "Groundspeed: " + String(format: "%d", Int(speed)) + " nm/hr"
+            }
+        }
+        return groundSpeed
+    }
+    private func speedToNM(speedMPS: NSNumber)->Double {
+        return Double(truncating: speedMPS) * 1.94384449412
     }
     
     // gets hex color from UIColor for use in log

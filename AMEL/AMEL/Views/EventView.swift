@@ -9,95 +9,54 @@
 import SwiftUI
 
 struct EventView: View{
-    
-    init(event: EventFormattedForView){
-        self.currEvent = event
-    }
-    
-    var currEvent: EventFormattedForView
-    var name: String?
-    var time: Date?
-    var latitude: Double = 0
-    var longitude: Double = 0
-    var altitude: Double = 0
-    
+    let event: Event
     var body: some View {
-        let name = currEvent.getEventName()
-        let time = currEvent.getEventTime()
-        let truncatedLatitude = currEvent.getLatitude()
-        let truncatedLongitude = currEvent.getLongitude()
-        let truncatedAltitude = currEvent.getAltitude()
-        let heading = currEvent.getHeading()
-        let bobrLargeText = currEvent.getBobrLargeText()
-        let bobrSmallText = currEvent.getBobrSmallText()
-        let groundSpeed = currEvent.getGroundSpeed()
-        let color = currEvent.getColor()
-
-        return ZStack{
-                
+        let viewModel = EventFormatter(event: event)
+           return ZStack{
                 HStack{
-                    ZStack {
-                            
-                            RoundedRectangle(cornerRadius: 0)
-                               .fill(Color.blue)
-                                .frame(minHeight: 0, maxHeight: 150)
-                                .frame(minWidth: 0, maxWidth: 100)
-                        EventTitleBackground(name: name, color: color)
-                        .frame(minWidth:120, maxWidth: .infinity)
-                        .layoutPriority(1)
-
-                    }
-
-
+                    EventTitleBackground(name: viewModel.getName(), color: viewModel.getColor())
                     Spacer()
                     VStack(alignment: .leading){
-                        Text(time)
-                            .font(.title)
                         Spacer()
-                        Text("\(truncatedLatitude)  \(truncatedLongitude)")
-                            .font(.title)
+                        Text(viewModel.getTime())
+
+                        Spacer()
+                        Text(viewModel.getLatLng())
+
                         Spacer()
 
-                        Text("Altitude: \(truncatedAltitude)")
-                            .font(.title)
+                        Text(viewModel.getAltitude())
+
+                        Spacer()
 
                     }
-                    .layoutPriority(4)
                     .padding()
                     Spacer()
                     VStack(alignment: .leading){
-                        HStack{
-                            Text("BOBR: \(bobrLargeText)")
-                                .font(.title)
-                            Text(" \(bobrSmallText)")
-                                .font(.body)
-
-                        }
                         Spacer()
-                        Text("Heading | Course: \(heading) | \(heading)")
-                            .font(.title)
-                        Spacer()
-                        Text("Groundspeed: \(groundSpeed)")
-                            .font(.title)
+                        Text(viewModel.getBoBR())
 
+                        Spacer()
+                        Text(viewModel.getHeadingCourse())
+
+                        Spacer()
+                        Text(viewModel.getGroundSpeed())
+
+                        Spacer()
                     }
-                    .layoutPriority(4)
                     .padding()
                     Spacer()
                 }
-            RoundedRectangle(cornerRadius: CGFloat(10))
-                .stroke(Color.black, lineWidth: 8)
-                .frame(minHeight: 0, maxHeight: .infinity)
+                .font(.title)
+                Rectangle()
+                .stroke(Color.black, lineWidth: 5)
+           }
+           .background(Color("buttonBackGround"))
         }
-        .background(Color("buttonBackGround"))
-        .frame(minHeight: 0, maxHeight: .infinity)
-
-    }
 }
 
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        let event = EventViewModel.returnBlankEventForTesting()
-        return EventView(event: event)
+        return EventView(event: Event())
     }
 }

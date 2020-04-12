@@ -13,19 +13,16 @@ struct EventTitleBackground: View {
     var color: Color?
     
     var body: some View {
-        ZStack{
+        ZStack {
+            Rectangle()
+            .fill(self.color!)
+            .frame(width: 180)
+            .fixedSize(horizontal: true, vertical: false)
             
-            RoundedRectangle(cornerRadius: 0)
-                .fill(color!)
-
-        
-            Text(name!)
-                .font(.title)
-                .foregroundColor(Color.white)
-                .fixedSize()
+            Text(self.name!)
+            .font(.title)
+            .foregroundColor(Color.white)
         }
-
-
     }
 }
 
