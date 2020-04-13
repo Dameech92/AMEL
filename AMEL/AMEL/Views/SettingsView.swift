@@ -18,6 +18,7 @@ struct SettingsView: View {
 	
 	// retrieve stored userNumOfButtons from UserDefaults
 	@State private static var userNumOfButtons = UserDefaults.standard.integer(forKey: "numOfButtons")
+	
 	private let defaultButtonNames:[String] = ["Button 1", "Button 2", "Button 3", "Button 4", "Button 5", "Button 6", "Button 7", "Button 8", "Button 9", "Button 10"]
 	private let defaultButtonColorIndex:[Int] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	
@@ -32,18 +33,6 @@ struct SettingsView: View {
 //	let savedArray = UserDefaults.standard.array(forKey:"buttonNames") as? [String] ?? [String]()
 	
 	init() {
-//		if self.settingsViewModel.enabled {
-//
-//		}
-		let newUserSetting = UserSetting(context: managedObjectContext)
-		if newUserSetting.initialSetup == nil {
-			newUserSetting.initialSetup = true
-			do {
-				try self.managedObjectContext.save()
-			} catch {
-				print(error)
-			}
-		}
 		if !self.firstTimeSetupWasPerformed {
 			print("No custom user settings found. Performing first time setup.")
 
