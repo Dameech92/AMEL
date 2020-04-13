@@ -9,45 +9,42 @@
 import SwiftUI
 
 struct SettingsView: View {
-	@ObservedObject var settingsViewModel = SettingsViewModel()
+//	@ObservedObject var settingsViewModel = SettingsViewModel()
 	
-//	@FetchRequest(fetchRequest: UserSetting.getUserSettings()) var userSetting:FetchedResults<UserSetting>
+//	@FetchRequest(fetchRequest: UserSetting.getUserSettings()) var userSettings:FetchedResults<UserSetting>
 //	@Environment(\.managedObjectContext) var managedObjectContext
 	
-	@State private var newUserSetting = ""
+//	@State private var newUserSetting = ""
 	
-	@ObservedObject var userSettings = UserSetting()
+	@EnvironmentObject var userSettings:UserSetting
 	// retrieve stored userNumOfButtons from UserDefaults
 	@State public var userNumOfButtons = UserDefaults.standard.integer(forKey: "numOfButtons")
 	
+//	@ObservedObject var textBindingManager = TextBindingManager()
+	
 	private let defaultButtonNames:[String] = ["Button 1", "Button 2", "Button 3", "Button 4", "Button 5", "Button 6", "Button 7", "Button 8", "Button 9", "Button 10"]
-	private let defaultButtonColorIndex:[Int] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+//	private let defaultButtonColorIndex:[Int] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	
 	// Cast the array of type [Any]? to [String] using: "as? [String] ?? [String]()"
-	@State private var buttonNames = UserDefaults.standard.array(forKey: "buttonNames") as? [String] ?? [String]()
+//	@State private var buttonNames = UserDefaults.standard.array(forKey: "buttonNames") as? [String] ?? [String]()
 	
 	public var colors = ["Red", "Green", "Blue"]
-	@State private var buttonColorIndex = UserDefaults.standard.array(forKey: "buttonColorIndex") as? [Int] ?? [Int]()
-	
-	@State private var firstTimeSetupWasPerformed = UserDefaults.standard.bool(forKey: "initialSetup")
+//	@State private var buttonColorIndex = UserDefaults.standard.array(forKey: "buttonColorIndex") as? [Int] ?? [Int]()
 	
 //	let savedArray = UserDefaults.standard.array(forKey:"buttonNames") as? [String] ?? [String]()
 	
-	init() {
-		if !self.firstTimeSetupWasPerformed {
-			print("No custom user settings found. Performing first time setup.")
-
-			UserDefaults.standard.set(self.defaultButtonNames, forKey: "buttonNames")
-			UserDefaults.standard.set(self.defaultButtonColorIndex, forKey: "buttonColorIndex")
-			UserDefaults.standard.set(true, forKey: "initialSetup")
-			
-//			Toggle(isOn: self.$settingsViewModel.enabled) {
-//				Text("asd")
-//			}.fixedSize()
-		} else {
-			print("Custom user settings found.")
-		}
-	}
+//	init() {
+//		if !self.userSettings.firstTimeSetupWasPerformed {
+//			print("No custom user settings found. Performing first time setup.")
+//
+//			UserDefaults.standard.set(self.defaultButtonNames, forKey: "buttonNames")
+//			UserDefaults.standard.set(self.defaultButtonColorIndex, forKey: "buttonColorIndex")
+//			UserDefaults.standard.set(true, forKey: "initialSetup")
+//
+//		} else {
+//			print("Custom user settings found.")
+//		}
+//	}
 	
     var body: some View {
 		ZStack {
@@ -132,7 +129,7 @@ struct SettingsView: View {
 						// Hardcoded. Subject to change.
 //						else {
 							Section {
-								Picker(selection: self.$userSettings.colorIndexes[0], label: Text("\(self.userSettings.buttonNames[0])")) {
+								Picker(selection: self.$userSettings.colorIndexes[0], label: Text("Button")) {
 									LabelTextField()
 									
 									ForEach(0 ..< colors.count) {
@@ -159,7 +156,7 @@ struct SettingsView: View {
 								}
 							}
 							Section {
-								Picker(selection: $buttonColorIndex[3], label: Text("Button 4")) {
+								Picker(selection: self.$userSettings.colorIndexes[3], label: Text("Button 4")) {
 									LabelTextField()
 									
 									ForEach(0 ..< colors.count) {
@@ -168,7 +165,7 @@ struct SettingsView: View {
 								}
 							}
 							Section {
-								Picker(selection: $buttonColorIndex[4], label: Text("Button 5")) {
+								Picker(selection: self.$userSettings.colorIndexes[4], label: Text("Button 5")) {
 									LabelTextField()
 									
 									ForEach(0 ..< colors.count) {
@@ -177,7 +174,7 @@ struct SettingsView: View {
 								}
 							}
 							Section {
-								Picker(selection: $buttonColorIndex[5], label: Text("Button 6")) {
+								Picker(selection: self.$userSettings.colorIndexes[5], label: Text("Button 6")) {
 									LabelTextField()
 									
 									ForEach(0 ..< colors.count) {
