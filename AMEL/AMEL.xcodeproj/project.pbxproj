@@ -12,6 +12,7 @@
 		1F944148240E193600E3F633 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944147240E193600E3F633 /* ButtonAction.swift */; };
 		1F9FABD024158555002FF99B /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FABCF24158555002FF99B /* RecordView.swift */; };
 		310AE7A4243E632800796D11 /* PrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310AE7A3243E632800796D11 /* PrintPageRenderer.swift */; };
+		313061F12445250000876981 /* DataTextColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F02445250000876981 /* DataTextColumn.swift */; };
 		31757AA32415B64700A92EF8 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31757AA22415B64700A92EF8 /* LogView.swift */; };
 		318DA70424059EC6007D79B6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DA70324059EC6007D79B6 /* LocationManager.swift */; };
 		318DA7062405A84A007D79B6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DA7052405A84A007D79B6 /* Event.swift */; };
@@ -91,6 +92,7 @@
 		1F944147240E193600E3F633 /* ButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
 		1F9FABCF24158555002FF99B /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		310AE7A3243E632800796D11 /* PrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintPageRenderer.swift; sourceTree = "<group>"; };
+		313061F02445250000876981 /* DataTextColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTextColumn.swift; sourceTree = "<group>"; };
 		31757AA22415B64700A92EF8 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		318DA70324059EC6007D79B6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		318DA7052405A84A007D79B6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */,
 				318DA7072405B1F9007D79B6 /* EventView.swift */,
 				31757AA22415B64700A92EF8 /* LogView.swift */,
+				313061F02445250000876981 /* DataTextColumn.swift */,
 				1F9FABCF24158555002FF99B /* RecordView.swift */,
 				31B4DF742415C91B00C567E7 /* SettingsView.swift */,
 			);
@@ -512,6 +515,7 @@
 				31E860592415F6EE00B4BAE6 /* ContentView.swift in Sources */,
 				5A23230D2416ED2F0055BAF8 /* EventViewModel.swift in Sources */,
 				318DA7062405A84A007D79B6 /* Event.swift in Sources */,
+				313061F12445250000876981 /* DataTextColumn.swift in Sources */,
 				31C6FD1B243E781B007F677F /* ShareSheet.swift in Sources */,
 				5A23230F2416EDC50055BAF8 /* EventTitleBackground.swift in Sources */,
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
