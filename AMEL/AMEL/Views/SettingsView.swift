@@ -11,13 +11,14 @@ import SwiftUI
 struct SettingsView: View {
 	@ObservedObject var settingsViewModel = SettingsViewModel()
 	
-	@FetchRequest(fetchRequest: UserSetting.getUserSettings()) var userSetting:FetchedResults<UserSetting>
-	@Environment(\.managedObjectContext) var managedObjectContext
+//	@FetchRequest(fetchRequest: UserSetting.getUserSettings()) var userSetting:FetchedResults<UserSetting>
+//	@Environment(\.managedObjectContext) var managedObjectContext
 	
 	@State private var newUserSetting = ""
 	
+	@ObservedObject var userSettings = UserSetting()
 	// retrieve stored userNumOfButtons from UserDefaults
-	@State private static var userNumOfButtons = UserDefaults.standard.integer(forKey: "numOfButtons")
+	@State public var userNumOfButtons = UserDefaults.standard.integer(forKey: "numOfButtons")
 	
 	private let defaultButtonNames:[String] = ["Button 1", "Button 2", "Button 3", "Button 4", "Button 5", "Button 6", "Button 7", "Button 8", "Button 9", "Button 10"]
 	private let defaultButtonColorIndex:[Int] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -55,16 +56,16 @@ struct SettingsView: View {
 			VStack {
 				
 				// ADD/REMOVE BUTTONS HERE FOR TESTING RIGHT NOW. SUBJECT TO CHANGE.
-				Text("Number of buttons: \(SettingsView.self.userNumOfButtons)")
+				Text("Number of buttons: \(self.userSettings.numOfButtons)")
 				HStack {
 					// adds a new button to the record events page
 					Button(action: {
-//						SettingsView.self.userNumOfButtons += 1
-						UserDefaults.standard.set(SettingsView.self.userNumOfButtons + 1, forKey: "numOfButtons")
+						self.userSettings.numOfButtons += 1
+//						UserDefaults.standard.set(self.numOfButtons.numOfButtons + 1, forKey: "numOfButtons")
 						
 					}) {
 						VStack {
-							Text("Add new button")
+							Text("Add new button").foregroundColor(.primary)
 //							Text("array length: \(self.buttonNames.count)")
 							Image(systemName: "plus.square.fill")
 						}
@@ -74,11 +75,15 @@ struct SettingsView: View {
 					
 					// removes a button from the record events page
 					Button(action: {
-						SettingsView.self.userNumOfButtons -= 1
-						UserDefaults.standard.set(SettingsView.self.userNumOfButtons, forKey: "numOfButtons")
+						if self.userSettings.numOfButtons > 0 {
+							self.userSettings.numOfButtons -= 1
+						} else {
+							print("cannot have less than 1 button")
+						}
+//						UserDefaults.standard.set(self.userNumOfButtons, forKey: "numOfButtons")
 					}) {
 						VStack {
-							Text("Remove button")
+							Text("Remove button").foregroundColor(.primary)
 							Image(systemName: "minus.square.fill")
 						}
 					}
@@ -86,31 +91,31 @@ struct SettingsView: View {
 				
 				// Temporary function that renames all of the stores button names.
 				Button(action: {
-					for i in 0...9 {
-						print("\(self.buttonNames[i])")
-						self.buttonNames[i] = "Button \(i)"
-						print("\(self.buttonNames[i])")
+					for i in 0...self.userSettings.numOfButtons - 1 {
+						print("\(self.userSettings.buttonNames[i])")
+						self.userSettings.buttonNames[i] = "Button \(i)"
+						print("\(self.userSettings.buttonNames[i])")
 					}
-					UserDefaults.standard.set(self.buttonNames, forKey: "buttonNames")
 				}) {
 					Image(systemName: "textbox")
-				}
+				}.padding(10)
 				
 				// Temporary function that prints out all of the stored button names.
 				Button(action: {
-					for i in 0...9 {
-						print(self.buttonNames[i])
+					for i in 0...self.userSettings.numOfButtons - 1 {
+						print(self.userSettings.buttonNames[i])
 					}
+					print()
 				}) {
 					Image(systemName: "textformat.abc")
-				}
+				}.padding(10)
 				
 				Divider()
 				
 				NavigationView {
 					Form {
-//						if SettingsView.self.userNumOfButtons > 0 {
-//							ForEach(0 ..< SettingsView.self.userNumOfButtons) {_ in
+//						if self.userNumOfButtons > 0 {
+//							ForEach(0 ..< self.userNumOfButtons) {_ in
 //								Section {
 //									// $buttonColorIndex is the button identifier (button 1, button 2, button ...)
 //									Picker(selection: self.$buttonColorIndex[, label: Text("Button 1")) {
@@ -127,7 +132,7 @@ struct SettingsView: View {
 						// Hardcoded. Subject to change.
 //						else {
 							Section {
-								Picker(selection: self.$buttonColorIndex[0], label: Text("Button 1")) {
+								Picker(selection: self.$userSettings.colorIndexes[0], label: Text("\(self.userSettings.buttonNames[0])")) {
 									LabelTextField()
 									
 									ForEach(0 ..< colors.count) {
@@ -136,7 +141,7 @@ struct SettingsView: View {
 								}
 							}
 							Section {
-								Picker(selection: $buttonColorIndex[1], label: Text("Button 2")) {
+								Picker(selection: self.$userSettings.colorIndexes[1], label: Text("Button 2")) {
 									LabelTextField()
 									
 									ForEach(0 ..< colors.count) {
@@ -145,7 +150,7 @@ struct SettingsView: View {
 								}
 							}
 							Section {
-								Picker(selection: $buttonColorIndex[2], label: Text("Button 3")) {
+								Picker(selection: self.$userSettings.colorIndexes[2], label: Text("Button 3")) {
 									LabelTextField()
 									
 									ForEach(0 ..< colors.count) {
@@ -187,7 +192,7 @@ struct SettingsView: View {
 		}
 	}
 	
-	public static func getNumOfButtons() -> Int {
+	public func getNumOfButtons() -> Int {
 		return self.userNumOfButtons
 	}
 }

@@ -7,19 +7,10 @@
 //
 
 import Foundation
-import CoreData
 
-public class UserSetting: NSManagedObject, Identifiable {
-	@NSManaged public var buttonNames: [String]?
-	@NSManaged public var initialSetup: NSNumber?
-}
-extension UserSetting {
-    static func getUserSettings() -> NSFetchRequest<UserSetting> {
-        let request: NSFetchRequest<UserSetting> = UserSetting.fetchRequest() as! NSFetchRequest<UserSetting>
-        let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
-        request.sortDescriptors = [sortDescriptor]
-        return request
-    }
-    
-
+public class UserSetting: ObservableObject {
+//	private let characterLimit = 14
+	@Published var numOfButtons = 6
+	@Published var colorIndexes = [0, 0, 0, 0, 0, 0]
+	@Published var buttonNames = ["Button 1","Button 2","Button 3","Button 4","Button 5","Button 6"]
 }

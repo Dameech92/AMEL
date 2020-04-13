@@ -10,14 +10,15 @@ import Foundation
 import SwiftUI
 
 struct LabelTextField: View {
-	@State var buttonName = "Button"
+//	@State var buttonName = "Button"
 	@ObservedObject var textBindingManager = TextBindingManager()
+	@ObservedObject var userSettings = UserSetting()
 	
 	var body: some View {
 		VStack(alignment: .leading) {
 			Text("Button name")
 				.font(.headline)
-			TextField("buttonName", text: $textBindingManager.text)
+			TextField("Enter button name", text: self.$userSettings.buttonNames[0])
 				.padding(.all)
 				.background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/25))
 		}
