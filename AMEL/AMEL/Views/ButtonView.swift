@@ -30,10 +30,8 @@ struct ButtonView: View {
             .font(.largeTitle)
             .padding(10)
             .foregroundColor(.primary)
-                .background(Color(self.color))
+            .background(Color(self.color))
             .cornerRadius(40)
-            //.padding(20)
-            //.overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.gray,lineWidth: 6))
             
         }.padding()
     }

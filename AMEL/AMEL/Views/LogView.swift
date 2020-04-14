@@ -17,6 +17,11 @@ struct LogView: View {
             HStack {
                 ClearAllButton()
                 Spacer()
+                Text("Event Log")
+                    .font(.title)
+                    .bold()
+                    .padding()
+                Spacer()
                 ShareButton()
             }
             Spacer()
