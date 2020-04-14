@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
 
 class TextBindingManager : ObservableObject {
 	private let characterLimit = 14

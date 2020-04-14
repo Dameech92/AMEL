@@ -9,42 +9,9 @@
 import SwiftUI
 
 struct SettingsView: View {
-//	@ObservedObject var settingsViewModel = SettingsViewModel()
-	
-//	@FetchRequest(fetchRequest: UserSetting.getUserSettings()) var userSettings:FetchedResults<UserSetting>
-//	@Environment(\.managedObjectContext) var managedObjectContext
-	
-//	@State private var newUserSetting = ""
-	
 	@EnvironmentObject var userSettings:UserSetting
-	// retrieve stored userNumOfButtons from UserDefaults
-	@State public var userNumOfButtons = UserDefaults.standard.integer(forKey: "numOfButtons")
-	
-//	@ObservedObject var textBindingManager = TextBindingManager()
-	
-	private let defaultButtonNames:[String] = ["Button 1", "Button 2", "Button 3", "Button 4", "Button 5", "Button 6", "Button 7", "Button 8", "Button 9", "Button 10"]
-//	private let defaultButtonColorIndex:[Int] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-	
-	// Cast the array of type [Any]? to [String] using: "as? [String] ?? [String]()"
-//	@State private var buttonNames = UserDefaults.standard.array(forKey: "buttonNames") as? [String] ?? [String]()
-	
-	public var colors = ["Red", "Green", "Blue"]
-//	@State private var buttonColorIndex = UserDefaults.standard.array(forKey: "buttonColorIndex") as? [Int] ?? [Int]()
-	
-//	let savedArray = UserDefaults.standard.array(forKey:"buttonNames") as? [String] ?? [String]()
-	
-//	init() {
-//		if !self.userSettings.firstTimeSetupWasPerformed {
-//			print("No custom user settings found. Performing first time setup.")
-//
-//			UserDefaults.standard.set(self.defaultButtonNames, forKey: "buttonNames")
-//			UserDefaults.standard.set(self.defaultButtonColorIndex, forKey: "buttonColorIndex")
-//			UserDefaults.standard.set(true, forKey: "initialSetup")
-//
-//		} else {
-//			print("Custom user settings found.")
-//		}
-//	}
+	private let colors = ["Red", "Green", "Blue"]
+	private let chars = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()1234567890"
 	
     var body: some View {
 		ZStack {
@@ -54,16 +21,16 @@ struct SettingsView: View {
 				
 				// ADD/REMOVE BUTTONS HERE FOR TESTING RIGHT NOW. SUBJECT TO CHANGE.
 				Text("Number of buttons: \(self.userSettings.numOfButtons)")
+				Text("Color index for button 1: \(self.userSettings.colorIndexes[0])")
 				HStack {
 					// adds a new button to the record events page
 					Button(action: {
-						self.userSettings.numOfButtons += 1
-//						UserDefaults.standard.set(self.numOfButtons.numOfButtons + 1, forKey: "numOfButtons")
-						
+						UserDefaults.standard.set(self.userSettings.numOfButtons + 1, forKey: "numOfButtons")
+						self.userSettings.buttonNames.append("New Button")
 					}) {
 						VStack {
 							Text("Add new button").foregroundColor(.primary)
-//							Text("array length: \(self.buttonNames.count)")
+							Text("array length: \(self.userSettings.buttonNames.count)")
 							Image(systemName: "plus.square.fill")
 						}
 					}
@@ -72,12 +39,12 @@ struct SettingsView: View {
 					
 					// removes a button from the record events page
 					Button(action: {
-						if self.userSettings.numOfButtons > 0 {
-							self.userSettings.numOfButtons -= 1
+						if self.userSettings.numOfButtons > 1 {
+							self.userSettings.buttonNames.remove(at: self.userSettings.numOfButtons - 1)
+							UserDefaults.standard.set(self.userSettings.numOfButtons - 1, forKey: "numOfButtons")
 						} else {
 							print("cannot have less than 1 button")
 						}
-//						UserDefaults.standard.set(self.userNumOfButtons, forKey: "numOfButtons")
 					}) {
 						VStack {
 							Text("Remove button").foregroundColor(.primary)
@@ -86,7 +53,7 @@ struct SettingsView: View {
 					}
 				}.frame(height:60)
 				
-				// Temporary function that renames all of the stores button names.
+				// Temporary function that renames all of the stored button names.
 				Button(action: {
 					for i in 0...self.userSettings.numOfButtons - 1 {
 						print("\(self.userSettings.buttonNames[i])")
@@ -111,105 +78,63 @@ struct SettingsView: View {
 				
 				NavigationView {
 					Form {
-//						if self.userNumOfButtons > 0 {
-//							ForEach(0 ..< self.userNumOfButtons) {_ in
-//								Section {
-//									// $buttonColorIndex is the button identifier (button 1, button 2, button ...)
-//									Picker(selection: self.$buttonColorIndex[, label: Text("Button 1")) {
-//										LabelTextField()
-//
-//										ForEach(0 ..< self.colors.count) {
-//											Text(self.colors[$0]).tag($0) // tag = key
-//										}
-//									}
-//								}
-//							}
-//						}
-						
-						// Hardcoded. Subject to change.
-//						else {
-							Section {
-								Picker(selection: self.$userSettings.colorIndexes[0], label: Text("Button")) {
-									LabelTextField()
+						Section {
+							Picker(selection: self.$userSettings.colorIndexes[0], label: Text("\(self.userSettings.buttonNames[0])")) {
+								LabelTextField(0)
 									
-									ForEach(0 ..< colors.count) {
-										Text(self.colors[$0]).tag($0)
-									}
+								ForEach(0 ..< self.userSettings.colors.count) {
+									Text(self.userSettings.colors[$0]).tag($0)
 								}
 							}
-							Section {
-								Picker(selection: self.$userSettings.colorIndexes[1], label: Text("Button 2")) {
-									LabelTextField()
-									
-									ForEach(0 ..< colors.count) {
-										Text(self.colors[$0]).tag($0)
-									}
+						}
+						Section {
+							Picker(selection: self.$userSettings.colorIndexes[1], label: Text("\(self.userSettings.buttonNames[1])")) {
+								LabelTextField(1)
+								
+								ForEach(0 ..< colors.count) {
+									Text(self.colors[$0]).tag($0)
 								}
 							}
-							Section {
-								Picker(selection: self.$userSettings.colorIndexes[2], label: Text("Button 3")) {
-									LabelTextField()
-									
-									ForEach(0 ..< colors.count) {
-										Text(self.colors[$0]).tag($0)
-									}
+						}
+						Section {
+							Picker(selection: self.$userSettings.colorIndexes[2], label: Text("\(self.userSettings.buttonNames[2])")) {
+								LabelTextField(2)
+								
+								ForEach(0 ..< colors.count) {
+									Text(self.colors[$0]).tag($0)
 								}
 							}
-							Section {
-								Picker(selection: self.$userSettings.colorIndexes[3], label: Text("Button 4")) {
-									LabelTextField()
-									
-									ForEach(0 ..< colors.count) {
-										Text(self.colors[$0]).tag($0)
-									}
+						}
+						Section {
+							Picker(selection: self.$userSettings.colorIndexes[3], label: Text("\(self.userSettings.buttonNames[3])")) {
+								LabelTextField(3)
+								
+								ForEach(0 ..< colors.count) {
+									Text(self.colors[$0]).tag($0)
 								}
 							}
-							Section {
-								Picker(selection: self.$userSettings.colorIndexes[4], label: Text("Button 5")) {
-									LabelTextField()
-									
-									ForEach(0 ..< colors.count) {
-										Text(self.colors[$0]).tag($0)
-									}
+						}
+						Section {
+							Picker(selection: self.$userSettings.colorIndexes[4], label: Text("\(self.userSettings.buttonNames[4])")) {
+								LabelTextField(4)
+								
+								ForEach(0 ..< colors.count) {
+									Text(self.colors[$0]).tag($0)
 								}
 							}
-							Section {
-								Picker(selection: self.$userSettings.colorIndexes[5], label: Text("Button 6")) {
-									LabelTextField()
-									
-									ForEach(0 ..< colors.count) {
-										Text(self.colors[$0]).tag($0)
-									}
+						}
+						Section {
+							Picker(selection: self.$userSettings.colorIndexes[5], label: Text("\(self.userSettings.buttonNames[5])")) {
+								LabelTextField(5)
+								
+								ForEach(0 ..< colors.count) {
+									Text(self.colors[$0]).tag($0)
 								}
 							}
-//						}
+						}
 					}.navigationBarTitle(Text("Button List"))
 				}
 			}
-		}
-	}
-	
-	public func getNumOfButtons() -> Int {
-		return self.userNumOfButtons
-	}
-}
-
-// Back button. Has no purpose right now.
-struct buttonView: View {
-	var image = ""
-	var name = ""
-	var body: some View {
-		Button(action: {
-			
-		}) {
-			HStack {
-				Image(image).renderingMode(.original).resizable().frame(width: 40, height: 40)
-				Text(name)
-				
-				Spacer(minLength: 15)
-				
-				Image(systemName: "chevron.right")
-			}.padding().foregroundColor(Color.black.opacity(0.5))
 		}
 	}
 }

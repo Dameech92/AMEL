@@ -14,7 +14,6 @@
 		1F9FABD024158555002FF99B /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FABCF24158555002FF99B /* RecordView.swift */; };
 		1FA7B27424418D8500ABD3BF /* CustomizableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA7B27324418D8500ABD3BF /* CustomizableButton.swift */; };
 		1FA7B2782442AC8400ABD3BF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA7B2772442AC8400ABD3BF /* SettingsViewModel.swift */; };
-		1FA7B27A2442B88C00ABD3BF /* TextBindingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA7B2792442B88C00ABD3BF /* TextBindingManager.swift */; };
 		1FA7B2842442C7B100ABD3BF /* LabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA7B2832442C7B100ABD3BF /* LabelTextField.swift */; };
 		310AE7A4243E632800796D11 /* PrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310AE7A3243E632800796D11 /* PrintPageRenderer.swift */; };
 		31757AA32415B64700A92EF8 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31757AA22415B64700A92EF8 /* LogView.swift */; };
@@ -98,7 +97,6 @@
 		1F9FABCF24158555002FF99B /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		1FA7B27324418D8500ABD3BF /* CustomizableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizableButton.swift; sourceTree = "<group>"; };
 		1FA7B2772442AC8400ABD3BF /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		1FA7B2792442B88C00ABD3BF /* TextBindingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBindingManager.swift; sourceTree = "<group>"; };
 		1FA7B2832442C7B100ABD3BF /* LabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextField.swift; sourceTree = "<group>"; };
 		310AE7A3243E632800796D11 /* PrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintPageRenderer.swift; sourceTree = "<group>"; };
 		31757AA22415B64700A92EF8 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 				5A23230C2416ED2F0055BAF8 /* EventViewModel.swift */,
 				1F2962022416E41400BBC97F /* HeadingViewModel.swift */,
 				1F2962042416E41E00BBC97F /* LocationViewModel.swift */,
-				1FA7B2792442B88C00ABD3BF /* TextBindingManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -510,7 +507,6 @@
 			files = (
 				1F2962052416E41E00BBC97F /* LocationViewModel.swift in Sources */,
 				1F2962032416E41400BBC97F /* HeadingViewModel.swift in Sources */,
-				1FA7B27A2442B88C00ABD3BF /* TextBindingManager.swift in Sources */,
 				4CED17592404851200E6D4F6 /* logLocation.xcdatamodeld in Sources */,
 				1FA7B2842442C7B100ABD3BF /* LabelTextField.swift in Sources */,
 				1FA7B27424418D8500ABD3BF /* CustomizableButton.swift in Sources */,
