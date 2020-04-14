@@ -14,6 +14,7 @@ struct RecordView: View {
              Color("stealth").edgesIgnoringSafeArea(.all)
              VStack{
                 LiveDataView()
+                Divider()
                 HStack{
                  VStack{
                     ButtonView(name: "Bomb", color: UIColor.blue)

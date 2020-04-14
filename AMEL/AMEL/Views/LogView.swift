@@ -25,6 +25,7 @@ struct LogView: View {
                 ShareButton()
             }
             Spacer()
+            Divider()
             LogListView()
         }
     }

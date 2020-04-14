@@ -24,10 +24,10 @@ struct LiveDataView: View {
             Spacer()
             Text(locationVM.getGroundSpeed())
             Spacer()
-        }.frame(height: 100)
-        .background(Color.gray)
-        .cornerRadius(20)
+        }
         .padding()
+        .lineLimit(2)
+        .minimumScaleFactor(0.5)
     }
 }
 
