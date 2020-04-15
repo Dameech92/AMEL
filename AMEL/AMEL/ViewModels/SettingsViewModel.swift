@@ -7,11 +7,23 @@
 //
 
 import Foundation
+import CoreData
+import SwiftUI
+import UIKit
 
 class SettingsViewModel: ObservableObject {
-	@Published var enabled:Bool = UserDefaults.standard.bool(forKey: "enabled") {
-		didSet {
-			UserDefaults.standard.set(self.enabled, forKey: "enabled")
-		}
-	}
+    @FetchRequest(fetchRequest: CustomButton.getCustomButton()) var buttons:FetchedResults<CustomButton>
+
+    func getCustomButtons(buttons:FetchedResults<CustomButton>)->Array<CustomButton>{
+            var customButtons: [CustomButton] = []
+            buttons.forEach { (buttonData) in
+                customButtons.append(buttonData)
+            }
+        
+            return customButtons
+    }
+
+    func saveCustomButtons(buttons:Array<CustomButton>){
+    
+    }
 }

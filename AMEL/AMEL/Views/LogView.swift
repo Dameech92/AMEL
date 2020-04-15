@@ -12,6 +12,7 @@ struct LogView: View {
     @State private var showShareSheet = false
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
     @Environment(\.managedObjectContext) var managedObjectContext
+    
     var body: some View {
         let viewModel = EventViewModel(context :managedObjectContext)
         let FormattedEvents: [EventFormattedForView] = viewModel.GetAllFormattedEvents(events: events)
