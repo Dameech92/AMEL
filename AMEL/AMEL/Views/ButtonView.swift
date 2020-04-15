@@ -13,6 +13,7 @@ struct ButtonView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     private var name:String
     private var color:UIColor
+	
     init(name:String, color: UIColor) {
         self.name = name
         self.color = color
@@ -24,7 +25,7 @@ struct ButtonView: View {
 			let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
 			ButtonAction.logEvent(newEvent, self.name, self.color, self.managedObjectContext)
 		}) {
-//			CustomizableButton(self.name, self.color)
+//			CustomButton(self.name, self.color)
 //				.frame(minWidth: 0, maxWidth: .infinity)
 //				.frame(minHeight: 0, maxHeight:.infinity)
 //				.font(.largeTitle)

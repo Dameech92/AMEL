@@ -12,11 +12,13 @@ struct SettingsView: View {
 	@EnvironmentObject var userSettings:UserSetting
 	private let colors = ["Red", "Green", "Blue"]
 	
+	@Environment(\.managedObjectContext) var managedObjectContext
+	
     var body: some View {
 		ZStack {
 			Color("stealth").edgesIgnoringSafeArea(.all)
 			
-			VStack {
+			VStack(alignment: .leading) {
 				
 				// ADD/REMOVE BUTTONS HERE FOR TESTING RIGHT NOW. SUBJECT TO CHANGE.
 				Text("Number of buttons: \(self.userSettings.numOfButtons)")
@@ -50,6 +52,10 @@ struct SettingsView: View {
 							Image(systemName: "minus.square.fill")
 						}
 					}
+					
+					
+					
+					
 				}.frame(height:60)
 				
 				// Temporary function that renames all of the stored button names.
