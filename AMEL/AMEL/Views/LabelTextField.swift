@@ -12,6 +12,7 @@ import SwiftUI
 struct LabelTextField: View {
 	@EnvironmentObject var userSettings:UserSetting
 	@State public var buttonNameIndex = 0
+	@State private var text = ""
 	
 	init(_ buttonNameIndex: Int) {
 		self.buttonNameIndex = buttonNameIndex
@@ -21,7 +22,7 @@ struct LabelTextField: View {
 		VStack(alignment: .leading) {
 			Text("Button name")
 				.font(.headline)
-			TextField("Enter button name", text: self.$userSettings.buttonNames[self.buttonNameIndex])
+			TextField("Enter button name", text: self.$text)
 			.padding(.all)
 			.background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/25))
 		}

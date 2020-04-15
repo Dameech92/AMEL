@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E266" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CustomButton" representedClassName=".UserSetting" syncable="YES">
+        <attribute name="buttonColor" optional="YES" attributeType="Transformable"/>
+        <attribute name="buttonName" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Event" representedClassName=".Event" syncable="YES">
         <attribute name="altitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="attribute" optional="YES"/>
         <attribute name="color" optional="YES" attributeType="Transformable"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -9,13 +14,8 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
-    <entity name="UserSetting" representedClassName=".UserSetting" syncable="YES">
-        <attribute name="buttonNames" optional="YES" attributeType="Transformable"/>
-        <attribute name="colorIndexes" optional="YES" attributeType="Transformable"/>
-        <attribute name="numOfButtons" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-    </entity>
     <elements>
-        <element name="Event" positionX="-63" positionY="-18" width="128" height="148"/>
-        <element name="UserSetting" positionX="104.453125" positionY="7.68359375" width="128" height="88"/>
+        <element name="Event" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="CustomButton" positionX="104.453125" positionY="7.68359375" width="128" height="73"/>
     </elements>
 </model>

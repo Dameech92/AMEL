@@ -11,7 +11,6 @@ import SwiftUI
 struct SettingsView: View {
 	@EnvironmentObject var userSettings:UserSetting
 	private let colors = ["Red", "Green", "Blue"]
-	private let chars = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()1234567890"
 	
     var body: some View {
 		ZStack {
@@ -26,7 +25,7 @@ struct SettingsView: View {
 					// adds a new button to the record events page
 					Button(action: {
 						UserDefaults.standard.set(self.userSettings.numOfButtons + 1, forKey: "numOfButtons")
-						self.userSettings.buttonNames.append("New Button")
+						self.userSettings.buttonNames.append(CustomButton("New Button", UIColor.blue))
 					}) {
 						VStack {
 							Text("Add new button").foregroundColor(.primary)
@@ -56,9 +55,9 @@ struct SettingsView: View {
 				// Temporary function that renames all of the stored button names.
 				Button(action: {
 					for i in 0...self.userSettings.numOfButtons - 1 {
-						print("\(self.userSettings.buttonNames[i])")
-						self.userSettings.buttonNames[i] = "Button \(i)"
-						print("\(self.userSettings.buttonNames[i])")
+						print("\(self.userSettings.buttonNames[i].getButtonName())")
+						self.userSettings.buttonNames[i].setButtonName("Button \(i)")
+						print("\(self.userSettings.buttonNames[i].getButtonName())")
 					}
 				}) {
 					Image(systemName: "textbox")
@@ -67,7 +66,7 @@ struct SettingsView: View {
 				// Temporary function that prints out all of the stored button names.
 				Button(action: {
 					for i in 0...self.userSettings.numOfButtons - 1 {
-						print(self.userSettings.buttonNames[i])
+						print(self.userSettings.buttonNames[i].getButtonName())
 					}
 					print()
 				}) {
@@ -79,7 +78,7 @@ struct SettingsView: View {
 				NavigationView {
 					Form {
 						Section {
-							Picker(selection: self.$userSettings.colorIndexes[0], label: Text("\(self.userSettings.buttonNames[0])")) {
+							Picker(selection: self.$userSettings.colorIndexes[0], label: Text("\(self.userSettings.buttonNames[0].getButtonName())")) {
 								LabelTextField(0)
 									
 								ForEach(0 ..< self.userSettings.colors.count) {
@@ -88,7 +87,7 @@ struct SettingsView: View {
 							}
 						}
 						Section {
-							Picker(selection: self.$userSettings.colorIndexes[1], label: Text("\(self.userSettings.buttonNames[1])")) {
+							Picker(selection: self.$userSettings.colorIndexes[1], label: Text("\(self.userSettings.buttonNames[1].getButtonName())")) {
 								LabelTextField(1)
 								
 								ForEach(0 ..< colors.count) {
@@ -97,7 +96,7 @@ struct SettingsView: View {
 							}
 						}
 						Section {
-							Picker(selection: self.$userSettings.colorIndexes[2], label: Text("\(self.userSettings.buttonNames[2])")) {
+							Picker(selection: self.$userSettings.colorIndexes[2], label: Text("\(self.userSettings.buttonNames[2].getButtonName())")) {
 								LabelTextField(2)
 								
 								ForEach(0 ..< colors.count) {
@@ -106,7 +105,7 @@ struct SettingsView: View {
 							}
 						}
 						Section {
-							Picker(selection: self.$userSettings.colorIndexes[3], label: Text("\(self.userSettings.buttonNames[3])")) {
+							Picker(selection: self.$userSettings.colorIndexes[3], label: Text("\(self.userSettings.buttonNames[3].getButtonName())")) {
 								LabelTextField(3)
 								
 								ForEach(0 ..< colors.count) {
@@ -115,7 +114,7 @@ struct SettingsView: View {
 							}
 						}
 						Section {
-							Picker(selection: self.$userSettings.colorIndexes[4], label: Text("\(self.userSettings.buttonNames[4])")) {
+							Picker(selection: self.$userSettings.colorIndexes[4], label: Text("\(self.userSettings.buttonNames[4].getButtonName())")) {
 								LabelTextField(4)
 								
 								ForEach(0 ..< colors.count) {
@@ -124,7 +123,7 @@ struct SettingsView: View {
 							}
 						}
 						Section {
-							Picker(selection: self.$userSettings.colorIndexes[5], label: Text("\(self.userSettings.buttonNames[5])")) {
+							Picker(selection: self.$userSettings.colorIndexes[5], label: Text("\(self.userSettings.buttonNames[5].getButtonName())")) {
 								LabelTextField(5)
 								
 								ForEach(0 ..< colors.count) {

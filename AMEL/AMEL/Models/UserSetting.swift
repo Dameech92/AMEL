@@ -10,37 +10,6 @@ import Foundation
 import Combine
 import SwiftUI
 
-struct CustomButton {
-	private var buttonName:String?
-	private var buttonColor:UIColor?
-	
-	init() {
-		self.buttonName = "defaultButtonName"
-		self.buttonColor = UIColor.blue
-	}
-	
-	init(_ buttonName:String, _ buttonColor:UIColor) {
-		self.buttonName = buttonName
-		self.buttonColor = buttonColor
-	}
-	
-	public func getButtonName() -> String {
-		return self.buttonName!
-	}
-	
-	public func getButtonColor() -> UIColor {
-		return self.buttonColor!
-	}
-	
-	public mutating func changeButtonName(_ newButtonName:String) {
-		self.buttonName = newButtonName
-	}
-	
-	public mutating func changeButtonColor(_ newButtonColor:UIColor) {
-		self.buttonColor = newButtonColor
-	}
-}
-
 private var cancellables = [String:AnyCancellable]()
 
 extension Published {
@@ -65,12 +34,20 @@ public class UserSetting: ObservableObject {
 //	}
 	@Published var colors = ["Red", "Green", "Blue"]
 	@Published var selectedButton = 0
-	@Published(key: "buttonNames") var buttonNames = ["Button 1", "Button 2", "Button 3", "Button 4", "Button 5", "Button 6"] {
-		didSet {
-			// check if the button name has too many characters
-			if buttonNames[0].count > maxLengthOfButtonName && oldValue[0].count <= maxLengthOfButtonName {
-				buttonNames[0] = oldValue[0]
-			}
-		}
-	}
+
+	@Published(key: "buttonNames") var buttonNames = [CustomButton("Button 1", UIColor.blue),
+													  CustomButton("Button 2", UIColor.blue),
+													  CustomButton("Button 3", UIColor.blue),
+													  CustomButton("Button 4", UIColor.blue),
+													  CustomButton("Button 5", UIColor.blue),
+													  CustomButton("Button 6", UIColor.blue)]
+	let encodedData:Data = NSKeyedArchiver.archivedData(withRootObject: buttonNames)
+//	{
+//		didSet {
+//			// check if the button name has too many characters
+//			if buttonNames[0] > maxLengthOfButtonName && oldValue[0].count <= maxLengthOfButtonName {
+//				buttonNames[0] = oldValue[0]
+//			}
+//		}
+//	}
 }
