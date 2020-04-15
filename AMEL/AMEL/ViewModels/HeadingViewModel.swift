@@ -21,5 +21,19 @@ struct HeadingViewModel {
             return "0.0"
         }
     }
+    func getCourse()->String {
+        var formattedCourse = "Course: ---°"
+        if self.locationManager.location != nil {
+            let course = self.locationManager.location!.course
+            if courseIsAccurate(course: course) {
+                formattedCourse = "Course: " + String(format: "%03d", Int(course)) + "°"
+            }
+        }
+        return formattedCourse
+    }
+    func courseIsAccurate(course: CLLocationDirection)->Bool {
+        return course >= 0
+    }
+    
 }
    

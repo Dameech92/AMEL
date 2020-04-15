@@ -8,39 +8,13 @@
 import SwiftUI
 
 struct RecordView: View {
-        private let locationVM = LocationViewModel()
-        private let headingVM = HeadingViewModel()
-        @ObservedObject private var locationManager = LocationManager()
-        @Environment(\.managedObjectContext) var managedObjectContext
+        
         var body: some View {
         ZStack{
              Color("stealth").edgesIgnoringSafeArea(.all)
              VStack{
-                 HStack{
-                     Spacer()
-                     VStack{
-                         Text("Lat/Long/Alt")
-                            .font(.largeTitle)
-                            
-                        Text(locationVM.getLatLng())
-                             .font(.title)
-                             .padding()
-                     }
-                     Spacer()
-                     VStack {
-                         Text("Heading:")
-                            .font(.title)
-                         Text("\(headingVM.getMagHeading())")
-                            .font(.title)
-                     }
-                     Spacer()
-                    VStack {
-                        Text("Speed: " + locationVM.getSpeed())
-                        Text("Speed accuracy: " + locationVM.getSpeedAccuracy())
-                    }
-                    
-                    Spacer()
-                 }
+                LiveDataView()
+                Divider()
                 HStack{
                  VStack{
                     ButtonView(name: "Bomb", color: UIColor.blue)

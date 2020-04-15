@@ -39,21 +39,19 @@ struct LocationViewModel {
             return "0.0"
         }
     }
-    func getAltitude()->(String){
-        if self.locationManager.location != nil {
-            return String(format: "%.4f", locationManager.location!.altitude)
+    func getGroundSpeed()->String {
+        var groundSpeed = "Groundspeed: unavailable"
+        if self.locationManager.location != nil{
+            let speed = speedToNM(speedMPS: locationManager.location!.speed)
+            // set speed only if it is accurate, i.e positive
+            if speed >= 0 {
+                groundSpeed = "Groundspeed: " + String(format: "%d", Int(speed)) + " nm/hr"
+            }
         }
-        else{
-            return "0.0"
-        }
+        return groundSpeed
     }
-    func getSpeed()->String {
-        if self.locationManager.location != nil {
-            return String(format: "%.4f", locationManager.location!.speed)
-        }
-        else{
-            return "0.0"
-        }
+    private func speedToNM(speedMPS: CLLocationSpeed)->Double {
+        return speedMPS * 1.94384449412
     }
     
     func getSpeedAccuracy()->String {
@@ -63,6 +61,17 @@ struct LocationViewModel {
         else{
             return "0.0"
         }
+    }
+    func getAltitude()->String{
+        if(locationManager.location != nil){
+            let altitude =  String(format: "%d", Int(altToFeet(altMeters: locationManager.location!.altitude)))
+            return "Altitude: " + altitude + "ft HAE"
+        }else{
+            return "Altitude: unavailable"
+        }
+    }
+    private func altToFeet(altMeters: CLLocationDistance)->Double {
+        return altMeters * 3.2808
     }
         
 }

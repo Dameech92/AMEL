@@ -12,41 +12,19 @@ struct EventView: View{
     let event: Event
     var body: some View {
         let viewModel = EventFormatter(event: event)
-           return ZStack{
+        let colOne = [viewModel.getTime(), viewModel.getLatLng(), viewModel.getAltitude()]
+        let colTwo = [viewModel.getBoBR(), viewModel.getHeadingCourse(), viewModel.getGroundSpeed()]
+           return ZStack {
                 HStack{
                     EventTitleBackground(name: viewModel.getName(), color: viewModel.getColor())
                     Spacer()
-                    VStack(alignment: .leading){
-                        Spacer()
-                        Text(viewModel.getTime())
-
-                        Spacer()
-                        Text(viewModel.getLatLng())
-
-                        Spacer()
-
-                        Text(viewModel.getAltitude())
-
-                        Spacer()
-
-                    }
-                    .padding()
+                    DataTextColumn(dataList: colOne)
                     Spacer()
-                    VStack(alignment: .leading){
-                        Spacer()
-                        Text(viewModel.getBoBR())
-
-                        Spacer()
-                        Text(viewModel.getHeadingCourse())
-
-                        Spacer()
-                        Text(viewModel.getGroundSpeed())
-
-                        Spacer()
-                    }
-                    .padding()
+                    DataTextColumn(dataList: colTwo)
                     Spacer()
                 }
+                .lineLimit(2)
+                .minimumScaleFactor(0.2)
                 .font(.title)
                 Rectangle()
                 .stroke(Color.black, lineWidth: 5)
