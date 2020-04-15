@@ -31,6 +31,8 @@
 		31D2CB36243FBDB500356BCF /* HTMLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D2CB35243FBDB500356BCF /* HTMLGenerator.swift */; };
 		31E1CDF92416A84900643653 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1CDF82416A84900643653 /* ButtonView.swift */; };
 		31E860592415F6EE00B4BAE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E860582415F6EE00B4BAE6 /* ContentView.swift */; };
+		31ECF4EC2447B86500101158 /* BullsEyeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECF4EB2447B86500101158 /* BullsEyeView.swift */; };
+		31ECF4EE2447C06A00101158 /* Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECF4ED2447C06A00101158 /* Picker.swift */; };
 		4CED17542404851200E6D4F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED17532404851200E6D4F6 /* AppDelegate.swift */; };
 		4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED17552404851200E6D4F6 /* SceneDelegate.swift */; };
 		4CED17592404851200E6D4F6 /* logLocation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CED17572404851200E6D4F6 /* logLocation.xcdatamodeld */; };
@@ -115,6 +117,8 @@
 		31D2CB35243FBDB500356BCF /* HTMLGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLGenerator.swift; sourceTree = "<group>"; };
 		31E1CDF82416A84900643653 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		31E860582415F6EE00B4BAE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		31ECF4EB2447B86500101158 /* BullsEyeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeView.swift; sourceTree = "<group>"; };
+		31ECF4ED2447C06A00101158 /* Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picker.swift; sourceTree = "<group>"; };
 		4CED17502404851200E6D4F6 /* AMEL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMEL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CED17532404851200E6D4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CED17552404851200E6D4F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,17 +195,19 @@
 		31C6FD1F243E819D007F677F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31ECF4EB2447B86500101158 /* BullsEyeView.swift */,
 				31E1CDF82416A84900643653 /* ButtonView.swift */,
+				313061F424452AB200876981 /* ClearAllButton.swift */,
 				31E860582415F6EE00B4BAE6 /* ContentView.swift */,
+				313061F02445250000876981 /* DataTextColumn.swift */,
 				5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */,
 				318DA7072405B1F9007D79B6 /* EventView.swift */,
-				31757AA22415B64700A92EF8 /* LogView.swift */,
-				313061F02445250000876981 /* DataTextColumn.swift */,
-				313061F424452AB200876981 /* ClearAllButton.swift */,
 				31AB3CAD244648D300154696 /* LiveDataView.swift */,
-				313061F624452B1000876981 /* ShareButton.swift */,
 				313061F2244529D000876981 /* LogListView.swift */,
+				31757AA22415B64700A92EF8 /* LogView.swift */,
+				31ECF4ED2447C06A00101158 /* Picker.swift */,
 				1F9FABCF24158555002FF99B /* RecordView.swift */,
+				313061F624452B1000876981 /* ShareButton.swift */,
 				31B4DF742415C91B00C567E7 /* SettingsView.swift */,
 			);
 			path = Views;
@@ -513,6 +519,7 @@
 				4CED17592404851200E6D4F6 /* logLocation.xcdatamodeld in Sources */,
 				313061F524452AB200876981 /* ClearAllButton.swift in Sources */,
 				31C6FD19243E75FF007F677F /* PDFRenderer.swift in Sources */,
+				31ECF4EC2447B86500101158 /* BullsEyeView.swift in Sources */,
 				31757AA32415B64700A92EF8 /* LogView.swift in Sources */,
 				31C6FD1D243E7B9B007F677F /* EventFormatter.swift in Sources */,
 				31E1CDF92416A84900643653 /* ButtonView.swift in Sources */,
@@ -520,6 +527,7 @@
 				310AE7A4243E632800796D11 /* PrintPageRenderer.swift in Sources */,
 				4CED17542404851200E6D4F6 /* AppDelegate.swift in Sources */,
 				313061F724452B1000876981 /* ShareButton.swift in Sources */,
+				31ECF4EE2447C06A00101158 /* Picker.swift in Sources */,
 				31C6FD23243E876D007F677F /* LatLngFormatter.swift in Sources */,
 				1F944148240E193600E3F633 /* ButtonAction.swift in Sources */,
 				1F9FABD024158555002FF99B /* RecordView.swift in Sources */,
