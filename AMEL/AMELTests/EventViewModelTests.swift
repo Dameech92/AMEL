@@ -11,7 +11,7 @@ import CoreLocation
 import CoreData
 @testable import AMEL
 
-class EventFormatterTests: XCTestCase {
+class EventViewModelTests: XCTestCase {
     
     class MockEvent: NSObject, EventProtocol {
         static func getEvents() -> NSFetchRequest<Event> {
@@ -30,48 +30,32 @@ class EventFormatterTests: XCTestCase {
         var speed:NSNumber?
     }
     
-    let lm = LocationViewModel()
-    let hlm = HeadingViewModel()
+    var testEvent = MockEvent()
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        
+        self.testEvent = MockEvent()
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        //Tests that getLongitude() and getLatitude() work
-        XCTAssertNotNil(lm.getLongitude())
-        XCTAssertNotNil(lm.getLatitude())
-        
-        //Tests our getAltitude() works
-        XCTAssertNotNil(lm.getAltitude())
-        
-        //Tests our getMagHeading works
-        XCTAssertNotNil(hlm.getMagHeading())
-        
-        //Tets our way of getting the date works
-        let date = Date()
-        XCTAssertNotNil(date)
-        
-        //Tests our query into core data returns any data
-        let eventResults = Event.getEvents()
-        XCTAssertNotNil(eventResults)
+    func testName() {
+        self.testEvent.name = "Missile"
+        let eventVM = EventViewModel(event: testEvent)
+        XCTAssertEqual("Missile", eventVM.getName())
+    }
+    func testNillName() {
+        let eventVM = EventViewModel(event: self.testEvent)
+        XCTAssertNotNil(eventVM.getName())
+    }
+    func testTime() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss (dd-MMM-YY)"
+        let testTime = formatter.date(from: "15:30:21 (16-Apr-20)")
+        self.testEvent.time = testTime
+        let eventVM = EventViewModel(event: self.testEvent)
+        XCTAssertEqual("15:30:21 (16-Apr-20)", eventVM.getTime())
     }
     
-    
-    
-    //Dont need performance testing at the moment
-    //func testPerformanceExample() {
-        // This is an example of a performance test case.
-        //measure {
-            // Put the code you want to measure the time of here.
-        //}
-    //}
 }
