@@ -12,7 +12,7 @@ struct ContentView: View {
         // initialize the appearance of the tab bar
         UITabBar.appearance().backgroundColor = UIColor.darkGray
     }
-    @State var selected = 0 // the ID of the current tab
+    @State var selected = 1
     var body: some View {
         TabView(selection: $selected) {
             BullsEyeView().tabItem({
