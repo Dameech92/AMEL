@@ -5,148 +5,123 @@
 //  Created by Nibbe, Tristan on 3/6/20.
 //  Copyright © 2020 Marcellini, Neil. All rights reserved.
 //
-
 import Foundation
 import CoreData
 import SwiftUI
 import UIKit
 
-
-
-
-class EventViewModel{
-    var managedObjectContext: NSManagedObjectContext?
+struct EventViewModel{
     
-    init(context: NSManagedObjectContext){
-        managedObjectContext = context
-    }
-
-    func GetAllFormattedEvents(events:FetchedResults<Event>)->Array<EventFormattedForView>{
-        var FormattedEvents: [EventFormattedForView] = []
-        events.forEach { (rawEvent) in
-            FormattedEvents.append(convertEventToFormatted(event: rawEvent))
-        }
+    let event: EventProtocol
     
-        return FormattedEvents
+    func getName()->String {
+        if(event.name != nil){
+           return event.name!
+       }else{
+           return ""
+       }
     }
     
-    func convertEventToFormatted(event:Event) -> EventFormattedForView{
-            let longitude = event.longitude
-            let latitude = event.latitude
-            let altitude = event.altitude
-            let magHeading = event.magneticHeading
-            let Time = event.time
-            let name = event.name
-            var color : Color
-        
-        if( event.color != nil){
-            do{
-                try color = Color(NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: event.color!)!)
-            }catch{
-                color = Color.blue
-            }
+    func getTime()->String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss (dd-MMM-YY)"
+        if(event.time != nil){
+            return formatter.string(from: event.time!)
         }else{
-            color = Color.blue
+            return "error"
         }
-        
-        return EventFormattedForView(name: name!, time: Time!, latitude: latitude, longitude: longitude, altitude: altitude,heading: magHeading, color: color);
-        }
-    
-    static func returnBlankEventForTesting() -> EventFormattedForView{
-        return EventFormattedForView(name: "Missile", time: Date(), latitude: nil, longitude: nil, altitude: nil,heading: nil, color: Color.blue);
-    }
-}
-
-class EventFormattedForView{
-    var name: String
-    var time: Date
-    var latitude: NSNumber?
-    var longitude: NSNumber?
-    var altitude: NSNumber?
-    var heading: NSNumber?
-    var color: Any?
-    let dateFormatterGet = DateFormatter()
-    let groundSpeed = "500nm/hr"
-    let bobrLargeText = "191/56"
-    let bobrSmallText = "B/E: rock125"
-
-
-
-    init(name: String, time: Date, latitude : NSNumber?, longitude : NSNumber?, altitude : NSNumber?, heading: NSNumber?, color : Any?){
-        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        self.name = name
-        self.time = time
-        if(latitude != nil){
-            self.latitude = latitude!
-        }
-        if(longitude != nil){
-            self.longitude = longitude!
-        }
-        if(altitude != nil){
-            self.altitude = altitude!
-        }
-        if(heading != nil){
-            self.heading = heading!
-        }
-        self.color = color
     }
     
-    func getEventName() -> String{
-        return name
-    }
-    
-    func getEventTime() -> String{
-        return dateFormatterGet.string(from: time)
-    }
-    
-    func getLatitude()->String{
-        if(latitude != nil){
-            return String(format: "N%.4f", latitude! as! Double)
+    func getLatLng()->String {
+        if(event.latitude != nil && event.longitude != nil){
+            let formatter = LatLngFormatter(latitude: event.latitude as! Double, longitude: event.longitude as! Double)
+            return formatter.getLatLng()
         }else{
-            return "123.65656"
+            return "0"
         }
     }
     
-    func getLongitude()->String{
-        if(longitude != nil){
-            return String(format: "W%.4f", longitude! as! Double)
-        }else{
-            return "66.65656"
-        }
-    }
     
     func getAltitude()->String{
-        if(altitude != nil){
-            return String(format: "%.1f ft", altitude! as! Double)
+        if(event.altitude != nil){
+            let altitude =  String(format: "%d", Int(altToFeet(altMeters: event.altitude!)))
+            return "Altitude: " + altitude + "ft HAE"
         }else{
-            return "5000ft"
+            return "Altitude: unavailable"
+        }
+    }
+    private func altToFeet(altMeters: NSNumber)->Double {
+        return Double(truncating: altMeters) * 3.2808
+    }
+    
+    func getColor() -> Color {
+        if event.color != nil{
+            do {
+                return try Color(NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: event.color!)!)
+            } catch {
+                print(error)
+            }
+        }
+
+        return Color.blue
+    }
+
+    func getUIColor() -> UIColor {
+        if event.color != nil{
+            do {
+                return try (NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: event.color!)!)
+            } catch {
+                print(error)
+            }
+        }
+        return UIColor.blue
+    }
+    func getHeadingCourse()->String {
+        if(event.magneticHeading != nil && event.course != nil) {
+            let heading = String(format: "%03d", Int(truncating: event.magneticHeading!))
+            let course: String
+            // only set course if it accurate, i.e it is positive
+            if Int(truncating: event.course!) >= 0 {
+                course = String(format: "%03d", Int(truncating: event.course!))
+            }
+            else {
+               course = "---"
+            }
+            
+            return "Heading/Course: " + heading + "°/" + course + "°"
+        }
+        else {
+            return "Heading/Course: Unavailable"
         }
     }
     
-    func getBobrSmallText()->String{
-        return bobrSmallText
+    func getBoBR()->String {
+        return "BoBR: 191/56 B/E rock 125"
     }
-    
-    func getBobrLargeText()->String{
-        return bobrLargeText
-    }
-    
-    func getGroundSpeed()->String{
+    func getGroundSpeed()->String {
+        var groundSpeed = "Groundspeed: unavailable"
+        if event.speed != nil{
+            let speed = speedToNM(speedMPS: event.speed!)
+            // set speed only if it is accurate, i.e positive
+            if speed >= 0 {
+                groundSpeed = "Groundspeed: " + String(format: "%d", Int(speed)) + " nm/hr"
+            }
+        }
         return groundSpeed
     }
-    
-    func getColor()->Color{
-        let colorFormated = color as! Color
-        return colorFormated
+    private func speedToNM(speedMPS: NSNumber)->Double {
+        return Double(truncating: speedMPS) * 1.94384449412
     }
     
-    func getHeading()->String{
-        if(heading != nil){
-            return String(format: "%.f ", heading! as! Double)
-        }else{
-            return "120"
-        }
-    }
-    
-}
+    // gets hex color from UIColor for use in log
+    func getHexColor()->String {
+        let uiColor = getUIColor()
+        let components = uiColor.cgColor.components
+        let r: CGFloat = components?[0] ?? 0.0
+        let g: CGFloat = components?[1] ?? 0.0
+        let b: CGFloat = components?[2] ?? 0.0
 
+        let hexString = String.init(format: "#%02lX%02lX%02lX", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)))
+        return hexString
+    }
+}
