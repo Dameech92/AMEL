@@ -63,7 +63,7 @@ struct ButtonAction {
             magHeading = locationManager.heading!.magneticHeading
         }
 	}
-    private static func saveColor(color:UIColor)->Data? {
+    public static func saveColor(color:UIColor)->Data? {
         let colorData: Data?
         do {
             try colorData = NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false)

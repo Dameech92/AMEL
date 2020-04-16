@@ -68,7 +68,9 @@ class EventViewModelTests: XCTestCase {
         let eventVM = EventViewModel(event: self.testEvent)
         XCTAssertEqual("Altitude: unavailable", eventVM.getAltitude())
     }
-    func testSwiftUIColor() {
-        
+    func testUIColor() {
+        self.testEvent.color = ButtonAction.saveColor(color: UIColor.red)
+        let eventVM = EventViewModel(event: testEvent)
+        XCTAssertEqual(UIColor.red, eventVM.getUIColor())
     }
 }
