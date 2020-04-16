@@ -5,6 +5,7 @@
 //  Copyright © 2020 Marcellini, Neil. All rights reserved.
 //
 import Foundation
+import UIKit
 import SwiftUI
 import XCTest
 import CoreLocation
@@ -66,5 +67,8 @@ class EventViewModelTests: XCTestCase {
     func testNilAltitude() {
         let eventVM = EventViewModel(event: self.testEvent)
         XCTAssertEqual("Altitude: unavailable", eventVM.getAltitude())
+    }
+    func testSwiftUIColor() {
+        
     }
 }

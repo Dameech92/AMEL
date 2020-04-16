@@ -22,7 +22,7 @@ struct ButtonView: View {
         Button(action: {
 			ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext)
 			let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
-			ButtonAction.logEvent(newEvent, self.name, self.color, self.managedObjectContext)
+			ButtonAction.saveEvent(newEvent, self.name, self.color, self.managedObjectContext)
 		}) {
             Text(self.name)
             .frame(minWidth: 0, maxWidth: .infinity)
