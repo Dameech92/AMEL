@@ -12,7 +12,7 @@ import UIKit
 
 struct EventFormatter{
     
-    let event: Event
+    let event: EventProtocol
     
     func getName()->String {
         if(event.name != nil){
