@@ -52,10 +52,11 @@ class EventViewModelTests: XCTestCase {
     func testTime() {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss (dd-MMM-YY)"
-        let testTime = formatter.date(from: "15:30:21 (16-Apr-20)")
-        self.testEvent.time = testTime
+        let testTime = Date()
+        self.testEvent.time = Date()
         let eventVM = EventViewModel(event: self.testEvent)
-        XCTAssertEqual("15:30:21 (16-Apr-20)", eventVM.getTime())
+        let timeString = formatter.string(from: testTime)
+        XCTAssertEqual(timeString, eventVM.getTime())
     }
     
 }
