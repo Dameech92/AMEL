@@ -63,5 +63,8 @@ class EventViewModelTests: XCTestCase {
         let eventVM = EventViewModel(event: self.testEvent)
         XCTAssertEqual("Altitude: 26325ft HAE", eventVM.getAltitude())
     }
-    
+    func testNilAltitude() {
+        let eventVM = EventViewModel(event: self.testEvent)
+        XCTAssertEqual("Altitude: unavailable", eventVM.getAltitude())
+    }
 }
