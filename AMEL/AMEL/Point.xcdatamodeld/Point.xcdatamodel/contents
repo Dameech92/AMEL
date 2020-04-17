@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Point" representedClassName=".Point" syncable="YES">
+        <attribute name="ew" optional="YES" attributeType="String"/>
+        <attribute name="lat" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lng" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="ns" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Point" positionX="-63" positionY="-18" width="128" height="103"/>
+    </elements>
+</model>

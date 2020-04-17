@@ -44,6 +44,8 @@
 		5ADE287C24199A8C005A9A33 /* EventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE287B24199A8C005A9A33 /* EventViewModelTests.swift */; };
 		7E9E1672241C4EB50043EEE1 /* AMELTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E1671241C4EB50043EEE1 /* AMELTests.swift */; };
 		7E9E1680241C4EC10043EEE1 /* AMELUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */; };
+		BF91963D2449373700F6D5C1 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91963C2449373700F6D5C1 /* Point.swift */; };
+		BF919640244937A600F6D5C1 /* Point.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF91963E244937A600F6D5C1 /* Point.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -139,6 +141,8 @@
 		7E9E167D241C4EC10043EEE1 /* AMELUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMELUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMELUITests.swift; sourceTree = "<group>"; };
 		7E9E1681241C4EC10043EEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF91963C2449373700F6D5C1 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		BF91963F244937A600F6D5C1 /* Point.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Point.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +223,7 @@
 				1F944147240E193600E3F633 /* ButtonAction.swift */,
 				318DA70324059EC6007D79B6 /* LocationManager.swift */,
 				318DA7052405A84A007D79B6 /* Event.swift */,
+				BF91963C2449373700F6D5C1 /* Point.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 				4CED17642404851300E6D4F6 /* Info.plist */,
 				4CED17572404851200E6D4F6 /* logLocation.xcdatamodeld */,
 				4CED175E2404851300E6D4F6 /* Preview Content */,
+				BF91963E244937A600F6D5C1 /* Point.xcdatamodeld */,
 			);
 			path = AMEL;
 			sourceTree = "<group>";
@@ -536,10 +542,12 @@
 				318DA70424059EC6007D79B6 /* LocationManager.swift in Sources */,
 				31B4DF752415C91B00C567E7 /* SettingsView.swift in Sources */,
 				31E860592415F6EE00B4BAE6 /* ContentView.swift in Sources */,
+				BF919640244937A600F6D5C1 /* Point.xcdatamodeld in Sources */,
 				5A23230D2416ED2F0055BAF8 /* EventViewModel.swift in Sources */,
 				31AB3CAE244648D300154696 /* LiveDataView.swift in Sources */,
 				318DA7062405A84A007D79B6 /* Event.swift in Sources */,
 				313061F12445250000876981 /* DataTextColumn.swift in Sources */,
+				BF91963D2449373700F6D5C1 /* Point.swift in Sources */,
 				31C6FD1B243E781B007F677F /* ShareSheet.swift in Sources */,
 				5A23230F2416EDC50055BAF8 /* EventTitleBackground.swift in Sources */,
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
@@ -985,6 +993,16 @@
 			);
 			currentVersion = 4CED17582404851200E6D4F6 /* logLocation.xcdatamodel */;
 			path = logLocation.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		BF91963E244937A600F6D5C1 /* Point.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BF91963F244937A600F6D5C1 /* Point.xcdatamodel */,
+			);
+			currentVersion = BF91963F244937A600F6D5C1 /* Point.xcdatamodel */;
+			path = Point.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -9,7 +9,10 @@
 import SwiftUI
 
 struct BullsEyeView: View {
+    @FetchRequest(fetchRequest: Point.getPoints()) var points:FetchedResults<Point>
+    @Environment(\.managedObjectContext) var managedObjectContext
     @State var BEName = ""
+    
     var body: some View {
         VStack {
             TextField("Enter B/E name", text: $BEName)
@@ -22,13 +25,24 @@ struct BullsEyeView: View {
             }.frame(height: 100)
                 .clipped()
            
-           Button(action: {}){
-               Text("Add B/E point")
-           }
-           .padding()
-           .foregroundColor(Color.green)
+            Button(action: {}){
+                Text("Add B/E point")
+            }
+            .padding()
+            .foregroundColor(Color.green)
            
-           Spacer()
+            Spacer()
+            
+            List {
+                ForEach(self.points) { point in
+                    HStack {
+                        Text(point.ns!)
+                        Text("\(point.lat!)")
+                        Text(point.ew!)
+                        Text("\(point.lng!)")
+                    }
+                }
+            }
         }.padding()
     }
 }
