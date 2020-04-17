@@ -18,7 +18,7 @@ struct LatLngFormatter {
     func formatLatitude(latitude: Double)->String {
         let number = getDMS(number: latitude)
         var direction = ""
-        if latitude > 0 {
+        if latitude >= 0 {
             direction = "N"
         }else {
             direction = "S"
@@ -28,7 +28,7 @@ struct LatLngFormatter {
     func formatLongitude(longitude: Double)->String {
         let number = getDMS(number: longitude)
         var direction = ""
-        if longitude > 0 {
+        if longitude >= 0 {
             direction = "E"
         }else {
             direction = "W"
@@ -39,8 +39,8 @@ struct LatLngFormatter {
         let degrees = abs(Int(number))
         let decimal = abs(number) - Double(degrees)
         let minutes = decimal * 60
-        let minutesDotM = String(format: "%.1f", minutes)
-        return String(degrees) + "-" + minutesDotM
+        let minutesDotM = String(format: "%04.1f", minutes)
+        return String(format: "%02d", degrees) + "-" + minutesDotM
     }
     
 }

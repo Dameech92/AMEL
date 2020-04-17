@@ -11,7 +11,7 @@ import SwiftUI
 struct EventView: View{
     let event: Event
     var body: some View {
-        let viewModel = EventFormatter(event: event)
+        let viewModel = EventViewModel(event: event)
         let colOne = [viewModel.getTime(), viewModel.getLatLng(), viewModel.getAltitude()]
         let colTwo = [viewModel.getBoBR(), viewModel.getHeadingCourse(), viewModel.getGroundSpeed()]
            return ZStack {
