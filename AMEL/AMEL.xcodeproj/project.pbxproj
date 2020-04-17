@@ -16,12 +16,13 @@
 		313061F3244529D000876981 /* LogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F2244529D000876981 /* LogListView.swift */; };
 		313061F524452AB200876981 /* ClearAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F424452AB200876981 /* ClearAllButton.swift */; };
 		313061F724452B1000876981 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F624452B1000876981 /* ShareButton.swift */; };
+		316561722447D9D400261AEB /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316561712447D9D400261AEB /* EventProtocol.swift */; };
 		31738E7D244A21FB0073022A /* ReferencePointAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31738E7C244A21FB0073022A /* ReferencePointAction.swift */; };
 		31738E7F244A2B5B0073022A /* PickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31738E7E244A2B5B0073022A /* PickerData.swift */; };
 		31738E81244A2D430073022A /* RefPointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31738E80244A2D430073022A /* RefPointViewModel.swift */; };
-		31738E83244A4E270073022A /* ReferencePointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31738E82244A4E270073022A /* ReferencePointView.swift */; };
-		316561722447D9D400261AEB /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316561712447D9D400261AEB /* EventProtocol.swift */; };
+		31738E83244A4E270073022A /* RefPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31738E82244A4E270073022A /* RefPointView.swift */; };
 		31757AA32415B64700A92EF8 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31757AA22415B64700A92EF8 /* LogView.swift */; };
+		317D9AFC244A5BF2005C89B1 /* LatLngPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317D9AFB244A5BF2005C89B1 /* LatLngPicker.swift */; };
 		318DA70424059EC6007D79B6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DA70324059EC6007D79B6 /* LocationManager.swift */; };
 		318DA7062405A84A007D79B6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DA7052405A84A007D79B6 /* Event.swift */; };
 		318DA7082405B1F9007D79B6 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318DA7072405B1F9007D79B6 /* EventView.swift */; };
@@ -108,12 +109,13 @@
 		313061F2244529D000876981 /* LogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListView.swift; sourceTree = "<group>"; };
 		313061F424452AB200876981 /* ClearAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearAllButton.swift; sourceTree = "<group>"; };
 		313061F624452B1000876981 /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
+		316561712447D9D400261AEB /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
 		31738E7C244A21FB0073022A /* ReferencePointAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePointAction.swift; sourceTree = "<group>"; };
 		31738E7E244A2B5B0073022A /* PickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerData.swift; sourceTree = "<group>"; };
 		31738E80244A2D430073022A /* RefPointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefPointViewModel.swift; sourceTree = "<group>"; };
-		31738E82244A4E270073022A /* ReferencePointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePointView.swift; sourceTree = "<group>"; };
-		316561712447D9D400261AEB /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
+		31738E82244A4E270073022A /* RefPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefPointView.swift; sourceTree = "<group>"; };
 		31757AA22415B64700A92EF8 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		317D9AFB244A5BF2005C89B1 /* LatLngPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLngPicker.swift; sourceTree = "<group>"; };
 		318DA70324059EC6007D79B6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		318DA7052405A84A007D79B6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		318DA7072405B1F9007D79B6 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
@@ -198,7 +200,6 @@
 				31C6FD1C243E7B9B007F677F /* EventViewModel.swift */,
 				31C6FD22243E876D007F677F /* LatLngFormatter.swift */,
 				31738E80244A2D430073022A /* RefPointViewModel.swift */,
-				5A23230C2416ED2F0055BAF8 /* EventViewModel.swift */,
 				1F2962022416E41400BBC97F /* HeadingViewModel.swift */,
 				1F2962042416E41E00BBC97F /* LocationViewModel.swift */,
 			);
@@ -220,7 +221,8 @@
 				31757AA22415B64700A92EF8 /* LogView.swift */,
 				31ECF4ED2447C06A00101158 /* Picker.swift */,
 				1F9FABCF24158555002FF99B /* RecordView.swift */,
-				31738E82244A4E270073022A /* ReferencePointView.swift */,
+				317D9AFB244A5BF2005C89B1 /* LatLngPicker.swift */,
+				31738E82244A4E270073022A /* RefPointView.swift */,
 				313061F624452B1000876981 /* ShareButton.swift */,
 				31B4DF742415C91B00C567E7 /* SettingsView.swift */,
 			);
@@ -237,7 +239,6 @@
 				318DA7052405A84A007D79B6 /* Event.swift */,
 				BF91963C2449373700F6D5C1 /* ReferencePoint.swift */,
 				316561712447D9D400261AEB /* EventProtocol.swift */,
-
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -553,7 +554,7 @@
 				31C6FD23243E876D007F677F /* LatLngFormatter.swift in Sources */,
 				1F944148240E193600E3F633 /* ButtonAction.swift in Sources */,
 				1F9FABD024158555002FF99B /* RecordView.swift in Sources */,
-				31738E83244A4E270073022A /* ReferencePointView.swift in Sources */,
+				31738E83244A4E270073022A /* RefPointView.swift in Sources */,
 				313061F3244529D000876981 /* LogListView.swift in Sources */,
 				31738E81244A2D430073022A /* RefPointViewModel.swift in Sources */,
 				31D2CB36243FBDB500356BCF /* HTMLGenerator.swift in Sources */,
@@ -568,6 +569,7 @@
 				5A23230F2416EDC50055BAF8 /* EventTitleBackground.swift in Sources */,
 				316561722447D9D400261AEB /* EventProtocol.swift in Sources */,
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
+				317D9AFC244A5BF2005C89B1 /* LatLngPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

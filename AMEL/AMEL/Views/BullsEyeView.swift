@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct BullsEyeView: View {
-    @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var BEName = ""
     @ObservedObject var pickerData = PickerData()
+    @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
     var body: some View {
         let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext)
         return VStack {
@@ -33,14 +33,13 @@ struct BullsEyeView: View {
             }
             .padding()
             .foregroundColor(Color.green)
-           
-            Spacer()
-            
             List {
                 ForEach(self.points, id: \.time) { point in
-                    ReferencePointView(point: point)
+                    RefPointView(point: point)
                 }
             }
+            
+           
         }.padding()
     }
 }

@@ -14,10 +14,8 @@ struct ReferencePointAction {
     let context: NSManagedObjectContext
     func recordReferencePoint(name: String) {
         let refPoint = ReferencePoint(context: self.context)
-        refPoint.northSouth = pickerData.northSouthIndex as NSNumber
-        refPoint.eastWest = pickerData.eastWestIndex as NSNumber
-        refPoint.lat = pickerData.latIndex as NSNumber
-        refPoint.lng = pickerData.lngIndex as NSNumber
+        refPoint.lat = convertToDecimalDegrees(data: self.pickerData.latPicker)
+        refPoint.lng = convertToDecimalDegrees(data: self.pickerData.lngPicker)
         refPoint.time = Date()
         refPoint.name = name
         saveReferencePoint()
@@ -28,5 +26,13 @@ struct ReferencePointAction {
         } catch {
             print("Error saving")
         }
+    }
+    func convertToDecimalDegrees(data: LatLngData)->NSNumber {
+        //DD = d + (min/60) + (sec/3600)
+        var decimals = Double(data.degree) + ((Double(data.minute) + Double(data.minuteTenth))/60.0)
+        if data.direction == 1 {
+            decimals = decimals * -1
+        }
+        return decimals as NSNumber
     }
 }

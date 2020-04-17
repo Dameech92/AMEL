@@ -9,34 +9,16 @@
 import Foundation
 
 struct RefPointViewModel {
-    let point: ReferencePoint
-    func getNorthSouth()->String {
-        if point.northSouth == 0 {
-            return "N"
+    var point: ReferencePoint
+    func getLatLng()->String {
+        if (point.lat != nil && point.lng != nil){
+            let latitude = Double(truncating: point.lat!)
+            let longitude = Double(truncating: point.lng!)
+            let formatter = LatLngFormatter(latitude: latitude, longitude: longitude)
+            return formatter.getLatLng()
+        }else{
+            return "0"
         }
-        else {
-            return "S"
-        }
-    }
-    func getEastWest()->String {
-        if point.eastWest == 0 {
-            return "E"
-        }
-        else {
-            return "W"
-        }
-    }
-    func getLatitude()->String {
-        if point.lng != nil {
-            return String(format: "%02d", Int(truncating: point.lat!))
-        }
-        return "--"
-    }
-    func getLongitude()->String {
-        if point.lat != nil {
-            return String(format: "%02d", Int(truncating: point.lng!))
-        }
-        return "---"
     }
     func getName()->String {
         if point.name != nil {

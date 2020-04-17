@@ -8,22 +8,19 @@
 
 import SwiftUI
 
-struct ReferencePointView: View {
+struct RefPointView: View {
     let point: ReferencePoint
     var body: some View {
-        let pointVM = RefPointViewModel(point: self.point)
+        let pointVM = RefPointViewModel(point: point)
         return HStack {
             Text(pointVM.getName())
-            Text(pointVM.getNorthSouth())
-            Text(pointVM.getLatitude())
-            Text(pointVM.getEastWest())
-            Text(pointVM.getLongitude())
+            Text(pointVM.getLatLng())
         }
     }
 }
 
 struct ReferencePointView_Previews: PreviewProvider {
     static var previews: some View {
-        ReferencePointView(point: ReferencePoint())
+        RefPointView(point: ReferencePoint())
     }
 }

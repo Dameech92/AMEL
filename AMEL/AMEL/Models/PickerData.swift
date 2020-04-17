@@ -9,8 +9,12 @@
 import Foundation
 import SwiftUI
 class PickerData: ObservableObject {
-    @Published var northSouthIndex = 0
-    @Published var latIndex = 0
-    @Published var eastWestIndex = 0
-    @Published var lngIndex = 0
+    @Published var latPicker = LatLngData()
+    @Published var lngPicker = LatLngData()
+}
+class LatLngData: ObservableObject {
+    @Published var direction = 0
+    @Published var degree = 0
+    @Published var minute = 0
+    @Published var minuteTenth = 0
 }
