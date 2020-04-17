@@ -15,11 +15,14 @@ struct PickerView: View {
     @ObservedObject var pickerData: PickerData
     let latArray = Array(0...90)
     let lngArray = Array(0...180)
+    let northSouthArray = ["N","S"]
+    let eastWestArray = ["E","W"]
     var body: some View {
-        HStack() {
+        return HStack() {
             Picker(selection: $pickerData.northSouthIndex, label: Text("")) {
-                Text("N")
-                Text("S")
+                ForEach(0 ..< self.northSouthArray.count) {
+                    Text(String(self.northSouthArray[$0])).tag($0)
+                }
             }
             .frame(width: size.width / 4)
             
@@ -31,8 +34,9 @@ struct PickerView: View {
             .frame(width: size.width / 4)
             
             Picker(selection: $pickerData.eastWestIndex, label: Text("")) {
-                Text("E")
-                Text("W")
+                ForEach(0 ..< self.eastWestArray.count) {
+                    Text(String(self.eastWestArray[$0])).tag($0)
+                }
             }
             .frame(width: size.width / 4)
             
