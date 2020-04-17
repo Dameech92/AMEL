@@ -11,7 +11,16 @@
         <attribute name="speed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
+    <entity name="ReferencePoint" representedClassName=".ReferencePoint" syncable="YES">
+        <attribute name="eastWest" optional="YES" attributeType="String"/>
+        <attribute name="lat" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="lng" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="northSouth" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
     <elements>
         <element name="Event" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="ReferencePoint" positionX="-63" positionY="54" width="128" height="133"/>
     </elements>
 </model>

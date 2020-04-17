@@ -9,23 +9,26 @@
 import SwiftUI
 
 struct BullsEyeView: View {
-    @FetchRequest(fetchRequest: Point.getPoints()) var points:FetchedResults<Point>
+    @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var BEName = ""
-    
+    @ObservedObject var pickerData = PickerData()
     var body: some View {
-        VStack {
+        let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext)
+        return VStack {
             TextField("Enter B/E name", text: $BEName)
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .multilineTextAlignment(.center)
             .padding(.horizontal)
             
             GeometryReader { geometry in
-               PickerView(size: geometry.size)
+                PickerView(size: geometry.size, pickerData: self.pickerData)
             }.frame(height: 100)
                 .clipped()
            
-            Button(action: {}){
+            Button(action: {
+                refAction.recordReferencePoint(name: self.BEName)
+            }){
                 Text("Add B/E point")
             }
             .padding()
@@ -34,11 +37,11 @@ struct BullsEyeView: View {
             Spacer()
             
             List {
-                ForEach(self.points) { point in
+                ForEach(self.points, id: \.time) { point in
                     HStack {
-                        Text(point.ns!)
+                        Text(point.northSouth!)
                         Text("\(point.lat!)")
-                        Text(point.ew!)
+                        Text(point.eastWest!)
                         Text("\(point.lng!)")
                     }
                 }
