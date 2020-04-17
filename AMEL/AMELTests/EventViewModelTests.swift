@@ -73,4 +73,35 @@ class EventViewModelTests: XCTestCase {
         let eventVM = EventViewModel(event: testEvent)
         XCTAssertEqual(UIColor.red, eventVM.getUIColor())
     }
+    func testHeadingCourse() {
+        self.testEvent.magneticHeading = 270
+        self.testEvent.course = 280
+        let eventVM = EventViewModel(event: self.testEvent)
+        XCTAssertEqual("Heading/Course: 270°/280°", eventVM.getHeadingCourse())
+    }
+    func testNegativeCourse() {
+        self.testEvent.magneticHeading = 270
+        self.testEvent.course = -1
+        let eventVM = EventViewModel(event: self.testEvent)
+        XCTAssertEqual("Heading/Course: 270°/---°", eventVM.getHeadingCourse())
+    }
+    func testNilHeading() {
+        self.testEvent.course = 15
+        let eventVM = EventViewModel(event: self.testEvent)
+        XCTAssertEqual("Heading/Course: ---°/015°", eventVM.getHeadingCourse())
+    }
+    func testNilCourse() {
+        self.testEvent.magneticHeading = 80
+        let eventVM = EventViewModel(event: self.testEvent)
+        XCTAssertEqual("Heading/Course: 080°/---°", eventVM.getHeadingCourse())
+    }
+    func testGroundSpeed() {
+        self.testEvent.speed = 100
+        let eventVM = EventViewModel(event: self.testEvent)
+        XCTAssertEqual("Groundspeed: 194 nm/hr", eventVM.getGroundSpeed())
+    }
+    func testNilGroundSpeed() {
+        let eventVM = EventViewModel(event: self.testEvent)
+        XCTAssertEqual("Groundspeed: unavailable", eventVM.getGroundSpeed())
+    }
 }

@@ -77,22 +77,17 @@ struct EventViewModel{
         return UIColor.blue
     }
     func getHeadingCourse()->String {
-        if(event.magneticHeading != nil && event.course != nil) {
-            let heading = String(format: "%03d", Int(truncating: event.magneticHeading!))
-            let course: String
-            // only set course if it accurate, i.e it is positive
+        var course = "---"
+        var heading = "---"
+        if event.magneticHeading != nil {
+            heading = String(format: "%03d", Int(truncating: event.magneticHeading!))
+        }
+        if event.course != nil {
             if Int(truncating: event.course!) >= 0 {
                 course = String(format: "%03d", Int(truncating: event.course!))
             }
-            else {
-               course = "---"
-            }
-            
-            return "Heading/Course: " + heading + "°/" + course + "°"
         }
-        else {
-            return "Heading/Course: Unavailable"
-        }
+        return "Heading/Course: " + heading + "°/" + course + "°"
     }
     
     func getBoBR()->String {
