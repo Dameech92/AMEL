@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 public class ReferencePoint: NSManagedObject, Identifiable {
-    @NSManaged public var northSouth:String?
-    @NSManaged public var lat:NSNumber?
-    @NSManaged public var eastWest:String?
-    @NSManaged public var lng:NSNumber?
+    @NSManaged public var northSouth: NSNumber?
+    @NSManaged public var lat: NSNumber?
+    @NSManaged public var eastWest: NSNumber?
+    @NSManaged public var lng: NSNumber?
     @NSManaged public var name: String?
     @NSManaged public var time: Date?
 }

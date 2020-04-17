@@ -38,12 +38,7 @@ struct BullsEyeView: View {
             
             List {
                 ForEach(self.points, id: \.time) { point in
-                    HStack {
-                        Text(point.northSouth!)
-                        Text("\(point.lat!)")
-                        Text(point.eastWest!)
-                        Text("\(point.lng!)")
-                    }
+                    ReferencePointView(point: point)
                 }
             }
         }.padding()
