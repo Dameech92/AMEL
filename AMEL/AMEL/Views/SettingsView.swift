@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct SettingsView: View {
-	private let colors = ["Red", "Green", "Blue"]
 	@Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(fetchRequest: ButtonData.getAllButtonData()) var buttons:FetchedResults<ButtonData>
     
