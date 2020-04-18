@@ -13,40 +13,70 @@ import UIKit
 
 class SettingsViewModel: ObservableObject {
     @FetchRequest(fetchRequest: CustomButton.getCustomButton()) var savedButtons:FetchedResults<CustomButton>
-    @Environment(\.managedObjectContext) var managedObjectContext
+//    @Environment(\.managedObjectContext) var managedObjectContext
 
-    func getCustomButtons(buttons:FetchedResults<CustomButton>)->Array<CustomButton>{
-            var customButtons: [CustomButton] = []
-            savedButtons.forEach { (buttonData) in
-                customButtons.append(buttonData)
-            }
-            return customButtons
+    func getCustomButtons(buttons:FetchedResults<CustomButton>, managedObjectContext:NSManagedObjectContext)->Array<CustomButton>{
+//		print("\(buttons.count)")
+//		if buttons.isEmpty {
+//			for i in 1...6 {
+//				let newButton = SettingsViewModel.createCustomButton(managedObjectContext: managedObjectContext)
+//				SettingsViewModel.saveCustomButton(newButton, "Button \(i)", UIColor.blue, managedObjectContext)
+//			}
+//		}
+		var customButtons: [CustomButton] = []
+		buttons.forEach { (buttonData) in
+			customButtons.append(buttonData)
+		}
+		return customButtons
     }
+	
+	public static func createCustomButton(managedObjectContext:NSManagedObjectContext) -> CustomButton {
+		return CustomButton(context: managedObjectContext)
+	}
+	
+	public static func saveCustomButton(_ newButton:CustomButton, _ buttonName:String, _ buttonColor:UIColor, _ managedObjectContext:NSManagedObjectContext) {
+		newButton.buttonName = buttonName
+		newButton.buttonColor = buttonColor
+		
+		// Fetch the event color
+//		do {
+//            try newButton.buttonColor = NSKeyedArchiver.archivedData(withRootObject: buttonColor, requiringSecureCoding: false)
+//        } catch {
+//            newButton.buttonColor = nil
+//        }
+		
+		// update the object
+		do {
+            try managedObjectContext.save()
+        } catch {
+            print("Error saving")
+        }
+	}
 
-    func saveCustomButtons(changedButtons:Array<CustomButton>){
+    func saveCustomButtons(managedObjectContext:NSManagedObjectContext){
         do{
-            try self.managedObjectContext.save()
+            try managedObjectContext.save()
         }catch{
             print(error)
         }
     }
     
-    func deleteAllCustomCuttons(){
-        savedButtons.forEach{(savedButton) in
-            managedObjectContext.delete(savedButton)
+    func deleteAllCustomCuttons(managedObjectContext:NSManagedObjectContext){
+		self.savedButtons.forEach{(savedButton) in
+			managedObjectContext.delete(savedButton)
         }
         
         do{
-            try self.managedObjectContext.save()
+            try managedObjectContext.save()
         }catch{
             print(error)
         }
     }
     
-    func deleteCustomButton(eventToDelete: CustomButton){
-        managedObjectContext.delete(eventToDelete)
+    func deleteCustomButton(eventToDelete: CustomButton, managedObjectContext:NSManagedObjectContext){
+		managedObjectContext.delete(eventToDelete)
         do{
-            try self.managedObjectContext.save()
+            try managedObjectContext.save()
         }catch{
             print(error)
         }

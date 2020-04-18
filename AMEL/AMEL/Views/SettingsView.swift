@@ -10,12 +10,17 @@ import SwiftUI
 
 struct SettingsView: View {
 	@EnvironmentObject var userSettings:UserSetting
-	private let colors = ["Red", "Green", "Blue"]
+	private let colorNames = ["Red", "Green", "Blue"]
+	private let colors = [UIColor.red, UIColor.green, UIColor.blue]
 	
+	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
 	@Environment(\.managedObjectContext) var managedObjectContext
 	
     var body: some View {
-		ZStack {
+		let viewModel = SettingsViewModel()
+		let buttonList: [CustomButton] = viewModel.getCustomButtons(buttons: customButton, managedObjectContext: self.managedObjectContext)
+		
+		return ZStack {
 			Color("stealth").edgesIgnoringSafeArea(.all)
 			
 			VStack(alignment: .leading) {
@@ -60,19 +65,21 @@ struct SettingsView: View {
 				
 				// Temporary function that renames all of the stored button names.
 				Button(action: {
-					for i in 0...self.userSettings.numOfButtons - 1 {
-						print("\(self.userSettings.buttonNames[i])")
-						self.userSettings.buttonNames[i] = "Button \(i)"
-						print("\(self.userSettings.buttonNames[i])")
+					for i in 0...buttonList.count - 1 {
+						print("Renaming \"\(buttonList[i].buttonName!)\" to:")
+						buttonList[i].buttonName! = "Button \(i)"
+						print("\(buttonList[i].buttonName!)")
+						print()
 					}
+					viewModel.saveCustomButtons(managedObjectContext: self.managedObjectContext)
 				}) {
 					Image(systemName: "textbox")
 				}.padding(10)
 				
 				// Temporary function that prints out all of the stored button names.
 				Button(action: {
-					for i in 0...self.userSettings.numOfButtons - 1 {
-						print(self.userSettings.buttonNames[i])
+					for i in 0...buttonList.count - 1 {
+						print("\(buttonList[i].buttonName!)")
 					}
 					print()
 				}) {
@@ -83,59 +90,24 @@ struct SettingsView: View {
 				
 				NavigationView {
 					Form {
-						Section {
-							Picker(selection: self.$userSettings.colorIndexes[0], label: Text("\(self.userSettings.buttonNames[0])")) {
-								LabelTextField(0)
-									
-								ForEach(0 ..< self.userSettings.colors.count) {
-									Text(self.userSettings.colors[$0]).tag($0)
+						ForEach((0 ..< buttonList.count - 1), id: \.self) { i in
+							Picker(selection: self.$userSettings.colorIndexes[i], label: Text("\(buttonList[i].buttonName!)")) {
+								LabelTextField(i)
+
+								ForEach(0 ..< self.colors.count - 1) {
+									Text(self.colorNames[$0]).tag($0)
 								}
 							}
-						}
-						Section {
-							Picker(selection: self.$userSettings.colorIndexes[1], label: Text("\(self.userSettings.buttonNames[1])")) {
-								LabelTextField(1)
-								
-								ForEach(0 ..< colors.count) {
-									Text(self.colors[$0]).tag($0)
-								}
-							}
-						}
-						Section {
-							Picker(selection: self.$userSettings.colorIndexes[2], label: Text("\(self.userSettings.buttonNames[2])")) {
-								LabelTextField(2)
-								
-								ForEach(0 ..< colors.count) {
-									Text(self.colors[$0]).tag($0)
-								}
-							}
-						}
-						Section {
-							Picker(selection: self.$userSettings.colorIndexes[3], label: Text("\(self.userSettings.buttonNames[3])")) {
-								LabelTextField(3)
-								
-								ForEach(0 ..< colors.count) {
-									Text(self.colors[$0]).tag($0)
-								}
-							}
-						}
-						Section {
-							Picker(selection: self.$userSettings.colorIndexes[4], label: Text("\(self.userSettings.buttonNames[4])")) {
-								LabelTextField(4)
-								
-								ForEach(0 ..< colors.count) {
-									Text(self.colors[$0]).tag($0)
-								}
-							}
-						}
-						Section {
-							Picker(selection: self.$userSettings.colorIndexes[5], label: Text("\(self.userSettings.buttonNames[5])")) {
-								LabelTextField(5)
-								
-								ForEach(0 ..< colors.count) {
-									Text(self.colors[$0]).tag($0)
-								}
-							}
+						}.onDelete { indexSet in
+						   if indexSet.first != nil {
+							   let deleteButton = self.customButton[indexSet.first!]
+							   self.managedObjectContext.delete(deleteButton)
+							   do {
+								   try self.managedObjectContext.save()
+							   } catch {
+									   print(error)
+							   }
+						   }
 						}
 					}.navigationBarTitle(Text("Button List"))
 				}

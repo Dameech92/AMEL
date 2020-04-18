@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E266" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CustomButton" representedClassName=".UserSetting" syncable="YES">
+    <entity name="CustomButton" representedClassName=".CustomButton" syncable="YES">
         <attribute name="buttonColor" optional="YES" attributeType="Transformable"/>
         <attribute name="buttonName" optional="YES" attributeType="String"/>
-        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="Event" representedClassName=".Event" syncable="YES">
         <attribute name="altitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -18,8 +18,8 @@
         <attribute name="buttonList" optional="YES" attributeType="Transformable" customClassName="ButtonList"/>
     </entity>
     <elements>
-        <element name="Event" positionX="-63" positionY="-18" width="128" height="148"/>
         <element name="CustomButton" positionX="104.453125" positionY="7.68359375" width="128" height="88"/>
+        <element name="Event" positionX="-63" positionY="-18" width="128" height="148"/>
         <element name="UserButtons" positionX="18" positionY="36" width="128" height="58"/>
     </elements>
 </model>
