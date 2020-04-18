@@ -39,13 +39,17 @@ class PDFRenderer {
     func getPDFURL(data: NSMutableData) -> NSURL? {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let docDirectoryPath = paths[0]
-        let pdfPath = docDirectoryPath.appendingPathComponent("viewPdf.pdf")
+        let pdfPath = docDirectoryPath.appendingPathComponent(getFileName())
         if data.write(to: pdfPath, atomically: true) {
             let fileURL = NSURL(fileURLWithPath: pdfPath.path)
             return fileURL
         } else {
             return nil
         }
+    }
+    func getFileName()->String {
+        let eventVM = EventViewModel(event: self.events[events.count-1])
+        return eventVM.getTime() + ".pdf"
     }
     
     func drawPDF() -> NSMutableData {

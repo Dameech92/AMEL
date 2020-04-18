@@ -9,23 +9,28 @@
 import SwiftUI
 
 struct SettingsView: View {
-	@EnvironmentObject var userSettings:UserSetting
 	private let colors = ["Red", "Green", "Blue"]
 	@Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(fetchRequest: Button.getButtons()) var buttons:FetchedResults<Button>
+    @FetchRequest(fetchRequest: ButtonData.getAllButtonData()) var buttons:FetchedResults<ButtonData>
     
 	
     var body: some View {
-        
-        List {
-        Section(header: Text("Events")) {
-            
-            ForEach(self.buttons, id: \.time) {button in
-                ButtonRow(button: button)
+        VStack {
+            Button(action: {
+                
+            }){
+                Image(systemName: "plus")
+            }
+            List {
+                Section(header: Text("Buttons")) {
+                    ButtonRow(button: nil)
+                    ForEach(self.buttons, id: \.time) {button in
+                        ButtonRow(button: button)
+                        }
+                    }
                 }
             }
         }
-    }
 
 }
 #if DEBUG

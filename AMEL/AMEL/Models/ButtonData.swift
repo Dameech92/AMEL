@@ -1,5 +1,5 @@
 //
-//  ButtonList.swift
+//  ButtonData.swift
 //  AMEL
 //
 //  Created by Jeffrey Brian Romero on 4/15/20.
@@ -9,16 +9,16 @@
 import Foundation
 import CoreData
 
-public class Button:  NSManagedObject, Identifiable {
+public class ButtonData:  NSManagedObject, Identifiable {
 
-        @NSManaged public var  time:Date?
+        @NSManaged public var time:Date?
         @NSManaged public var color:Data?
         @NSManaged public var name:String?
     }
-    extension Button {
+    extension ButtonData {
         
-            static func getButtons() -> NSFetchRequest<Button> {
-                let request: NSFetchRequest<Button> = Event.fetchRequest() as! NSFetchRequest<Button>
+            static func getAllButtonData() -> NSFetchRequest<ButtonData> {
+                let request: NSFetchRequest<ButtonData> = Event.fetchRequest() as! NSFetchRequest<ButtonData>
                 let sortDescriptor = NSSortDescriptor(key: "time", ascending: false)
                 request.sortDescriptors = [sortDescriptor]
             return request

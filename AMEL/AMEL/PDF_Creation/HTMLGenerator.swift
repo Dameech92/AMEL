@@ -32,10 +32,11 @@ class HTMLGenerator {
             if pageShouldBeMade(index: i) {
                 addPage()
             }
-            let eventFormatter = EventFormatter(event: self.events[i])
+            let eventFormatter = EventViewModel(event: self.events[i])
             let itemHTML = getLogItem(eventFormatter: eventFormatter)
             self.logItems += itemHTML ?? ""
         }
+        addPage()
         return self.htmlPages
     }
     func pageShouldBeMade(index: Int)->Bool {
@@ -58,7 +59,7 @@ class HTMLGenerator {
         }
         return logTemplate
     }
-    func getLogItem(eventFormatter: EventFormatter)-> String?{
+    func getLogItem(eventFormatter: EventViewModel)-> String?{
         do {
             var htmlContent = try String(contentsOfFile: pathToLogItemTemplate!)
             htmlContent = htmlContent.replacingOccurrences(of: "#BOX_COLOR#", with: eventFormatter.getHexColor())
@@ -66,7 +67,7 @@ class HTMLGenerator {
             htmlContent = htmlContent.replacingOccurrences(of: "#TIME#", with: eventFormatter.getTime())
             htmlContent = htmlContent.replacingOccurrences(of: "#BOBR#", with: eventFormatter.getBoBR())
             htmlContent = htmlContent.replacingOccurrences(of: "#LAT_LNG#", with: eventFormatter.getLatLng())
-            htmlContent = htmlContent.replacingOccurrences(of: "#HEADING_COURSE#", with: eventFormatter.getHeading())
+            htmlContent = htmlContent.replacingOccurrences(of: "#HEADING_COURSE#", with: eventFormatter.getHeadingCourse())
             htmlContent = htmlContent.replacingOccurrences(of: "#ALT#", with: eventFormatter.getAltitude())
             htmlContent = htmlContent.replacingOccurrences(of: "#GROUNDSPEED#", with: eventFormatter.getGroundSpeed())
             return htmlContent
