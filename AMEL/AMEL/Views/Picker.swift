@@ -14,11 +14,9 @@ struct PickerView: View {
     let size: CGSize
     @ObservedObject var pickerData: PickerData
     var body: some View {
-        let latArrays = PickerArrays(isLatitude: true)
-        let lngArrays = PickerArrays(isLatitude: false)
         return HStack(spacing: 0) {
-            LatLngPicker(pickerData: self.pickerData.latPicker, screenSize: self.size, pickerArrays: latArrays)
-            LatLngPicker(pickerData: self.pickerData.lngPicker, screenSize: self.size, pickerArrays: lngArrays )
+            LatPicker(pickerData: self.pickerData.latPicker, screenSize: self.size, directions: ["N","S"])
+            LngPicker(pickerData: self.pickerData.lngPicker, screenSize: self.size, directions: ["E","W"])
         }
     }
 }
