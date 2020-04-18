@@ -11,7 +11,7 @@
 		1F2962032416E41400BBC97F /* HeadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2962022416E41400BBC97F /* HeadingViewModel.swift */; };
 		1F2962052416E41E00BBC97F /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2962042416E41E00BBC97F /* LocationViewModel.swift */; };
 		1F6E79532446613900242DAB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6E79522446613900242DAB /* CustomButton.swift */; };
-		1F6E7955244799B900242DAB /* ButtonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6E7954244799B900242DAB /* ButtonList.swift */; };
+		1F6E7955244799B900242DAB /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6E7954244799B900242DAB /* Button.swift */; };
 		1F944148240E193600E3F633 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944147240E193600E3F633 /* ButtonAction.swift */; };
 		1F9FABD024158555002FF99B /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FABCF24158555002FF99B /* RecordView.swift */; };
 		1FA7B27424418D8500ABD3BF /* CustomizableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA7B27324418D8500ABD3BF /* CustomizableButton.swift */; };
@@ -43,6 +43,7 @@
 		5ADE287C24199A8C005A9A33 /* EventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE287B24199A8C005A9A33 /* EventViewModelTests.swift */; };
 		7E9E1672241C4EB50043EEE1 /* AMELTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E1671241C4EB50043EEE1 /* AMELTests.swift */; };
 		7E9E1680241C4EC10043EEE1 /* AMELUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */; };
+		FC150E78244B84A3002011EE /* ButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC150E77244B84A3002011EE /* ButtonRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -96,7 +97,7 @@
 		1F2962022416E41400BBC97F /* HeadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingViewModel.swift; sourceTree = "<group>"; };
 		1F2962042416E41E00BBC97F /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		1F6E79522446613900242DAB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		1F6E7954244799B900242DAB /* ButtonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonList.swift; sourceTree = "<group>"; };
+		1F6E7954244799B900242DAB /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		1F944147240E193600E3F633 /* ButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
 		1F9FABCF24158555002FF99B /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		1FA7B27324418D8500ABD3BF /* CustomizableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizableButton.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		7E9E167D241C4EC10043EEE1 /* AMELUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMELUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMELUITests.swift; sourceTree = "<group>"; };
 		7E9E1681241C4EC10043EEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC150E77244B84A3002011EE /* ButtonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				31757AA22415B64700A92EF8 /* LogView.swift */,
 				1F9FABCF24158555002FF99B /* RecordView.swift */,
 				31B4DF742415C91B00C567E7 /* SettingsView.swift */,
+				FC150E77244B84A3002011EE /* ButtonRow.swift */,
 				1FA7B2832442C7B100ABD3BF /* LabelTextField.swift */,
 			);
 			path = Views;
@@ -214,7 +217,7 @@
 				318DA7052405A84A007D79B6 /* Event.swift */,
 				1F05D6C924431B1000590F20 /* UserSetting.swift */,
 				1F6E79522446613900242DAB /* CustomButton.swift */,
-				1F6E7954244799B900242DAB /* ButtonList.swift */,
+				1F6E7954244799B900242DAB /* Button.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				31E1CDF92416A84900643653 /* ButtonView.swift in Sources */,
 				318DA7082405B1F9007D79B6 /* EventView.swift in Sources */,
 				310AE7A4243E632800796D11 /* PrintPageRenderer.swift in Sources */,
+				FC150E78244B84A3002011EE /* ButtonRow.swift in Sources */,
 				4CED17542404851200E6D4F6 /* AppDelegate.swift in Sources */,
 				31C6FD23243E876D007F677F /* LatLngFormatter.swift in Sources */,
 				1F944148240E193600E3F633 /* ButtonAction.swift in Sources */,
@@ -534,7 +538,7 @@
 				31E860592415F6EE00B4BAE6 /* ContentView.swift in Sources */,
 				5A23230D2416ED2F0055BAF8 /* EventViewModel.swift in Sources */,
 				318DA7062405A84A007D79B6 /* Event.swift in Sources */,
-				1F6E7955244799B900242DAB /* ButtonList.swift in Sources */,
+				1F6E7955244799B900242DAB /* Button.swift in Sources */,
 				31C6FD1B243E781B007F677F /* ShareSheet.swift in Sources */,
 				5A23230F2416EDC50055BAF8 /* EventTitleBackground.swift in Sources */,
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
