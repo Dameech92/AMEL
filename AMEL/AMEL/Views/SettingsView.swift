@@ -10,8 +10,8 @@ import SwiftUI
 
 struct SettingsView: View {
 	@EnvironmentObject var userSettings:UserSetting
-	private let colorNames = ["Red", "Green", "Blue"]
-	private let colors = [UIColor.red, UIColor.green, UIColor.blue]
+	private let colorNames = ["Red", "Green", "Blue", "Purple", "Orange", "Gray"]
+	private let colors = [UIColor.red, UIColor.green, UIColor.blue, UIColor.purple, UIColor.orange, UIColor.gray]
 	@State private var colorIndex = 0
 	
 	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
@@ -92,14 +92,12 @@ struct SettingsView: View {
 				NavigationView {
 					Form {
 						ForEach((0 ..< buttonList.count), id: \.self) { i in
-							// "selection" is an Int that corresponds to a UIColor in the array of colors on line 14
-							// need to figure out how to send this selection to CoreData
 							Picker(selection: self.$colorIndex, label: Text("\(buttonList[i].buttonName!)")) {
 								LabelTextField(i)
-								
-								ForEach(0 ..< self.colors.count) {
-									Text(self.colorNames[$0]).tag($0)
-								}
+								ColorView(i)
+//								ForEach(0 ..< self.colors.count) {
+//									Text(self.colorNames[$0]).tag($0)
+//								}
 							}
 						}.onDelete { indexSet in
 						   if indexSet.first != nil {

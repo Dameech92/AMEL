@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F05D6CA24431B1000590F20 /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F05D6C924431B1000590F20 /* UserSetting.swift */; };
+		1F0FFA9C244BACB300DECAAA /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0FFA9B244BACB300DECAAA /* ColorView.swift */; };
 		1F2962032416E41400BBC97F /* HeadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2962022416E41400BBC97F /* HeadingViewModel.swift */; };
 		1F2962052416E41E00BBC97F /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2962042416E41E00BBC97F /* LocationViewModel.swift */; };
 		1F6E79532446613900242DAB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6E79522446613900242DAB /* CustomButton.swift */; };
@@ -93,6 +94,7 @@
 
 /* Begin PBXFileReference section */
 		1F05D6C924431B1000590F20 /* UserSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
+		1F0FFA9B244BACB300DECAAA /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		1F2962022416E41400BBC97F /* HeadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingViewModel.swift; sourceTree = "<group>"; };
 		1F2962042416E41E00BBC97F /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		1F6E79522446613900242DAB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				1F9FABCF24158555002FF99B /* RecordView.swift */,
 				31B4DF742415C91B00C567E7 /* SettingsView.swift */,
 				1FA7B2832442C7B100ABD3BF /* LabelTextField.swift */,
+				1F0FFA9B244BACB300DECAAA /* ColorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				318DA7062405A84A007D79B6 /* Event.swift in Sources */,
 				1F6E7955244799B900242DAB /* ButtonList.swift in Sources */,
 				31C6FD1B243E781B007F677F /* ShareSheet.swift in Sources */,
+				1F0FFA9C244BACB300DECAAA /* ColorView.swift in Sources */,
 				5A23230F2416EDC50055BAF8 /* EventTitleBackground.swift in Sources */,
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
 				1FA7B2782442AC8400ABD3BF /* SettingsViewModel.swift in Sources */,
