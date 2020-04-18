@@ -18,13 +18,6 @@ class SettingsViewModel: ObservableObject {
 //    @Environment(\.managedObjectContext) var managedObjectContext
 
     func getCustomButtons(buttons:FetchedResults<CustomButton>, managedObjectContext:NSManagedObjectContext)->Array<CustomButton>{
-//		print("\(buttons.count)")
-//		if buttons.isEmpty {
-//			for i in 1...6 {
-//				let newButton = SettingsViewModel.createCustomButton(managedObjectContext: managedObjectContext)
-//				SettingsViewModel.saveCustomButton(newButton, "Button \(i)", UIColor.blue, managedObjectContext)
-//			}
-//		}
 		var customButtons: [CustomButton] = []
 		buttons.forEach { (buttonData) in
 			customButtons.append(buttonData)
@@ -36,8 +29,9 @@ class SettingsViewModel: ObservableObject {
 		return CustomButton(context: managedObjectContext)
 	}
 	
-	public static func saveCustomButton(_ newButton:CustomButton, _ buttonName:String, _ buttonColor:UIColor, _ managedObjectContext:NSManagedObjectContext) {
+	public static func saveCustomButton(_ newButton:CustomButton, _ buttonName:String, _ index:Int, _ buttonColor:UIColor, _ managedObjectContext:NSManagedObjectContext) {
 		newButton.buttonName = buttonName
+		newButton.index = index as NSNumber
 		newButton.buttonColor = buttonColor
 		
 		// Fetch the event color
@@ -55,7 +49,7 @@ class SettingsViewModel: ObservableObject {
         }
 	}
 
-    func saveCustomButtons(managedObjectContext:NSManagedObjectContext){
+	func saveCustomButtons(managedObjectContext:NSManagedObjectContext){
         do{
             try managedObjectContext.save()
         }catch{
@@ -63,7 +57,7 @@ class SettingsViewModel: ObservableObject {
         }
     }
     
-    func deleteAllCustomCuttons(managedObjectContext:NSManagedObjectContext){
+    func deleteAllCustomButtons(managedObjectContext:NSManagedObjectContext){
 		self.savedButtons.forEach{(savedButton) in
 			managedObjectContext.delete(savedButton)
         }

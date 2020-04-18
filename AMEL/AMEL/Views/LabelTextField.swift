@@ -27,7 +27,7 @@ struct LabelTextField: View {
 		return VStack(alignment: .leading) {
 			Text("Button name")
 				.font(.headline)
-			TextField("Enter button name", text: self.$text) {
+			TextField("Current name: \(buttonList[self.buttonNameIndex].buttonName!)", text: self.$text) {
 				buttonList[self.buttonNameIndex].buttonName = self.text
 				viewModel.saveCustomButtons(managedObjectContext: self.managedObjectContext)
 			}
