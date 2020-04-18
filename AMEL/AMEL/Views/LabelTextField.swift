@@ -11,7 +11,7 @@ import SwiftUI
 
 struct LabelTextField: View {
 	@EnvironmentObject var userSettings:UserSetting
-	@State public var buttonNameIndex = 0
+	private var buttonNameIndex = 0
 	@State private var text = ""
 	
 	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>

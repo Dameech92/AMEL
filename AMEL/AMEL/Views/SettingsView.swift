@@ -90,11 +90,11 @@ struct SettingsView: View {
 				
 				NavigationView {
 					Form {
-						ForEach((0 ..< buttonList.count - 1), id: \.self) { i in
+						ForEach((0 ..< buttonList.count), id: \.self) { i in
 							Picker(selection: self.$userSettings.colorIndexes[i], label: Text("\(buttonList[i].buttonName!)")) {
 								LabelTextField(i)
 
-								ForEach(0 ..< self.colors.count - 1) {
+								ForEach(0 ..< self.colors.count) {
 									Text(self.colorNames[$0]).tag($0)
 								}
 							}
@@ -105,7 +105,7 @@ struct SettingsView: View {
 							   do {
 								   try self.managedObjectContext.save()
 							   } catch {
-									   print(error)
+										print(error)
 							   }
 						   }
 						}
