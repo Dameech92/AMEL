@@ -29,10 +29,12 @@ struct ReferencePointAction {
     }
     func convertToDecimalDegrees(data: LatLngData)->NSNumber {
         //DD = d + (min/60) + (sec/3600)
-        var decimals = Double(data.degree) + ((Double(data.minute) + Double(data.minuteTenth))/60.0)
-        if data.direction == 1 {
-            decimals = decimals * -1
-        }
-        return decimals as NSNumber
+        //var decimals = Double(data.degree) + ((Double(data.minute) + Double(data.minuteTenth))/60.0)
+        //if data.direction == 1 {
+            //decimals = decimals * -1
+        //}
+        let decimalStr = "\(data.degree).\(data.minute)"
+        let decimals = Double(decimalStr)
+        return decimals! as NSNumber
     }
 }

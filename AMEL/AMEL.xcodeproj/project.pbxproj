@@ -51,6 +51,7 @@
 		7E9E1672241C4EB50043EEE1 /* EventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E1671241C4EB50043EEE1 /* EventViewModelTests.swift */; };
 		7E9E1680241C4EC10043EEE1 /* AMELUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */; };
 		BF91963D2449373700F6D5C1 /* ReferencePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91963C2449373700F6D5C1 /* ReferencePoint.swift */; };
+		BF9542E9244A7AD600F4558C /* LngPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9542E8244A7AD600F4558C /* LngPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -153,6 +154,7 @@
 		7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMELUITests.swift; sourceTree = "<group>"; };
 		7E9E1681241C4EC10043EEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF91963C2449373700F6D5C1 /* ReferencePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePoint.swift; sourceTree = "<group>"; };
+		BF9542E8244A7AD600F4558C /* LngPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LngPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				31ECF4ED2447C06A00101158 /* Picker.swift */,
 				1F9FABCF24158555002FF99B /* RecordView.swift */,
 				317D9AFB244A5BF2005C89B1 /* LatLngPicker.swift */,
+				BF9542E8244A7AD600F4558C /* LngPicker.swift */,
 				31738E82244A4E270073022A /* RefPointView.swift */,
 				313061F624452B1000876981 /* ShareButton.swift */,
 				31B4DF742415C91B00C567E7 /* SettingsView.swift */,
@@ -536,6 +539,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F2962052416E41E00BBC97F /* LocationViewModel.swift in Sources */,
+				BF9542E9244A7AD600F4558C /* LngPicker.swift in Sources */,
 				1F2962032416E41400BBC97F /* HeadingViewModel.swift in Sources */,
 				4CED17592404851200E6D4F6 /* AMEL.xcdatamodeld in Sources */,
 				31738E7F244A2B5B0073022A /* PickerData.swift in Sources */,
