@@ -10,7 +10,6 @@ import Foundation
 import SwiftUI
 
 struct LabelTextField: View {
-	@EnvironmentObject var userSettings:UserSetting
 	private var buttonNameIndex = 0
 	@State private var text = ""
 	

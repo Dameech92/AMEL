@@ -12,6 +12,8 @@ import SwiftUI
 import UIKit
 
 class SettingsViewModel: ObservableObject {
+	private let colors = [UIColor.red, UIColor.green, UIColor.blue]
+	
     @FetchRequest(fetchRequest: CustomButton.getCustomButton()) var savedButtons:FetchedResults<CustomButton>
 //    @Environment(\.managedObjectContext) var managedObjectContext
 
@@ -65,20 +67,11 @@ class SettingsViewModel: ObservableObject {
 		self.savedButtons.forEach{(savedButton) in
 			managedObjectContext.delete(savedButton)
         }
-        
-        do{
-            try managedObjectContext.save()
-        }catch{
-            print(error)
-        }
+        saveCustomButtons(managedObjectContext: managedObjectContext)
     }
     
     func deleteCustomButton(eventToDelete: CustomButton, managedObjectContext:NSManagedObjectContext){
 		managedObjectContext.delete(eventToDelete)
-        do{
-            try managedObjectContext.save()
-        }catch{
-            print(error)
-        }
+		saveCustomButtons(managedObjectContext: managedObjectContext)
     }
 }

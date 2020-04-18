@@ -12,6 +12,7 @@ struct SettingsView: View {
 	@EnvironmentObject var userSettings:UserSetting
 	private let colorNames = ["Red", "Green", "Blue"]
 	private let colors = [UIColor.red, UIColor.green, UIColor.blue]
+	@State private var colorIndex = 0
 	
 	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
 	@Environment(\.managedObjectContext) var managedObjectContext
@@ -26,74 +27,76 @@ struct SettingsView: View {
 			VStack(alignment: .leading) {
 				
 				// ADD/REMOVE BUTTONS HERE FOR TESTING RIGHT NOW. SUBJECT TO CHANGE.
-				Text("Number of buttons: \(self.userSettings.numOfButtons)")
-				Text("Color index for button 1: \(self.userSettings.colorIndexes[0])")
-				HStack {
-					// adds a new button to the record events page
-					Button(action: {
-						UserDefaults.standard.set(self.userSettings.numOfButtons + 1, forKey: "numOfButtons")
-						self.userSettings.buttonNames.append("Button")
-					}) {
-						VStack {
-							Text("Add new button").foregroundColor(.primary)
-							Text("array length: \(self.userSettings.buttonNames.count)")
-							Image(systemName: "plus.square.fill")
-						}
-					}
-					
-					Divider()
-					
-					// removes a button from the record events page
-					Button(action: {
-						if self.userSettings.numOfButtons > 1 {
-							self.userSettings.buttonNames.remove(at: self.userSettings.numOfButtons - 1)
-							UserDefaults.standard.set(self.userSettings.numOfButtons - 1, forKey: "numOfButtons")
-						} else {
-							print("cannot have less than 1 button")
-						}
-					}) {
-						VStack {
-							Text("Remove button").foregroundColor(.primary)
-							Image(systemName: "minus.square.fill")
-						}
-					}
-					
-					
-					
-					
-				}.frame(height:60)
-				
-				// Temporary function that renames all of the stored button names.
-				Button(action: {
-					for i in 0...buttonList.count - 1 {
-						print("Renaming \"\(buttonList[i].buttonName!)\" to:")
-						buttonList[i].buttonName! = "Button \(i)"
-						print("\(buttonList[i].buttonName!)")
-						print()
-					}
-					viewModel.saveCustomButtons(managedObjectContext: self.managedObjectContext)
-				}) {
-					Image(systemName: "textbox")
-				}.padding(10)
-				
-				// Temporary function that prints out all of the stored button names.
-				Button(action: {
-					for i in 0...buttonList.count - 1 {
-						print("\(buttonList[i].buttonName!)")
-					}
-					print()
-				}) {
-					Image(systemName: "textformat.abc")
-				}.padding(10)
-				
-				Divider()
+//				Text("Number of buttons: \(self.userSettings.numOfButtons)")
+//				Text("Color index for button 1: \(self.userSettings.colorIndexes[0])")
+//				HStack {
+//					// adds a new button to the record events page
+//					Button(action: {
+//						UserDefaults.standard.set(self.userSettings.numOfButtons + 1, forKey: "numOfButtons")
+//						self.userSettings.buttonNames.append("Button")
+//					}) {
+//						VStack {
+//							Text("Add new button").foregroundColor(.primary)
+//							Text("array length: \(self.userSettings.buttonNames.count)")
+//							Image(systemName: "plus.square.fill")
+//						}
+//					}
+//
+//					Divider()
+//
+//					// removes a button from the record events page
+//					Button(action: {
+//						if self.userSettings.numOfButtons > 1 {
+//							self.userSettings.buttonNames.remove(at: self.userSettings.numOfButtons - 1)
+//							UserDefaults.standard.set(self.userSettings.numOfButtons - 1, forKey: "numOfButtons")
+//						} else {
+//							print("cannot have less than 1 button")
+//						}
+//					}) {
+//						VStack {
+//							Text("Remove button").foregroundColor(.primary)
+//							Image(systemName: "minus.square.fill")
+//						}
+//					}
+//
+//
+//
+//
+//				}.frame(height:60)
+//
+//				// Temporary function that renames all of the stored button names.
+//				Button(action: {
+//					for i in 0...buttonList.count - 1 {
+//						print("Renaming \"\(buttonList[i].buttonName!)\" to:")
+//						buttonList[i].buttonName! = "Button \(i)"
+//						print("\(buttonList[i].buttonName!)")
+//						print()
+//					}
+//					viewModel.saveCustomButtons(managedObjectContext: self.managedObjectContext)
+//				}) {
+//					Image(systemName: "textbox")
+//				}.padding(10)
+//
+//				// Temporary function that prints out all of the stored button names.
+//				Button(action: {
+//					for i in 0...buttonList.count - 1 {
+//						print("\(buttonList[i].buttonName!)")
+//					}
+//					print()
+//				}) {
+//					Image(systemName: "textformat.abc")
+//				}.padding(10)
+//
+//				Divider()
 				
 				NavigationView {
 					Form {
 						ForEach((0 ..< buttonList.count), id: \.self) { i in
-							Picker(selection: self.$userSettings.colorIndexes[i], label: Text("\(buttonList[i].buttonName!)")) {
+							// "selection" is an Int that corresponds to a UIColor in the array of colors on line 14
+							// need to figure out how to send this selection to CoreData
+							Picker(selection: self.$colorIndex, label: Text("\(buttonList[i].buttonName!)")) {
 								LabelTextField(i)
-
+								
 								ForEach(0 ..< self.colors.count) {
 									Text(self.colorNames[$0]).tag($0)
 								}
