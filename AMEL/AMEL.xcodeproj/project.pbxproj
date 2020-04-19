@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F0FFA9C244BACB300DECAAA /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0FFA9B244BACB300DECAAA /* ColorView.swift */; };
+		1F0FFA9E244CCCDC00DECAAA /* ColorPickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0FFA9D244CCCDC00DECAAA /* ColorPickerData.swift */; };
 		1F2962032416E41400BBC97F /* HeadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2962022416E41400BBC97F /* HeadingViewModel.swift */; };
 		1F2962052416E41E00BBC97F /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2962042416E41E00BBC97F /* LocationViewModel.swift */; };
 		1F944148240E193600E3F633 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944147240E193600E3F633 /* ButtonAction.swift */; };
@@ -106,6 +107,7 @@
 
 /* Begin PBXFileReference section */
 		1F0FFA9B244BACB300DECAAA /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		1F0FFA9D244CCCDC00DECAAA /* ColorPickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerData.swift; sourceTree = "<group>"; };
 		1F2962022416E41400BBC97F /* HeadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingViewModel.swift; sourceTree = "<group>"; };
 		1F2962042416E41E00BBC97F /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		1F944147240E193600E3F633 /* ButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				31738E7C244A21FB0073022A /* ReferencePointAction.swift */,
 				318DA70324059EC6007D79B6 /* LocationManager.swift */,
 				31738E7E244A2B5B0073022A /* PickerData.swift */,
+				1F0FFA9D244CCCDC00DECAAA /* ColorPickerData.swift */,
 				318DA7052405A84A007D79B6 /* Event.swift */,
 				BF91963C2449373700F6D5C1 /* ReferencePoint.swift */,
 				316561712447D9D400261AEB /* EventProtocol.swift */,
@@ -577,6 +580,7 @@
 				31C93ADD244BD4990041809D /* CustomButton.swift in Sources */,
 				31C6FD23243E876D007F677F /* LatLngFormatter.swift in Sources */,
 				1F944148240E193600E3F633 /* ButtonAction.swift in Sources */,
+				1F0FFA9E244CCCDC00DECAAA /* ColorPickerData.swift in Sources */,
 				1F9FABD024158555002FF99B /* RecordView.swift in Sources */,
 				31738E83244A4E270073022A /* RefPointView.swift in Sources */,
 				313061F3244529D000876981 /* LogListView.swift in Sources */,

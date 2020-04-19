@@ -12,7 +12,7 @@ struct SettingsView: View {
 	private let colorNames = ["Red", "Green", "Blue", "Purple", "Orange", "Gray"]
 	private let colors = [UIColor.red, UIColor.green, UIColor.blue, UIColor.purple, UIColor.orange, UIColor.gray]
 	@State private var colorIndex = 0
-	
+	@ObservedObject var colorPickerData = ColorPickerData()
 	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
 	@Environment(\.managedObjectContext) var managedObjectContext
     
@@ -24,66 +24,43 @@ struct SettingsView: View {
 		return ZStack {
 			Color("stealth").edgesIgnoringSafeArea(.all)
 			
-			VStack(alignment: .leading) {
-				
-				// ADD/REMOVE BUTTONS HERE FOR TESTING RIGHT NOW. SUBJECT TO CHANGE.
-//				Text("Number of buttons: \(self.userSettings.numOfButtons)")
-//				Text("Color index for button 1: \(self.userSettings.colorIndexes[0])")
-//				HStack {
-					// adds a new button to the record events page
+			VStack {
+				HStack(alignment: .center) {
+					// add a new button to the record events page
 					Button(action: {
 						let newButton = SettingsViewModel.createCustomButton(managedObjectContext: self.managedObjectContext)
-						SettingsViewModel.saveCustomButton(newButton, "New Button", 0, UIColor.gray, self.managedObjectContext)
+						SettingsViewModel.saveCustomButton(newButton, "New Button", buttonList.count, UIColor.gray, self.managedObjectContext)
 					}) {
 						VStack {
-							Text("Add new button").foregroundColor(.primary)
-							Text("Number of buttons: \(buttonList.count)")
+							Text("Add new button")
 							Image(systemName: "plus.square.fill")
 						}
-					}
+					}.foregroundColor(.primary)
 
 					Divider()
 
-					// removes a button from the record events page
-//					Button(action: {
-//						if buttonList.count > 1 {
-//							viewModel.deleteCustomButton(eventToDelete: <#T##CustomButton#>, managedObjectContext: self.managedObjectContext)
-//						} else {
-//							print("cannot have less than 1 button")
-//						}
-//					}) {
-//						VStack {
-//							Text("Remove button").foregroundColor(.primary)
-//							Image(systemName: "minus.square.fill")
-//						}
-//					}
+					// remove a button from the record events page
+					Button(action: {
+						if buttonList.count > 1 {
+							viewModel.deleteCustomButton(eventToDelete: buttonList[buttonList.count - 1], managedObjectContext: self.managedObjectContext)
+						} else {
+							print("cannot have less than 1 button")
+						}
+					}) {
+						VStack {
+							Text("Remove button")
+							Image(systemName: "minus.square.fill")
+						}
+					}.foregroundColor(.primary)
 				
-//				}.frame(height:60)
-//
-//				// Temporary function that renames all of the stored button names.
-//				Button(action: {
-//					for i in 0...buttonList.count - 1 {
-//						print("Renaming \"\(buttonList[i].buttonName!)\" to:")
-//						buttonList[i].buttonName! = "Button \(i)"
-//						print("\(buttonList[i].buttonName!)")
-//						print()
-//					}
-//					viewModel.saveCustomButtons(managedObjectContext: self.managedObjectContext)
-//				}) {
-//					Image(systemName: "textbox")
-//				}.padding(10)
-//
-//				// Temporary function that prints out all of the stored button names.
-//				Button(action: {
-//					for i in 0...buttonList.count - 1 {
-//						print("\(buttonList[i].buttonName!)")
-//					}
-//					print()
-//				}) {
-//					Image(systemName: "textformat.abc")
-//				}.padding(10)
-//
-//				Divider()
+				}.frame(height:60)
+
+				
+//				GeometryReader { geometry in
+//					PickerView(size: geometry.size, pickerData: self.colorPickerData)
+//				}.frame(height: 100)
+//					.clipped()
+				
 				
 				NavigationView {
 					Form {
@@ -91,6 +68,19 @@ struct SettingsView: View {
 							Picker(selection: self.$colorIndex, label: Text("\(buttonList[i].buttonName!)")) {
 								LabelTextField(i)
 								ColorView(i)
+//								Button(action: {
+//									if buttonList.count > 1 {
+//										print("Deleting button")
+//										viewModel.deleteCustomButton(eventToDelete: buttonList[i], managedObjectContext: self.managedObjectContext)
+//									} else {
+//										print("cannot have less than 1 button")
+//									}
+//								}) {
+//									VStack {
+//										Text("Remove this button")
+//										Image(systemName: "minus.square.fill")
+//									}
+//								}.foregroundColor(.primary)
 //								ForEach(0 ..< self.colors.count) {
 //									Text(self.colorNames[$0]).tag($0)
 //								}
@@ -102,12 +92,12 @@ struct SettingsView: View {
 							   do {
 								   try self.managedObjectContext.save()
 							   } catch {
-										print(error)
+								   print(error)
 							   }
 						   }
 						}
 					}.navigationBarTitle(Text("Button List"))
-				}
+				} // end NavigationView
 			}
 		}
 	}
