@@ -10,7 +10,6 @@ import SwiftUI
 struct RecordView: View {
 	private let locationVM = LocationViewModel()
 	private let headingVM = HeadingViewModel()
-	@ObservedObject private var locationManager = LocationManager()
 	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
 	@Environment(\.managedObjectContext) var managedObjectContext
 	
@@ -21,27 +20,8 @@ struct RecordView: View {
 		return ZStack {
 			Color("stealth").edgesIgnoringSafeArea(.all)
 			VStack {
-				HStack {
-					Spacer()
-					
-					VStack {
-						Text("Lat/Long/Alt")
-							.font(.largeTitle)
-							
-						Text("\(locationVM.getLatitude())/\(locationVM.getLongitude())/\(locationVM.getAltitude())")
-							.font(.title)
-							.padding()
-					}
-					Spacer()
-					
-					VStack {
-						Text("Heading:")
-							.font(.title)
-						Text("\(headingVM.getMagHeading())")
-							.font(.title)
-					}
-					Spacer()
-				}
+				LiveDataView()
+                Divider()
 				HStack {
 					VStack {
 						ForEach(Array(stride(from:0, to: buttonList.count, by: 2)), id: \.self) { i in
