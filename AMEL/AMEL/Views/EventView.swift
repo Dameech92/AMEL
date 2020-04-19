@@ -16,7 +16,7 @@ struct EventView: View{
         let colTwo = [viewModel.getBoBR(), viewModel.getHeadingCourse(), viewModel.getGroundSpeed()]
            return ZStack {
                  HStack{
-                    EventTitleBackground(name: viewModel.getName(), color: viewModel.getColor())
+                    EventTitleBackground(name: viewModel.getName(), color: event.color)
                     Spacer()
                     DataTextColumn(dataList: colOne)
                     Spacer()

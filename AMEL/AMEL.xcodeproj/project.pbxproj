@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F0FFA9C244BACB300DECAAA /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0FFA9B244BACB300DECAAA /* ColorView.swift */; };
-		1F0FFA9E244CCCDC00DECAAA /* ColorPickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0FFA9D244CCCDC00DECAAA /* ColorPickerData.swift */; };
 		1F2962032416E41400BBC97F /* HeadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2962022416E41400BBC97F /* HeadingViewModel.swift */; };
 		1F2962052416E41E00BBC97F /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2962042416E41E00BBC97F /* LocationViewModel.swift */; };
 		1F944148240E193600E3F633 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944147240E193600E3F633 /* ButtonAction.swift */; };
@@ -18,6 +16,7 @@
 		313061F12445250000876981 /* DataTextColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F02445250000876981 /* DataTextColumn.swift */; };
 		313061F524452AB200876981 /* ClearAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F424452AB200876981 /* ClearAllButton.swift */; };
 		313061F724452B1000876981 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F624452B1000876981 /* ShareButton.swift */; };
+		314721F1244CFE540045DE74 /* AMEL.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 314721EF244CFE540045DE74 /* AMEL.xcdatamodeld */; };
 		316561722447D9D400261AEB /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316561712447D9D400261AEB /* EventProtocol.swift */; };
 		31738E7D244A21FB0073022A /* ReferencePointAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31738E7C244A21FB0073022A /* ReferencePointAction.swift */; };
 		31738E7F244A2B5B0073022A /* PickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31738E7E244A2B5B0073022A /* PickerData.swift */; };
@@ -39,8 +38,9 @@
 		31C6FD2B243E9241007F677F /* log_item.html in Resources */ = {isa = PBXBuildFile; fileRef = 31C6FD2A243E8F0A007F677F /* log_item.html */; };
 		31C6FD2C243E9241007F677F /* log.html in Resources */ = {isa = PBXBuildFile; fileRef = 31C6FD29243E8F07007F677F /* log.html */; };
 		31C93ADD244BD4990041809D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C93ADC244BD4990041809D /* CustomButton.swift */; };
-		31C93ADF244BD5540041809D /* LabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C93ADE244BD5540041809D /* LabelTextField.swift */; };
 		31D2CB36243FBDB500356BCF /* HTMLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D2CB35243FBDB500356BCF /* HTMLGenerator.swift */; };
+		31DF3724244CF40600905903 /* ButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF3723244CF40600905903 /* ButtonRow.swift */; };
+		31DF3726244CF4A500905903 /* ButtonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF3725244CF4A500905903 /* ButtonData.swift */; };
 		31E1CDF92416A84900643653 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1CDF82416A84900643653 /* ButtonView.swift */; };
 		31E860592415F6EE00B4BAE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E860582415F6EE00B4BAE6 /* ContentView.swift */; };
 		31ECF4EC2447B86500101158 /* BullsEyeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECF4EB2447B86500101158 /* BullsEyeView.swift */; };
@@ -55,7 +55,6 @@
 		7E9E1672241C4EB50043EEE1 /* EventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E1671241C4EB50043EEE1 /* EventViewModelTests.swift */; };
 		7E9E1680241C4EC10043EEE1 /* AMELUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */; };
 		BF91963D2449373700F6D5C1 /* ReferencePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91963C2449373700F6D5C1 /* ReferencePoint.swift */; };
-		FC150E7C244BAF48002011EE /* AMEL.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC150E7A244BAF48002011EE /* AMEL.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -105,8 +104,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1F0FFA9B244BACB300DECAAA /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
-		1F0FFA9D244CCCDC00DECAAA /* ColorPickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerData.swift; sourceTree = "<group>"; };
 		1F2962022416E41400BBC97F /* HeadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingViewModel.swift; sourceTree = "<group>"; };
 		1F2962042416E41E00BBC97F /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		1F944147240E193600E3F633 /* ButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
@@ -116,6 +113,7 @@
 		313061F02445250000876981 /* DataTextColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTextColumn.swift; sourceTree = "<group>"; };
 		313061F424452AB200876981 /* ClearAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearAllButton.swift; sourceTree = "<group>"; };
 		313061F624452B1000876981 /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
+		314721F0244CFE540045DE74 /* AMEL.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AMEL.xcdatamodel; sourceTree = "<group>"; };
 		316561712447D9D400261AEB /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
 		31738E7C244A21FB0073022A /* ReferencePointAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePointAction.swift; sourceTree = "<group>"; };
 		31738E7E244A2B5B0073022A /* PickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerData.swift; sourceTree = "<group>"; };
@@ -137,8 +135,9 @@
 		31C6FD29243E8F07007F677F /* log.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = log.html; sourceTree = "<group>"; };
 		31C6FD2A243E8F0A007F677F /* log_item.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = log_item.html; sourceTree = "<group>"; };
 		31C93ADC244BD4990041809D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		31C93ADE244BD5540041809D /* LabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextField.swift; sourceTree = "<group>"; };
 		31D2CB35243FBDB500356BCF /* HTMLGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLGenerator.swift; sourceTree = "<group>"; };
+		31DF3723244CF40600905903 /* ButtonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRow.swift; sourceTree = "<group>"; };
+		31DF3725244CF4A500905903 /* ButtonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonData.swift; sourceTree = "<group>"; };
 		31E1CDF82416A84900643653 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		31E860582415F6EE00B4BAE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		31ECF4EB2447B86500101158 /* BullsEyeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeView.swift; sourceTree = "<group>"; };
@@ -162,7 +161,6 @@
 		7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMELUITests.swift; sourceTree = "<group>"; };
 		7E9E1681241C4EC10043EEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF91963C2449373700F6D5C1 /* ReferencePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePoint.swift; sourceTree = "<group>"; };
-		FC150E7B244BAF48002011EE /* AMEL.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AMEL.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				31ECF4EB2447B86500101158 /* BullsEyeView.swift */,
+				31DF3723244CF40600905903 /* ButtonRow.swift */,
 				31E1CDF82416A84900643653 /* ButtonView.swift */,
 				313061F424452AB200876981 /* ClearAllButton.swift */,
 				31E860582415F6EE00B4BAE6 /* ContentView.swift */,
@@ -232,12 +231,10 @@
 				31ECF4ED2447C06A00101158 /* Picker.swift */,
 				1F9FABCF24158555002FF99B /* RecordView.swift */,
 				317D9AFB244A5BF2005C89B1 /* LatPicker.swift */,
-				31C93ADE244BD5540041809D /* LabelTextField.swift */,
 				31738E82244A4E270073022A /* RefPointView.swift */,
 				31B24E29244BC6E100C8D0B0 /* LngPicker.swift */,
 				313061F624452B1000876981 /* ShareButton.swift */,
 				31B4DF742415C91B00C567E7 /* SettingsView.swift */,
-				1F0FFA9B244BACB300DECAAA /* ColorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -250,7 +247,7 @@
 				31738E7C244A21FB0073022A /* ReferencePointAction.swift */,
 				318DA70324059EC6007D79B6 /* LocationManager.swift */,
 				31738E7E244A2B5B0073022A /* PickerData.swift */,
-				1F0FFA9D244CCCDC00DECAAA /* ColorPickerData.swift */,
+				31DF3725244CF4A500905903 /* ButtonData.swift */,
 				318DA7052405A84A007D79B6 /* Event.swift */,
 				BF91963C2449373700F6D5C1 /* ReferencePoint.swift */,
 				316561712447D9D400261AEB /* EventProtocol.swift */,
@@ -282,7 +279,7 @@
 		4CED17472404851200E6D4F6 = {
 			isa = PBXGroup;
 			children = (
-				FC150E7A244BAF48002011EE /* AMEL.xcdatamodeld */,
+				314721EF244CFE540045DE74 /* AMEL.xcdatamodeld */,
 				4CED17522404851200E6D4F6 /* AMEL */,
 				5ADE287A24199A8C005A9A33 /* EventViewModelTests */,
 				7E9E1670241C4EB50043EEE1 /* AMELTests */,
@@ -563,8 +560,10 @@
 				31738E7F244A2B5B0073022A /* PickerData.swift in Sources */,
 				313061F524452AB200876981 /* ClearAllButton.swift in Sources */,
 				31C6FD19243E75FF007F677F /* PDFRenderer.swift in Sources */,
+				31DF3726244CF4A500905903 /* ButtonData.swift in Sources */,
 				31ECF4EC2447B86500101158 /* BullsEyeView.swift in Sources */,
 				31757AA32415B64700A92EF8 /* LogView.swift in Sources */,
+				314721F1244CFE540045DE74 /* AMEL.xcdatamodeld in Sources */,
 				31C6FD1D243E7B9B007F677F /* EventViewModel.swift in Sources */,
 				31E1CDF92416A84900643653 /* ButtonView.swift in Sources */,
 				318DA7082405B1F9007D79B6 /* EventView.swift in Sources */,
@@ -577,12 +576,10 @@
 				31C93ADD244BD4990041809D /* CustomButton.swift in Sources */,
 				31C6FD23243E876D007F677F /* LatLngFormatter.swift in Sources */,
 				1F944148240E193600E3F633 /* ButtonAction.swift in Sources */,
-				1F0FFA9E244CCCDC00DECAAA /* ColorPickerData.swift in Sources */,
 				1F9FABD024158555002FF99B /* RecordView.swift in Sources */,
 				31738E83244A4E270073022A /* RefPointView.swift in Sources */,
 				31738E81244A2D430073022A /* RefPointViewModel.swift in Sources */,
-				FC150E7C244BAF48002011EE /* AMEL.xcdatamodeld in Sources */,
-				31C93ADF244BD5540041809D /* LabelTextField.swift in Sources */,
+				31DF3724244CF40600905903 /* ButtonRow.swift in Sources */,
 				31D2CB36243FBDB500356BCF /* HTMLGenerator.swift in Sources */,
 				318DA70424059EC6007D79B6 /* LocationManager.swift in Sources */,
 				31B4DF752415C91B00C567E7 /* SettingsView.swift in Sources */,
@@ -592,7 +589,6 @@
 				313061F12445250000876981 /* DataTextColumn.swift in Sources */,
 				BF91963D2449373700F6D5C1 /* ReferencePoint.swift in Sources */,
 				31C6FD1B243E781B007F677F /* ShareSheet.swift in Sources */,
-				1F0FFA9C244BACB300DECAAA /* ColorView.swift in Sources */,
 				5A23230F2416EDC50055BAF8 /* EventTitleBackground.swift in Sources */,
 				316561722447D9D400261AEB /* EventProtocol.swift in Sources */,
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
@@ -1034,12 +1030,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FC150E7A244BAF48002011EE /* AMEL.xcdatamodeld */ = {
+		314721EF244CFE540045DE74 /* AMEL.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FC150E7B244BAF48002011EE /* AMEL.xcdatamodel */,
+				314721F0244CFE540045DE74 /* AMEL.xcdatamodel */,
 			);
-			currentVersion = FC150E7B244BAF48002011EE /* AMEL.xcdatamodel */;
+			currentVersion = 314721F0244CFE540045DE74 /* AMEL.xcdatamodel */;
 			path = AMEL.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

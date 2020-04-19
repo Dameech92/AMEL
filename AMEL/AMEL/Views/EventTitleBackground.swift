@@ -10,11 +10,11 @@ import SwiftUI
 
 struct EventTitleBackground: View {
     var name: String?
-    var color: Color?
+    var color: String?
     var body: some View {
         ZStack {
             Rectangle()
-            .fill(self.color!)
+            .fill(Color(self.color!))
             .frame(maxWidth: 400)
             
             Text(self.name!)
@@ -28,6 +28,6 @@ struct EventTitleBackground: View {
 
 struct EventTitleBackground_Previews: PreviewProvider {
     static var previews: some View {
-        EventTitleBackground(name: "Test", color: .red)
+        EventTitleBackground(name: "Test", color: "Red")
     }
 }

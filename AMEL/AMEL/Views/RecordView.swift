@@ -14,9 +14,6 @@ struct RecordView: View {
 	@Environment(\.managedObjectContext) var managedObjectContext
 	
 	var body: some View {
-		let viewModel = SettingsViewModel()
-		let buttonList: [CustomButton] = viewModel.getCustomButtons(buttons: customButton, managedObjectContext: self.managedObjectContext)
-		
 		return ZStack {
 			Color("stealth").edgesIgnoringSafeArea(.all)
 			VStack {
@@ -24,13 +21,8 @@ struct RecordView: View {
                 Divider()
 				HStack {
 					VStack {
-						ForEach(Array(stride(from:0, to: buttonList.count, by: 2)), id: \.self) { i in
-							ButtonView(name: buttonList[i].buttonName!, color: buttonList[i].buttonColor!)
-						}.padding(10)
-					}
-					VStack {
-						ForEach(Array(stride(from:1, to: buttonList.count, by: 2)), id: \.self) { i in
-							ButtonView(name: buttonList[i].buttonName!, color: buttonList[i].buttonColor!)
+                        ForEach(customButton, id: \.index) { button in
+							ButtonView(name: button.buttonName!, color: button.buttonColor!)
 						}.padding(10)
 					}
                 }
