@@ -25,7 +25,7 @@ struct EventView: View{
                 }
                 .lineLimit(2)
                 Rectangle()
-                    .stroke(Color("stealth"), lineWidth: 5)
+                    .stroke(Color("StealthText"), lineWidth: 5)
            }
            .background(Color("buttonBackGround"))
     }
