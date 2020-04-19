@@ -10,15 +10,14 @@ import Foundation
 import SwiftUI
 import CoreData
 struct ButtonSaver {
-    let name: String
-    let colorIndex: Int
+    let settingsData: SettingsData
     let context: NSManagedObjectContext
     let colorChoices = [Color.red, Color.blue, Color.green]
     func saveButtonData() {
         let button = ButtonData()
         button.color = saveColor()
         button.time = Date()
-        button.name = self.name
+        button.name = self.settingsData.name
         saveButton()
     }
     func saveButton() {
@@ -31,7 +30,7 @@ struct ButtonSaver {
     func saveColor()->Data? {
         let colorData: Data?
         do {
-            try colorData = NSKeyedArchiver.archivedData(withRootObject: self.colorChoices[self.colorIndex], requiringSecureCoding: false)
+            try colorData = NSKeyedArchiver.archivedData(withRootObject: self.colorChoices[self.settingsData.color], requiringSecureCoding: false)
         } catch {
             colorData = nil
         }

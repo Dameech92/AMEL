@@ -14,17 +14,19 @@ struct SettingsView: View {
     
 	
     var body: some View {
-        VStack {
+        let settingsData = SettingsData()
+        return VStack {
             Button(action: {
-                
+                let bSaver = ButtonSaver(settingsData: settingsData, context: self.managedObjectContext)
+                bSaver.saveButton()
             }){
                 Image(systemName: "plus")
             }
             List {
                 Section(header: Text("Buttons")) {
-                    ButtonRow(button: nil)
+                    ButtonRow(button: nil, settingsData: settingsData)
                     ForEach(self.buttons, id: \.time) {button in
-                        ButtonRow(button: button)
+                        ButtonRow(button: button, settingsData: settingsData)
                         }
                     }
                 }

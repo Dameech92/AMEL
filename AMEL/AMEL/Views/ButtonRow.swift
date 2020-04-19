@@ -9,21 +9,20 @@
 import SwiftUI
 
 struct ButtonRow: View {
-    @State var name = ""
-    @State var color = 0
-    let button: ButtonData?
     
+    let button: ButtonData?
+    let settingsData: SettingsData
     var body: some View {
         if button != nil {
-            name = button!.name!
+            self.settingsData.name = button!.name!
         }
         else {
-            name = "default"
+            self.settingsData.name = "default"
         }
         
         return HStack{
-            TextField("Enter button name", text: $name)
-            Picker(selection: $color, label: Text("Color")) {
+            TextField("Enter button name", text: self.settingsData.$name)
+            Picker(selection: self.settingsData.$color, label: Text("Color")) {
                 Rectangle()
                     .fill(Color.red)
                     .frame(width:20, height: 20)
@@ -40,6 +39,6 @@ struct ButtonRow: View {
 
 struct ButtonRow_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonRow(button: ButtonData())
+        ButtonRow(button: ButtonData(), settingsData: SettingsData())
     }
 }
