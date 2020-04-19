@@ -12,27 +12,33 @@ struct ContentView: View {
         // initialize the appearance of the tab bar
         UITabBar.appearance().backgroundColor = UIColor.darkGray
     }
-    @State var selected = 0 // the ID of the current tab
+    @State var selected = 1
     var body: some View {
         TabView(selection: $selected) {
+            BullsEyeView().tabItem({
+                VStack{
+                    Image(systemName: "b.circle").font(.title)
+                    Text("BullsEye")
+                }
+            }).tag(0)
             RecordView().tabItem({
                 VStack{
                     Image(systemName: "rectangle.grid.2x2").font(.title)
                     Text("Record Events")
                 }
-            }).tag(0)
+            }).tag(1)
             LogView().tabItem({
                 VStack{
                     Image(systemName: "list.dash").font(.title)
                     Text("Log")
                 }
-            }).tag(1)
-            //SettingsView().tabItem({
-                //VStack{
-                    //Image(systemName: "gear").font(.title)
-                    //Text("Settings")
-                //}
-            //}).tag(2)
+            }).tag(2)
+            SettingsView().tabItem({
+                VStack{
+                    Image(systemName: "gear").font(.title)
+                    Text("Settings")
+                }
+            }).tag(3)
         }.accentColor(Color.red)
     }
 }
