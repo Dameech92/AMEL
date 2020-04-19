@@ -16,7 +16,6 @@
 		1FA7B2782442AC8400ABD3BF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA7B2772442AC8400ABD3BF /* SettingsViewModel.swift */; };
 		310AE7A4243E632800796D11 /* PrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310AE7A3243E632800796D11 /* PrintPageRenderer.swift */; };
 		313061F12445250000876981 /* DataTextColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F02445250000876981 /* DataTextColumn.swift */; };
-		313061F3244529D000876981 /* LogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F2244529D000876981 /* LogListView.swift */; };
 		313061F524452AB200876981 /* ClearAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F424452AB200876981 /* ClearAllButton.swift */; };
 		313061F724452B1000876981 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F624452B1000876981 /* ShareButton.swift */; };
 		316561722447D9D400261AEB /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316561712447D9D400261AEB /* EventProtocol.swift */; };
@@ -115,7 +114,6 @@
 		1FA7B2772442AC8400ABD3BF /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		310AE7A3243E632800796D11 /* PrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintPageRenderer.swift; sourceTree = "<group>"; };
 		313061F02445250000876981 /* DataTextColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTextColumn.swift; sourceTree = "<group>"; };
-		313061F2244529D000876981 /* LogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListView.swift; sourceTree = "<group>"; };
 		313061F424452AB200876981 /* ClearAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearAllButton.swift; sourceTree = "<group>"; };
 		313061F624452B1000876981 /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
 		316561712447D9D400261AEB /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
@@ -230,7 +228,6 @@
 				5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */,
 				318DA7072405B1F9007D79B6 /* EventView.swift */,
 				31AB3CAD244648D300154696 /* LiveDataView.swift */,
-				313061F2244529D000876981 /* LogListView.swift */,
 				31757AA22415B64700A92EF8 /* LogView.swift */,
 				31ECF4ED2447C06A00101158 /* Picker.swift */,
 				1F9FABCF24158555002FF99B /* RecordView.swift */,
@@ -583,7 +580,6 @@
 				1F0FFA9E244CCCDC00DECAAA /* ColorPickerData.swift in Sources */,
 				1F9FABD024158555002FF99B /* RecordView.swift in Sources */,
 				31738E83244A4E270073022A /* RefPointView.swift in Sources */,
-				313061F3244529D000876981 /* LogListView.swift in Sources */,
 				31738E81244A2D430073022A /* RefPointViewModel.swift in Sources */,
 				FC150E7C244BAF48002011EE /* AMEL.xcdatamodeld in Sources */,
 				31C93ADF244BD5540041809D /* LabelTextField.swift in Sources */,
