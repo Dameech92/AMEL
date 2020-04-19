@@ -15,6 +15,7 @@ struct EventTitleBackground: View {
         ZStack {
             Rectangle()
             .fill(self.color!)
+            .frame(maxWidth: 400)
             
             Text(self.name!)
             .font(.title)
@@ -22,7 +23,6 @@ struct EventTitleBackground: View {
             .padding(5)
         }
         .lineLimit(1)
-        .minimumScaleFactor(0.2)
     }
 }
 

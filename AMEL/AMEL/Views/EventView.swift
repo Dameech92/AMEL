@@ -24,8 +24,6 @@ struct EventView: View{
                     Spacer()
                 }
                 .lineLimit(2)
-                .minimumScaleFactor(0.2)
-                .font(.title)
                 Rectangle()
                 .stroke(Color.black, lineWidth: 5)
            }
