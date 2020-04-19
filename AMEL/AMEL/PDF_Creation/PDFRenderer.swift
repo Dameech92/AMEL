@@ -48,7 +48,7 @@ class PDFRenderer {
         }
     }
     func getFileName()->String {
-        let eventVM = EventFormatter(event: self.events[events.count-1])
+        let eventVM = EventViewModel(event: self.events[events.count-1])
         return eventVM.getTime() + ".pdf"
     }
     

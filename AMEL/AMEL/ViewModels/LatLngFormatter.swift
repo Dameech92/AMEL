@@ -9,8 +9,8 @@
 import Foundation
 
 struct LatLngFormatter {
-    let latitude: Double
-    let longitude: Double
+    var latitude: Double
+    var longitude: Double
     
     func getLatLng()->String {
         return formatLatitude(latitude: self.latitude) + " " + formatLongitude(longitude: self.longitude)
@@ -18,7 +18,7 @@ struct LatLngFormatter {
     func formatLatitude(latitude: Double)->String {
         let number = getDMS(number: latitude)
         var direction = ""
-        if latitude > 0 {
+        if latitude >= 0 {
             direction = "N"
         }else {
             direction = "S"
@@ -28,7 +28,7 @@ struct LatLngFormatter {
     func formatLongitude(longitude: Double)->String {
         let number = getDMS(number: longitude)
         var direction = ""
-        if longitude > 0 {
+        if longitude >= 0 {
             direction = "E"
         }else {
             direction = "W"
@@ -37,10 +37,9 @@ struct LatLngFormatter {
     }
     func getDMS(number:Double)->String {
         let degrees = abs(Int(number))
-        let decimal = abs(number) - Double(degrees)
-        let minutes = decimal * 60
-        let minutesDotM = String(format: "%.1f", minutes)
-        return String(degrees) + "-" + minutesDotM
+        let minutes = Int((abs(number)-Double(degrees)) * 60.0)
+        let minutesDotM = String(format: "%04.1f", minutes)
+        return String(format: "%02d", degrees) + "-" + minutesDotM
     }
     
 }

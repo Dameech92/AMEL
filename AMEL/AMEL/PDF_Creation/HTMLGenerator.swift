@@ -32,7 +32,7 @@ class HTMLGenerator {
             if pageShouldBeMade(index: i) {
                 addPage()
             }
-            let eventFormatter = EventFormatter(event: self.events[i])
+            let eventFormatter = EventViewModel(event: self.events[i])
             let itemHTML = getLogItem(eventFormatter: eventFormatter)
             self.logItems += itemHTML ?? ""
         }
@@ -59,7 +59,7 @@ class HTMLGenerator {
         }
         return logTemplate
     }
-    func getLogItem(eventFormatter: EventFormatter)-> String?{
+    func getLogItem(eventFormatter: EventViewModel)-> String?{
         do {
             var htmlContent = try String(contentsOfFile: pathToLogItemTemplate!)
             htmlContent = htmlContent.replacingOccurrences(of: "#BOX_COLOR#", with: eventFormatter.getHexColor())

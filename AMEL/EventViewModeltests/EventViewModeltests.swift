@@ -22,10 +22,5 @@ class EventViewModelTests: XCTestCase {
     override func tearDown() {
     }
 
-    func testEventsAreReturning(){
-        //var context = AppDelegate.sendContext()
-        //ViewModel = EventViewModel(context:context)
-        //XCTAssertNotNil(ViewModel!.GetAllFormattedEvents())
-    }
-
+   
 }

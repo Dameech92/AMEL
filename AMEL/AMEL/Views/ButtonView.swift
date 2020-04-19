@@ -5,7 +5,6 @@
 //  Created by Neil Marcellini on 3/9/20.
 //  Copyright © 2020 Marcellini, Neil. All rights reserved.
 //
-
 import SwiftUI
 
 struct ButtonView: View {
@@ -22,8 +21,9 @@ struct ButtonView: View {
         Button(action: {
 			ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext)
 			let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
-			ButtonAction.logEvent(newEvent, self.name, self.color, self.managedObjectContext)
-		}) {
+			ButtonAction.saveEvent(newEvent, self.name, self.color, self.managedObjectContext)
+            
+        }){
             Text(self.name)
             .frame(minWidth: 0, maxWidth: .infinity)
             .frame(minHeight: 0, maxHeight: .infinity)
@@ -33,7 +33,7 @@ struct ButtonView: View {
             .background(Color(self.color))
             .cornerRadius(40)
             
-        }.padding()
+        }
     }
 }
 

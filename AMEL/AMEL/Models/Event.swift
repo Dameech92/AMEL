@@ -7,7 +7,7 @@
 import Foundation
 import CoreData
 
-public class Event: NSManagedObject, Identifiable {
+public class Event: NSManagedObject, Identifiable, EventProtocol {
     @NSManaged public var  time:Date?
     @NSManaged public var name:String?
     @NSManaged public var latitude:NSNumber?
@@ -19,7 +19,7 @@ public class Event: NSManagedObject, Identifiable {
     @NSManaged public var speed:NSNumber?
 }
 extension Event {
-    static func getEvents() -> NSFetchRequest<Event> {
+    public static func getEvents() -> NSFetchRequest<Event> {
         let request: NSFetchRequest<Event> = Event.fetchRequest() as! NSFetchRequest<Event>
         let sortDescriptor = NSSortDescriptor(key: "time", ascending: false)
         request.sortDescriptors = [sortDescriptor]

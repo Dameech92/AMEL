@@ -1,3 +1,4 @@
+
 //
 //  ButtonAction.swift
 //  AMEL
@@ -5,7 +6,6 @@
 //  Created by Jeffrey Brian Romero on 3/2/20.
 //  Copyright © 2020 Marcellini, Neil. All rights reserved.
 //
-
 import Foundation
 import CoreData
 import CoreLocation
@@ -34,7 +34,7 @@ struct ButtonAction {
 		return Event(context: managedObjectContext)
 	}
 	
-	public static func logEvent(_ newEvent:Event, _ eventName:String, _ color:UIColor, _ managedObjectContext:NSManagedObjectContext) {
+	public static func saveEvent(_ newEvent:Event, _ eventName:String, _ color:UIColor, _ managedObjectContext:NSManagedObjectContext) {
 		// Store the data calculated from the record function within newEvent
 		newEvent.name = eventName
         newEvent.latitude = latitude as NSNumber
@@ -44,24 +44,16 @@ struct ButtonAction {
         newEvent.time = Date()
         newEvent.course = course as NSNumber
         newEvent.speed = speed as NSNumber
+        newEvent.color = saveColor(color: color)
 		
-		// Fetch the event color
-		do {
-            try newEvent.color = NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false)
-        } catch {
-            newEvent.color = nil
-        }
-		
-		// update the object
 		do {
             try managedObjectContext.save()
         } catch {
             print("Error saving")
         }
-	}
-	
+    }
+    
     public static func record(_ eventName:String, _ color:UIColor, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
-		
 		if locationManager.location != nil {
             fetchCurrentLocationData(locationManager)
 		}
@@ -70,4 +62,13 @@ struct ButtonAction {
             magHeading = locationManager.heading!.magneticHeading
         }
 	}
+    public static func saveColor(color:UIColor)->Data? {
+        let colorData: Data?
+        do {
+            try colorData = NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false)
+        } catch {
+            colorData = nil
+        }
+        return colorData
+    }
 }
