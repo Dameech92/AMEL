@@ -24,6 +24,12 @@ extension Published {
 }
 
 public class UserSetting: ObservableObject {
+//	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
+//    @Environment(\.managedObjectContext) var managedObjectContext
+//	
+//	let viewModel = SettingsViewModel()
+//	let buttonList: [CustomButton] = viewModel.GetCustomButtons(events: customButton)
+	
 	private let maxLengthOfButtonName = 17
 	@Published var numOfButtons = 6
 	@Published var colorIndexes = [0, 0, 0, 0, 0, 0]

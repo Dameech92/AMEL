@@ -8,43 +8,57 @@
 import SwiftUI
 
 struct RecordView: View {
-        
-        var body: some View {
-        ZStack{
-             Color("stealth").edgesIgnoringSafeArea(.all)
-             VStack{
-                LiveDataView()
-                Divider()
-                HStack{
-                 VStack{
-//					ForEach(0 ..< SettingsView.) {_ in
-//						ButtonView(name: "Bomb", color: UIColor.blue)
-//						Spacer()
-//					}
-                    ButtonView(name: "Bomb", color: UIColor.blue)
-                    Spacer()
-                     ButtonView(name: "Missile", color: UIColor.green)
-                     Spacer()
-                     ButtonView(name: "Navigation", color: UIColor.red)
-                     Spacer()
-                    
-                     }
-                         
-                    VStack{
-                    ButtonView(name: "NUKE EM!", color: UIColor.purple)
-                         Spacer()
-                        ButtonView(name: "Jammer", color: UIColor.brown)
-                         Spacer()
-                         ButtonView(name: "Eject", color: UIColor.orange)
-                         Spacer()
-                             
-                     }
-                 }
-             }
-             .padding(10.0)
-          }
-        }
-    }
+	private let locationVM = LocationViewModel()
+	private let headingVM = HeadingViewModel()
+	@ObservedObject private var locationManager = LocationManager()
+	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
+	@Environment(\.managedObjectContext) var managedObjectContext
+	
+	var body: some View {
+		let viewModel = SettingsViewModel()
+		let buttonList: [CustomButton] = viewModel.getCustomButtons(buttons: customButton, managedObjectContext: self.managedObjectContext)
+		
+		return ZStack {
+			Color("stealth").edgesIgnoringSafeArea(.all)
+			VStack {
+				HStack {
+					Spacer()
+					
+					VStack {
+						Text("Lat/Long/Alt")
+							.font(.largeTitle)
+							
+						Text("\(locationVM.getLatitude())/\(locationVM.getLongitude())/\(locationVM.getAltitude())")
+							.font(.title)
+							.padding()
+					}
+					Spacer()
+					
+					VStack {
+						Text("Heading:")
+							.font(.title)
+						Text("\(headingVM.getMagHeading())")
+							.font(.title)
+					}
+					Spacer()
+				}
+				HStack {
+					VStack {
+						ForEach(Array(stride(from:0, to: buttonList.count, by: 2)), id: \.self) { i in
+							ButtonView(name: buttonList[i].buttonName!, color: buttonList[i].buttonColor!)
+						}
+					}
+					VStack {
+						ForEach(Array(stride(from:1, to: buttonList.count, by: 2)), id: \.self) { i in
+							ButtonView(name: buttonList[i].buttonName!, color: buttonList[i].buttonColor!)
+						}
+					}
+				}
+			}
+			.padding(10.0)
+		}
+	}
+}
 
 struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
