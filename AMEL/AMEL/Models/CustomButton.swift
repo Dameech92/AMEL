@@ -18,7 +18,7 @@ public class CustomButton: NSManagedObject, Identifiable {
 extension CustomButton {
 	static func getCustomButton() -> NSFetchRequest<CustomButton> {
         let request: NSFetchRequest<CustomButton> = CustomButton.fetchRequest() as! NSFetchRequest<CustomButton>
-        let sortDescriptor = NSSortDescriptor(key: "index", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "index", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         return request
     }

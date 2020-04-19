@@ -44,27 +44,14 @@ struct RecordView: View {
 				}
 				HStack {
 					VStack {
-						ForEach(Array(stride(from:0, to: 6, by: 2)), id: \.self) { i in
+						ForEach(Array(stride(from:0, to: buttonList.count, by: 2)), id: \.self) { i in
 							ButtonView(name: buttonList[i].buttonName!, color: buttonList[i].buttonColor!)
 						}
-//						ButtonView(name: "Bomb", color: UIColor.blue)
-//						Spacer()
-//						ButtonView(name: "Missile", color: UIColor.green)
-//						Spacer()
-//						ButtonView(name: "Navigation", color: UIColor.red)
-//						Spacer()
 					}
-					 
 					VStack {
-						ForEach(Array(stride(from:1, to: 7, by: 2)), id: \.self) { i in
+						ForEach(Array(stride(from:1, to: buttonList.count, by: 2)), id: \.self) { i in
 							ButtonView(name: buttonList[i].buttonName!, color: buttonList[i].buttonColor!)
 						}
-//						ButtonView(name: "NUKE EM!", color: UIColor.purple)
-//						Spacer()
-//						ButtonView(name: "Jammer", color: UIColor.brown)
-//						Spacer()
-//						ButtonView(name: "Eject", color: UIColor.orange)
-//						Spacer()
 					}
 				}
 			}

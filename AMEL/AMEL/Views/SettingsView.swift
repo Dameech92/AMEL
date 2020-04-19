@@ -30,25 +30,24 @@ struct SettingsView: View {
 //				Text("Number of buttons: \(self.userSettings.numOfButtons)")
 //				Text("Color index for button 1: \(self.userSettings.colorIndexes[0])")
 //				HStack {
-//					// adds a new button to the record events page
+					// adds a new button to the record events page
+					Button(action: {
+						let newButton = SettingsViewModel.createCustomButton(managedObjectContext: self.managedObjectContext)
+						SettingsViewModel.saveCustomButton(newButton, "New Button", 0, UIColor.gray, self.managedObjectContext)
+					}) {
+						VStack {
+							Text("Add new button").foregroundColor(.primary)
+							Text("Number of buttons: \(buttonList.count)")
+							Image(systemName: "plus.square.fill")
+						}
+					}
+
+					Divider()
+
+					// removes a button from the record events page
 //					Button(action: {
-//						UserDefaults.standard.set(self.userSettings.numOfButtons + 1, forKey: "numOfButtons")
-//						self.userSettings.buttonNames.append("Button")
-//					}) {
-//						VStack {
-//							Text("Add new button").foregroundColor(.primary)
-//							Text("array length: \(self.userSettings.buttonNames.count)")
-//							Image(systemName: "plus.square.fill")
-//						}
-//					}
-//
-//					Divider()
-//
-//					// removes a button from the record events page
-//					Button(action: {
-//						if self.userSettings.numOfButtons > 1 {
-//							self.userSettings.buttonNames.remove(at: self.userSettings.numOfButtons - 1)
-//							UserDefaults.standard.set(self.userSettings.numOfButtons - 1, forKey: "numOfButtons")
+//						if buttonList.count > 1 {
+//							viewModel.deleteCustomButton(eventToDelete: <#T##CustomButton#>, managedObjectContext: self.managedObjectContext)
 //						} else {
 //							print("cannot have less than 1 button")
 //						}
@@ -58,10 +57,7 @@ struct SettingsView: View {
 //							Image(systemName: "minus.square.fill")
 //						}
 //					}
-//
-//
-//
-//
+				
 //				}.frame(height:60)
 //
 //				// Temporary function that renames all of the stored button names.

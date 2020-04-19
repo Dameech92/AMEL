@@ -17,7 +17,11 @@ class SettingsViewModel: ObservableObject {
     @FetchRequest(fetchRequest: CustomButton.getCustomButton()) var savedButtons:FetchedResults<CustomButton>
 //    @Environment(\.managedObjectContext) var managedObjectContext
 
-    func getCustomButtons(buttons:FetchedResults<CustomButton>, managedObjectContext:NSManagedObjectContext)->Array<CustomButton>{
+    func getCustomButtons(buttons:FetchedResults<CustomButton>, managedObjectContext:NSManagedObjectContext)->Array<CustomButton> {
+		if buttons.count < 1 {
+			let newButton = SettingsViewModel.createCustomButton(managedObjectContext: managedObjectContext)
+			SettingsViewModel.saveCustomButton(newButton, "New Button", 0, UIColor.gray, managedObjectContext)
+		}
 		var customButtons: [CustomButton] = []
 		buttons.forEach { (buttonData) in
 			customButtons.append(buttonData)
