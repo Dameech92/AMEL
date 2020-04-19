@@ -26,14 +26,14 @@ struct RecordView: View {
 					VStack {
 						ForEach(Array(stride(from:0, to: buttonList.count, by: 2)), id: \.self) { i in
 							ButtonView(name: buttonList[i].buttonName!, color: buttonList[i].buttonColor!)
-						}
+						}.padding(10)
 					}
 					VStack {
 						ForEach(Array(stride(from:1, to: buttonList.count, by: 2)), id: \.self) { i in
 							ButtonView(name: buttonList[i].buttonName!, color: buttonList[i].buttonColor!)
-						}
+						}.padding(10)
 					}
-				}
+                }
 			}
 			.padding(10.0)
 		}
