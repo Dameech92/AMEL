@@ -21,10 +21,15 @@ struct RecordView: View {
                 Divider()
 				HStack {
 					VStack {
-                        ForEach(customButton, id: \.index) { button in
-							ButtonView(name: button.buttonName!, color: button.buttonColor!)
+                        ForEach(0 ..< self.customButton.count/2) {
+                            ButtonView(name: self.customButton[$0].buttonName!, color: self.customButton[$0].buttonColor!)
 						}.padding(10)
 					}
+                    VStack {
+                        ForEach(self.customButton.count/2 ..< self.customButton.count) {
+                            ButtonView(name: self.customButton[$0].buttonName!, color: self.customButton[$0].buttonColor!)
+                        }.padding(10)
+                    }
                 }
 			}
 			.padding(10.0)
