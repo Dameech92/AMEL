@@ -54,28 +54,7 @@ struct EventViewModel{
         return Double(truncating: altMeters) * 3.2808
     }
     
-    func getColor() -> Color {
-        if event.color != nil{
-            do {
-                return try Color(NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: event.color!)!)
-            } catch {
-                print(error)
-            }
-        }
-
-        return Color.blue
-    }
-
-    func getUIColor() -> UIColor {
-        if event.color != nil{
-            do {
-                return try (NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: event.color!)!)
-            } catch {
-                print(error)
-            }
-        }
-        return UIColor.blue
-    }
+    
     func getHeadingCourse()->String {
         var course = "---"
         var heading = "---"
@@ -110,18 +89,11 @@ struct EventViewModel{
     
     // gets hex color from UIColor for use in log
     func getHexColor()->String {
-        let uiColor = getUIColor()
-        let components = uiColor.cgColor.components
+        let uiColor = UIColor(named: event.color!)
+        let components = uiColor!.cgColor.components
         let r: CGFloat = components?[0] ?? 0.0
         let g: CGFloat = components?[1] ?? 0.0
-        let b: CGFloat
-        if components!.count > 2 {
-            b = components?[2] ?? 0.0
-        }
-        else {
-            b = 0.0
-        }
-        
+        let b: CGFloat = components?[2] ?? 0.0
 
         let hexString = String.init(format: "#%02lX%02lX%02lX", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)))
         return hexString

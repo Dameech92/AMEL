@@ -27,7 +27,6 @@ struct LiveDataView: View {
         }
         .padding()
         .lineLimit(2)
-        .minimumScaleFactor(0.5)
     }
 }
 

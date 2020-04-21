@@ -21,6 +21,7 @@ struct ClearAllButton: View {
                         print(error)
                 }
             }
+            
         }) {
             Text("Clear All")
         }

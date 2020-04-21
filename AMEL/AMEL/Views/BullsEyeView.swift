@@ -32,7 +32,7 @@ struct BullsEyeView: View {
                 Text("Add B/E point")
             }
             .padding()
-            .foregroundColor(Color.green)
+            .foregroundColor(Color("Green"))
             List {
                 ForEach(self.points, id: \.time) { point in
                     RefPointView(point: point)

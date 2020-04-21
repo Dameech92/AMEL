@@ -11,8 +11,8 @@ struct ButtonView: View {
     @ObservedObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) var managedObjectContext
     private var name:String
-    private var color:UIColor
-    init(name:String, color: UIColor) {
+    private var color:String
+    init(name:String, color: String) {
         self.name = name
         self.color = color
     }
@@ -39,6 +39,6 @@ struct ButtonView: View {
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(name: "test", color: UIColor.blue)
+        ButtonView(name: "test", color: "Blue")
     }
 }

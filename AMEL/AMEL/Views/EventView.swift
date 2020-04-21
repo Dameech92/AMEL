@@ -15,8 +15,8 @@ struct EventView: View{
         let colOne = [viewModel.getTime(), viewModel.getLatLng(), viewModel.getAltitude()]
         let colTwo = [viewModel.getBoBR(), viewModel.getHeadingCourse(), viewModel.getGroundSpeed()]
            return ZStack {
-                HStack{
-                    EventTitleBackground(name: viewModel.getName(), color: viewModel.getColor())
+                 HStack{
+                    EventTitleBackground(name: viewModel.getName(), color: event.color)
                     Spacer()
                     DataTextColumn(dataList: colOne)
                     Spacer()
@@ -24,13 +24,11 @@ struct EventView: View{
                     Spacer()
                 }
                 .lineLimit(2)
-                .minimumScaleFactor(0.2)
-                .font(.title)
                 Rectangle()
-                .stroke(Color.black, lineWidth: 5)
+                    .stroke(Color("StealthText"), lineWidth: 5)
            }
            .background(Color("buttonBackGround"))
-        }
+    }
 }
 
 struct EventView_Previews: PreviewProvider {
