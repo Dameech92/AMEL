@@ -16,7 +16,7 @@ struct LatLngFormatter {
         return formatLatitude(latitude: self.latitude) + " " + formatLongitude(longitude: self.longitude)
     }
     func formatLatitude(latitude: Double)->String {
-        let number = getDMS(number: latitude)
+        let number = getDM(number: latitude)
         var direction = ""
         if latitude >= 0 {
             direction = "N"
@@ -26,7 +26,7 @@ struct LatLngFormatter {
         return direction + number
     }
     func formatLongitude(longitude: Double)->String {
-        let number = getDMS(number: longitude)
+        let number = getDM(number: longitude)
         var direction = ""
         if longitude >= 0 {
             direction = "E"
@@ -35,9 +35,10 @@ struct LatLngFormatter {
         }
         return direction + number
     }
-    func getDMS(number:Double)->String {
+    func getDM(number:Double)->String {
         let degrees = abs(Int(number))
-        let minutes = Int((abs(number)-Double(degrees)) * 60.0)
+        let decimal = abs(number) - Double(degrees)
+        let minutes = decimal * 60
         let minutesDotM = String(format: "%04.1f", minutes)
         return String(format: "%02d", degrees) + "-" + minutesDotM
     }

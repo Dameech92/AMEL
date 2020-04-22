@@ -24,7 +24,7 @@ struct EventViewModel{
     
     func getTime()->String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss (dd-MMM-YY)"
+        formatter.dateFormat = "HH:mm:ss (dd_MMM_YY)"
         if(event.time != nil){
             return formatter.string(from: event.time!)
         }else{
@@ -66,11 +66,11 @@ struct EventViewModel{
                 course = String(format: "%03d", Int(truncating: event.course!))
             }
         }
-        return "Heading/Course: " + heading + "°/" + course + "°"
+        return "Heading: " + heading + "°" + " Course: " + course + "°"
     }
     
     func getBoBR()->String {
-        return "BoBR: 191/56 B/E rock 125"
+        return "BoBR: 191/56 BE:rock125"
     }
     func getGroundSpeed()->String {
         var groundSpeed = "Groundspeed: unavailable"
