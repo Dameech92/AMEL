@@ -15,17 +15,24 @@ struct EventView: View{
         let colOne = [viewModel.getTime(), viewModel.getLatLng(), viewModel.getAltitude()]
         let colTwo = [viewModel.getBoBR(), viewModel.getHeadingCourse(), viewModel.getGroundSpeed()]
            return ZStack {
-                 HStack{
+                VStack{
                     EventTitleBackground(name: viewModel.getName(), color: event.color)
-                    Spacer()
-                    DataTextColumn(dataList: colOne)
-                    Spacer()
-                    DataTextColumn(dataList: colTwo)
-                    Spacer()
-                }
-                .lineLimit(2)
-                Rectangle()
-                    .stroke(Color("StealthText"), lineWidth: 5)
+                        .layoutPriority(0.5)
+                    HStack{
+                        Spacer()
+                        DataTextColumn(dataList: colOne)
+                            .font(.title)
+                        Spacer()
+                        DataTextColumn(dataList: colTwo)
+                            .font(.title)
+                        Spacer()
+                    }
+                    .layoutPriority(1)
+
+               }
+            .lineLimit(2)
+            Rectangle()
+                .stroke(Color("StealthText"), lineWidth: 5)
            }
            .background(Color("buttonBackGround"))
     }
