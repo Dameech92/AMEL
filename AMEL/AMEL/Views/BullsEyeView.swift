@@ -34,19 +34,22 @@ struct BullsEyeView: View {
             .padding()
             .foregroundColor(Color("Green"))
             List {
-                ForEach(self.points, id: \.time) { point in
-                    RefPointView(point: point)
-                }.onDelete { indexSet in
-                   if indexSet.first != nil {
-                       let deletePoint = self.points[indexSet.first!]
-                       self.managedObjectContext.delete(deletePoint)
-                       do {
-                           try self.managedObjectContext.save()
-                       }catch {
-                               print(error)
+                Section(header: Text("Saved Points")) {
+                    ForEach(self.points, id: \.time) { point in
+                        RefPointView(point: point)
+                    }.onDelete { indexSet in
+                       if indexSet.first != nil {
+                           let deletePoint = self.points[indexSet.first!]
+                           self.managedObjectContext.delete(deletePoint)
+                           do {
+                               try self.managedObjectContext.save()
+                           }catch {
+                                   print(error)
+                           }
                        }
-                   }
+                    }
                 }
+                
             }
             
            
