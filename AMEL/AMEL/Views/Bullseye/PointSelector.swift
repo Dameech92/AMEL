@@ -17,12 +17,14 @@ struct PointSelector: View {
     var body: some View {
         let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext)
         return VStack {
-            Button(action: {
-                refAction.recordReferencePoint(name: self.BEName)
-            }){
-                Text("Save")
-            }
-            .padding()
+            HStack {
+                Spacer()
+                Button(action: {
+                    refAction.recordReferencePoint(name: self.BEName)
+                }){
+                    Text("Save")
+                }
+            }.padding(.trailing)
             TextField("Enter B/E name", text: $BEName)
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .multilineTextAlignment(.center)
