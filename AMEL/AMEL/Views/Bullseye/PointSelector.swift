@@ -25,12 +25,14 @@ struct PointSelector: View {
                     Text("Save")
                 }
             }.padding(.trailing)
-            TextField("Enter B/E name", text: $BEName)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .multilineTextAlignment(.center)
-            .padding(.horizontal)
-    
-            
+            Text("Reference Point:")
+                .font(.title)
+            TextField("Name", text: $BEName)
+               .textFieldStyle(RoundedBorderTextFieldStyle())
+               .multilineTextAlignment(.center)
+               .padding(.horizontal)
+               .frame(width: 200)
+           
             HStack {
                 VStack {
                     Text("Latitude")
