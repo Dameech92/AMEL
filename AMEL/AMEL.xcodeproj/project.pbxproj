@@ -242,12 +242,10 @@
 			children = (
 				1F944147240E193600E3F633 /* ButtonAction.swift */,
 				31C93ADC244BD4990041809D /* CustomButton.swift */,
-				31738E7C244A21FB0073022A /* ReferencePointAction.swift */,
+				31D235F124563866006A0475 /* Bullseye */,
 				318DA70324059EC6007D79B6 /* LocationManager.swift */,
-				31738E7E244A2B5B0073022A /* PickerData.swift */,
 				318DA7052405A84A007D79B6 /* Event.swift */,
 				314721F2244D1BE50045DE74 /* ButtonData.swift */,
-				BF91963C2449373700F6D5C1 /* ReferencePoint.swift */,
 				314721F4244D1D940045DE74 /* Colors.swift */,
 				316561712447D9D400261AEB /* EventProtocol.swift */,
 			);
@@ -283,6 +281,16 @@
 				31B24E29244BC6E100C8D0B0 /* LngPicker.swift */,
 				31ECF4ED2447C06A00101158 /* Picker.swift */,
 				31738E82244A4E270073022A /* RefPointView.swift */,
+			);
+			path = Bullseye;
+			sourceTree = "<group>";
+		};
+		31D235F124563866006A0475 /* Bullseye */ = {
+			isa = PBXGroup;
+			children = (
+				31738E7C244A21FB0073022A /* ReferencePointAction.swift */,
+				31738E7E244A2B5B0073022A /* PickerData.swift */,
+				BF91963C2449373700F6D5C1 /* ReferencePoint.swift */,
 			);
 			path = Bullseye;
 			sourceTree = "<group>";
