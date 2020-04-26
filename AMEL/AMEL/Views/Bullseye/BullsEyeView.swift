@@ -14,25 +14,8 @@ struct BullsEyeView: View {
     @ObservedObject var pickerData = PickerData()
     @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
     var body: some View {
-        let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext)
-        return VStack {
-            TextField("Enter B/E name", text: $BEName)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .multilineTextAlignment(.center)
-            .padding(.horizontal)
-            
-            GeometryReader { geometry in
-                PickerView(size: geometry.size, pickerData: self.pickerData)
-            }.frame(height: 100)
-                .clipped()
-           
-            Button(action: {
-                refAction.recordReferencePoint(name: self.BEName)
-            }){
-                Text("Add B/E point")
-            }
-            .padding()
-            .foregroundColor(Color("Green"))
+        VStack {
+            PointSelector()
             List {
                 Section(header: Text("Saved Points")) {
                     ForEach(self.points, id: \.time) { point in

@@ -14,9 +14,11 @@ struct PickerView: View {
     let size: CGSize
     @ObservedObject var pickerData: PickerData
     var body: some View {
-        return HStack(spacing: 0) {
-            LatPicker(pickerData: self.pickerData.latPicker, screenSize: self.size, directions: ["N","S"])
-            LngPicker(pickerData: self.pickerData.lngPicker, screenSize: self.size, directions: ["E","W"])
+        let pickerSize = CGSize(width: self.size.width / 2, height: self.size.height)
+        return HStack {
+            LatPicker(pickerData: self.pickerData.latPicker, screenSize: pickerSize, directions: ["N","S"])
+            Spacer()
+            LngPicker(pickerData: self.pickerData.lngPicker, screenSize: pickerSize, directions: ["E","W"])
         }
     }
 }

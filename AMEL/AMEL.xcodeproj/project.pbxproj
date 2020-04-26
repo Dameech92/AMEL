@@ -40,6 +40,7 @@
 		31C6FD2B243E9241007F677F /* log_item.html in Resources */ = {isa = PBXBuildFile; fileRef = 31C6FD2A243E8F0A007F677F /* log_item.html */; };
 		31C6FD2C243E9241007F677F /* log.html in Resources */ = {isa = PBXBuildFile; fileRef = 31C6FD29243E8F07007F677F /* log.html */; };
 		31C93ADD244BD4990041809D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C93ADC244BD4990041809D /* CustomButton.swift */; };
+		31D235F324563B99006A0475 /* PointSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D235F224563B99006A0475 /* PointSelector.swift */; };
 		31D2CB36243FBDB500356BCF /* HTMLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D2CB35243FBDB500356BCF /* HTMLGenerator.swift */; };
 		31DF3724244CF40600905903 /* ButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF3723244CF40600905903 /* ButtonRow.swift */; };
 		31E1CDF92416A84900643653 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1CDF82416A84900643653 /* ButtonView.swift */; };
@@ -138,6 +139,7 @@
 		31C6FD29243E8F07007F677F /* log.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = log.html; sourceTree = "<group>"; };
 		31C6FD2A243E8F0A007F677F /* log_item.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = log_item.html; sourceTree = "<group>"; };
 		31C93ADC244BD4990041809D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		31D235F224563B99006A0475 /* PointSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSelector.swift; sourceTree = "<group>"; };
 		31D2CB35243FBDB500356BCF /* HTMLGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLGenerator.swift; sourceTree = "<group>"; };
 		31DF3723244CF40600905903 /* ButtonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRow.swift; sourceTree = "<group>"; };
 		31E1CDF82416A84900643653 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				31ECF4EB2447B86500101158 /* BullsEyeView.swift */,
 				317D9AFB244A5BF2005C89B1 /* LatPicker.swift */,
 				31B24E29244BC6E100C8D0B0 /* LngPicker.swift */,
+				31D235F224563B99006A0475 /* PointSelector.swift */,
 				31ECF4ED2447C06A00101158 /* Picker.swift */,
 				31738E82244A4E270073022A /* RefPointView.swift */,
 			);
@@ -593,6 +596,7 @@
 				313061F724452B1000876981 /* ShareButton.swift in Sources */,
 				31ECF4EE2447C06A00101158 /* Picker.swift in Sources */,
 				31C93ADD244BD4990041809D /* CustomButton.swift in Sources */,
+				31D235F324563B99006A0475 /* PointSelector.swift in Sources */,
 				31C6FD23243E876D007F677F /* LatLngFormatter.swift in Sources */,
 				1F944148240E193600E3F633 /* ButtonAction.swift in Sources */,
 				1F9FABD024158555002FF99B /* RecordView.swift in Sources */,
