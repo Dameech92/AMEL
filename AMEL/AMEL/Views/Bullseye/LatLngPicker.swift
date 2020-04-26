@@ -14,7 +14,7 @@ struct LatLngPicker: View {
     let degrees: Array<Int>
     let minutes = Array(0...59)
     let minuteTenths = Array(0...9)
-    let numPickers = CGFloat(integerLiteral: 8)
+    let numPickers = CGFloat(integerLiteral: 4)
     var body: some View {
         HStack{
             Picker(selection: $pickerData.direction, label: Text("")) {
