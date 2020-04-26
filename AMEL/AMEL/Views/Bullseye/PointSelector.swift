@@ -31,30 +31,23 @@ struct PointSelector: View {
             }
             
             HStack {
-                GeometryReader { g in
-                    VStack {
-                        Text("Latitude")
-                            .font(.title)
-                        TextField("DD", text: self.$latitude)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .frame(width:200)
-                        LatLngPicker(pickerData: self.pickerData.latPicker, screenSize: g.size, directions: ["N","S"], degrees: Array(0...90))
-                            .frame(height: 100)
-                            .clipped()
-                    }
-                    Spacer()
-                    VStack{
-                        Text("Longitude")
-                            .font(.title)
-                        TextField("DD", text: self.$longitude)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .frame(width:200)
-                        LatLngPicker(pickerData: self.pickerData.lngPicker, screenSize: g.size, directions: ["E","W"], degrees: Array(0...180))
-                            .frame(height: 100)
-                            .clipped()
-                    }
-                }
+                VStack {
+                    Text("Latitude")
+                        .font(.title)
+                    TextField("DD", text: $latitude)
+                }.padding(.leading)
+                Spacer()
+                VStack{
+                    Text("Longitude")
+                        .padding(.trailing)
+                    TextField("DD", text: $longitude)
+                }.padding(.leading)
             }
+            
+            GeometryReader { geometry in
+                PickerView(size: geometry.size, pickerData: self.pickerData)
+            }.frame(height: 100)
+                .clipped()
         }
     }
 }
