@@ -35,19 +35,24 @@ struct PointSelector: View {
                     Text("Latitude")
                         .font(.title)
                     TextField("DD", text: $latitude)
-                }.padding(.leading)
+                    GeometryReader { geometry in
+                        LatLngPicker(pickerData: self.pickerData.latPicker, screenSize: geometry.size, directions: ["N","S"], degrees: Array(0...90))
+                    }.frame(height: 100)
+                        .clipped()
+                }
                 Spacer()
                 VStack{
                     Text("Longitude")
                         .padding(.trailing)
                     TextField("DD", text: $longitude)
-                }.padding(.leading)
+                    GeometryReader { geometry in
+                        LatLngPicker(pickerData: self.pickerData.lngPicker, screenSize: geometry.size, directions: ["E","W"], degrees: Array(0...180))
+                    }.frame(height: 100)
+                        .clipped()
+                    
+                }
             }
             
-            GeometryReader { geometry in
-                PickerView(size: geometry.size, pickerData: self.pickerData)
-            }.frame(height: 100)
-                .clipped()
         }
     }
 }
