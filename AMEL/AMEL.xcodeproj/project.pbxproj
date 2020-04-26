@@ -220,7 +220,7 @@
 		31C6FD1F243E819D007F677F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				31ECF4EB2447B86500101158 /* BullsEyeView.swift */,
+				31D235F02456376B006A0475 /* Bullseye */,
 				31DF3723244CF40600905903 /* ButtonRow.swift */,
 				31E1CDF82416A84900643653 /* ButtonView.swift */,
 				313061F424452AB200876981 /* ClearAllButton.swift */,
@@ -230,11 +230,7 @@
 				318DA7072405B1F9007D79B6 /* EventView.swift */,
 				31AB3CAD244648D300154696 /* LiveDataView.swift */,
 				31757AA22415B64700A92EF8 /* LogView.swift */,
-				31ECF4ED2447C06A00101158 /* Picker.swift */,
 				1F9FABCF24158555002FF99B /* RecordView.swift */,
-				317D9AFB244A5BF2005C89B1 /* LatPicker.swift */,
-				31738E82244A4E270073022A /* RefPointView.swift */,
-				31B24E29244BC6E100C8D0B0 /* LngPicker.swift */,
 				313061F624452B1000876981 /* ShareButton.swift */,
 				31B4DF742415C91B00C567E7 /* SettingsView.swift */,
 			);
@@ -277,6 +273,18 @@
 				31C6FD29243E8F07007F677F /* log.html */,
 			);
 			path = HTML_Templates;
+			sourceTree = "<group>";
+		};
+		31D235F02456376B006A0475 /* Bullseye */ = {
+			isa = PBXGroup;
+			children = (
+				31ECF4EB2447B86500101158 /* BullsEyeView.swift */,
+				317D9AFB244A5BF2005C89B1 /* LatPicker.swift */,
+				31B24E29244BC6E100C8D0B0 /* LngPicker.swift */,
+				31ECF4ED2447C06A00101158 /* Picker.swift */,
+				31738E82244A4E270073022A /* RefPointView.swift */,
+			);
+			path = Bullseye;
 			sourceTree = "<group>";
 		};
 		4CED17472404851200E6D4F6 = {
