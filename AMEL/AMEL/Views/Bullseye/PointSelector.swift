@@ -17,24 +17,24 @@ struct PointSelector: View {
     var body: some View {
         let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext)
         return VStack {
-            HStack {
-                TextField("Enter B/E name", text: $BEName)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
-                Button(action: {
-                       refAction.recordReferencePoint(name: self.BEName)
-                   }){
-                       Text("Save")
-                   }
-                   .padding()
+            Button(action: {
+                refAction.recordReferencePoint(name: self.BEName)
+            }){
+                Text("Save")
             }
+            .padding()
+            TextField("Enter B/E name", text: $BEName)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .multilineTextAlignment(.center)
+            .padding(.horizontal)
+    
             
             HStack {
                 VStack {
                     Text("Latitude")
                         .font(.title)
-                    TextField("DD", text: $latitude)
+                    TextField("Degrees", text: $latitude)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.latPicker, screenSize: geometry.size, directions: ["N","S"], degrees: Array(0...90))
                     }.frame(height: 100)
@@ -43,8 +43,9 @@ struct PointSelector: View {
                 Spacer()
                 VStack{
                     Text("Longitude")
-                        .padding(.trailing)
-                    TextField("DD", text: $longitude)
+                        .font(.title)
+                    TextField("Degrees", text: $longitude)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.lngPicker, screenSize: geometry.size, directions: ["E","W"], degrees: Array(0...180))
                     }.frame(height: 100)
@@ -53,7 +54,7 @@ struct PointSelector: View {
                 }
             }
             
-        }
+        }.border(Color("stealthText"))
     }
 }
 
