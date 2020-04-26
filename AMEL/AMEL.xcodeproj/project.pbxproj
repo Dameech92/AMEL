@@ -282,7 +282,6 @@
 		4CED17472404851200E6D4F6 = {
 			isa = PBXGroup;
 			children = (
-				314721EF244CFE540045DE74 /* AMEL.xcdatamodeld */,
 				4CED17522404851200E6D4F6 /* AMEL */,
 				5ADE287A24199A8C005A9A33 /* EventViewModelTests */,
 				7E9E1670241C4EB50043EEE1 /* AMELTests */,
@@ -316,6 +315,7 @@
 				4CED175C2404851300E6D4F6 /* Assets.xcassets */,
 				4CED17612404851300E6D4F6 /* LaunchScreen.storyboard */,
 				4CED17642404851300E6D4F6 /* Info.plist */,
+				314721EF244CFE540045DE74 /* AMEL.xcdatamodeld */,
 				4CED175E2404851300E6D4F6 /* Preview Content */,
 			);
 			path = AMEL;

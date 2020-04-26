@@ -23,8 +23,8 @@
         <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Event" positionX="-63" positionY="-18" width="128" height="178"/>
         <element name="CustomButton" positionX="-54" positionY="63" width="128" height="88"/>
+        <element name="Event" positionX="-63" positionY="-18" width="128" height="178"/>
         <element name="ReferencePoint" positionX="-36" positionY="72" width="128" height="103"/>
     </elements>
 </model>

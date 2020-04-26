@@ -36,7 +36,6 @@ struct SettingsViewModel {
                 sButton.buttonColor = self.colorNames[color]
                 saveCustomButtons(managedObjectContext: context)
             }
-
         }
     }
 

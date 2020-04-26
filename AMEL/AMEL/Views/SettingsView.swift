@@ -14,7 +14,6 @@ struct SettingsView: View {
 	@State private var colorIndex = 0
 	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
 	@Environment(\.managedObjectContext) var managedObjectContext
-	
     var body: some View {
         let viewModel = SettingsViewModel(savedButtons: self.customButton)
         return VStack {
