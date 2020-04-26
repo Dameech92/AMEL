@@ -11,6 +11,8 @@ import SwiftUI
 struct PointSelector: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var BEName = ""
+    @State var latitude = ""
+    @State var longitude = ""
     @ObservedObject var pickerData = PickerData()
     var body: some View {
         let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext)
@@ -29,9 +31,17 @@ struct PointSelector: View {
             }
             
             HStack {
-                Text("Latitude")
+                VStack {
+                    Text("Latitude")
+                        .font(.title)
+                    TextField("DD", text: $latitude)
+                }.padding(.leading)
                 Spacer()
-                Text("Longitude")
+                VStack{
+                    Text("Longitude")
+                        .padding(.trailing)
+                    TextField("DD", text: $longitude)
+                }.padding(.leading)
             }
             
             GeometryReader { geometry in
