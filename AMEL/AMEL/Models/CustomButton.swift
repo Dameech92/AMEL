@@ -13,6 +13,7 @@ public class CustomButton: NSManagedObject, Identifiable {
     @NSManaged var buttonName:String?
     @NSManaged var buttonColor: String?
     @NSManaged var index: NSNumber?
+    
 }
 extension CustomButton {
     static func getCustomButton() -> NSFetchRequest<CustomButton> {
