@@ -58,6 +58,13 @@ struct PointSelector: View {
                         .font(.title)
                     TextField("Degrees", text: $longitude)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .keyboardType(.decimalPad)
+                        .onReceive(Just(longitude)) { newValue in
+                        let filtered = newValue.filter { ".0123456789".contains($0) }
+                            if filtered != newValue {
+                                self.longitude = filtered
+                            }
+                        }
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.lngPicker, screenSize: geometry.size, directions: ["E","W"], degrees: Array(0...180))
                     }.frame(height: 100)
