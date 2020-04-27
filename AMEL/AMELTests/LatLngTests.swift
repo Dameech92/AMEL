@@ -22,11 +22,11 @@ class LatLngTests: XCTestCase {
     }
 
     func testGetDMS() {
-        XCTAssertEqual("40-45.6", self.formatter.getDMS(number: 40.76))
-        XCTAssertEqual("73-59.0", self.formatter.getDMS(number: -73.984))
+        XCTAssertEqual("40-45.6", self.formatter.getDM(number: 40.76))
+        XCTAssertEqual("73-59.0", self.formatter.getDM(number: -73.984))
     }
     func testGetDMSRounding() {
-        XCTAssertEqual("73-58.5", self.formatter.getDMS(number: -73.974895))
+        XCTAssertEqual("73-58.5", self.formatter.getDM(number: -73.974895))
     }
     func testLatZero() {
         XCTAssertEqual("N00-00.0", self.formatter.formatLatitude(latitude: 0))
