@@ -34,7 +34,7 @@ struct ButtonAction {
 		return Event(context: managedObjectContext)
 	}
 	
-	public static func saveEvent(_ newEvent:Event, _ eventName:String, _ color:UIColor, _ managedObjectContext:NSManagedObjectContext) {
+	public static func saveEvent(_ newEvent:Event, _ eventName:String, _ color:UIColor, _ managedObjectContext:NSManagedObjectContext) -> Bool {
 		// Store the data calculated from the record function within newEvent
 		newEvent.name = eventName
         newEvent.latitude = latitude as NSNumber
@@ -50,7 +50,9 @@ struct ButtonAction {
             try managedObjectContext.save()
         } catch {
             print("Error saving")
+            return false
         }
+        return true
     }
     
     public static func record(_ eventName:String, _ color:UIColor, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
