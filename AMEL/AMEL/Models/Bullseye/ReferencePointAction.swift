@@ -39,7 +39,11 @@ struct ReferencePointAction {
     func updateLatitudePicker(latitude: String) {
         let latNum = Double(latitude) ?? 0
         let formatter = LatLngFormatter(latitude: 0, longitude:0)
-        let valString =  formatter.formatLatDegrees(latitude: latNum)
-        self.pickerData.latPicker.degree = Int(valString) ?? 0
+        let degrees =  formatter.formatLatDegrees(latitude: latNum)
+        self.pickerData.latPicker.degree = Int(degrees) ?? 0
+        let minutesDotm = formatter.getMinutes_Dot_m(number: latNum)
+        let dotIndex = minutesDotm.firstIndex(of: ".")
+        let minute = String(minutesDotm.prefix(upTo: dotIndex ?? minutesDotm.endIndex))
+        self.pickerData.latPicker.minute = Int(minute) ?? 0
     }
 }

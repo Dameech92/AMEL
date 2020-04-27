@@ -29,7 +29,18 @@ class RefPointActionTests: XCTestCase {
         let latitude = refAction.convertToDecimalDegrees(data: pickerData.latPicker)
         let result = 38.43666666666667 as NSNumber
         XCTAssertEqual(result, latitude)
-        
+    }
+    func testUpdateLatPicker() {
+        let pickerData = PickerData()
+        let latitude = "18.6"
+        let refAction = ReferencePointAction(pickerData: pickerData, context: NSManagedObjectContext())
+        refAction.updateLatitudePicker(latitude: latitude)
+        let expectedDegs = 18
+        let expectedMins = 36
+        let expectedDotm = 0
+        XCTAssertEqual(expectedDegs, pickerData.latPicker.degree)
+        XCTAssertEqual(expectedMins, pickerData.latPicker.minute)
+        XCTAssertEqual(expectedDotm, pickerData.latPicker.minuteTenth)
     }
 
 }
