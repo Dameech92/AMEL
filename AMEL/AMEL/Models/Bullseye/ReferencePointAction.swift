@@ -36,7 +36,14 @@ struct ReferencePointAction {
        return result as NSNumber
     }
     
-    func updatePicker() {
-        
+    func updatePicker(lat: String, lng: String) {
+        let latitude = Double(lat) ?? 0
+        let longitude = Double(lng) ?? 0
+        let formatter = LatLngFormatter(latitude: latitude, longitude: longitude)
+        let valString =  formatter.getDM(number: latitude)
+        let startIndex = valString.index(valString.startIndex, offsetBy: 1)
+        let endIndex = valString.index(startIndex, offsetBy: 2)
+        let degreeString = valString[startIndex..<endIndex]
+        self.pickerData.latPicker.degree = Int(String(degreeString)) ?? 0
     }
 }

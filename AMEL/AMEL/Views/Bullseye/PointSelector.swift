@@ -38,7 +38,9 @@ struct PointSelector: View {
                 VStack {
                     Text("Latitude")
                         .font(.title)
-                    TextField("Degrees", text: $latitude)
+                    TextField("Degrees", text: $latitude, onCommit: {
+                        refAction.updatePicker(lat: self.latitude, lng: self.longitude)
+                    })
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
                         .onReceive(Just(latitude)) { newValue in
