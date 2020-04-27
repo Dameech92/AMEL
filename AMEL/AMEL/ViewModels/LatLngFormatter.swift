@@ -18,24 +18,30 @@ struct LatLngFormatter {
     func formatLatitude(latitude: Double)->String {
         let minDotm = getMinutes_Dot_m(number: latitude)
         let degrees = formatLatDegrees(latitude: latitude)
-        var direction = ""
-        if latitude >= 0 {
-            direction = "N"
-        }else {
-            direction = "S"
-        }
+        let direction = getDirLatitude(lat: latitude)
         return direction + degrees + "-" + minDotm
+    }
+    func getDirLatitude(lat: Double)->String {
+        if lat >= 0 {
+            return "N"
+        }
+        else {
+            return "S"
+        }
     }
     func formatLongitude(longitude: Double)->String {
         let minDotm = getMinutes_Dot_m(number: longitude)
         let degrees = formatLngDegrees(longitude: longitude)
-        var direction = ""
-        if longitude >= 0 {
-            direction = "E"
-        }else {
-            direction = "W"
-        }
+        let direction = getDirLongitude(lng: longitude)
         return direction + degrees + "-" + minDotm
+    }
+    func getDirLongitude(lng: Double)->String {
+        if lng >= 0 {
+            return "E"
+        }
+        else {
+            return "W"
+        }
     }
     
     func getMinutes_Dot_m(number:Double)->String {

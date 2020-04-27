@@ -52,7 +52,6 @@
 		4CED17602404851300E6D4F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CED175F2404851300E6D4F6 /* Preview Assets.xcassets */; };
 		4CED17632404851300E6D4F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CED17612404851300E6D4F6 /* LaunchScreen.storyboard */; };
 		5A23230F2416EDC50055BAF8 /* EventTitleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */; };
-		5ADE287C24199A8C005A9A33 /* EventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADE287B24199A8C005A9A33 /* EventViewModelTests.swift */; };
 		7E9E1672241C4EB50043EEE1 /* EventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E1671241C4EB50043EEE1 /* EventViewModelTests.swift */; };
 		7E9E1680241C4EC10043EEE1 /* AMELUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */; };
 		BF91963D2449373700F6D5C1 /* ReferencePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91963C2449373700F6D5C1 /* ReferencePoint.swift */; };
@@ -154,8 +153,6 @@
 		5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTitleBackground.swift; sourceTree = "<group>"; };
 		5ADE286A241998C4005A9A33 /* EventViewModeltests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventViewModeltests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADE287924199A8C005A9A33 /* EventViewModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventViewModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5ADE287B24199A8C005A9A33 /* EventViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModelTests.swift; sourceTree = "<group>"; };
-		5ADE287D24199A8C005A9A33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E9E166F241C4EB50043EEE1 /* AMELTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AMELTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9E1671241C4EB50043EEE1 /* EventViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModelTests.swift; sourceTree = "<group>"; };
 		7E9E1673241C4EB50043EEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -299,7 +296,6 @@
 			children = (
 				314721EF244CFE540045DE74 /* AMEL.xcdatamodeld */,
 				4CED17522404851200E6D4F6 /* AMEL */,
-				5ADE287A24199A8C005A9A33 /* EventViewModelTests */,
 				7E9E1670241C4EB50043EEE1 /* AMELTests */,
 				7E9E167E241C4EC10043EEE1 /* AMELUITests */,
 				4CED17512404851200E6D4F6 /* Products */,
@@ -342,15 +338,6 @@
 				4CED175F2404851300E6D4F6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		5ADE287A24199A8C005A9A33 /* EventViewModelTests */ = {
-			isa = PBXGroup;
-			children = (
-				5ADE287B24199A8C005A9A33 /* EventViewModelTests.swift */,
-				5ADE287D24199A8C005A9A33 /* Info.plist */,
-			);
-			path = EventViewModelTests;
 			sourceTree = "<group>";
 		};
 		7E9E1670241C4EB50043EEE1 /* AMELTests */ = {
@@ -627,7 +614,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ADE287C24199A8C005A9A33 /* EventViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
