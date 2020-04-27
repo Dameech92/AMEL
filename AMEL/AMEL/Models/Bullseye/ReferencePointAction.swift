@@ -45,5 +45,8 @@ struct ReferencePointAction {
         let dotIndex = minutesDotm.firstIndex(of: ".")
         let minute = String(minutesDotm.prefix(upTo: dotIndex ?? minutesDotm.endIndex))
         self.pickerData.latPicker.minute = Int(minute) ?? 0
+        let afterDot = minutesDotm.index(after: dotIndex ?? minutesDotm.startIndex)
+        let minTenth = String(minutesDotm.suffix(from: afterDot))
+        self.pickerData.latPicker.minuteTenth = Int(minTenth) ?? 0
     }
 }
