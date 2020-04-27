@@ -28,12 +28,12 @@ struct ReferencePointAction {
         }
     }
     func convertToDecimalDegrees(data: LatLngData)->NSNumber {
-        //DD = d + (min/60) + (sec/3600)
-       let second = 10 * (data.minute + data.minuteTenth) - data.minute
-       let frac1 = Double(data.minute) / 60.0
-       let frac2 = Double(second)/3600.0
-       let result = Double(data.degree) + frac1 + frac2
-       return result as NSNumber
+        //.d = M.m / 60
+        // Decimal Degrees = Degrees + .d
+        let dot_m = Double(data.minuteTenth)/10.0
+        let dotD = (Double(data.minute) + dot_m) / 60.0
+        let result = Double(data.degree) + dotD
+        return result as NSNumber
     }
     
     func updatePicker(lat: String, lng: String) {
