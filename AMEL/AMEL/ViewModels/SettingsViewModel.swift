@@ -20,7 +20,7 @@ struct SettingsViewModel {
 	
 	func saveCustomButton(newButton:CustomButton, buttonName:String, buttonColor:String, managedObjectContext:NSManagedObjectContext) {
 		newButton.buttonName = buttonName
-        newButton.index = self.savedButtons.count as NSNumber
+        newButton.index = (self.savedButtons.count + 1) as NSNumber
 		newButton.buttonColor = buttonColor
 		// update the object
 		do {
