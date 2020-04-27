@@ -21,15 +21,12 @@ class LatLngTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testGetDM() {
-        XCTAssertEqual("40-45.6", self.formatter.getDM(number: 40.76))
-        XCTAssertEqual("73-59.0", self.formatter.getDM(number: -73.984))
-    }
-    func testDMBigLongitude() {
-        XCTAssertEqual("179-30.0", self.formatter.getDM(number: 179.5))
+    func testgetMinutes_Dot_m() {
+        XCTAssertEqual("45.6", self.formatter.getMinutes_Dot_m(number: 40.76))
+        XCTAssertEqual("59.0", self.formatter.getMinutes_Dot_m(number: -73.984))
     }
     func testGetDMSRounding() {
-        XCTAssertEqual("73-58.5", self.formatter.getDM(number: -73.974895))
+        XCTAssertEqual("58.5", self.formatter.getMinutes_Dot_m(number: -73.974895))
     }
     func testLatZero() {
         XCTAssertEqual("N00-00.0", self.formatter.formatLatitude(latitude: 0))
@@ -41,7 +38,7 @@ class LatLngTests: XCTestCase {
         XCTAssertEqual("S21-02.9", self.formatter.formatLatitude(latitude: -21.047977))
     }
     func testLngZero() {
-        XCTAssertEqual("E00-00.0", self.formatter.formatLongitude(longitude: 0))
+        XCTAssertEqual("E000-00.0", self.formatter.formatLongitude(longitude: 0))
     }
     func testLngFormatW() {
         XCTAssertEqual("W122-00.0", self.formatter.formatLongitude(longitude: -122))

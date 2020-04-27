@@ -39,7 +39,7 @@ struct PointSelector: View {
                     Text("Latitude")
                         .font(.title)
                     TextField("Degrees", text: $latitude, onCommit: {
-                        refAction.updatePicker(lat: self.latitude, lng: self.longitude)
+                        refAction.updateLatitudePicker(latitude: self.latitude)
                     })
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
