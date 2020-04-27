@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct PointSelector: View {
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -39,6 +40,13 @@ struct PointSelector: View {
                         .font(.title)
                     TextField("Degrees", text: $latitude)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .keyboardType(.decimalPad)
+                        .onReceive(Just(latitude)) { newValue in
+                        let filtered = newValue.filter { ".0123456789".contains($0) }
+                            if filtered != newValue {
+                                self.latitude = filtered
+                            }
+                        }
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.latPicker, screenSize: geometry.size, directions: ["N","S"], degrees: Array(0...90))
                     }.frame(height: 100)

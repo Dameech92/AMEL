@@ -35,4 +35,8 @@ struct ReferencePointAction {
        let result = Double(data.degree) + frac1 + frac2
        return result as NSNumber
     }
+    
+    func updatePicker() {
+        
+    }
 }
