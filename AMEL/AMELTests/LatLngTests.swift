@@ -21,9 +21,12 @@ class LatLngTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testGetDMS() {
+    func testGetDM() {
         XCTAssertEqual("40-45.6", self.formatter.getDM(number: 40.76))
         XCTAssertEqual("73-59.0", self.formatter.getDM(number: -73.984))
+    }
+    func testDMBigLongitude() {
+        XCTAssertEqual("179-30.0", self.formatter.getDM(number: 179.5))
     }
     func testGetDMSRounding() {
         XCTAssertEqual("73-58.5", self.formatter.getDM(number: -73.974895))
