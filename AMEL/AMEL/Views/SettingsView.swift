@@ -30,8 +30,19 @@ struct SettingsView: View {
                 }.foregroundColor(.primary)
 
                 Divider()
+				
+				// delete the most recently added button (last button)
+				Button(action: {
+					viewModel.deleteCustomButton(eventToDelete: self.customButton[self.customButton.count - 1], managedObjectContext: self.managedObjectContext)
+				}) {
+					VStack {
+						Text("Delete recently added button")
+						Image(systemName: "minus.square.fill")
+					}
+				}.foregroundColor(.primary)
             
             }.frame(height:60)
+			
             List {
                 ForEach(self.customButton, id: \.index) { button in
                     ButtonRow(button: button, context: self.managedObjectContext, customButtons: self.customButton, buttonData: ButtonData(button: button))
