@@ -15,6 +15,7 @@ struct PointSelector: View {
     @State var latitude = ""
     @State var longitude = ""
     @ObservedObject var pickerData = PickerData()
+    let numberInputs = "-.0123456789"
     var body: some View {
         let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext)
         return VStack {
@@ -44,7 +45,7 @@ struct PointSelector: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
                         .onReceive(Just(latitude)) { newValue in
-                        let filtered = newValue.filter { ".0123456789".contains($0) }
+                            let filtered = newValue.filter { self.numberInputs.contains($0) }
                             if filtered != newValue {
                                 self.latitude = filtered
                             }
@@ -58,11 +59,13 @@ struct PointSelector: View {
                 VStack{
                     Text("Longitude")
                         .font(.title)
-                    TextField("Degrees", text: $longitude)
+                    TextField("Degrees", text: $longitude, onCommit: {
+                        refAction.updateLongitudePicker(longitude: self.longitude)
+                    })
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
                         .onReceive(Just(longitude)) { newValue in
-                        let filtered = newValue.filter { ".0123456789".contains($0) }
+                            let filtered = newValue.filter { self.numberInputs.contains($0) }
                             if filtered != newValue {
                                 self.longitude = filtered
                             }
