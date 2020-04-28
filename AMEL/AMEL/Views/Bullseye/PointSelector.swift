@@ -34,22 +34,21 @@ struct PointSelector: View {
                .multilineTextAlignment(.center)
                .padding(.horizontal)
                .frame(width: 200)
-           
+            
             HStack {
                 VStack {
                     Text("Latitude")
                         .font(.title)
-                    TextField("Degrees", text: $latitude, onCommit: {
-                        refAction.updateLatitudePicker(latitude: self.latitude)
-                    })
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.decimalPad)
-                        .onReceive(Just(latitude)) { newValue in
-                            let filtered = newValue.filter { self.numberInputs.contains($0) }
-                            if filtered != newValue {
-                                self.latitude = filtered
+                        TextField("Degrees", text: $latitude)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.decimalPad)
+                            .onReceive(Just(latitude)) { newValue in
+                                let filtered = newValue.filter { self.numberInputs.contains($0) }
+                                if filtered != newValue {
+                                    self.latitude = filtered
+                                }
+                                refAction.updateLatitudePicker(latitude: self.latitude)
                             }
-                        }
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.latPicker, screenSize: geometry.size, directions: ["N","S"], degrees: Array(0...90))
                     }.frame(height: 100)
@@ -59,9 +58,7 @@ struct PointSelector: View {
                 VStack{
                     Text("Longitude")
                         .font(.title)
-                    TextField("Degrees", text: $longitude, onCommit: {
-                        refAction.updateLongitudePicker(longitude: self.longitude)
-                    })
+                    TextField("Degrees", text: $longitude)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
                         .onReceive(Just(longitude)) { newValue in
@@ -69,6 +66,7 @@ struct PointSelector: View {
                             if filtered != newValue {
                                 self.longitude = filtered
                             }
+                            refAction.updateLongitudePicker(longitude: self.longitude)
                         }
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.lngPicker, screenSize: geometry.size, directions: ["E","W"], degrees: Array(0...180))
@@ -78,7 +76,7 @@ struct PointSelector: View {
                 }
             }
             
-        }.border(Color("stealthText"))
+        }
     }
 }
 
