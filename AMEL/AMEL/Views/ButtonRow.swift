@@ -11,7 +11,7 @@ struct ButtonRow: View {
     let button: CustomButton
     let context: NSManagedObjectContext
     var customButtons: FetchedResults<CustomButton>
-    @ObservedObject var buttonData: ButtonData
+	@ObservedObject var buttonData: ButtonData
     private let colorNames = ["Red", "Green", "Blue", "Purple", "Orange", "Gray"]
     
     var body: some View {
