@@ -18,9 +18,7 @@ struct ButtonView: View {
         self.name = name
         self.color = color
     }
-    
-    let timer = Timer.publish(every: 3, on: .current, in: .common).autoconnect()
-    
+    var timer = Timer.publish(every: 3, on: .current, in: .common).autoconnect()
     var body: some View {
         Button(action: {
 			ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext)
@@ -28,12 +26,15 @@ struct ButtonView: View {
             if(ButtonAction.saveEvent(newEvent, self.name, self.color, self.managedObjectContext)){
                 self.buttonText = "Event Recorded"
             } else {
-                self.buttonText = self.name
+                self.buttonText = ""
             }
         }){
-            Text(self.buttonText)
+            VStack {
+                Text(self.name)
+                Text(self.buttonText)
                 .onReceive(timer){_ in
-                    self.buttonText = self.name
+                    self.buttonText = ""
+                }
             }
             .frame(minWidth: 0, maxWidth: .infinity)
             .frame(minHeight: 0, maxHeight: .infinity)
@@ -42,7 +43,6 @@ struct ButtonView: View {
             .foregroundColor(.primary)
             .background(Color(self.color))
             .cornerRadius(40)
-            
         }
     }
 }

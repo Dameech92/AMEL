@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct RecordView: View {
-        
-        var body: some View {
+    var body: some View {
         ZStack{
              Color("stealth").edgesIgnoringSafeArea(.all)
              VStack{
@@ -31,7 +30,7 @@ struct RecordView: View {
                      }
                          
                     VStack{
-                    ButtonView(name: "NUKE EM!", color: UIColor.purple)
+                        ButtonView(name: "NUKE EM!", color: UIColor.purple)
                          Spacer()
                         ButtonView(name: "Jammer", color: UIColor.brown)
                          Spacer()
