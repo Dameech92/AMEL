@@ -16,6 +16,7 @@ struct PointSelector: View {
     @State var longitude = ""
     @State var lat_error = false
     @State var lng_error = false
+    @State var name_error = false
     @ObservedObject var pickerData = PickerData()
     let numberInputs = "-.0123456789"
     var body: some View {
@@ -24,11 +25,12 @@ struct PointSelector: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    if refAction.dataIsValid(lat: self.latitude, lng: self.longitude) {
+                    if refAction.dataIsValid(lat: self.latitude, lng: self.longitude, name: self.BEName) {
                         refAction.recordReferencePoint(name: self.BEName)
                     }
                     self.lat_error = !refAction.latInRange(lat: self.latitude)
                     self.lng_error = !refAction.lngInRange(lng: self.longitude)
+                    self.name_error = !refAction.nameIsValid(name: self.BEName)
                     refAction.resetPickers()
                     self.latitude = ""
                     self.longitude = ""
@@ -43,8 +45,9 @@ struct PointSelector: View {
             TextField("Name", text: $BEName)
                .textFieldStyle(RoundedBorderTextFieldStyle())
                .multilineTextAlignment(.center)
-               .padding(.horizontal)
-               .frame(width: 200)
+               //.padding(.horizontal)
+               .frame(width: 400)
+                .overlay(self.name_error ? Text("Invalid name").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
             
             HStack {
                 VStack {

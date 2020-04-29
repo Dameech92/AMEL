@@ -89,10 +89,14 @@ struct ReferencePointAction {
         }
     }
     
-    func dataIsValid(lat: String, lng: String)->Bool {
-        return latInRange(lat: lat) && lngInRange(lng: lng)
+    func dataIsValid(lat: String, lng: String, name: String)->Bool {
+        return latInRange(lat: lat) && lngInRange(lng: lng) && nameIsValid(name: name)
         
     }
+    func nameIsValid(name: String)->Bool {
+        return name != ""
+    }
+    
     func latInRange(lat: String)->Bool {
         var result = false
         let latitude = Double(lat)
