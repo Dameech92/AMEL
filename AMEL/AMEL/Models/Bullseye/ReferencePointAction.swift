@@ -101,6 +101,9 @@ struct ReferencePointAction {
                 result = true
             }
         }
+        else if lat == "" {
+            result = true
+        }
         return result
     }
     
@@ -111,6 +114,9 @@ struct ReferencePointAction {
             if abs(longitude!) <= 90{
                 result = true
             }
+        }
+        else if lng == "" {
+            result = true
         }
         return result
     }

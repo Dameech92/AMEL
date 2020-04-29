@@ -14,6 +14,8 @@ struct PointSelector: View {
     @State var BEName = ""
     @State var latitude = ""
     @State var longitude = ""
+    @State var lat_error = false
+    @State var lng_error = false
     @ObservedObject var pickerData = PickerData()
     let numberInputs = "-.0123456789"
     var body: some View {
@@ -22,10 +24,16 @@ struct PointSelector: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    refAction.recordReferencePoint(name: self.BEName)
+                    if refAction.dataIsValid(lat: self.latitude, lng: self.longitude) {
+                        refAction.recordReferencePoint(name: self.BEName)
+                    }
+                    self.lat_error = !refAction.latInRange(lat: self.latitude)
+                    self.lng_error = !refAction.lngInRange(lng: self.longitude)
+                    refAction.resetPickers()
                     self.latitude = ""
                     self.longitude = ""
                     self.BEName = ""
+                    
                 }){
                     Text("Save")
                 }
@@ -42,7 +50,7 @@ struct PointSelector: View {
                 VStack {
                     Text("Latitude")
                         .font(.title)
-                        TextField("Degrees", text: $latitude)
+                    TextField("Degrees", text: $latitude)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.decimalPad)
                             .onReceive(Just(latitude)) { newValue in
@@ -52,6 +60,7 @@ struct PointSelector: View {
                                 }
                                 refAction.updateLatitudePicker(latitude: self.latitude)
                             }
+                    .overlay(self.lat_error ? Text("Invalid Latitude").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.latPicker, screenSize: geometry.size, directions: ["N","S"], degrees: Array(0...90))
                     }.frame(height: 100)
@@ -71,6 +80,7 @@ struct PointSelector: View {
                             }
                             refAction.updateLongitudePicker(longitude: self.longitude)
                         }
+                        .overlay(self.lng_error ? Text("Invalid Longitude").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.lngPicker, screenSize: geometry.size, directions: ["E","W"], degrees: Array(0...180))
                     }.frame(height: 100)
