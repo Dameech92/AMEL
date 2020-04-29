@@ -19,6 +19,7 @@ struct ReferencePointAction {
         refPoint.time = Date()
         refPoint.name = name
         saveReferencePoint()
+        resetPickers()
     }
     func saveReferencePoint() {
         do {
@@ -27,6 +28,17 @@ struct ReferencePointAction {
             print("Error saving")
         }
     }
+    func resetPickers() {
+        self.pickerData.latPicker.degree = 0
+        self.pickerData.latPicker.direction = 0
+        self.pickerData.latPicker.minute = 0
+        self.pickerData.latPicker.minuteTenth = 0
+        self.pickerData.lngPicker.degree = 0
+        self.pickerData.lngPicker.direction = 0
+        self.pickerData.lngPicker.minute = 0
+        self.pickerData.lngPicker.minuteTenth = 0
+    }
+    
     func convertToDecimalDegrees(data: LatLngData)->NSNumber {
         //.d = M.m / 60
         // Decimal Degrees = Degrees + .d

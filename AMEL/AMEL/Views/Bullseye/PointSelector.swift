@@ -23,6 +23,9 @@ struct PointSelector: View {
                 Spacer()
                 Button(action: {
                     refAction.recordReferencePoint(name: self.BEName)
+                    self.latitude = ""
+                    self.longitude = ""
+                    self.BEName = ""
                 }){
                     Text("Save")
                 }
