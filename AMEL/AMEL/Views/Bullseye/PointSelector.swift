@@ -11,7 +11,7 @@ import Combine
 
 struct PointSelector: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    @State var BEName = ""
+    @State var pointName = ""
     @State var latitude = ""
     @State var longitude = ""
     @State var lat_error = false
@@ -25,16 +25,18 @@ struct PointSelector: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    if refAction.dataIsValid(lat: self.latitude, lng: self.longitude, name: self.BEName) {
-                        refAction.recordReferencePoint(name: self.BEName)
-                    }
                     self.lat_error = !refAction.latInRange(lat: self.latitude)
                     self.lng_error = !refAction.lngInRange(lng: self.longitude)
-                    self.name_error = !refAction.nameIsValid(name: self.BEName)
-                    refAction.resetPickers()
-                    self.latitude = ""
-                    self.longitude = ""
-                    self.BEName = ""
+                    self.name_error = !refAction.nameIsValid(name: self.pointName)
+                    if refAction.dataIsValid(lat: self.latitude, lng: self.longitude, name: self.pointName) {
+                        refAction.recordReferencePoint(name: self.pointName)
+                        self.resetAllTextFields()
+                        refAction.resetPickers()
+                    }
+                    else {
+                        self.resetTextFieldsOnError()
+                    }
+                    
                     
                 }){
                     Text("Save")
@@ -42,10 +44,9 @@ struct PointSelector: View {
             }.padding(.trailing)
             Text("Reference Point:")
                 .font(.title)
-            TextField("Name", text: $BEName)
+            TextField("Name", text: $pointName)
                .textFieldStyle(RoundedBorderTextFieldStyle())
                .multilineTextAlignment(.center)
-               //.padding(.horizontal)
                .frame(width: 400)
                 .overlay(self.name_error ? Text("Invalid name").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
             
@@ -93,6 +94,24 @@ struct PointSelector: View {
             }
             
         }
+    }
+}
+extension PointSelector {
+    func resetTextFieldsOnError() {
+        if self.lat_error {
+            self.latitude = ""
+        }
+        if self.lng_error {
+            self.longitude = ""
+        }
+        if self.name_error {
+            self.pointName = ""
+        }
+    }
+    func resetAllTextFields() {
+        self.latitude = ""
+        self.longitude = ""
+        self.pointName = ""
     }
 }
 
