@@ -9,44 +9,40 @@ import SwiftUI
 import UIKit
 
 struct ButtonView: View {
-    @State private var eventRecorded = false
     @ObservedObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) var managedObjectContext
+    @State private var buttonText = ""
     private var name:String
     private var color:UIColor
     init(name:String, color: UIColor) {
         self.name = name
         self.color = color
     }
+    
+    let timer = Timer.publish(every: 4, on: .current, in: .common).autoconnect()
+    
     var body: some View {
         Button(action: {
 			ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext)
 			let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
             if(ButtonAction.saveEvent(newEvent, self.name, self.color, self.managedObjectContext)){
-                self.eventRecorded = true
+                self.buttonText = "Event Recorded"
             } else {
-                self.eventRecorded = false
+                self.buttonText = self.name
             }
         }){
-            if(self.eventRecorded){
-                Text("Event Recorded")
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .frame(minHeight: 0, maxHeight: .infinity)
-                .font(.largeTitle)
-                .padding(10)
-                .foregroundColor(.primary)
-                .background(Color(self.color))
-                .cornerRadius(40)
-            } else {
-                Text(self.name)
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .frame(minHeight: 0, maxHeight: .infinity)
-                .font(.largeTitle)
-                .padding(10)
-                .foregroundColor(.primary)
-                .background(Color(self.color))
-                .cornerRadius(40)
+            Text(self.buttonText)
+                .onReceive(timer){_ in
+                    self.buttonText = self.name
             }
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .frame(minHeight: 0, maxHeight: .infinity)
+            .font(.largeTitle)
+            .padding(10)
+            .foregroundColor(.primary)
+            .background(Color(self.color))
+            .cornerRadius(40)
+            
         }
     }
 }
