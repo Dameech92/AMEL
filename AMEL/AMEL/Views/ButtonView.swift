@@ -19,7 +19,7 @@ struct ButtonView: View {
         self.color = color
     }
     
-    let timer = Timer.publish(every: 4, on: .current, in: .common).autoconnect()
+    let timer = Timer.publish(every: 3, on: .current, in: .common).autoconnect()
     
     var body: some View {
         Button(action: {
