@@ -13,6 +13,9 @@
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="magneticHeading" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="referencePointDis" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="referencePointHeading" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="referencePointName" optional="YES" attributeType="String"/>
         <attribute name="speed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
@@ -24,7 +27,7 @@
     </entity>
     <elements>
         <element name="CustomButton" positionX="-54" positionY="63" width="128" height="88"/>
-        <element name="Event" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Event" positionX="-63" positionY="-18" width="128" height="223"/>
         <element name="ReferencePoint" positionX="-36" positionY="72" width="128" height="103"/>
     </elements>
 </model>
