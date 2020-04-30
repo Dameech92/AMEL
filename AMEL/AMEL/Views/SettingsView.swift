@@ -36,16 +36,24 @@ struct SettingsView: View {
                 ForEach(self.customButton, id: \.index) { button in
                     ButtonRow(button: button, context: self.managedObjectContext, customButtons: self.customButton, buttonData: ButtonData(button: button))
                     }.onDelete { indexSet in
-                       if indexSet.first != nil {
-                           let deleteButton = self.customButton[indexSet.first!]
-                           self.managedObjectContext.delete(deleteButton)
-                           do {
-                               try self.managedObjectContext.save()
-                           } catch {
-                               print(error)
-                           }
-                       }
-                }
+						if indexSet.first != nil {
+							let deleteButton = self.customButton[indexSet.first!]
+							self.managedObjectContext.delete(deleteButton)
+							
+							print("Deleting button at position \(indexSet.first!)")
+							
+							// TODO: refactor and put this code into its own function
+							for i in indexSet.first!...self.customButton.count - 1 {
+								self.customButton[i].index = (i - 1) as NSNumber
+							}
+							
+							do {
+								try self.managedObjectContext.save()
+							} catch {
+								print(error)
+							}
+						}
+					}
             }
         }
     }
