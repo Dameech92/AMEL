@@ -50,7 +50,7 @@ struct ButtonAction {
         newEvent.speed = speed as NSNumber
         newEvent.color = color
         newEvent.refPointHeading = refPointHeading as NSNumber
-        newEvent.refPointDis = NSNumber(value: refPointDis)
+        newEvent.refPointDis = refPointDis as NSNumber
         newEvent.refPointName = refPointName
 		
 		do {

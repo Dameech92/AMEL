@@ -75,16 +75,16 @@ struct EventViewModel{
         var name = "name"
         
         if(event.refPointHeading != nil){
-            heading = String(format: "%d",Double(truncating: event.refPointHeading!))
+            heading = String(format: "%d",Int(truncating: event.refPointHeading!))
         }
         if(event.refPointDis != nil){
-            dis = String(format: "%d",Double(truncating: event.refPointDis!))
+            dis = String(format: "%d",Int(truncating: event.refPointDis!))
         }
         if(event.refPointName != nil){
             name = event.refPointName!
         }
         
-        return "BoBR:" + heading + "/" + dis + " BE: " + name
+        return "BoBR:" + heading + "/" + dis + " BE:" + name
     }
     func getGroundSpeed()->String {
         var groundSpeed = "Groundspeed: unavailable"

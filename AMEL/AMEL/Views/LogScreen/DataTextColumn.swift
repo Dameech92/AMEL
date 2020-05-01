@@ -12,13 +12,11 @@ struct DataTextColumn: View {
     let dataList: [String]
     var body: some View {
         VStack(alignment: .leading){
-            Spacer()
             Text(dataList[0])
             Spacer()
             Text(dataList[1])
             Spacer()
             Text(dataList[2])
-            Spacer()
         }
         .padding(5)
     }

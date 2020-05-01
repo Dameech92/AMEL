@@ -20,7 +20,7 @@ struct RecordView: View {
 			Color("stealth").edgesIgnoringSafeArea(.all)
 			VStack {
                 LiveDataView(refPointVM: refPointVM)
-                Divider()
+
 				HStack {
 					VStack {
                         ForEach(0 ..< self.customButton.count/2) {

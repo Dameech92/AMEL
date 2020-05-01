@@ -17,20 +17,43 @@ struct LiveDataView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
     var body: some View {
-        HStack{
-            Spacer()
-            Text(locationVM.getLatLng())
-            Spacer()
-            Text(locationVM.getAltitude())
-            Spacer()
-            Text(headingVM.getCourse())
-            Spacer()
-            Text(locationVM.getGroundSpeed())
-            Spacer()
-            Text(refPointVM.getFormatedReferencePointHeading() + "/" + refPointVM.getFormatedReferencePointDistance())
+        ZStack{
+            Rectangle()
+                .fill(Color("buttonBackGround"))
+                .layoutPriority(0.5)
+                .cornerRadius(10)
+            VStack{
+                Text(refPointVM.getFormatedReferencePointHeading() + "/" + refPointVM.getFormatedReferencePointDistance())
+                    .font(.title)
+                
+                Divider()
+                    .background(Color.primary)
+                
+                HStack{
+                    Spacer()
+
+                    VStack{
+                        Text(locationVM.getLatLng())
+                        Text(locationVM.getAltitude())
+                    }
+                    
+                    Spacer()
+                    Divider()
+                        .frame(minHeight: 0, maxHeight: 50)
+                        .background(Color.primary)
+                    Spacer()
+                    
+                    VStack{
+                        Text(headingVM.getCourse())
+                        Text(locationVM.getGroundSpeed())
+                    }
+                    Spacer()
+                }
+            }
+            .padding()
+            .layoutPriority(1)
         }
-        .padding()
-        .lineLimit(2)
+        
     }
 }
 
