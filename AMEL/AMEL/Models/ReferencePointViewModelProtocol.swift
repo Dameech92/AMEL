@@ -9,7 +9,11 @@
 import Foundation
 
 public protocol ReferencePointViewModelProtocol{
-    func getReferencPointHeading() -> String
-    func getReferencePointDistance() -> String
+    func getFormatedReferencPointHeading() -> String
+    func getFormatedReferencePointDistance() -> String
+    func getReferencePointName() -> String
+    
+    func getReferencePointHeading() -> Double
+    func getReferencePointDistance() -> Double
 
 }
