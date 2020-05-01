@@ -9,7 +9,8 @@
 import Foundation
 
 struct RefPointViewModel {
-    var point: ReferencePoint
+    let point : ReferencePoint
+    
     func getLatLng()->String {
         if (point.latitude != nil && point.longitude != nil){
             let latitude = Double(truncating: point.latitude!)

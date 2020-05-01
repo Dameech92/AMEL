@@ -10,16 +10,19 @@ import SwiftUI
 struct ButtonView: View {
     @ObservedObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) var managedObjectContext
+
+    private var refPointVM : ActiveRefPointVM
     private var name:String
     private var color:String
-    init(name:String, color: String) {
+    init(name:String, color: String, refPointVM: ActiveRefPointVM) {
         self.name = name
         self.color = color
+        self.refPointVM = refPointVM
     }
     
     var body: some View {
         Button(action: {
-			ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext)
+            ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext, self.refPointVM)
 			let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
 			ButtonAction.saveEvent(newEvent, self.name, self.color, self.managedObjectContext)
             
@@ -39,6 +42,6 @@ struct ButtonView: View {
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(name: "test", color: "Blue")
+        ButtonView(name: "test", color: "Blue", refPointVM: ActiveRefPointVM())
     }
 }
