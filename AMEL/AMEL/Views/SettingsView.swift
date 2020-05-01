@@ -14,12 +14,14 @@ struct SettingsView: View {
 	@State private var colorIndex = 0
 	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
 	@Environment(\.managedObjectContext) var managedObjectContext
+	@State var viewUpdate = false
     var body: some View {
         let viewModel = SettingsViewModel(savedButtons: self.customButton)
         return VStack {
             HStack(alignment: .center) {
                 // add a new button to the record events page
                 Button(action: {
+					self.viewUpdate.toggle()
                     let newButton = viewModel.createCustomButton(managedObjectContext: self.managedObjectContext)
                     viewModel.saveCustomButton(newButton: newButton, buttonName: "Default", buttonColor: "Blue", managedObjectContext: self.managedObjectContext)
                 }) {
@@ -39,19 +41,13 @@ struct SettingsView: View {
 						if indexSet.first != nil {
 							let deleteButton = self.customButton[indexSet.first!]
 							self.managedObjectContext.delete(deleteButton)
-							
 							print("Deleting button at position \(indexSet.first!)")
-							
-							// TODO: refactor and put this code into its own function
 							for i in indexSet.first!...self.customButton.count - 1 {
 								self.customButton[i].index = (i - 1) as NSNumber
 							}
 							
-							do {
-								try self.managedObjectContext.save()
-							} catch {
-								print(error)
-							}
+							viewModel.saveCustomButtons(managedObjectContext: self.managedObjectContext)
+							self.viewUpdate.toggle()
 						}
 					}
             }

@@ -13,12 +13,14 @@ struct ButtonRow: View {
     var customButtons: FetchedResults<CustomButton>
 	@ObservedObject var buttonData: ButtonData
     private let colorNames = ["Red", "Green", "Blue", "Purple", "Orange", "Gray"]
-    
+    @State var viewUpdate = false
     var body: some View {
         let viewModel = SettingsViewModel(savedButtons: self.customButtons)
         if buttonData.updated {
             viewModel.updateButton(name: buttonData.name, color: buttonData.color, button: self.button, context: self.context)
+			
             buttonData.updated = false
+			self.viewUpdate.toggle()
         }
         return HStack{
             TextField("Enter button name", text: self.$buttonData.name, onCommit: {
