@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct RefPointView: View {
-    @State var isActive: Bool
     let point: ReferencePoint
     var body: some View {
         let pointVM = RefPointViewModel(point: point)
