@@ -20,8 +20,10 @@ struct SettingsView: View {
             HStack(alignment: .center) {
                 // add a new button to the record events page
                 Button(action: {
-                    let newButton = viewModel.createCustomButton(managedObjectContext: self.managedObjectContext)
-                    viewModel.saveCustomButton(newButton: newButton, buttonName: "Default", buttonColor: "Blue", managedObjectContext: self.managedObjectContext)
+					let newButton = viewModel.createCustomButton(managedObjectContext: self.managedObjectContext)
+					DispatchQueue.main.async {
+						viewModel.saveCustomButton(newButton: newButton, buttonName: "Default", buttonColor: "Blue", managedObjectContext: self.managedObjectContext)
+					}
                 }) {
                     VStack {
                         Text("Add new button")
@@ -45,7 +47,9 @@ struct SettingsView: View {
 								self.customButton[i].index = (i - 1) as NSNumber
 							}
 							
-							viewModel.saveCustomButtons(managedObjectContext: self.managedObjectContext)
+							DispatchQueue.main.async {
+								viewModel.saveCustomButtons(managedObjectContext: self.managedObjectContext)
+							}
 						}
 					}
             }

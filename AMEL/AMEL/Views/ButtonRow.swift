@@ -16,9 +16,11 @@ struct ButtonRow: View {
     var body: some View {
         let viewModel = SettingsViewModel(savedButtons: self.customButtons)
         if buttonData.updated {
-            viewModel.updateButton(name: buttonData.name, color: buttonData.color, button: self.button, context: self.context)
-			
-            buttonData.updated = false
+			DispatchQueue.main.async {
+				viewModel.updateButton(name: self.buttonData.name, color: self.buttonData.color, button: self.button, context: self.context)
+				
+				self.buttonData.updated = false
+			}
         }
         return HStack{
             TextField("Enter button name", text: self.$buttonData.name, onCommit: {
