@@ -11,6 +11,6 @@ struct CoordinateFormatter {
     func getLatLng(latitude: Double, longitude: Double)->String {
         let latFormatter = LatFormatter()
         let lngFormatter = LngFormatter()
-        return latFormatter.format(latitude: latitude) + " " + lngFormatter.format(latitude: longitude)
+        return latFormatter.format(latitude: latitude) + " " + lngFormatter.format(longitude: longitude)
     }
 }

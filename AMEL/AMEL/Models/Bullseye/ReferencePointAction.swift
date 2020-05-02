@@ -44,7 +44,10 @@ struct ReferencePointAction {
         // Decimal Degrees = Degrees + .d
         let dot_m = Double(data.minuteTenth)/10.0
         let dotD = (Double(data.minute) + dot_m) / 60.0
-        let result = Double(data.degree) + dotD
+        var result = Double(data.degree) + dotD
+        if data.direction == 1 {
+            result = result * -1
+        }
         return result as NSNumber
     }
     

@@ -8,8 +8,11 @@
 
 import Foundation
 class LngFormatter: LatLngFormatter {
-    func formatLongitude(longitude: Double)->String {
-        super.format(latitude: longitude)
+    func format(longitude: Double)->String {
+        let minDotm = getMinutes_Dot_m(number: longitude)
+        let degrees = formatDegrees(latlng: longitude)
+        let direction = getDir(lat_lng: longitude)
+        return direction + degrees + "-" + minDotm
     }
     override func getDir(lat_lng: Double)->String {
         if lat_lng >= 0 {
