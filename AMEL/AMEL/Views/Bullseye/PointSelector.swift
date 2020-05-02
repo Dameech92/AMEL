@@ -11,7 +11,7 @@ import Combine
 
 struct PointSelector: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    @ObservedObject var selectorData = SelectorData()
+    @ObservedObject var selectorData: SelectorData
     @ObservedObject var pickerData = PickerData()
     
     var body: some View {
@@ -54,14 +54,5 @@ struct PointSelector: View {
             }
             
         }
-    }
-}
-extension PointSelector {
-    
-}
-
-struct PointSelector_Previews: PreviewProvider {
-    static var previews: some View {
-        PointSelector()
     }
 }

@@ -10,12 +10,12 @@ import SwiftUI
 
 struct BullsEyeView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    @ObservedObject var pickerData = PickerData()
     @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
+    @ObservedObject var selectorData = SelectorData()
     var body: some View {
-        let activePointSetter = ActivePointSetter(points: self.points, managedObjectContext: self.managedObjectContext)
+        let activePointSetter = ActivePointSetter(points: self.points, managedObjectContext: self.managedObjectContext, selectorData: self.selectorData)
         return VStack {
-            PointSelector()
+            PointSelector(selectorData: selectorData)
             List {
                 Section(header: Text("Saved Points")) {
                     ForEach(self.points, id: \.time) { point in
