@@ -10,10 +10,11 @@ import SwiftUI
 
 struct RefPointView: View {
     let point: ReferencePoint
+    let setter: ActivePointSetter
     var body: some View {
         let pointVM = RefPointViewModel(point: point)
         return HStack {
-            if self.isActive {
+            if point.isActive {
                 Image(systemName: "circle.fill")
             } else {
                 Image(systemName: "circle")
@@ -21,13 +22,7 @@ struct RefPointView: View {
             Text(pointVM.getName())
             Text(pointVM.getLatLng())
         }.onTapGesture {
-            self.isActive = true
+            self.setter.setActivePoint(point: self.point)
         }
-    }
-}
-
-struct ReferencePointView_Previews: PreviewProvider {
-    static var previews: some View {
-        RefPointView(point: ReferencePoint())
     }
 }

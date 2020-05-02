@@ -13,12 +13,14 @@ struct BullsEyeView: View {
     @ObservedObject var pickerData = PickerData()
     @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
     var body: some View {
-        VStack {
+        let activePointSetter = ActivePointSetter(points: self.points, managedObjectContext: self.managedObjectContext)
+        return VStack {
             PointSelector()
             List {
                 Section(header: Text("Saved Points")) {
                     ForEach(self.points, id: \.time) { point in
-                        RefPointView(point: point)
+                        RefPointView(point: point, setter: activePointSetter)
+                            
                     }.onDelete { indexSet in
                        if indexSet.first != nil {
                            let deletePoint = self.points[indexSet.first!]
