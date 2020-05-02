@@ -16,15 +16,12 @@ struct ButtonRow: View {
     var body: some View {
         let viewModel = SettingsViewModel(savedButtons: self.customButtons)
         if buttonData.updated {
-			DispatchQueue.main.async {
-				viewModel.updateButton(name: self.buttonData.name, color: self.buttonData.color, button: self.button, context: self.context)
-				
-				self.buttonData.updated = false
-			}
+			viewModel.updateButton(name: self.buttonData.name, color: self.buttonData.color, button: self.button, context: self.context)
+			self.buttonData.updated = false
         }
         return HStack{
             TextField("Enter button name", text: self.$buttonData.name, onCommit: {
-                self.buttonData.updated = true
+				self.buttonData.updated = true
             })
 			Picker(selection: self.$buttonData.color, label: Text("Color")) {
                 ForEach(0 ..< self.colorNames.count) {

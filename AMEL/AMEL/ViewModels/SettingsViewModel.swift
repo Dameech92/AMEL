@@ -23,12 +23,9 @@ struct SettingsViewModel {
         newButton.index = (self.savedButtons.count + 1) as NSNumber
 		newButton.buttonColor = buttonColor
 		// update the object
-		do {
-            try managedObjectContext.save()
-        } catch {
-            print("Error saving")
-        }
+		saveCustomButtons(managedObjectContext: managedObjectContext)
 	}
+	
     func updateButton(name:String, color: Int, button: CustomButton, context: NSManagedObjectContext) {
         for sButton in self.savedButtons {
             if sButton == button {
@@ -38,7 +35,7 @@ struct SettingsViewModel {
             }
         }
     }
-
+	
 	func saveCustomButtons(managedObjectContext:NSManagedObjectContext){
         do{
             try managedObjectContext.save()

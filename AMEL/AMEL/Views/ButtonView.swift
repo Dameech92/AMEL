@@ -14,7 +14,7 @@ struct ButtonView: View {
     private var color:String
     init(name:String, color: String) {
         self.name = name
-        self.color = color
+		self.color = color
     }
     
     var body: some View {
