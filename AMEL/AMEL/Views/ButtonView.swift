@@ -22,7 +22,6 @@ struct ButtonView: View {
 			ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext)
 			let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
 			ButtonAction.saveEvent(newEvent, self.name, self.color, self.managedObjectContext)
-            
         }){
             Text(self.name)
             .frame(minWidth: 0, maxWidth: .infinity)
@@ -32,8 +31,7 @@ struct ButtonView: View {
             .foregroundColor(.primary)
             .background(Color(self.color))
             .cornerRadius(40)
-            
-        }
+		}.buttonStyle(CustomButtonStyle())
     }
 }
 
