@@ -10,7 +10,6 @@ import SwiftUI
 
 struct BullsEyeView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    @State var BEName = ""
     @ObservedObject var pickerData = PickerData()
     @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
     var body: some View {
