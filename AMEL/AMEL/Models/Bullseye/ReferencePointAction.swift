@@ -48,54 +48,6 @@ struct ReferencePointAction {
         return result as NSNumber
     }
     
-    func updateLatitudePicker(latitude: String) {
-        if updateNeeded(input: latitude) {
-            let latNum = Double(latitude) ?? 0
-            let formatter = LatLngFormatter(latitude: 0, longitude:0)
-            let direction = formatter.getDirLatitude(lat: latNum)
-            self.pickerData.latPicker.direction = directionToInt(direction: direction)
-            let degrees =  formatter.formatLatDegrees(latitude: latNum)
-            self.pickerData.latPicker.degree = Int(degrees) ?? 0
-            let minutesDotm = formatter.getMinutes_Dot_m(number: latNum)
-            let dotIndex = minutesDotm.firstIndex(of: ".")
-            let minute = String(minutesDotm.prefix(upTo: dotIndex ?? minutesDotm.endIndex))
-            self.pickerData.latPicker.minute = Int(minute) ?? 0
-            let afterDot = minutesDotm.index(after: dotIndex ?? minutesDotm.startIndex)
-            let minTenth = String(minutesDotm.suffix(from: afterDot))
-            self.pickerData.latPicker.minuteTenth = Int(minTenth) ?? 0
-        }
-    }
-    func updateLongitudePicker(longitude: String) {
-        if updateNeeded(input: longitude) {
-            let lngNum = Double(longitude) ?? 0
-            let formatter = LatLngFormatter(latitude: 0, longitude:0)
-            let direction = formatter.getDirLongitude(lng: lngNum)
-            self.pickerData.lngPicker.direction = directionToInt(direction: direction)
-            let degrees = formatter.formatLngDegrees(longitude: lngNum)
-            self.pickerData.lngPicker.degree = Int(degrees) ?? 0
-            let minutesDotm = formatter.getMinutes_Dot_m(number: lngNum)
-            let dotIndex = minutesDotm.firstIndex(of: ".")
-            let minute = String(minutesDotm.prefix(upTo: dotIndex ?? minutesDotm.endIndex))
-            self.pickerData.lngPicker.minute = Int(minute) ?? 0
-            let afterDot = minutesDotm.index(after: dotIndex ?? minutesDotm.startIndex)
-            let minTenth = String(minutesDotm.suffix(from: afterDot))
-            self.pickerData.lngPicker.minuteTenth = Int(minTenth) ?? 0
-        }
-        
-    }
-    func updateNeeded(input: String)->Bool {
-        return input != ""
-    }
-    
-    
-    func directionToInt(direction: String)->Int {
-        if direction == "N" || direction == "E" {
-            return 0
-        }
-        else {
-            return 1
-        }
-    }
     
     func dataIsValid(lat: String, lng: String, name: String)->Bool {
         return latInRange(lat: lat) && lngInRange(lng: lng) && nameIsValid(name: name)

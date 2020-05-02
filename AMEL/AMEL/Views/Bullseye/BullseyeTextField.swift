@@ -11,7 +11,7 @@ import Combine
 struct BullseyeTextField: View {
     @Binding var data: String
     @Binding var error: Bool
-    let refAction: ReferencePointAction
+    let pickerUpdater: PickerUpdater
     let numberInputs = "-.0123456789"
     var body: some View {
         TextField("Degrees", text: self.$data)
@@ -22,7 +22,7 @@ struct BullseyeTextField: View {
                     if filtered != newValue {
                         self.data = filtered
                     }
-                self.refAction.updateLatitudePicker(latitude: self.data)
+                self.pickerUpdater.updatePicker(latOrLng: self.data)
                 }
         .overlay(self.error ? Text("Out of range").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
     }

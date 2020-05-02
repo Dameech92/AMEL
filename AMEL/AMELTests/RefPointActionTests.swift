@@ -33,8 +33,8 @@ class RefPointActionTests: XCTestCase {
     func testUpdateLatPicker() {
         let pickerData = PickerData()
         let latitude = "-18.23"
-        let refAction = ReferencePointAction(pickerData: pickerData, context: NSManagedObjectContext())
-        refAction.updateLatitudePicker(latitude: latitude)
+        let pickerUpdater = PickerUpdater(formatter: LatFormatter(), latlngData: pickerData.latPicker)
+        pickerUpdater.updatePicker(latOrLng: latitude)
         let expectedDegs = 18
         let expectedMins = 13
         let expectedDotm = 8
