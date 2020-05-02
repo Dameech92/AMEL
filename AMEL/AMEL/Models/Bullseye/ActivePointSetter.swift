@@ -12,6 +12,11 @@ import CoreData
 struct ActivePointSetter {
     var points: FetchedResults<ReferencePoint>
     var managedObjectContext: NSManagedObjectContext
+    func makeActivePoint(point: ReferencePoint){
+        setActivePoint(point: point)
+        savePoints()
+    }
+    
     func setActivePoint(point: ReferencePoint) {
         for savedPoint in points {
             if savedPoint == point {
@@ -28,5 +33,8 @@ struct ActivePointSetter {
         } catch {
             print("Error saving")
         }
+    }
+    func updatePointSelector() {
+        
     }
 }

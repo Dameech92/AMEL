@@ -22,7 +22,7 @@ struct RefPointView: View {
             Text(pointVM.getName())
             Text(pointVM.getLatLng())
         }.onTapGesture {
-            self.setter.setActivePoint(point: self.point)
+            self.setter.makeActivePoint(point: self.point)
         }
     }
 }
