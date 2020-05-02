@@ -12,32 +12,12 @@ import Combine
 struct PointSelector: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var selectorData = SelectorData()
-    
     @ObservedObject var pickerData = PickerData()
     let numberInputs = "-.0123456789"
     var body: some View {
         let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext)
         return VStack {
-            HStack {
-                Spacer()
-                Button(action: {
-                    self.selectorData.errors.lat_error = !refAction.latInRange(lat: self.selectorData.latitude)
-                    self.selectorData.errors.lng_error = !refAction.lngInRange(lng: self.selectorData.longitude)
-                    self.selectorData.errors.name_error = !refAction.nameIsValid(name: self.selectorData.pointName)
-                    if refAction.dataIsValid(lat: self.selectorData.latitude, lng: self.selectorData.longitude, name: self.selectorData.pointName) {
-                        refAction.recordReferencePoint(name: self.selectorData.pointName)
-                        self.selectorData.resetAllTextFields()
-                        refAction.resetPickers()
-                    }
-                    else {
-                        self.selectorData.resetTextFieldsOnError()
-                    }
-                    
-                    
-                }){
-                    Text("Save")
-                }
-            }.padding(.trailing)
+            SavePoint(selectorData: self.selectorData, refAction: refAction)
             Text("Reference Point:")
                 .font(.title)
             TextField("Name", text: self.$selectorData.pointName)
