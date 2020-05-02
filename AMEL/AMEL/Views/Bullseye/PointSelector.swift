@@ -11,12 +11,8 @@ import Combine
 
 struct PointSelector: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    @State var pointName = ""
-    @State var latitude = ""
-    @State var longitude = ""
-    @State var lat_error = false
-    @State var lng_error = false
-    @State var name_error = false
+    @ObservedObject var selectorData = SelectorData()
+    
     @ObservedObject var pickerData = PickerData()
     let numberInputs = "-.0123456789"
     var body: some View {
@@ -25,16 +21,16 @@ struct PointSelector: View {
             HStack {
                 Spacer()
                 Button(action: {
-                    self.lat_error = !refAction.latInRange(lat: self.latitude)
-                    self.lng_error = !refAction.lngInRange(lng: self.longitude)
-                    self.name_error = !refAction.nameIsValid(name: self.pointName)
-                    if refAction.dataIsValid(lat: self.latitude, lng: self.longitude, name: self.pointName) {
-                        refAction.recordReferencePoint(name: self.pointName)
-                        self.resetAllTextFields()
+                    self.selectorData.errors.lat_error = !refAction.latInRange(lat: self.selectorData.latitude)
+                    self.selectorData.errors.lng_error = !refAction.lngInRange(lng: self.selectorData.longitude)
+                    self.selectorData.errors.name_error = !refAction.nameIsValid(name: self.selectorData.pointName)
+                    if refAction.dataIsValid(lat: self.selectorData.latitude, lng: self.selectorData.longitude, name: self.selectorData.pointName) {
+                        refAction.recordReferencePoint(name: self.selectorData.pointName)
+                        self.selectorData.resetAllTextFields()
                         refAction.resetPickers()
                     }
                     else {
-                        self.resetTextFieldsOnError()
+                        self.selectorData.resetTextFieldsOnError()
                     }
                     
                     
@@ -44,27 +40,27 @@ struct PointSelector: View {
             }.padding(.trailing)
             Text("Reference Point:")
                 .font(.title)
-            TextField("Name", text: $pointName)
+            TextField("Name", text: self.$selectorData.pointName)
                .textFieldStyle(RoundedBorderTextFieldStyle())
                .multilineTextAlignment(.center)
                .frame(width: 400)
-                .overlay(self.name_error ? Text("Invalid name").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
+                .overlay(self.selectorData.errors.name_error ? Text("Invalid name").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
             
             HStack {
                 VStack {
                     Text("Latitude")
                         .font(.title)
-                    TextField("Degrees", text: $latitude)
+                    TextField("Degrees", text: self.$selectorData.latitude)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.decimalPad)
-                            .onReceive(Just(latitude)) { newValue in
+                            .onReceive(Just(selectorData.latitude)) { newValue in
                                 let filtered = newValue.filter { self.numberInputs.contains($0) }
                                 if filtered != newValue {
-                                    self.latitude = filtered
+                                    self.selectorData.latitude = filtered
                                 }
-                                refAction.updateLatitudePicker(latitude: self.latitude)
+                                refAction.updateLatitudePicker(latitude: self.selectorData.latitude)
                             }
-                    .overlay(self.lat_error ? Text("Invalid Latitude").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
+                    .overlay(self.selectorData.errors.lat_error ? Text("Invalid Latitude").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.latPicker, screenSize: geometry.size, directions: ["N","S"], degrees: Array(0...90))
                     }.frame(height: 100)
@@ -74,17 +70,17 @@ struct PointSelector: View {
                 VStack{
                     Text("Longitude")
                         .font(.title)
-                    TextField("Degrees", text: $longitude)
+                    TextField("Degrees", text: self.$selectorData.longitude)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
-                        .onReceive(Just(longitude)) { newValue in
+                        .onReceive(Just(selectorData.longitude)) { newValue in
                             let filtered = newValue.filter { self.numberInputs.contains($0) }
                             if filtered != newValue {
-                                self.longitude = filtered
+                                self.selectorData.longitude = filtered
                             }
-                            refAction.updateLongitudePicker(longitude: self.longitude)
+                            refAction.updateLongitudePicker(longitude: self.selectorData.longitude)
                         }
-                        .overlay(self.lng_error ? Text("Invalid Longitude").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
+                        .overlay(self.selectorData.errors.lng_error ? Text("Invalid Longitude").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.lngPicker, screenSize: geometry.size, directions: ["E","W"], degrees: Array(0...180))
                     }.frame(height: 100)
@@ -97,22 +93,7 @@ struct PointSelector: View {
     }
 }
 extension PointSelector {
-    func resetTextFieldsOnError() {
-        if self.lat_error {
-            self.latitude = ""
-        }
-        if self.lng_error {
-            self.longitude = ""
-        }
-        if self.name_error {
-            self.pointName = ""
-        }
-    }
-    func resetAllTextFields() {
-        self.latitude = ""
-        self.longitude = ""
-        self.pointName = ""
-    }
+    
 }
 
 struct PointSelector_Previews: PreviewProvider {
