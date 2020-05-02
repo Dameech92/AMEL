@@ -13,7 +13,7 @@ struct PointSelector: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var selectorData = SelectorData()
     @ObservedObject var pickerData = PickerData()
-    let numberInputs = "-.0123456789"
+    
     var body: some View {
         let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext)
         return VStack {
@@ -30,17 +30,7 @@ struct PointSelector: View {
                 VStack {
                     Text("Latitude")
                         .font(.title)
-                    TextField("Degrees", text: self.$selectorData.latitude)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .keyboardType(.decimalPad)
-                            .onReceive(Just(selectorData.latitude)) { newValue in
-                                let filtered = newValue.filter { self.numberInputs.contains($0) }
-                                if filtered != newValue {
-                                    self.selectorData.latitude = filtered
-                                }
-                                refAction.updateLatitudePicker(latitude: self.selectorData.latitude)
-                            }
-                    .overlay(self.selectorData.errors.lat_error ? Text("Invalid Latitude").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
+                    BullseyeTextField(data: self.$selectorData.latitude, error: self.$selectorData.errors.lat_error, refAction: refAction)
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.latPicker, screenSize: geometry.size, directions: ["N","S"], degrees: Array(0...90))
                     }.frame(height: 100)
@@ -50,17 +40,7 @@ struct PointSelector: View {
                 VStack{
                     Text("Longitude")
                         .font(.title)
-                    TextField("Degrees", text: self.$selectorData.longitude)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .keyboardType(.decimalPad)
-                        .onReceive(Just(selectorData.longitude)) { newValue in
-                            let filtered = newValue.filter { self.numberInputs.contains($0) }
-                            if filtered != newValue {
-                                self.selectorData.longitude = filtered
-                            }
-                            refAction.updateLongitudePicker(longitude: self.selectorData.longitude)
-                        }
-                        .overlay(self.selectorData.errors.lng_error ? Text("Invalid Longitude").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
+                    BullseyeTextField(data: self.$selectorData.longitude, error: self.$selectorData.errors.lng_error, refAction: refAction)
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.lngPicker, screenSize: geometry.size, directions: ["E","W"], degrees: Array(0...180))
                     }.frame(height: 100)
