@@ -50,5 +50,4 @@ class LatLngTests: XCTestCase {
         let sut = LatLngFormatter(latitude: 34.1622265, longitude: -119.0440182)
         XCTAssertEqual("N34-09.7 W119-02.6", sut.getLatLng())
     }
-
 }
