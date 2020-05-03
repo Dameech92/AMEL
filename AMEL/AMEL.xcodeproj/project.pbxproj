@@ -13,6 +13,7 @@
 		1F9FABD024158555002FF99B /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FABCF24158555002FF99B /* RecordView.swift */; };
 		1FA7B2782442AC8400ABD3BF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA7B2772442AC8400ABD3BF /* SettingsViewModel.swift */; };
 		310AE7A4243E632800796D11 /* PrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310AE7A3243E632800796D11 /* PrintPageRenderer.swift */; };
+		311DD835245F502A007E214D /* ActivePointCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311DD834245F502A007E214D /* ActivePointCreator.swift */; };
 		31272C94245DC599002A321E /* SelectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272C93245DC599002A321E /* SelectorData.swift */; };
 		31272C96245DC744002A321E /* SelectorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272C95245DC744002A321E /* SelectorError.swift */; };
 		31272C9A245DC918002A321E /* SavePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272C99245DC918002A321E /* SavePoint.swift */; };
@@ -105,6 +106,7 @@
 		1F9FABCF24158555002FF99B /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		1FA7B2772442AC8400ABD3BF /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		310AE7A3243E632800796D11 /* PrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintPageRenderer.swift; sourceTree = "<group>"; };
+		311DD834245F502A007E214D /* ActivePointCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePointCreator.swift; sourceTree = "<group>"; };
 		31272C93245DC599002A321E /* SelectorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorData.swift; sourceTree = "<group>"; };
 		31272C95245DC744002A321E /* SelectorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorError.swift; sourceTree = "<group>"; };
 		31272C99245DC918002A321E /* SavePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePoint.swift; sourceTree = "<group>"; };
@@ -277,10 +279,11 @@
 		31D235F124563866006A0475 /* Bullseye */ = {
 			isa = PBXGroup;
 			children = (
+				311DD834245F502A007E214D /* ActivePointCreator.swift */,
+				31272CA7245DFBB1002A321E /* ActivePointSetter.swift */,
 				31738E7E244A2B5B0073022A /* PickerData.swift */,
 				31272C9D245DCDEE002A321E /* PickerUpdater.swift */,
 				BF91963C2449373700F6D5C1 /* ReferencePoint.swift */,
-				31272CA7245DFBB1002A321E /* ActivePointSetter.swift */,
 				31738E7C244A21FB0073022A /* ReferencePointAction.swift */,
 				31272C93245DC599002A321E /* SelectorData.swift */,
 				31272C95245DC744002A321E /* SelectorError.swift */,
@@ -524,6 +527,7 @@
 				1F9FABD024158555002FF99B /* RecordView.swift in Sources */,
 				31738E83244A4E270073022A /* RefPointView.swift in Sources */,
 				31738E81244A2D430073022A /* RefPointViewModel.swift in Sources */,
+				311DD835245F502A007E214D /* ActivePointCreator.swift in Sources */,
 				31DF3724244CF40600905903 /* ButtonRow.swift in Sources */,
 				31D2CB36243FBDB500356BCF /* HTMLGenerator.swift in Sources */,
 				318DA70424059EC6007D79B6 /* LocationManager.swift in Sources */,

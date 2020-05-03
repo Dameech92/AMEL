@@ -12,32 +12,17 @@ import CoreData
 struct ReferencePointAction {
     let pickerData: PickerData
     let context: NSManagedObjectContext
+    let activePointSetter: ActivePointSetter
     func recordReferencePoint(name: String) {
         let refPoint = ReferencePoint(context: self.context)
         refPoint.latitude = convertToDecimalDegrees(data: self.pickerData.latPicker)
         refPoint.longitude = convertToDecimalDegrees(data: self.pickerData.lngPicker)
         refPoint.time = Date()
         refPoint.name = name
-        saveReferencePoint()
-        resetPickers()
+        refPoint.isActive = true
+        self.activePointSetter.setActivePoint(point: refPoint)
     }
-    func saveReferencePoint() {
-        do {
-            try self.context.save()
-        } catch {
-            print("Error saving")
-        }
-    }
-    func resetPickers() {
-        self.pickerData.latPicker.degree = 0
-        self.pickerData.latPicker.direction = 0
-        self.pickerData.latPicker.minute = 0
-        self.pickerData.latPicker.minuteTenth = 0
-        self.pickerData.lngPicker.degree = 0
-        self.pickerData.lngPicker.direction = 0
-        self.pickerData.lngPicker.minute = 0
-        self.pickerData.lngPicker.minuteTenth = 0
-    }
+    
     
     func convertToDecimalDegrees(data: LatLngData)->NSNumber {
         //.d = M.m / 60

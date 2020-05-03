@@ -8,18 +8,20 @@
 
 import SwiftUI
 import Combine
+import CoreData
 
 struct PointSelector: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var selectorData: SelectorData
-    @ObservedObject var pickerData = PickerData()
+    @ObservedObject var pickerData: PickerData
+    let pointSetter: ActivePointSetter
     
     var body: some View {
         let latFormatter = LatFormatter()
         let latUpdater = PickerUpdater(formatter: latFormatter, latlngData: self.pickerData.latPicker)
         let lngFormatter = LngFormatter()
         let lngUpdater = PickerUpdater(formatter: lngFormatter, latlngData: self.pickerData.lngPicker)
-        let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext)
+        let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext, activePointSetter: self.pointSetter)
         return VStack {
             SavePoint(selectorData: self.selectorData, refAction: refAction)
             Text("Reference Point:")

@@ -20,8 +20,6 @@ struct SavePoint: View {
                 self.selectorData.errors.name_error = !self.refAction.nameIsValid(name: self.selectorData.pointName)
                 if self.refAction.dataIsValid(lat: self.selectorData.latitude, lng: self.selectorData.longitude, name: self.selectorData.pointName) {
                     self.refAction.recordReferencePoint(name: self.selectorData.pointName)
-                    self.selectorData.resetAllTextFields()
-                    self.refAction.resetPickers()
                 }
                 else {
                     self.selectorData.resetTextFieldsOnError()
