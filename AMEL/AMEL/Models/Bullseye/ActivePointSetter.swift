@@ -24,7 +24,10 @@ struct ActivePointSetter {
             }
         }
         savePoints()
-        updatePointSelector(point: point)
+    }
+    func updatePointSelector(point: ReferencePoint, selectorData: SelectorData){
+        let selectorUpdater = SelectorUpdater(selectorData: selectorData)
+        selectorUpdater.updatePointSelector(point: point)
     }
     
     func savePoints() {
@@ -32,23 +35,6 @@ struct ActivePointSetter {
             try self.managedObjectContext.save()
         } catch {
             print("Error saving")
-        }
-    }
-    func updatePointSelector(point: ReferencePoint?) {
-        let formatter = NumberFormatter()
-        formatter.usesSignificantDigits = false
-        formatter.minimumFractionDigits = 0 // default
-        formatter.maximumFractionDigits = 5 // default
-        if point != nil {
-            if point!.latitude != nil {
-                let latFormatted = formatter.string(from: point!.latitude!)
-                self.selectorData.latitude = latFormatted ?? ""
-            }
-            if point!.longitude != nil {
-                let lngFormatted = formatter.string(from: point!.longitude!)
-                self.selectorData.longitude = lngFormatted ?? ""
-            }
-            self.selectorData.pointName = point!.name ?? ""
         }
     }
 }

@@ -14,16 +14,12 @@ struct RefPointView: View {
     var body: some View {
         let pointVM = RefPointViewModel(point: point)
         return HStack {
-            if point.isActive {
-                Image(systemName: "circle.fill")
-            } else {
-                Image(systemName: "circle")
-            }
+            Image(systemName: point.isActive ? "circle.fill": "circle")
             Text(pointVM.getName())
             Text(pointVM.getLatLng())
         }.onTapGesture {
             self.activePoint.setActivePoint(point: self.point)
-            self.activePoint.updatePointSelector(point: self.point)
+            self.activePoint.updatePointSelector(point: self.point, selectorData: self.activePoint.selectorData)
         }
     }
 }

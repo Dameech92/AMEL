@@ -12,7 +12,7 @@ import CoreData
 
 struct PointSelector: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    @ObservedObject var selectorData: SelectorData
+    let points: FetchedResults<ReferencePoint>
     @ObservedObject var pickerData: PickerData
     let pointSetter: ActivePointSetter
     
@@ -23,20 +23,20 @@ struct PointSelector: View {
         let lngUpdater = PickerUpdater(formatter: lngFormatter, latlngData: self.pickerData.lngPicker)
         let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext, activePointSetter: self.pointSetter)
         return VStack {
-            SavePoint(selectorData: self.selectorData, refAction: refAction)
+            SavePoint(selectorData: self.pointSetter.selectorData, refAction: refAction)
             Text("Reference Point:")
                 .font(.title)
-            TextField("Name", text: self.$selectorData.pointName)
+            TextField("Name", text: self.pointSetter.$selectorData.pointName)
                .textFieldStyle(RoundedBorderTextFieldStyle())
                .multilineTextAlignment(.center)
                .frame(width: 400)
-                .overlay(self.selectorData.errors.name_error ? Text("Invalid name").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
+                .overlay(self.pointSetter.selectorData.errors.name_error ? Text("Invalid name").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
             
             HStack {
                 VStack {
                     Text("Latitude")
                         .font(.title)
-                    BullseyeTextField(data: self.$selectorData.latitude, error: self.$selectorData.errors.lat_error, pickerUpdater: latUpdater)
+                    BullseyeTextField(data: self.pointSetter.$selectorData.latitude, error: self.pointSetter.$selectorData.errors.lat_error, pickerUpdater: latUpdater)
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.latPicker, screenSize: geometry.size, directions: ["N","S"], degrees: Array(0...90))
                     }.frame(height: 100)
@@ -46,7 +46,7 @@ struct PointSelector: View {
                 VStack{
                     Text("Longitude")
                         .font(.title)
-                    BullseyeTextField(data: self.$selectorData.longitude, error: self.$selectorData.errors.lng_error, pickerUpdater: lngUpdater)
+                    BullseyeTextField(data: self.pointSetter.$selectorData.longitude, error: self.pointSetter.$selectorData.errors.lng_error, pickerUpdater: lngUpdater)
                     GeometryReader { geometry in
                         LatLngPicker(pickerData: self.pickerData.lngPicker, screenSize: geometry.size, directions: ["E","W"], degrees: Array(0...180))
                     }.frame(height: 100)

@@ -11,7 +11,6 @@ import CoreData
 import SwiftUI
 struct ActivePointCreator {
     var points: FetchedResults<ReferencePoint>
-    let managedObjectContext: NSManagedObjectContext
     
     func getActivePoint()->ReferencePoint?{
         var activePoint: ReferencePoint?
@@ -20,31 +19,7 @@ struct ActivePointCreator {
                 activePoint = savedPoint
             }
         }
-        activePoint = setDefaultActivePoint(activePoint: activePoint)
         return activePoint
     }
-    
-    func setDefaultActivePoint(activePoint: ReferencePoint?)->ReferencePoint? {
-        if activePoint == nil {
-            setFirstAsActive()
-            return self.points.first
-        }
-        else {
-            return activePoint
-        }
-    }
-    func setFirstAsActive() {
-        if self.points.first != nil {
-            self.points.first!.isActive = true
-            savePoints()
-        }
-    }
-    
-    func savePoints() {
-        do {
-            try self.managedObjectContext.save()
-        } catch {
-            print("Error saving")
-        }
-    }
+
 }
