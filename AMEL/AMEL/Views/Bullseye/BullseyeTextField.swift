@@ -17,7 +17,7 @@ struct BullseyeTextField: View {
         TextField("Degrees", text: self.$data)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.decimalPad)
-            .onReceive(Just(self.data)) { newValue in
+                .onReceive(Just(self.data)) { newValue in
                     let filtered = newValue.filter { self.numberInputs.contains($0) }
                     if filtered != newValue {
                         self.data = filtered
