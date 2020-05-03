@@ -14,7 +14,7 @@ struct BullsEyeView: View {
     @ObservedObject var selectorData = SelectorData()
     @ObservedObject var pickerData = PickerData()
     var body: some View {
-        let activePointSetter = ActivePointSetter(points: self.points, selectorData: self.selectorData)
+        let activePointSetter = ActivePointSetter(points: self.points, managedObjectContext: self.managedObjectContext, selectorData: self.selectorData)
         
         return VStack {
             PointSelector(selectorData: self.selectorData, pickerData: self.pickerData, pointSetter: activePointSetter)

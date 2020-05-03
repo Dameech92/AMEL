@@ -11,7 +11,7 @@ import CoreData
 import SwiftUI
 struct ActivePointCreator {
     var points: FetchedResults<ReferencePoint>
-    @Environment(\.managedObjectContext) var managedObjectContext
+    let managedObjectContext: NSManagedObjectContext
     
     func getActivePoint()->ReferencePoint?{
         var activePoint: ReferencePoint?

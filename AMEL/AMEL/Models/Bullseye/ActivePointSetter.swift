@@ -11,7 +11,7 @@ import SwiftUI
 import CoreData
 struct ActivePointSetter {
     var points: FetchedResults<ReferencePoint>
-    @Environment(\.managedObjectContext) var managedObjectContext
+    let managedObjectContext: NSManagedObjectContext
     @ObservedObject var selectorData: SelectorData
    
     func setActivePoint(point: ReferencePoint) {
