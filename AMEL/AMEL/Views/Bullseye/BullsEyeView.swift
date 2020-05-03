@@ -26,14 +26,16 @@ struct BullsEyeView: View {
                     }.onDelete { indexSet in
                        if indexSet.first != nil {
                            let deletePoint = self.points[indexSet.first!]
+                            if deletePoint.isActive {
+                               self.selectorData.resetAllTextFields()
+                                self.pickerData.resetPickers()
+                            }
                            self.managedObjectContext.delete(deletePoint)
                            do {
                                try self.managedObjectContext.save()
                            }catch {
                                    print(error)
                            }
-                            self.selectorData.resetAllTextFields()
-                            self.pickerData.resetPickers()
                        }
                     }
                 }
