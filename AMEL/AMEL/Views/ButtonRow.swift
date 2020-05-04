@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 struct ButtonRow: View {
     let button: CustomButton
-    let context: NSManagedObjectContext
+    @Environment(\.managedObjectContext) var context
     var customButtons: FetchedResults<CustomButton>
 	@ObservedObject var buttonData: ButtonData
     private let colorNames = ["Red", "Green", "Blue", "Purple", "Orange", "Gray"]

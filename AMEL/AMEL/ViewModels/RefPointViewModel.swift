@@ -14,8 +14,8 @@ struct RefPointViewModel {
         if (point.latitude != nil && point.longitude != nil){
             let latitude = Double(truncating: point.latitude!)
             let longitude = Double(truncating: point.longitude!)
-            let formatter = LatLngFormatter(latitude: latitude, longitude: longitude)
-            return formatter.getLatLng()
+            let formatter = CoordinateFormatter()
+            return formatter.getLatLng(latitude: latitude, longitude: longitude)
         }else{
             return "0"
         }

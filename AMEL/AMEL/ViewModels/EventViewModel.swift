@@ -34,8 +34,8 @@ struct EventViewModel{
     
     func getLatLng()->String {
         if(event.latitude != nil && event.longitude != nil){
-            let formatter = LatLngFormatter(latitude: event.latitude as! Double, longitude: event.longitude as! Double)
-            return formatter.getLatLng()
+            let formatter = CoordinateFormatter()
+            return formatter.getLatLng(latitude: event.latitude as! Double, longitude: event.longitude as! Double)
         }else{
             return "0"
         }

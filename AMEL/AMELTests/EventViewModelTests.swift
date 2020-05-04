@@ -27,7 +27,7 @@ class EventViewModelTests: XCTestCase {
         var altitude:NSNumber?
         var magneticHeading:NSNumber?
         var course:NSNumber?
-        var color:Data?
+        var color:String?
         var speed:NSNumber?
     }
     
@@ -52,7 +52,7 @@ class EventViewModelTests: XCTestCase {
     }
     func testTime() {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss (dd-MMM-YY)"
+        formatter.dateFormat = "HH:mm:ss (dd_MMM_YY)"
         let testTime = Date()
         self.testEvent.time = Date()
         let eventVM = EventViewModel(event: self.testEvent)
@@ -68,32 +68,27 @@ class EventViewModelTests: XCTestCase {
         let eventVM = EventViewModel(event: self.testEvent)
         XCTAssertEqual("Altitude: unavailable", eventVM.getAltitude())
     }
-    func testUIColor() {
-        self.testEvent.color = ButtonAction.saveColor(color: UIColor.red)
-        let eventVM = EventViewModel(event: testEvent)
-        XCTAssertEqual(UIColor.red, eventVM.getUIColor())
-    }
     func testHeadingCourse() {
         self.testEvent.magneticHeading = 270
         self.testEvent.course = 280
         let eventVM = EventViewModel(event: self.testEvent)
-        XCTAssertEqual("Heading/Course: 270°/280°", eventVM.getHeadingCourse())
+        XCTAssertEqual("Heading: 270° Course: 280°", eventVM.getHeadingCourse())
     }
     func testNegativeCourse() {
         self.testEvent.magneticHeading = 270
         self.testEvent.course = -1
         let eventVM = EventViewModel(event: self.testEvent)
-        XCTAssertEqual("Heading/Course: 270°/---°", eventVM.getHeadingCourse())
+        XCTAssertEqual("Heading: 270° Course: ---°", eventVM.getHeadingCourse())
     }
     func testNilHeading() {
         self.testEvent.course = 15
         let eventVM = EventViewModel(event: self.testEvent)
-        XCTAssertEqual("Heading/Course: ---°/015°", eventVM.getHeadingCourse())
+        XCTAssertEqual("Heading: ---° Course: 015°", eventVM.getHeadingCourse())
     }
     func testNilCourse() {
         self.testEvent.magneticHeading = 80
         let eventVM = EventViewModel(event: self.testEvent)
-        XCTAssertEqual("Heading/Course: 080°/---°", eventVM.getHeadingCourse())
+        XCTAssertEqual("Heading: 080° Course: ---°", eventVM.getHeadingCourse())
     }
     func testGroundSpeed() {
         self.testEvent.speed = 100

@@ -7,14 +7,14 @@
 //
 import SwiftUI
 
-struct LatPicker: View {
+struct LatLngPicker: View {
     @ObservedObject var pickerData: LatLngData
     let screenSize: CGSize
     let directions: [String]
-    let degrees = Array(0...90)
+    let degrees: Array<Int>
     let minutes = Array(0...59)
     let minuteTenths = Array(0...9)
-    let numPickers = CGFloat(integerLiteral: 8)
+    let numPickers = CGFloat(integerLiteral: 4)
     var body: some View {
         HStack{
             Picker(selection: $pickerData.direction, label: Text("")) {
@@ -49,8 +49,3 @@ struct LatPicker: View {
     }
 }
 
-struct LatLngPicker_Previews: PreviewProvider {
-    static var previews: some View {
-        LatPicker(pickerData: LatLngData(), screenSize: CGSize(), directions: ["",""])
-    }
-}
