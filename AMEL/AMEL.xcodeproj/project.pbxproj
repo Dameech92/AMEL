@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F2962032416E41400BBC97F /* HeadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2962022416E41400BBC97F /* HeadingViewModel.swift */; };
 		1F2962052416E41E00BBC97F /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2962042416E41E00BBC97F /* LocationViewModel.swift */; };
+		1F4175BF245CD9EE003A3625 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4175BE245CD9EE003A3625 /* CustomButtonStyle.swift */; };
 		1F944148240E193600E3F633 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944147240E193600E3F633 /* ButtonAction.swift */; };
 		1F9FABD024158555002FF99B /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FABCF24158555002FF99B /* RecordView.swift */; };
 		1FA7B2782442AC8400ABD3BF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA7B2772442AC8400ABD3BF /* SettingsViewModel.swift */; };
@@ -56,7 +57,11 @@
 		7E9E1672241C4EB50043EEE1 /* EventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E1671241C4EB50043EEE1 /* EventViewModelTests.swift */; };
 		7E9E1680241C4EC10043EEE1 /* AMELUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */; };
 		BF91963D2449373700F6D5C1 /* ReferencePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91963C2449373700F6D5C1 /* ReferencePoint.swift */; };
+<<<<<<< HEAD
 		FCB58F8C245A286A00142984 /* ClearBullsEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB58F8B245A286A00142984 /* ClearBullsEye.swift */; };
+=======
+		CAB7E1BC245A75BF00EED129 /* ReferencePointViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */; };
+>>>>>>> 1d0a9b977e27ece5b3b23751f78a59f811ad1e2f
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -108,6 +113,7 @@
 /* Begin PBXFileReference section */
 		1F2962022416E41400BBC97F /* HeadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingViewModel.swift; sourceTree = "<group>"; };
 		1F2962042416E41E00BBC97F /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		1F4175BE245CD9EE003A3625 /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		1F944147240E193600E3F633 /* ButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
 		1F9FABCF24158555002FF99B /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		1FA7B2772442AC8400ABD3BF /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -164,7 +170,11 @@
 		7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMELUITests.swift; sourceTree = "<group>"; };
 		7E9E1681241C4EC10043EEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF91963C2449373700F6D5C1 /* ReferencePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePoint.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		FCB58F8B245A286A00142984 /* ClearBullsEye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBullsEye.swift; sourceTree = "<group>"; };
+=======
+		CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePointViewModelProtocol.swift; sourceTree = "<group>"; };
+>>>>>>> 1d0a9b977e27ece5b3b23751f78a59f811ad1e2f
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +258,9 @@
 			isa = PBXGroup;
 			children = (
 				1F944147240E193600E3F633 /* ButtonAction.swift */,
+				CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */,
 				31C93ADC244BD4990041809D /* CustomButton.swift */,
+				1F4175BE245CD9EE003A3625 /* CustomButtonStyle.swift */,
 				31738E7C244A21FB0073022A /* ReferencePointAction.swift */,
 				318DA70324059EC6007D79B6 /* LocationManager.swift */,
 				31738E7E244A2B5B0073022A /* PickerData.swift */,
@@ -567,6 +579,7 @@
 				31738E7F244A2B5B0073022A /* PickerData.swift in Sources */,
 				313061F524452AB200876981 /* ClearAllButton.swift in Sources */,
 				31C6FD19243E75FF007F677F /* PDFRenderer.swift in Sources */,
+				CAB7E1BC245A75BF00EED129 /* ReferencePointViewModelProtocol.swift in Sources */,
 				31ECF4EC2447B86500101158 /* BullsEyeView.swift in Sources */,
 				31757AA32415B64700A92EF8 /* LogView.swift in Sources */,
 				314721F1244CFE540045DE74 /* AMEL.xcdatamodeld in Sources */,
@@ -580,6 +593,7 @@
 				313061F724452B1000876981 /* ShareButton.swift in Sources */,
 				31ECF4EE2447C06A00101158 /* Picker.swift in Sources */,
 				31C93ADD244BD4990041809D /* CustomButton.swift in Sources */,
+				1F4175BF245CD9EE003A3625 /* CustomButtonStyle.swift in Sources */,
 				31C6FD23243E876D007F677F /* LatLngFormatter.swift in Sources */,
 				1F944148240E193600E3F633 /* ButtonAction.swift in Sources */,
 				1F9FABD024158555002FF99B /* RecordView.swift in Sources */,
