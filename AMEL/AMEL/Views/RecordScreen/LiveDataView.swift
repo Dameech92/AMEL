@@ -23,18 +23,16 @@ struct LiveDataView: View {
                 .layoutPriority(0.5)
                 .cornerRadius(10)
             VStack{
-                Text(refPointVM.getFormatedReferencePointHeading() + "/" + refPointVM.getFormatedReferencePointDistance())
-                    .font(.title)
-                
-                Divider()
-                    .background(Color.primary)
                 
                 HStack{
                     Spacer()
 
                     VStack{
                         Text(locationVM.getLatLng())
+                            .font(.title)
                         Text(locationVM.getAltitude())
+                            .font(.title)
+
                     }
                     
                     Spacer()
@@ -45,10 +43,19 @@ struct LiveDataView: View {
                     
                     VStack{
                         Text(headingVM.getCourse())
+                            .font(.title)
+
                         Text(locationVM.getGroundSpeed())
+                            .font(.title)
                     }
                     Spacer()
                 }
+                
+                Divider()
+                    .background(Color.primary)
+                
+                Text(refPointVM.getFormatedReferencePointHeading() + "/" + refPointVM.getFormatedReferencePointDistance())
+                    .font(.system(size: 45))
             }
             .padding()
             .layoutPriority(1)
