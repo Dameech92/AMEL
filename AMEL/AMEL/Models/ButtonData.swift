@@ -7,7 +7,6 @@ class ButtonData: ObservableObject {
     @Published var name: String
 	@Published var color: Int = 0 {
 		didSet {
-			print("updated")
 			self.updated = true
 		}
 	}

@@ -29,7 +29,7 @@ struct ButtonRow: View {
                         .fill(Color(self.colorNames[$0])).tag($0)
                         .frame(width:20, height: 20)
                 }
-            }
+				}.frame(height: 80).clipped()
         }
     }
 }
