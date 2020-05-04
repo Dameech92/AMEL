@@ -13,7 +13,6 @@ class SelectorData: ObservableObject {
     @Published var pointName = ""
     @Published var latitude = ""
     @Published var longitude = ""
-    @Published var errors = SelectorError()
     init(points: FetchedResults<ReferencePoint>) {
         let pointGetter = ActivePointCreator(points: points)
         let activePoint = pointGetter.getActivePoint()
@@ -21,17 +20,6 @@ class SelectorData: ObservableObject {
         updater.updatePointSelector(point: activePoint)
     }
     
-    func resetTextFieldsOnError() {
-        if self.errors.lat_error {
-            self.latitude = ""
-        }
-        if self.errors.lng_error {
-            self.longitude = ""
-        }
-        if self.errors.name_error {
-            self.pointName = ""
-        }
-    }
     func resetAllTextFields() {
         self.latitude = ""
         self.longitude = ""

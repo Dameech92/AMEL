@@ -9,10 +9,16 @@
 import Foundation
 import SwiftUI
 import CoreData
-struct ActivePointSetter {
+class ActivePointSetter: ObservableObject {
     var points: FetchedResults<ReferencePoint>
     let managedObjectContext: NSManagedObjectContext
-    @ObservedObject var selectorData: SelectorData
+    @Published var selectorData: SelectorData
+    
+    init(points: FetchedResults<ReferencePoint>, managedObjectContext: NSManagedObjectContext, selectorData: SelectorData){
+        self.points = points
+        self.managedObjectContext = managedObjectContext
+        self.selectorData = selectorData
+    }
    
     func setActivePoint(point: ReferencePoint) {
         for savedPoint in points {

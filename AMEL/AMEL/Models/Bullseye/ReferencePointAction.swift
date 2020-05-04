@@ -12,7 +12,7 @@ import CoreData
 struct ReferencePointAction {
     let pickerData: PickerData
     let context: NSManagedObjectContext
-    let activePointSetter: ActivePointSetter
+    @ObservedObject var activePointSetter: ActivePointSetter
     func recordReferencePoint(name: String) {
         let refPoint = ReferencePoint(context: self.context)
         refPoint.latitude = convertToDecimalDegrees(data: self.pickerData.latPicker)

@@ -13,7 +13,8 @@ struct BullsEyeView: View {
     @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
     @ObservedObject var pickerData = PickerData()
     var body: some View {
-        let activePointSetter = ActivePointSetter(points: self.points, managedObjectContext: self.managedObjectContext, selectorData: SelectorData(points: self.points))
+        let selectorData = SelectorData(points: self.points)
+        let activePointSetter = ActivePointSetter(points: self.points, managedObjectContext: self.managedObjectContext, selectorData: selectorData)
         
         return VStack {
             PointSelector(points: self.points, pickerData: self.pickerData, pointSetter: activePointSetter)

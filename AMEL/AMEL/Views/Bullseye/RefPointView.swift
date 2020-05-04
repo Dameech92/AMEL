@@ -10,7 +10,7 @@ import SwiftUI
 
 struct RefPointView: View {
     let point: ReferencePoint
-    let activePoint: ActivePointSetter
+    @ObservedObject var activePoint: ActivePointSetter
     var body: some View {
         let pointVM = RefPointViewModel(point: point)
         return HStack {
