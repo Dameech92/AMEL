@@ -10,6 +10,7 @@ import SwiftUI
 struct ButtonView: View {
     @ObservedObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) var managedObjectContext
+    @State private var buttonText = ""
     private var name:String
     private var color:String
     init(name:String, color: String) {
@@ -17,13 +18,25 @@ struct ButtonView: View {
 		self.color = color
     }
     
+    var timer = Timer.publish(every: 3, on: .current, in: .common).autoconnect()
+    
     var body: some View {
         Button(action: {
 			ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext)
 			let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
-			ButtonAction.saveEvent(newEvent, self.name, self.color, self.managedObjectContext)
+             if(ButtonAction.saveEvent(newEvent, self.name, self.color, self.managedObjectContext)){
+                self.buttonText = "Event Recorded"
+            } else {
+                self.buttonText = ""
+            }
         }){
-            Text(self.name)
+            VStack {
+                Text(self.name)
+                Text(self.buttonText)
+                .onReceive(timer){_ in
+                    self.buttonText = ""
+                }
+            }
             .frame(minWidth: 0, maxWidth: .infinity)
             .frame(minHeight: 0, maxHeight: .infinity)
             .font(.largeTitle)
