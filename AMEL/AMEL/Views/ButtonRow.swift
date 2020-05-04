@@ -11,26 +11,25 @@ struct ButtonRow: View {
     let button: CustomButton
     let context: NSManagedObjectContext
     var customButtons: FetchedResults<CustomButton>
-    @ObservedObject var buttonData: ButtonData
+	@ObservedObject var buttonData: ButtonData
     private let colorNames = ["Red", "Green", "Blue", "Purple", "Orange", "Gray"]
-    
     var body: some View {
         let viewModel = SettingsViewModel(savedButtons: self.customButtons)
         if buttonData.updated {
-            viewModel.updateButton(name: buttonData.name, color: buttonData.color, button: self.button, context: self.context)
-            buttonData.updated = false
+			viewModel.updateButton(name: self.buttonData.name, color: self.buttonData.color, button: self.button, context: self.context)
+			self.buttonData.updated = false
         }
         return HStack{
             TextField("Enter button name", text: self.$buttonData.name, onCommit: {
-                self.buttonData.updated = true
+				self.buttonData.updated = true
             })
-            Picker(selection: self.$buttonData.color, label: Text("Color")) {
+			Picker(selection: self.$buttonData.color, label: Text("Color")) {
                 ForEach(0 ..< self.colorNames.count) {
                     Rectangle()
                         .fill(Color(self.colorNames[$0])).tag($0)
                         .frame(width:20, height: 20)
                 }
-            }
+				}.frame(height: 80).clipped()
         }
     }
 }
