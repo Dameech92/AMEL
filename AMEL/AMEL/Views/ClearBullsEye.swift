@@ -9,8 +9,25 @@
 import SwiftUI
 
 struct ClearBullsEye: View {
+    @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+            for point in self.points {
+                self.managedObjectContext.delete(point)
+                do {
+                    try self.managedObjectContext.save()
+                }catch {
+                        print(error)
+                }
+            }
+
+        }) {
+            Text("Clear All")
+        }
+        .padding()
+        
     }
 }
 

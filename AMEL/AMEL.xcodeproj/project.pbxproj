@@ -56,6 +56,7 @@
 		7E9E1672241C4EB50043EEE1 /* EventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E1671241C4EB50043EEE1 /* EventViewModelTests.swift */; };
 		7E9E1680241C4EC10043EEE1 /* AMELUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */; };
 		BF91963D2449373700F6D5C1 /* ReferencePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91963C2449373700F6D5C1 /* ReferencePoint.swift */; };
+		FCB58F8C245A286A00142984 /* ClearBullsEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB58F8B245A286A00142984 /* ClearBullsEye.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -163,6 +164,7 @@
 		7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMELUITests.swift; sourceTree = "<group>"; };
 		7E9E1681241C4EC10043EEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF91963C2449373700F6D5C1 /* ReferencePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePoint.swift; sourceTree = "<group>"; };
+		FCB58F8B245A286A00142984 /* ClearBullsEye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBullsEye.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 				31DF3723244CF40600905903 /* ButtonRow.swift */,
 				31E1CDF82416A84900643653 /* ButtonView.swift */,
 				313061F424452AB200876981 /* ClearAllButton.swift */,
+				FCB58F8B245A286A00142984 /* ClearBullsEye.swift */,
 				31E860582415F6EE00B4BAE6 /* ContentView.swift */,
 				313061F02445250000876981 /* DataTextColumn.swift */,
 				5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */,
@@ -598,6 +601,7 @@
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
 				1FA7B2782442AC8400ABD3BF /* SettingsViewModel.swift in Sources */,
 				317D9AFC244A5BF2005C89B1 /* LatPicker.swift in Sources */,
+				FCB58F8C245A286A00142984 /* ClearBullsEye.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

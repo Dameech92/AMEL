@@ -33,6 +33,7 @@ struct BullsEyeView: View {
             }
             .padding()
             .foregroundColor(Color("Green"))
+            ClearBullsEye()
             List {
                 ForEach(self.points, id: \.time) { point in
                     RefPointView(point: point)
