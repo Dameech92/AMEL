@@ -22,7 +22,7 @@ struct BullseyeTextField: View {
                     if filtered != newValue {
                         self.data = filtered
                     }
-                self.pickerUpdater.updatePicker(latOrLng: self.data)
+                    self.pickerUpdater.updatePicker(latOrLng: self.data)
                 }
         .overlay(self.error ? Text("Out of range").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
     }

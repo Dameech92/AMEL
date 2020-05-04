@@ -25,8 +25,9 @@ class PickerData: ObservableObject {
     
 }
 class LatLngData: ObservableObject {
-    @Published var direction = 0
+    @Published var direction = 0 
     @Published var degree = 0
     @Published var minute = 0
     @Published var minuteTenth = 0
+    
 }
