@@ -34,7 +34,7 @@ struct SettingsView: View {
 			
             List {
                 ForEach(self.customButton, id: \.index) { button in
-                    ButtonRow(button: button, context: self.managedObjectContext, customButtons: self.customButton, buttonData: ButtonData(button: button))
+                    ButtonRow(button: button, customButtons: self.customButton, buttonData: ButtonData(button: button))
                     }.onDelete { indexSet in
 						if indexSet.first != nil {
 							let deleteButton = self.customButton[indexSet.first!]
