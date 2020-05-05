@@ -19,9 +19,9 @@ struct ButtonAction {
 	private static var magHeading: CLLocationDirection = 0.0
     private static var course: CLLocationDirection = 0.0
     private static var speed: CLLocationSpeed = 0.0
-    private static var refPointHeading: Double = 0.0
-    private static var refPointDis: Double = 0.0
-    private static var refPointName: String = " "
+    private static var referencePointHeading: Double = 0.0
+    private static var referencePointDis: Double = 0.0
+    private static var referencePointName: String = " "
 	
     
 	private static func fetchCurrentLocationData(_ locationManager: LocationManager) {
@@ -50,9 +50,9 @@ struct ButtonAction {
         newEvent.speed = speed as NSNumber
         newEvent.color = color
         
-        newEvent.refPointHeading = refPointHeading as NSNumber
-        newEvent.refPointDis = refPointDis as NSNumber
-        newEvent.refPointName = refPointName
+        newEvent.referencePointHeading = referencePointHeading as NSNumber
+        newEvent.referencePointDis = referencePointDis as NSNumber
+        newEvent.referencePointName = referencePointName
 		
 		do {
             try managedObjectContext.save()
@@ -72,8 +72,8 @@ struct ButtonAction {
             magHeading = locationManager.heading!.magneticHeading
         }
         
-        ButtonAction.refPointDis = refPointVM.getReferencePointDistance()
-        ButtonAction.refPointHeading = refPointVM.getReferencePointHeading()
-        ButtonAction.refPointName = refPointVM.getReferencePointName()
+        ButtonAction.referencePointDis = refPointVM.getReferencePointDistance()
+        ButtonAction.referencePointHeading = refPointVM.getReferencePointHeading()
+        ButtonAction.referencePointName = refPointVM.getReferencePointName()
 	}
 }

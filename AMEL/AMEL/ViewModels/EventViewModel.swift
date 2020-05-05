@@ -74,14 +74,14 @@ struct EventViewModel{
         var dis = "0000"
         var name = "name"
         
-        if(event.refPointHeading != nil){
-            heading = String(format: "%d",Int(truncating: event.refPointHeading!))
+        if(event.referencePointHeading != nil){
+            heading = String(format: "%d",Int(truncating: event.referencePointHeading!))
         }
-        if(event.refPointDis != nil){
-            dis = String(format: "%d",Int(truncating: event.refPointDis!))
+        if(event.referencePointDis != nil){
+            dis = String(format: "%d",Int(truncating: event.referencePointDis!))
         }
-        if(event.refPointName != nil){
-            name = event.refPointName!
+        if(event.referencePointName != nil){
+            name = event.referencePointName!
         }
         
         return "BoBR:" + heading + "/" + dis + " BE:" + name

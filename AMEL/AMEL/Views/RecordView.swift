@@ -24,12 +24,12 @@ struct RecordView: View {
 				HStack {
 					VStack {
                         ForEach(0 ..< self.customButton.count/2) {
-                            ButtonView(name: self.customButton[$0].buttonName!, color: self.customButton[$0].buttonColor!)
+                            ButtonView(name: self.customButton[$0].buttonName!, color: self.customButton[$0].buttonColor!, refPointVM: self.refPointVM)
 						}.padding(10)
 					}
                     VStack {
                         ForEach(self.customButton.count/2 ..< self.customButton.count) {
-                            ButtonView(name: self.customButton[$0].buttonName!, color: self.customButton[$0].buttonColor!)
+                            ButtonView(name: self.customButton[$0].buttonName!, color: self.customButton[$0].buttonColor!, refPointVM: self.refPointVM)
                         }.padding(10)
                     }
                 }

@@ -17,9 +17,9 @@ public class Event: NSManagedObject, Identifiable, EventProtocol {
     @NSManaged public var course:NSNumber?
     @NSManaged public var color:String?
     @NSManaged public var speed:NSNumber?
-    @NSManaged public var refPointName: String?
-    @NSManaged public var refPointDis: NSNumber?
-    @NSManaged public var refPointHeading: NSNumber?
+    @NSManaged public var referencePointName: String?
+    @NSManaged public var referencePointDis: NSNumber?
+    @NSManaged public var referencePointHeading: NSNumber?
 }
 extension Event {
     public static func getEvents() -> NSFetchRequest<Event> {
