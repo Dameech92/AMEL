@@ -12,7 +12,7 @@ struct ButtonRow: View {
     @Environment(\.managedObjectContext) var context
     var customButtons: FetchedResults<CustomButton>
 	@ObservedObject var buttonData: ButtonData
-    private let colorNames = ["Red", "Green", "Blue", "Purple", "Orange", "Gray"]
+    private let colorNames = Colors().colorNames
     var body: some View {
         let viewModel = SettingsViewModel(savedButtons: self.customButtons)
         if buttonData.updated {
