@@ -41,7 +41,7 @@ struct ButtonView: View {
             .frame(minHeight: 0, maxHeight: .infinity)
             .font(.largeTitle)
             .padding(10)
-            .foregroundColor(.primary)
+            .foregroundColor(.black)
             .background(Color(self.color))
             .cornerRadius(40)
 		}.buttonStyle(CustomButtonStyle())
