@@ -57,11 +57,11 @@
 		7E9E1672241C4EB50043EEE1 /* EventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E1671241C4EB50043EEE1 /* EventViewModelTests.swift */; };
 		7E9E1680241C4EC10043EEE1 /* AMELUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */; };
 		BF91963D2449373700F6D5C1 /* ReferencePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91963C2449373700F6D5C1 /* ReferencePoint.swift */; };
-<<<<<<< HEAD
+
 		FCB58F8C245A286A00142984 /* ClearBullsEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB58F8B245A286A00142984 /* ClearBullsEye.swift */; };
-=======
+
 		CAB7E1BC245A75BF00EED129 /* ReferencePointViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */; };
->>>>>>> 1d0a9b977e27ece5b3b23751f78a59f811ad1e2f
+
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -170,11 +170,11 @@
 		7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMELUITests.swift; sourceTree = "<group>"; };
 		7E9E1681241C4EC10043EEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF91963C2449373700F6D5C1 /* ReferencePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePoint.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
+
 		FCB58F8B245A286A00142984 /* ClearBullsEye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBullsEye.swift; sourceTree = "<group>"; };
-=======
+
 		CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePointViewModelProtocol.swift; sourceTree = "<group>"; };
->>>>>>> 1d0a9b977e27ece5b3b23751f78a59f811ad1e2f
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
