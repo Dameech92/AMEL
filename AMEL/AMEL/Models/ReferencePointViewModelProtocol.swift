@@ -1,5 +1,4 @@
 //
-//
 //  ReferencePointViewModelProtocol.swift
 //  AMEL
 //
@@ -10,11 +9,7 @@
 import Foundation
 
 public protocol ReferencePointViewModelProtocol{
-    func getFormatedReferencePointHeading() -> String
-    func getFormatedReferencePointDistance() -> String
-    func getReferencePointName() -> String
-    
-    func getReferencePointHeading() -> Double
-    func getReferencePointDistance() -> Double
+    func getReferencPointHeading() -> String
+    func getReferencePointDistance() -> String
 
 }

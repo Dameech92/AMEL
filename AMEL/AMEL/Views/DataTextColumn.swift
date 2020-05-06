@@ -21,6 +21,7 @@ struct DataTextColumn: View {
             Spacer()
         }
         .padding(5)
+        .foregroundColor(Color("StealthText"))
     }
 }
 
