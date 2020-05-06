@@ -14,4 +14,9 @@ public class RadialCoordinateCalculations {
         //also 6371 is earths radius in km
         return (acos(sin(latOfPilot) * sin(latOfBE) + cos(latOfPilot) * cos(latOfBE) * cos(lngOfBE - lngOfPilot)) * 6371)/1.852
     }
+    
+    //Note this is not tested so I might need to change to lngOfPilot - lngOfBE instead of how it is currently
+    func getAngle(latOfPilot: Double, lngOfPilot: Double, latOfBE: Double, lngOfBE: Double) -> Double {
+        return atan((sin(lngOfBE - lngOfPilot)*cos(latOfBE) * cos(latOfPilot) * sin(latOfBE)) - (sin(latOfPilot) * cos(latOfBE) * cos(lngOfBE - lngOfPilot)))
+    }
 }
