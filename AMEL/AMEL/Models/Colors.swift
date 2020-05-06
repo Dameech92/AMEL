@@ -8,5 +8,5 @@
 
 import Foundation
 struct Colors {
-    public let colorNames = ["Red", "Green", "Blue", "Purple", "Orange", "Gray"] 
+    public let colorNames = [ "Gray", "Brown", "Maroon", "Red", "Orange", "Tan", "Yellow", "Green", "Mint", "Teal", "Blue", "LightPurple", "Purple", "Pink"]
 }
