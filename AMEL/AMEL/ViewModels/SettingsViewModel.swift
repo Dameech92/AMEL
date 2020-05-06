@@ -13,7 +13,7 @@ import UIKit
 
 struct SettingsViewModel {
     var savedButtons: FetchedResults<CustomButton>
-    private let colorNames = Colors().colorNames
+	private let colorNames = ["Red", "Green", "Blue", "Purple", "Orange", "Gray"]
 	func createCustomButton(managedObjectContext:NSManagedObjectContext) -> CustomButton {
 		return CustomButton(context: managedObjectContext)
 	}
