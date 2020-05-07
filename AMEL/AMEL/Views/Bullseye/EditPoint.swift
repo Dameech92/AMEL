@@ -28,6 +28,6 @@ struct EditPoint: View {
             }
         }) {
             Text("Edit")
-        }
+        }.disabled(self.points.isEmpty)
     }
 }
