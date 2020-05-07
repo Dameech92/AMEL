@@ -5,6 +5,7 @@
 //  Created by Neil Marcellini on 4/17/20.
 //  Copyright © 2020 Marcellini, Neil. All rights reserved.
 //
+
 import Foundation
 import SwiftUI
 import CoreData
@@ -12,6 +13,7 @@ struct ReferencePointAction {
     let pickerData: PickerData
     let context: NSManagedObjectContext
     @ObservedObject var activePointSetter: ActivePointSetter
+
     func recordReferencePoint(name: String) {
         let refPoint = ReferencePoint(context: self.context)
         refPoint.latitude = convertToDecimalDegrees(data: self.pickerData.latPicker)

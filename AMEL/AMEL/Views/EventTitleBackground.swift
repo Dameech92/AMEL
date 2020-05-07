@@ -18,7 +18,7 @@ struct EventTitleBackground: View {
             
             Text(self.name!)
             .font(.title)
-            .foregroundColor(Color.black)
+            .foregroundColor(Color.primary)
             .padding(5)
         }
         .lineLimit(1)

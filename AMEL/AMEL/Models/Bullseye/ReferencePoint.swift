@@ -14,6 +14,7 @@ public class ReferencePoint: NSManagedObject, Identifiable {
     @NSManaged public var longitude: NSNumber?
     @NSManaged public var name: String?
     @NSManaged public var time: Date?
+    @NSManaged public var isActive: Bool
 }
 extension ReferencePoint {
     static func getPoints() -> NSFetchRequest<ReferencePoint> {

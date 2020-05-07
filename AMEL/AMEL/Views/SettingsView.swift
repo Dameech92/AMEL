@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct SettingsView: View {
-	private let colorNames = ["Red", "Green", "Blue", "Purple", "Orange", "Gray"]
-	private let colors = [UIColor.red, UIColor.green, UIColor.blue, UIColor.purple, UIColor.orange, UIColor.gray]
 	@State private var colorIndex = 0
 	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
 	@Environment(\.managedObjectContext) var managedObjectContext
@@ -34,7 +32,7 @@ struct SettingsView: View {
 			
             List {
                 ForEach(self.customButton, id: \.index) { button in
-                    ButtonRow(button: button, context: self.managedObjectContext, customButtons: self.customButton, buttonData: ButtonData(button: button))
+                    ButtonRow(button: button, customButtons: self.customButton, buttonData: ButtonData(button: button))
                     }.onDelete { indexSet in
 						if indexSet.first != nil {
 							let deleteButton = self.customButton[indexSet.first!]

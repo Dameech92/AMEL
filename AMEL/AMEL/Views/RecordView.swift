@@ -10,6 +10,8 @@ import SwiftUI
 struct RecordView: View {
 	private let locationVM = LocationViewModel()
 	private let headingVM = HeadingViewModel()
+    private let refPointVM = ActiveRefPointVM()
+    
 	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
 	@Environment(\.managedObjectContext) var managedObjectContext
 	
@@ -17,17 +19,17 @@ struct RecordView: View {
 		return ZStack {
 			Color("stealth").edgesIgnoringSafeArea(.all)
 			VStack {
-				LiveDataView()
+                LiveDataView(refPointVM: refPointVM)
                 Divider()
 				HStack {
 					VStack {
                         ForEach(0 ..< self.customButton.count/2) {
-                            ButtonView(name: self.customButton[$0].buttonName!, color: self.customButton[$0].buttonColor!)
+                            ButtonView(name: self.customButton[$0].buttonName!, color: self.customButton[$0].buttonColor!, refPointVM: self.refPointVM)
 						}.padding(10)
 					}
                     VStack {
                         ForEach(self.customButton.count/2 ..< self.customButton.count) {
-                            ButtonView(name: self.customButton[$0].buttonName!, color: self.customButton[$0].buttonColor!)
+                            ButtonView(name: self.customButton[$0].buttonName!, color: self.customButton[$0].buttonColor!, refPointVM: self.refPointVM)
                         }.padding(10)
                     }
                 }
