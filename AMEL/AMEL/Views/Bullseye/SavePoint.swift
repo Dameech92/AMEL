@@ -20,7 +20,7 @@ struct SavePoint: View {
                 self.errors.lng_error = !self.refAction.lngInRange(lng: self.selectorData.longitude)
                 self.errors.name_error = !self.refAction.nameIsValid(name: self.selectorData.pointName)
                 if self.refAction.dataIsValid(lat: self.selectorData.latitude, lng: self.selectorData.longitude, name: self.selectorData.pointName) {
-                    self.refAction.recordReferencePoint(name: self.selectorData.pointName)
+                    self.refAction.saveNewPoint(name: self.selectorData.pointName)
                 }
                 else {
                     if self.errors.lat_error {

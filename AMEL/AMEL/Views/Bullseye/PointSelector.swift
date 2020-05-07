@@ -24,7 +24,11 @@ struct PointSelector: View {
         let lngUpdater = PickerUpdater(formatter: lngFormatter, latlngData: self.pickerData.lngPicker)
         let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext, activePointSetter: self.pointSetter)
         return VStack {
-            SavePoint(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+            HStack {
+                EditPoint(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+                SavePoint(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+            }
+            
             Text("Reference Point:")
                 .font(.title)
             TextField("Name", text: self.$pointSetter.selectorData.pointName)
