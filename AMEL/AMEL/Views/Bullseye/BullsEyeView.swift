@@ -19,7 +19,7 @@ struct BullsEyeView: View {
         return VStack {
             PointSelector(points: self.points, pickerData: self.pickerData, pointSetter: activePointSetter)
             List {
-                Section(header: Text("Saved Points")) {
+                Section(header: PointsHeader()){
                     ForEach(self.points, id: \.time) { point in
                         RefPointView(point: point, activePoint: activePointSetter)
                             
