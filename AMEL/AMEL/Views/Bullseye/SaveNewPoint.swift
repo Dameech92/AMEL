@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SavePoint: View {
+struct SaveNewPoint: View {
     @ObservedObject var selectorData: SelectorData
     @ObservedObject var errors: SelectorError
     let refAction: ReferencePointAction
@@ -24,7 +24,7 @@ struct SavePoint: View {
                     self.refAction.resetFieldOnError()
                 }
             }){
-                Text("Save")
+                Text("Save New")
             }
         }.padding(.trailing)
     }

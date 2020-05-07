@@ -25,8 +25,8 @@ struct PointSelector: View {
         let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext, errors: self.errors, activePointSetter: self.pointSetter)
         return VStack {
             HStack {
-                EditPoint(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
-                SavePoint(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+                SaveChanges(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+                SaveNewPoint(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
             }
             
             Text("Reference Point:")
