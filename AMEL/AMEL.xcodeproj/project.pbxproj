@@ -13,18 +13,18 @@
 		1F944148240E193600E3F633 /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F944147240E193600E3F633 /* ButtonAction.swift */; };
 		1F9FABD024158555002FF99B /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FABCF24158555002FF99B /* RecordView.swift */; };
 		1FA7B2782442AC8400ABD3BF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA7B2772442AC8400ABD3BF /* SettingsViewModel.swift */; };
-		1FDA34EA2463868200D3FE7F /* ActivePointSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272CA7245DFBB1002A321E /* ActivePointSetter.swift */; };
-		1FDA34EB2463868A00D3FE7F /* SavePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272C99245DC918002A321E /* SavePoint.swift */; };
 		310AE7A4243E632800796D11 /* PrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310AE7A3243E632800796D11 /* PrintPageRenderer.swift */; };
 		311DD835245F502A007E214D /* ActivePointCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311DD834245F502A007E214D /* ActivePointCreator.swift */; };
 		311DD83B245F893B007E214D /* SelectorUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311DD83A245F893B007E214D /* SelectorUpdater.swift */; };
 		31272C94245DC599002A321E /* SelectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272C93245DC599002A321E /* SelectorData.swift */; };
 		31272C96245DC744002A321E /* SelectorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272C95245DC744002A321E /* SelectorError.swift */; };
+		31272C9A245DC918002A321E /* SavePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272C99245DC918002A321E /* SavePoint.swift */; };
 		31272C9C245DCAA3002A321E /* BullseyeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272C9B245DCAA3002A321E /* BullseyeTextField.swift */; };
 		31272C9E245DCDEE002A321E /* PickerUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272C9D245DCDEE002A321E /* PickerUpdater.swift */; };
 		31272CA2245DCFD1002A321E /* LatFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272CA1245DCFD1002A321E /* LatFormatter.swift */; };
 		31272CA4245DDAB7002A321E /* LngFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272CA3245DDAB7002A321E /* LngFormatter.swift */; };
 		31272CA6245DE8EC002A321E /* CoordinateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272CA5245DE8EC002A321E /* CoordinateFormatter.swift */; };
+		31272CA8245DFBB1002A321E /* ActivePointSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272CA7245DFBB1002A321E /* ActivePointSetter.swift */; };
 		31272CAA245E2150002A321E /* LatLngFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272CA9245E2150002A321E /* LatLngFormatter.swift */; };
 		313061F12445250000876981 /* DataTextColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F02445250000876981 /* DataTextColumn.swift */; };
 		313061F524452AB200876981 /* ClearAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F424452AB200876981 /* ClearAllButton.swift */; };
@@ -69,7 +69,6 @@
 		BF91963D2449373700F6D5C1 /* ReferencePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91963C2449373700F6D5C1 /* ReferencePoint.swift */; };
 		CA9EF8D32460DFC000059A8B /* ActiveRefPointVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9EF8D22460DFC000059A8B /* ActiveRefPointVM.swift */; };
 		CAB7E1BC245A75BF00EED129 /* ReferencePointViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */; };
-		FCB58F8C245A286A00142984 /* ClearBullsEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB58F8B245A286A00142984 /* ClearBullsEye.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -173,7 +172,6 @@
 		BF91963C2449373700F6D5C1 /* ReferencePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePoint.swift; sourceTree = "<group>"; };
 		CA9EF8D22460DFC000059A8B /* ActiveRefPointVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveRefPointVM.swift; sourceTree = "<group>"; };
 		CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePointViewModelProtocol.swift; sourceTree = "<group>"; };
-		FCB58F8B245A286A00142984 /* ClearBullsEye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBullsEye.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,7 +223,6 @@
 				31DF3723244CF40600905903 /* ButtonRow.swift */,
 				31E1CDF82416A84900643653 /* ButtonView.swift */,
 				313061F424452AB200876981 /* ClearAllButton.swift */,
-				FCB58F8B245A286A00142984 /* ClearBullsEye.swift */,
 				31E860582415F6EE00B4BAE6 /* ContentView.swift */,
 				313061F02445250000876981 /* DataTextColumn.swift */,
 				5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */,
@@ -514,8 +511,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FDA34EB2463868A00D3FE7F /* SavePoint.swift in Sources */,
-				1FDA34EA2463868200D3FE7F /* ActivePointSetter.swift in Sources */,
 				CA9EF8D32460DFC000059A8B /* ActiveRefPointVM.swift in Sources */,
 				31BBA3732460C3E900A803A7 /* ReferencePointAction.swift in Sources */,
 				1F2962052416E41E00BBC97F /* LocationViewModel.swift in Sources */,
@@ -567,7 +562,8 @@
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
 				1FA7B2782442AC8400ABD3BF /* SettingsViewModel.swift in Sources */,
 				317D9AFC244A5BF2005C89B1 /* LatLngPicker.swift in Sources */,
-				FCB58F8C245A286A00142984 /* ClearBullsEye.swift in Sources */,
+				31272C9A245DC918002A321E /* SavePoint.swift in Sources */,
+				31272CA8245DFBB1002A321E /* ActivePointSetter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
