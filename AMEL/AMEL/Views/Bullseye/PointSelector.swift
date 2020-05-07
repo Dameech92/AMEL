@@ -22,7 +22,7 @@ struct PointSelector: View {
         let latUpdater = PickerUpdater(formatter: latFormatter, latlngData: self.pickerData.latPicker)
         let lngFormatter = LngFormatter()
         let lngUpdater = PickerUpdater(formatter: lngFormatter, latlngData: self.pickerData.lngPicker)
-        let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext, activePointSetter: self.pointSetter)
+        let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext, errors: self.errors, activePointSetter: self.pointSetter)
         return VStack {
             HStack {
                 EditPoint(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)

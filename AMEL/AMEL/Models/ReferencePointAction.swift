@@ -11,14 +11,17 @@ import CoreData
 struct ReferencePointAction {
     let pickerData: PickerData
     let context: NSManagedObjectContext
+    @ObservedObject var errors: SelectorError
     @ObservedObject var activePointSetter: ActivePointSetter
     
     
-    func editPoint(newPoint: ReferencePoint, editPoint: ReferencePoint) {
-        editPoint.setValue(newPoint.isActive, forKey: "isActive")
-        editPoint.setValue(newPoint.latitude, forKey: "latitude")
-        editPoint.setValue(newPoint.longitude, forKey: "longitude")
-        editPoint.setValue(newPoint.name, forKey: "name")
+    func editPoint(point: ReferencePoint) {
+        let newLat = convertToDecimalDegrees(data: self.pickerData.latPicker)
+        let newLng = convertToDecimalDegrees(data: self.pickerData.lngPicker)
+        point.setValue(true, forKey: "isActive")
+        point.setValue(newLat, forKey: "latitude")
+        point.setValue(newLng, forKey: "longitude")
+        point.setValue(self.activePointSetter.selectorData.pointName, forKey: "name")
         save()
     }
     
@@ -58,9 +61,8 @@ struct ReferencePointAction {
     }
     
     
-    func dataIsValid(lat: String, lng: String, name: String)->Bool {
-        return latInRange(lat: lat) && lngInRange(lng: lng) && nameIsValid(name: name)
-        
+    func dataIsValid()->Bool {
+        return latInRange(lat: self.activePointSetter.selectorData.latitude) && lngInRange(lng: self.activePointSetter.selectorData.longitude) && nameIsValid(name: self.activePointSetter.selectorData.pointName)
     }
     func nameIsValid(name: String)->Bool {
         return name != ""
@@ -92,6 +94,24 @@ struct ReferencePointAction {
             result = true
         }
         return result
+    }
+    
+    func setErrors() {
+        self.errors.lat_error = !self.latInRange(lat: self.activePointSetter.selectorData.latitude)
+        self.errors.lng_error = !self.lngInRange(lng: self.activePointSetter.selectorData.longitude)
+        self.errors.name_error = !self.nameIsValid(name: self.activePointSetter.selectorData.pointName)
+    }
+    
+    func resetFieldOnError() {
+        if self.errors.lat_error {
+            self.activePointSetter.selectorData.latitude = ""
+        }
+        if self.errors.lng_error {
+            self.activePointSetter.selectorData.longitude = ""
+        }
+        if self.errors.name_error {
+            self.activePointSetter.selectorData.pointName = ""
+        }
     }
     
 }

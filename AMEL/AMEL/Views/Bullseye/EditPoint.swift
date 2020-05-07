@@ -17,8 +17,13 @@ struct EditPoint: View {
         Button(action: {
             for point in self.points {
                 if point.isActive {
-                    let newPoint = self.refAction.setPointData(refPoint: point, name: self.selectorData.pointName)
-                    self.refAction.editPoint(newPoint: newPoint, editPoint: point)
+                    self.refAction.setErrors()
+                    if self.refAction.dataIsValid(){
+                        self.refAction.editPoint(point: point)
+                    }
+                    else {
+                        self.refAction.resetFieldOnError()
+                    }
                 }
             }
         }) {
