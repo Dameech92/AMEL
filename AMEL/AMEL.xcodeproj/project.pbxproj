@@ -26,6 +26,7 @@
 		31272CA4245DDAB7002A321E /* LngFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272CA3245DDAB7002A321E /* LngFormatter.swift */; };
 		31272CA6245DE8EC002A321E /* CoordinateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272CA5245DE8EC002A321E /* CoordinateFormatter.swift */; };
 		31272CAA245E2150002A321E /* LatLngFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272CA9245E2150002A321E /* LatLngFormatter.swift */; };
+		312BA28A2464975200F6D921 /* PointsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312BA2892464975200F6D921 /* PointsHeader.swift */; };
 		313061F12445250000876981 /* DataTextColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F02445250000876981 /* DataTextColumn.swift */; };
 		313061F524452AB200876981 /* ClearAllButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F424452AB200876981 /* ClearAllButton.swift */; };
 		313061F724452B1000876981 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313061F624452B1000876981 /* ShareButton.swift */; };
@@ -124,6 +125,7 @@
 		31272CA5245DE8EC002A321E /* CoordinateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateFormatter.swift; sourceTree = "<group>"; };
 		31272CA7245DFBB1002A321E /* ActivePointSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePointSetter.swift; sourceTree = "<group>"; };
 		31272CA9245E2150002A321E /* LatLngFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLngFormatter.swift; sourceTree = "<group>"; };
+		312BA2892464975200F6D921 /* PointsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsHeader.swift; sourceTree = "<group>"; };
 		313061F02445250000876981 /* DataTextColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTextColumn.swift; sourceTree = "<group>"; };
 		313061F424452AB200876981 /* ClearAllButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearAllButton.swift; sourceTree = "<group>"; };
 		313061F624452B1000876981 /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			children = (
 				31ECF4EB2447B86500101158 /* BullsEyeView.swift */,
 				31272C9B245DCAA3002A321E /* BullseyeTextField.swift */,
+				312BA2892464975200F6D921 /* PointsHeader.swift */,
 				317D9AFB244A5BF2005C89B1 /* LatLngPicker.swift */,
 				31D235F224563B99006A0475 /* PointSelector.swift */,
 				31738E82244A4E270073022A /* RefPointView.swift */,
@@ -565,6 +568,7 @@
 				5A23230F2416EDC50055BAF8 /* EventTitleBackground.swift in Sources */,
 				316561722447D9D400261AEB /* EventProtocol.swift in Sources */,
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
+				312BA28A2464975200F6D921 /* PointsHeader.swift in Sources */,
 				1FA7B2782442AC8400ABD3BF /* SettingsViewModel.swift in Sources */,
 				317D9AFC244A5BF2005C89B1 /* LatLngPicker.swift in Sources */,
 				FCB58F8C245A286A00142984 /* ClearBullsEye.swift in Sources */,
