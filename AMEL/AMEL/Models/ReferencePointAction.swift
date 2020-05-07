@@ -11,17 +11,42 @@ import CoreData
 struct ReferencePointAction {
     let pickerData: PickerData
     let context: NSManagedObjectContext
+    @ObservedObject var errors: SelectorError
     @ObservedObject var activePointSetter: ActivePointSetter
-    func recordReferencePoint(name: String) {
-        let refPoint = ReferencePoint(context: self.context)
+    
+    
+    func editPoint(point: ReferencePoint) {
+        let newLat = convertToDecimalDegrees(data: self.pickerData.latPicker)
+        let newLng = convertToDecimalDegrees(data: self.pickerData.lngPicker)
+        point.setValue(true, forKey: "isActive")
+        point.setValue(newLat, forKey: "latitude")
+        point.setValue(newLng, forKey: "longitude")
+        point.setValue(self.activePointSetter.selectorData.pointName, forKey: "name")
+        save()
+    }
+    
+    func saveNewPoint(name: String) {
+        var refPoint = ReferencePoint(context: self.context)
+        refPoint = setPointData(refPoint: refPoint, name: name)
+        self.activePointSetter.setActivePoint(point: refPoint)
+        save()
+    }
+    
+    func setPointData(refPoint: ReferencePoint, name: String)->ReferencePoint{
         refPoint.latitude = convertToDecimalDegrees(data: self.pickerData.latPicker)
         refPoint.longitude = convertToDecimalDegrees(data: self.pickerData.lngPicker)
         refPoint.time = Date()
         refPoint.name = name
         refPoint.isActive = true
-        self.activePointSetter.setActivePoint(point: refPoint)
+        return refPoint
     }
-    
+    func save() {
+        do {
+            try self.context.save()
+        } catch {
+            print("Error saving refPoint")
+        }
+    }
     
     func convertToDecimalDegrees(data: LatLngData)->NSNumber {
         //.d = M.m / 60
@@ -36,9 +61,8 @@ struct ReferencePointAction {
     }
     
     
-    func dataIsValid(lat: String, lng: String, name: String)->Bool {
-        return latInRange(lat: lat) && lngInRange(lng: lng) && nameIsValid(name: name)
-        
+    func dataIsValid()->Bool {
+        return latInRange(lat: self.activePointSetter.selectorData.latitude) && lngInRange(lng: self.activePointSetter.selectorData.longitude) && nameIsValid(name: self.activePointSetter.selectorData.pointName)
     }
     func nameIsValid(name: String)->Bool {
         return name != ""
@@ -70,6 +94,24 @@ struct ReferencePointAction {
             result = true
         }
         return result
+    }
+    
+    func setErrors() {
+        self.errors.lat_error = !self.latInRange(lat: self.activePointSetter.selectorData.latitude)
+        self.errors.lng_error = !self.lngInRange(lng: self.activePointSetter.selectorData.longitude)
+        self.errors.name_error = !self.nameIsValid(name: self.activePointSetter.selectorData.pointName)
+    }
+    
+    func resetFieldOnError() {
+        if self.errors.lat_error {
+            self.activePointSetter.selectorData.latitude = ""
+        }
+        if self.errors.lng_error {
+            self.activePointSetter.selectorData.longitude = ""
+        }
+        if self.errors.name_error {
+            self.activePointSetter.selectorData.pointName = ""
+        }
     }
     
 }

@@ -22,9 +22,13 @@ struct PointSelector: View {
         let latUpdater = PickerUpdater(formatter: latFormatter, latlngData: self.pickerData.latPicker)
         let lngFormatter = LngFormatter()
         let lngUpdater = PickerUpdater(formatter: lngFormatter, latlngData: self.pickerData.lngPicker)
-        let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext, activePointSetter: self.pointSetter)
+        let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext, errors: self.errors, activePointSetter: self.pointSetter)
         return VStack {
-            SavePoint(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+            HStack {
+                SaveChanges(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+                SaveNewPoint(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+            }
+            
             Text("Reference Point:")
                 .font(.title)
             TextField("Name", text: self.$pointSetter.selectorData.pointName)
