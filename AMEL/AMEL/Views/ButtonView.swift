@@ -14,18 +14,16 @@ struct ButtonView: View {
     
     private var name:String
     private var color:String
-    private var refPointVM : ActiveRefPointVM
-    init(name:String, color: String,refPointVM: ActiveRefPointVM) {
+    init(name:String, color: String) {
         self.name = name
 		self.color = color
-        self.refPointVM = refPointVM
     }
     
     var timer = Timer.publish(every: 3, on: .current, in: .common).autoconnect()
     
     var body: some View {
         Button(action: {
-            ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext,self.refPointVM)
+            ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext)
 			let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
              if(ButtonAction.saveEvent(newEvent, self.name, self.color, self.managedObjectContext)){
                 self.buttonText = "Event Recorded"
@@ -53,6 +51,6 @@ struct ButtonView: View {
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(name: "test", color: "Blue", refPointVM: ActiveRefPointVM())
+        ButtonView(name: "test", color: "Blue")
     }
 }
