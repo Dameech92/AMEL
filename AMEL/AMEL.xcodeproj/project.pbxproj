@@ -69,6 +69,8 @@
 		7E9E1672241C4EB50043EEE1 /* EventViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E1671241C4EB50043EEE1 /* EventViewModelTests.swift */; };
 		7E9E1680241C4EC10043EEE1 /* AMELUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */; };
 		BF91963D2449373700F6D5C1 /* ReferencePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91963C2449373700F6D5C1 /* ReferencePoint.swift */; };
+		BFE19E2A2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */; };
+		BFE19E2B2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */; };
 		CA9EF8D32460DFC000059A8B /* ActiveRefPointVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9EF8D22460DFC000059A8B /* ActiveRefPointVM.swift */; };
 		CAB7E1BC245A75BF00EED129 /* ReferencePointViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */; };
 		FCB58F8C245A286A00142984 /* ClearBullsEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB58F8B245A286A00142984 /* ClearBullsEye.swift */; };
@@ -175,6 +177,7 @@
 		7E9E167F241C4EC10043EEE1 /* AMELUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMELUITests.swift; sourceTree = "<group>"; };
 		7E9E1681241C4EC10043EEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF91963C2449373700F6D5C1 /* ReferencePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePoint.swift; sourceTree = "<group>"; };
+		BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialCoordinateCalculations.swift; sourceTree = "<group>"; };
 		CA9EF8D22460DFC000059A8B /* ActiveRefPointVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveRefPointVM.swift; sourceTree = "<group>"; };
 		CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePointViewModelProtocol.swift; sourceTree = "<group>"; };
 		FCB58F8B245A286A00142984 /* ClearBullsEye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBullsEye.swift; sourceTree = "<group>"; };
@@ -256,6 +259,7 @@
 				314721F2244D1BE50045DE74 /* ButtonData.swift */,
 				314721F4244D1D940045DE74 /* Colors.swift */,
 				316561712447D9D400261AEB /* EventProtocol.swift */,
+				BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -546,6 +550,7 @@
 				31272C96245DC744002A321E /* SelectorError.swift in Sources */,
 				31C93ADD244BD4990041809D /* CustomButton.swift in Sources */,
 				1F4175BF245CD9EE003A3625 /* CustomButtonStyle.swift in Sources */,
+				BFE19E2A2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */,
 				31272C9C245DCAA3002A321E /* BullseyeTextField.swift in Sources */,
 				31272CAA245E2150002A321E /* LatLngFormatter.swift in Sources */,
 				31D235F324563B99006A0475 /* PointSelector.swift in Sources */,
@@ -583,6 +588,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE19E2B2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */,
 				7E9E1672241C4EB50043EEE1 /* EventViewModelTests.swift in Sources */,
 				31317A3E24575F5300521ECE /* RefPointActionTests.swift in Sources */,
 				31AFA1ED244900B2000D6CFC /* LatLngTests.swift in Sources */,
