@@ -27,7 +27,7 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
     }
         
     func getFormatedReferencePointHeading() -> String {
-        return String(format:"%.3f",getReferencePointHeading())
+        return String(format:"%.0f",getReferencePointHeading())
     }
     
     func getFormatedReferencePointDistance() -> String {
