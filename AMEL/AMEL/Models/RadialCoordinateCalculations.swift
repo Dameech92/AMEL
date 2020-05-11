@@ -18,11 +18,10 @@ public class RadialCoordinateCalculations {
     
     //Note this is not tested so I might need to change to lngOfPilot - lngOfBE instead of how it is currently
     static func getAngle(latOfPilot: Double, lngOfPilot: Double, latOfBE: Double, lngOfBE: Double) -> Double {
-        
-        let step1 = sin(lngOfBE - lngOfPilot)*cos(latOfBE) * cos(latOfPilot) * sin(latOfBE)
-        let step2 = sin(latOfPilot) * cos(latOfBE) * cos(lngOfBE - lngOfPilot)
-        let step3 = atan(step1 - step2)
-        return step3
-        
+        //let step1 = sin(lngOfBE - lngOfPilot)*cos(latOfBE) * cos(latOfPilot) * sin(latOfBE)
+        //let step2 = sin(latOfPilot) * cos(latOfBE) * cos(lngOfBE - lngOfPilot)
+        //let step3 = atan(step1 - step2)
+        //return step3
+        return atan((sin(lngOfBE - lngOfPilot)*cos(latOfBE) * cos(latOfPilot) * sin(latOfBE)) - (sin(latOfPilot) * cos(latOfBE) * cos(lngOfBE - lngOfPilot))) * 1000
     }
 }
