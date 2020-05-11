@@ -23,6 +23,10 @@ struct PointSelector: View {
         let lngFormatter = LngFormatter()
         let lngUpdater = PickerUpdater(formatter: lngFormatter, latlngData: self.pickerData.lngPicker)
         let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext, errors: self.errors, activePointSetter: self.pointSetter)
+        let latDegrees = Array(0...90)
+        let lngDegrees = Array(0...180)
+        let latDirs = ["N", "S"]
+        let lngDirs = ["E", "W"]
         return VStack {
             HStack {
                 SaveChanges(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
@@ -43,7 +47,7 @@ struct PointSelector: View {
                         .font(.title)
                     BullseyeTextField(data: self.$pointSetter.selectorData.latitude, error: self.$errors.lat_error, pickerUpdater: latUpdater)
                     GeometryReader { geometry in
-                        LatLngPicker(pickerData: self.pickerData.latPicker, screenSize: geometry.size, directions: ["N","S"], degrees: Array(0...90))
+                        LatLngPicker(pickerData: self.pickerData.latPicker, screenSize: geometry.size, directions: latDirs, degrees: latDegrees)
                     }.frame(height: 100)
                         .clipped()
                 }
@@ -53,7 +57,7 @@ struct PointSelector: View {
                         .font(.title)
                     BullseyeTextField(data: self.$pointSetter.selectorData.longitude, error: self.$errors.lng_error, pickerUpdater: lngUpdater)
                     GeometryReader { geometry in
-                        LatLngPicker(pickerData: self.pickerData.lngPicker, screenSize: geometry.size, directions: ["E","W"], degrees: Array(0...180))
+                        LatLngPicker(pickerData: self.pickerData.lngPicker, screenSize: geometry.size, directions: lngDirs, degrees: lngDegrees)
                     }.frame(height: 100)
                         .clipped()
                     
