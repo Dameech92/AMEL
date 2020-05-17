@@ -11,6 +11,9 @@ import SwiftUI
 struct ColorSelector: View {
     let colorNames = Colors().colorNames
     @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var buttonData: ButtonData
+    let viewModel: SettingsViewModel
+    let button: CustomButton
     var body: some View {
         VStack{
             HStack {
@@ -23,16 +26,10 @@ struct ColorSelector: View {
             }.padding()
             List {
                 ForEach(self.colorNames, id: \.self) { color in
-                    ColorDetail(color: color)
+                    ColorDetail(color: color, buttonData: self.buttonData, viewModel: self.viewModel, button: self.button)
                 }
             }
         }
         
-    }
-}
-
-struct ColorSelector_Previews: PreviewProvider {
-    static var previews: some View {
-        ColorSelector()
     }
 }

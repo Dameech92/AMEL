@@ -30,9 +30,9 @@ struct ButtonRow: View {
             Button(action: {
                 self.showingDetail.toggle()
             }) {
-                Text("Show Detail")
+                Text("Select Color")
             }.sheet(isPresented: $showingDetail) {
-                ColorSelector()
+                ColorSelector(buttonData: self.buttonData, viewModel: viewModel, button: self.button)
             }
         }
     }

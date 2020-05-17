@@ -9,4 +9,7 @@
 import Foundation
 struct Colors {
     public let colorNames = [ "Gray", "Brown", "Maroon", "Red", "Orange", "Tan", "Yellow", "Green", "Mint", "Teal", "Blue", "LightPurple", "Purple", "Pink"]
+    func colorToInt(color:String)->Int{
+        return colorNames.firstIndex(of: color) ?? 0
+    }
 }
