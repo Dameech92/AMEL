@@ -49,6 +49,7 @@
 		31B4DF752415C91B00C567E7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4DF742415C91B00C567E7 /* SettingsView.swift */; };
 		31B6046F2471CEFD005B3399 /* SettingsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B6046E2471CEFD005B3399 /* SettingsHeader.swift */; };
 		31B604712471CF29005B3399 /* SettingsAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B604702471CF29005B3399 /* SettingsAddButton.swift */; };
+		31B604742471DF95005B3399 /* SettingsClear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B604732471DF95005B3399 /* SettingsClear.swift */; };
 		31BBA3732460C3E900A803A7 /* ReferencePointAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BBA3722460C3E900A803A7 /* ReferencePointAction.swift */; };
 		31C6FD19243E75FF007F677F /* PDFRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6FD18243E75FF007F677F /* PDFRenderer.swift */; };
 		31C6FD1B243E781B007F677F /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6FD1A243E781B007F677F /* ShareSheet.swift */; };
@@ -153,6 +154,7 @@
 		31B4DF742415C91B00C567E7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		31B6046E2471CEFD005B3399 /* SettingsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeader.swift; sourceTree = "<group>"; };
 		31B604702471CF29005B3399 /* SettingsAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAddButton.swift; sourceTree = "<group>"; };
+		31B604732471DF95005B3399 /* SettingsClear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsClear.swift; sourceTree = "<group>"; };
 		31BBA3722460C3E900A803A7 /* ReferencePointAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReferencePointAction.swift; path = ../ReferencePointAction.swift; sourceTree = "<group>"; };
 		31C6FD18243E75FF007F677F /* PDFRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFRenderer.swift; sourceTree = "<group>"; };
 		31C6FD1A243E781B007F677F /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			children = (
 				31B6046E2471CEFD005B3399 /* SettingsHeader.swift */,
 				31B4DF742415C91B00C567E7 /* SettingsView.swift */,
+				31B604732471DF95005B3399 /* SettingsClear.swift */,
 				31B604702471CF29005B3399 /* SettingsAddButton.swift */,
 			);
 			path = Settings;
@@ -568,6 +571,7 @@
 				31272C9C245DCAA3002A321E /* BullseyeTextField.swift in Sources */,
 				31272CAA245E2150002A321E /* LatLngFormatter.swift in Sources */,
 				31B604712471CF29005B3399 /* SettingsAddButton.swift in Sources */,
+				31B604742471DF95005B3399 /* SettingsClear.swift in Sources */,
 				31D235F324563B99006A0475 /* PointSelector.swift in Sources */,
 				1F944148240E193600E3F633 /* ButtonAction.swift in Sources */,
 				1F9FABD024158555002FF99B /* RecordView.swift in Sources */,
