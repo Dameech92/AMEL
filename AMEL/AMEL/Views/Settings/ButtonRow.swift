@@ -13,6 +13,7 @@ struct ButtonRow: View {
     var customButtons: FetchedResults<CustomButton>
 	@ObservedObject var buttonData: ButtonData
     private let colorNames = Colors().colorNames
+    @State var showingDetail = false
     var body: some View {
         let viewModel = SettingsViewModel(savedButtons: self.customButtons)
         if buttonData.updated {
@@ -26,13 +27,13 @@ struct ButtonRow: View {
             })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: 200)
-			Picker(selection: self.$buttonData.color, label: Text("Color")) {
-                ForEach(0 ..< self.colorNames.count) {
-                    Rectangle()
-                        .fill(Color(self.colorNames[$0])).tag($0)
-                        .frame(width:20, height: 20)
-                }
-				}.frame(height: 80).clipped()
+            Button(action: {
+                self.showingDetail.toggle()
+            }) {
+                Text("Show Detail")
+            }.sheet(isPresented: $showingDetail) {
+                ColorSelector()
+            }
         }
     }
 }
