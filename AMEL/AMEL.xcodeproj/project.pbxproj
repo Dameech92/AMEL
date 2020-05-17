@@ -47,6 +47,8 @@
 		31AB3CAE244648D300154696 /* LiveDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AB3CAD244648D300154696 /* LiveDataView.swift */; };
 		31AFA1ED244900B2000D6CFC /* LatLngTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AFA1EC244900B2000D6CFC /* LatLngTests.swift */; };
 		31B4DF752415C91B00C567E7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B4DF742415C91B00C567E7 /* SettingsView.swift */; };
+		31B6046F2471CEFD005B3399 /* SettingsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B6046E2471CEFD005B3399 /* SettingsHeader.swift */; };
+		31B604712471CF29005B3399 /* SettingsAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B604702471CF29005B3399 /* SettingsAddButton.swift */; };
 		31BBA3732460C3E900A803A7 /* ReferencePointAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BBA3722460C3E900A803A7 /* ReferencePointAction.swift */; };
 		31C6FD19243E75FF007F677F /* PDFRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6FD18243E75FF007F677F /* PDFRenderer.swift */; };
 		31C6FD1B243E781B007F677F /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6FD1A243E781B007F677F /* ShareSheet.swift */; };
@@ -149,6 +151,8 @@
 		31AB3CAD244648D300154696 /* LiveDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveDataView.swift; sourceTree = "<group>"; };
 		31AFA1EC244900B2000D6CFC /* LatLngTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLngTests.swift; sourceTree = "<group>"; };
 		31B4DF742415C91B00C567E7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		31B6046E2471CEFD005B3399 /* SettingsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHeader.swift; sourceTree = "<group>"; };
+		31B604702471CF29005B3399 /* SettingsAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAddButton.swift; sourceTree = "<group>"; };
 		31BBA3722460C3E900A803A7 /* ReferencePointAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReferencePointAction.swift; path = ../ReferencePointAction.swift; sourceTree = "<group>"; };
 		31C6FD18243E75FF007F677F /* PDFRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFRenderer.swift; sourceTree = "<group>"; };
 		31C6FD1A243E781B007F677F /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
@@ -241,7 +245,9 @@
 				31757AA22415B64700A92EF8 /* LogView.swift */,
 				1F9FABCF24158555002FF99B /* RecordView.swift */,
 				313061F624452B1000876981 /* ShareButton.swift */,
+				31B6046E2471CEFD005B3399 /* SettingsHeader.swift */,
 				31B4DF742415C91B00C567E7 /* SettingsView.swift */,
+				31B604702471CF29005B3399 /* SettingsAddButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -553,6 +559,7 @@
 				BFE19E2A2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */,
 				31272C9C245DCAA3002A321E /* BullseyeTextField.swift in Sources */,
 				31272CAA245E2150002A321E /* LatLngFormatter.swift in Sources */,
+				31B604712471CF29005B3399 /* SettingsAddButton.swift in Sources */,
 				31D235F324563B99006A0475 /* PointSelector.swift in Sources */,
 				1F944148240E193600E3F633 /* ButtonAction.swift in Sources */,
 				1F9FABD024158555002FF99B /* RecordView.swift in Sources */,
@@ -579,6 +586,7 @@
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
 				312BA28A2464975200F6D921 /* PointsHeader.swift in Sources */,
 				1FA7B2782442AC8400ABD3BF /* SettingsViewModel.swift in Sources */,
+				31B6046F2471CEFD005B3399 /* SettingsHeader.swift in Sources */,
 				317D9AFC244A5BF2005C89B1 /* LatLngPicker.swift in Sources */,
 				FCB58F8C245A286A00142984 /* ClearBullsEye.swift in Sources */,
 			);
