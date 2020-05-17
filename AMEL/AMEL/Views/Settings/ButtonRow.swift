@@ -34,6 +34,10 @@ struct ButtonRow: View {
             }.sheet(isPresented: $showingDetail) {
                 ColorSelector(buttonData: self.buttonData, viewModel: viewModel, button: self.button)
             }
+            Rectangle()
+                .fill(Color(self.colorNames[self.buttonData.color]))
+                .frame(width:40, height: 40)
+                .cornerRadius(5)
         }
     }
 }
