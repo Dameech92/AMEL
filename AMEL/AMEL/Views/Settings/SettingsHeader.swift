@@ -17,6 +17,7 @@ struct SettingsHeader: View {
             Spacer()
             SettingsAddButton(viewModel: self.viewModel)
         }
-            .padding(.vertical, 20)
+        .padding(30)
+        .background(Color("buttonBackGround"))
     }
 }

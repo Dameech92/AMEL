@@ -14,8 +14,10 @@ struct SettingsView: View {
 	@Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
         let viewModel = SettingsViewModel(savedButtons: self.customButton)
-        return List {
-            Section(header: SettingsHeader(viewModel: viewModel)) {
+        return VStack {
+            SettingsHeader(viewModel: viewModel)
+                .edgesIgnoringSafeArea(.top)
+            List {
                 ForEach(self.customButton, id: \.index) { button in
                     ButtonRow(button: button, customButtons: self.customButton, buttonData: ButtonData(button: button))
                 }.onDelete { indexSet in

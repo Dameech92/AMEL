@@ -212,6 +212,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31B604722471DDF1005B3399 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				31B6046E2471CEFD005B3399 /* SettingsHeader.swift */,
+				31B4DF742415C91B00C567E7 /* SettingsView.swift */,
+				31B604702471CF29005B3399 /* SettingsAddButton.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		31C6FD1E243E816C007F677F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,9 +255,7 @@
 				31757AA22415B64700A92EF8 /* LogView.swift */,
 				1F9FABCF24158555002FF99B /* RecordView.swift */,
 				313061F624452B1000876981 /* ShareButton.swift */,
-				31B6046E2471CEFD005B3399 /* SettingsHeader.swift */,
-				31B4DF742415C91B00C567E7 /* SettingsView.swift */,
-				31B604702471CF29005B3399 /* SettingsAddButton.swift */,
+				31B604722471DDF1005B3399 /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";

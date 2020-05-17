@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+import CoreData
 struct ClearAllButton: View {
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
     @Environment(\.managedObjectContext) var managedObjectContext
