@@ -20,9 +20,12 @@ struct ButtonRow: View {
 			self.buttonData.updated = false
         }
         return HStack{
+            Text("Name: ")
             TextField("Enter button name", text: self.$buttonData.name, onCommit: {
 				self.buttonData.updated = true
             })
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .frame(width: 200)
 			Picker(selection: self.$buttonData.color, label: Text("Color")) {
                 ForEach(0 ..< self.colorNames.count) {
                     Rectangle()
