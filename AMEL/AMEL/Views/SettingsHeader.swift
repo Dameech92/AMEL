@@ -13,9 +13,10 @@ struct SettingsHeader: View {
     var body: some View {
         HStack{
             Text("Settings")
+                .font(.title)
             Spacer()
             SettingsAddButton(viewModel: self.viewModel)
         }
-        
+            .padding(.vertical, 20)
     }
 }

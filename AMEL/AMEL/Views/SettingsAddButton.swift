@@ -16,10 +16,8 @@ struct SettingsAddButton: View {
             let newButton = self.viewModel.createCustomButton(managedObjectContext: self.managedObjectContext)
             self.viewModel.saveCustomButton(newButton: newButton, buttonName: "Default", buttonColor: "Blue", managedObjectContext: self.managedObjectContext)
         }) {
-            VStack {
-                Text("Add new button")
-                Image(systemName: "plus.square.fill")
-            }
-        }.foregroundColor(.primary)
+            Image(systemName: "plus")
+                .font(.title)
+        }
     }
 }
