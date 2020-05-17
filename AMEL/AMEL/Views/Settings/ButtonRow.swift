@@ -21,16 +21,19 @@ struct ButtonRow: View {
 			self.buttonData.updated = false
         }
         return HStack{
+            Spacer()
             Text("Name: ")
-            TextField("Enter button name", text: self.$buttonData.name, onCommit: {
+            TextField("", text: self.$buttonData.name, onCommit: {
 				self.buttonData.updated = true
             })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(width: 200)
+                .frame(width: 300)
+            Spacer()
             Button(action: {
                 self.showingDetail.toggle()
             }) {
                 Text("Select Color")
+                    .foregroundColor(Color.blue)
             }.sheet(isPresented: $showingDetail) {
                 ColorSelector(buttonData: self.buttonData, viewModel: viewModel, button: self.button)
             }
@@ -38,7 +41,8 @@ struct ButtonRow: View {
                 .fill(Color(self.colorNames[self.buttonData.color]))
                 .frame(width:40, height: 40)
                 .cornerRadius(5)
-        }
+            Spacer()
+        }.font(.largeTitle)
     }
 }
 
