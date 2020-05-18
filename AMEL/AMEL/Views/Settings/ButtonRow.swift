@@ -15,19 +15,22 @@ struct ButtonRow: View {
     private let colorNames = Colors().colorNames
     @State var showingDetail = false
     var body: some View {
-        let viewModel = SettingsViewModel(savedButtons: self.customButtons)
+        let viewModel = SettingsViewModel(savedButtons: self.customButtons, context: self.context)
         if buttonData.updated {
 			viewModel.updateButton(name: self.buttonData.name, color: self.buttonData.color, button: self.button, context: self.context)
 			self.buttonData.updated = false
         }
         return HStack{
             Spacer()
-            Text("Name: ")
-            TextField("", text: self.$buttonData.name, onCommit: {
-				self.buttonData.updated = true
+            Text("Button Name: ")
+            TextField("", text: self.$buttonData.name, onEditingChanged: {_ in
+                self.buttonData.updated = true
+            }, onCommit: {
+                self.buttonData.updated = true
             })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: 300)
+
             Spacer()
             Button(action: {
                 self.showingDetail.toggle()
@@ -42,6 +45,7 @@ struct ButtonRow: View {
                 .frame(width:40, height: 40)
                 .cornerRadius(5)
             Spacer()
+            Image(systemName: "line.horizontal.3")
         }.font(.largeTitle)
     }
 }

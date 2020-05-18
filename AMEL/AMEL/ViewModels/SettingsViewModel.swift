@@ -13,6 +13,7 @@ import UIKit
 
 struct SettingsViewModel {
     var savedButtons: FetchedResults<CustomButton>
+    let context: NSManagedObjectContext
     private let colorNames = Colors().colorNames
 	func createCustomButton(managedObjectContext:NSManagedObjectContext) -> CustomButton {
 		return CustomButton(context: managedObjectContext)
@@ -20,7 +21,7 @@ struct SettingsViewModel {
 	
 	func saveCustomButton(newButton:CustomButton, buttonName:String, buttonColor:String, managedObjectContext:NSManagedObjectContext) {
 		newButton.buttonName = buttonName
-        newButton.index = (self.savedButtons.count + 1) as NSNumber
+        newButton.index = (self.savedButtons.count) as NSNumber
 		newButton.buttonColor = buttonColor
 		// update the object
 		saveCustomButtons(managedObjectContext: managedObjectContext)
@@ -55,4 +56,5 @@ struct SettingsViewModel {
 		managedObjectContext.delete(eventToDelete)
 		saveCustomButtons(managedObjectContext: managedObjectContext)
     }
+    
 }
