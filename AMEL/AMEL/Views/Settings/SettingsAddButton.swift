@@ -18,6 +18,6 @@ struct SettingsAddButton: View {
         }) {
             Image(systemName: "plus")
                 .font(.title)
-        }
+        }.disabled(self.viewModel.savedButtons.count == 14)
     }
 }
