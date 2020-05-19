@@ -58,9 +58,7 @@ struct ButtonAction {
             try managedObjectContext.save()
         } catch {
             print("Error saving")
-            //return false
         }
-        //return true
     }
     
       public static func record(_ eventName:String, _ color:String, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
