@@ -24,6 +24,9 @@ struct LogView: View {
                     .padding()
                 Spacer()
                 ShareButton()
+                Spacer()
+                TempTxtShareButton()
+                Spacer()
             }
             Spacer()
             Divider()

@@ -76,6 +76,8 @@
 		BF91963D2449373700F6D5C1 /* ReferencePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91963C2449373700F6D5C1 /* ReferencePoint.swift */; };
 		BFE19E2A2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */; };
 		BFE19E2B2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */; };
+		CA136C5F24748A12005C428E /* TempTxtShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA136C5E24748A12005C428E /* TempTxtShareButton.swift */; };
+		CA136C6124748B3D005C428E /* TxtFileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA136C6024748B3D005C428E /* TxtFileWriter.swift */; };
 		CA9EF8D32460DFC000059A8B /* ActiveRefPointVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9EF8D22460DFC000059A8B /* ActiveRefPointVM.swift */; };
 		CAB7E1BC245A75BF00EED129 /* ReferencePointViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */; };
 		FCB58F8C245A286A00142984 /* ClearBullsEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB58F8B245A286A00142984 /* ClearBullsEye.swift */; };
@@ -188,6 +190,8 @@
 		7E9E1681241C4EC10043EEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF91963C2449373700F6D5C1 /* ReferencePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePoint.swift; sourceTree = "<group>"; };
 		BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialCoordinateCalculations.swift; sourceTree = "<group>"; };
+		CA136C5E24748A12005C428E /* TempTxtShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempTxtShareButton.swift; sourceTree = "<group>"; };
+		CA136C6024748B3D005C428E /* TxtFileWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxtFileWriter.swift; sourceTree = "<group>"; };
 		CA9EF8D22460DFC000059A8B /* ActiveRefPointVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveRefPointVM.swift; sourceTree = "<group>"; };
 		CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePointViewModelProtocol.swift; sourceTree = "<group>"; };
 		FCB58F8B245A286A00142984 /* ClearBullsEye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBullsEye.swift; sourceTree = "<group>"; };
@@ -264,6 +268,7 @@
 				31757AA22415B64700A92EF8 /* LogView.swift */,
 				1F9FABCF24158555002FF99B /* RecordView.swift */,
 				313061F624452B1000876981 /* ShareButton.swift */,
+				CA136C5E24748A12005C428E /* TempTxtShareButton.swift */,
 				31B604722471DDF1005B3399 /* Settings */,
 			);
 			path = Views;
@@ -283,6 +288,7 @@
 				314721F4244D1D940045DE74 /* Colors.swift */,
 				316561712447D9D400261AEB /* EventProtocol.swift */,
 				BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */,
+				CA136C6024748B3D005C428E /* TxtFileWriter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -590,6 +596,7 @@
 				31D2CB36243FBDB500356BCF /* HTMLGenerator.swift in Sources */,
 				318DA70424059EC6007D79B6 /* LocationManager.swift in Sources */,
 				31272C9E245DCDEE002A321E /* PickerUpdater.swift in Sources */,
+				CA136C6124748B3D005C428E /* TxtFileWriter.swift in Sources */,
 				31B4DF752415C91B00C567E7 /* SettingsView.swift in Sources */,
 				31272CA4245DDAB7002A321E /* LngFormatter.swift in Sources */,
 				31E860592415F6EE00B4BAE6 /* ContentView.swift in Sources */,
@@ -606,6 +613,7 @@
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
 				312BA28A2464975200F6D921 /* PointsHeader.swift in Sources */,
 				1FA7B2782442AC8400ABD3BF /* SettingsViewModel.swift in Sources */,
+				CA136C5F24748A12005C428E /* TempTxtShareButton.swift in Sources */,
 				31B6046F2471CEFD005B3399 /* SettingsHeader.swift in Sources */,
 				317D9AFC244A5BF2005C89B1 /* LatLngPicker.swift in Sources */,
 				FCB58F8C245A286A00142984 /* ClearBullsEye.swift in Sources */,
