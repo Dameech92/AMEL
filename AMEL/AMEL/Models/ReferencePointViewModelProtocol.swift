@@ -14,7 +14,7 @@ public protocol ReferencePointViewModelProtocol{
     func getFormatedReferencePointDistance() -> String
     func getReferencePointName() -> String
     
-    func getReferencePointHeading() -> Double
-    func getReferencePointDistance() -> Double
+    func getReferencePointHeading() -> Double?
+    func getReferencePointDistance() -> Double?
 
 }

@@ -15,9 +15,9 @@ struct ButtonRow: View {
     private let colorNames = Colors().colorNames
     @State var showingDetail = false
     var body: some View {
-        let viewModel = SettingsViewModel(savedButtons: self.customButtons, context: self.context)
+        let viewModel = SettingsViewModel(savedButtons: self.customButtons, managedObjectContext: self.context)
         if buttonData.updated {
-			viewModel.updateButton(name: self.buttonData.name, color: self.buttonData.color, button: self.button, context: self.context)
+			viewModel.updateButton(name: self.buttonData.name, color: self.buttonData.color, button: self.button)
 			self.buttonData.updated = false
         }
         return HStack{
@@ -38,7 +38,7 @@ struct ButtonRow: View {
                 Text("Select Color")
                     .foregroundColor(Color.blue)
             }.sheet(isPresented: $showingDetail) {
-                ColorSelector(buttonData: self.buttonData, viewModel: viewModel, button: self.button)
+                ColorSelector(buttonData: self.buttonData, button: self.button, viewModel: viewModel)
             }
             Rectangle()
                 .fill(Color(self.colorNames[self.buttonData.color]))

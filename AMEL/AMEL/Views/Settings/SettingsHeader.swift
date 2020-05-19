@@ -18,10 +18,12 @@ struct SettingsHeader: View {
             HStack{
                 SettingsClear()
                     .padding(.leading, 30)
+                    .padding(.bottom, 30)
                 Spacer()
                 SettingsAddButton(viewModel: self.viewModel)
                     .padding(.trailing, 30)
-            }.padding(.bottom, 30)
+                    .padding(.bottom, 30)
+            }
         }
         .background(Color("buttonBackGround"))
         

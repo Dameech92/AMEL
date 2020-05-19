@@ -13,7 +13,7 @@ struct SettingsAddButton: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
         Button(action: {
-            let newButton = self.viewModel.createCustomButton(managedObjectContext: self.managedObjectContext)
+            let newButton = self.viewModel.createCustomButton()
             self.viewModel.saveCustomButton(newButton: newButton, buttonName: "Default", buttonColor: "Blue", managedObjectContext: self.managedObjectContext)
         }) {
             Image(systemName: "plus")

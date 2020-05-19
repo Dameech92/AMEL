@@ -12,32 +12,32 @@ import SwiftUI
 import UIKit
 
 struct SettingsViewModel {
-    var savedButtons: FetchedResults<CustomButton>
-    let context: NSManagedObjectContext
+    var savedButtons:FetchedResults<CustomButton>
+    var managedObjectContext: NSManagedObjectContext
     private let colorNames = Colors().colorNames
-	func createCustomButton(managedObjectContext:NSManagedObjectContext) -> CustomButton {
+	func createCustomButton() -> CustomButton {
 		return CustomButton(context: managedObjectContext)
 	}
 	
 	func saveCustomButton(newButton:CustomButton, buttonName:String, buttonColor:String, managedObjectContext:NSManagedObjectContext) {
 		newButton.buttonName = buttonName
-        newButton.index = (self.savedButtons.count) as NSNumber
+        newButton.index = NSNumber(integerLiteral: self.savedButtons.count)
 		newButton.buttonColor = buttonColor
 		// update the object
-		saveCustomButtons(managedObjectContext: managedObjectContext)
+		saveCustomButtons()
 	}
 	
-    func updateButton(name:String, color: Int, button: CustomButton, context: NSManagedObjectContext) {
+    func updateButton(name:String, color: Int, button: CustomButton) {
         for sButton in self.savedButtons {
             if sButton == button {
                 sButton.buttonName = name
                 sButton.buttonColor = self.colorNames[color]
-                saveCustomButtons(managedObjectContext: context)
+                saveCustomButtons()
             }
         }
     }
 	
-	func saveCustomButtons(managedObjectContext:NSManagedObjectContext){
+	func saveCustomButtons(){
         do{
             try managedObjectContext.save()
         }catch{
@@ -45,16 +45,27 @@ struct SettingsViewModel {
         }
     }
     
-    func deleteAllCustomButtons(managedObjectContext:NSManagedObjectContext){
+    func deleteAllCustomButtons(){
 		self.savedButtons.forEach{(savedButton) in
 			managedObjectContext.delete(savedButton)
         }
-        saveCustomButtons(managedObjectContext: managedObjectContext)
+        saveCustomButtons()
     }
     
-    func deleteCustomButton(eventToDelete: CustomButton, managedObjectContext:NSManagedObjectContext){
-		managedObjectContext.delete(eventToDelete)
-		saveCustomButtons(managedObjectContext: managedObjectContext)
+    func move(from source: IndexSet, to destination: Int) {
+        self.managedObjectContext.perform {
+            var buttons: [CustomButton]
+            do{
+                try buttons = CustomButton.getCustomButton().execute()
+                buttons.move(fromOffsets: source, toOffset: destination)
+                for button in self.savedButtons{
+                    button.index = buttons.firstIndex(of: button) as NSNumber?
+                    self.saveCustomButtons()
+                }
+            } catch {
+                print(error)
+            }
+        }
     }
     
 }

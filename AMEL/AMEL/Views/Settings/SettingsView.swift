@@ -10,50 +10,34 @@ import SwiftUI
 import CoreData
 struct SettingsView: View {
 	@State private var colorIndex = 0
-	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
+	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButtons:FetchedResults<CustomButton>
 	@Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
-        let viewModel = SettingsViewModel(savedButtons: self.customButton, context: self.managedObjectContext)
-        return VStack {
+        let viewModel = SettingsViewModel(savedButtons: self.customButtons, managedObjectContext: self.managedObjectContext)
+        return VStack() {
             SettingsHeader(viewModel: viewModel)
                 .edgesIgnoringSafeArea(.top)
             List {
-                ForEach(self.customButton, id: \.index) { button in
-                    ButtonRow(button: button, customButtons: self.customButton, buttonData: ButtonData(button: button))
+                ForEach(self.customButtons, id: \.index) { button in
+                    ButtonRow(button: button, customButtons: self.customButtons, buttonData: ButtonData(button: button))
                 }.onDelete { indexSet in
                     if indexSet.first != nil {
-                        let deleteButton = self.customButton[indexSet.first!]
+                        let deleteButton = self.customButtons[indexSet.first!]
                         self.managedObjectContext.delete(deleteButton)
                         
                         print("Deleting button at position \(indexSet.first!)")
-                        for i in indexSet.first!...self.customButton.count - 1 {
-                            self.customButton[i].index = NSNumber(integerLiteral: i - 1)
+                        for i in indexSet.first!...self.customButtons.count - 1 {
+                            self.customButtons[i].index = NSNumber(integerLiteral: i - 1)
                         }
                         
-                        viewModel.saveCustomButtons(managedObjectContext: self.managedObjectContext)
+                        viewModel.saveCustomButtons()
                     }
                 }
-                .onMove(perform: move)
+                .onMove(perform: viewModel.move)
             }
             
         }
         
     }
-    func move(from source: IndexSet, to destination: Int) {
-        var buttons: [CustomButton]
-        do{
-            try buttons = CustomButton.getCustomButton().execute()
-            buttons.move(fromOffsets: source, toOffset: destination)
-            for button in self.customButton{
-                button.index = buttons.firstIndex(of: button) as NSNumber?
-            }
-            do{
-                try managedObjectContext.save()
-            }catch{
-                print(error)
-            }
-        } catch {
-            print(error)
-        }
-    }
+    
 }
