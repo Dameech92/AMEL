@@ -6,6 +6,7 @@
 //  Copyright © 2020 Marcellini, Neil. All rights reserved.
 //
 import SwiftUI
+import CoreLocation
 
 struct RecordView: View {
     @FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
@@ -17,6 +18,21 @@ struct RecordView: View {
     let refPointVM = ActiveRefPointVM()
 	
 	var body: some View {
+        //This first if actually only acknowledged they have selected a setting
+        //The setting they selected could be denying location services
+        if CLLocationManager.locationServicesEnabled() {
+            switch CLLocationManager.authorizationStatus() {
+                case .notDetermined, .restricted, .denied:
+                    print("No access")
+                case .authorizedAlways, .authorizedWhenInUse:
+                    print("Access")
+                @unknown default:
+                break
+            }
+            } else {
+                print("Location services are not enabled")
+        }
+
         ActiveRefPointVM.shared.executeFetchRequest(points: points)
 
 		return ZStack {
