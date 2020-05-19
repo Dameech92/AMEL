@@ -24,7 +24,9 @@ struct EventViewModel{
     
     func getTime()->String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss (dd_MMM_YY)"
+        //formatter.dateFormat = "HH:mm:ss (dd_MMM_YY)"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         if(event.time != nil){
             return formatter.string(from: event.time!)
         }else{
