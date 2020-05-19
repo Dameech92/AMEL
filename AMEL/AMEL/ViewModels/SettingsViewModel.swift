@@ -15,6 +15,7 @@ struct SettingsViewModel {
     var savedButtons:FetchedResults<CustomButton>
     var managedObjectContext: NSManagedObjectContext
     private let colorNames = Colors().colorNames
+    let maxNumberOfButtons = 14
 	func createCustomButton() -> CustomButton {
 		return CustomButton(context: managedObjectContext)
 	}
@@ -50,5 +51,12 @@ struct SettingsViewModel {
 			managedObjectContext.delete(savedButton)
         }
         saveCustomButtons()
+    }
+    func getNumberOfButtons()->String {
+        if self.savedButtons.count != maxNumberOfButtons {
+            return "Number of Buttons: \(self.savedButtons.count)"
+        } else {
+            return "Number of Buttons: 14 - Maximum"
+        }
     }
 }

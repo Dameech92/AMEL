@@ -14,27 +14,27 @@ struct SettingsView: View {
 	@Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
         let viewModel = SettingsViewModel(savedButtons: self.customButtons, managedObjectContext: self.managedObjectContext)
-        return VStack {
+        return VStack(spacing: 0) {
             SettingsHeader(viewModel: viewModel)
             .edgesIgnoringSafeArea(.all)
-                List {
-                   ForEach(self.customButtons, id: \.index) { button in
-                       ButtonRow(button: button, customButtons: self.customButtons, buttonData: ButtonData(button: button))
-                   }.onDelete { indexSet in
-                       if indexSet.first != nil {
-                           let deleteButton = self.customButtons[indexSet.first!]
-                           self.managedObjectContext.delete(deleteButton)
-                           
-                           print("Deleting button at position \(indexSet.first!)")
-                           for i in indexSet.first!...self.customButtons.count - 1 {
-                               self.customButtons[i].index = NSNumber(integerLiteral: i - 1)
-                           }
-                           
-                           viewModel.saveCustomButtons()
-                       }
-                   }
+            List {
+                ForEach(self.customButtons, id: \.index) { button in
+                    ButtonRow(button: button, customButtons: self.customButtons, buttonData: ButtonData(button: button))
+                }.onDelete { indexSet in
+                    if indexSet.first != nil {
+                        let deleteButton = self.customButtons[indexSet.first!]
+                        self.managedObjectContext.delete(deleteButton)
+                        
+                        print("Deleting button at position \(indexSet.first!)")
+                        for i in indexSet.first!...self.customButtons.count - 1 {
+                            self.customButtons[i].index = NSNumber(integerLiteral: i - 1)
+                        }
+                        
+                        viewModel.saveCustomButtons()
+                    }
                 }
             }
         }
+    }
         
     }
