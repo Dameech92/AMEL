@@ -14,30 +14,30 @@ struct SettingsView: View {
 	@Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
         let viewModel = SettingsViewModel(savedButtons: self.customButtons, managedObjectContext: self.managedObjectContext)
-        return VStack() {
-            SettingsHeader(viewModel: viewModel)
-                .edgesIgnoringSafeArea(.top)
-            List {
-                ForEach(self.customButtons, id: \.index) { button in
-                    ButtonRow(button: button, customButtons: self.customButtons, buttonData: ButtonData(button: button))
-                }.onDelete { indexSet in
-                    if indexSet.first != nil {
-                        let deleteButton = self.customButtons[indexSet.first!]
-                        self.managedObjectContext.delete(deleteButton)
-                        
-                        print("Deleting button at position \(indexSet.first!)")
-                        for i in indexSet.first!...self.customButtons.count - 1 {
-                            self.customButtons[i].index = NSNumber(integerLiteral: i - 1)
-                        }
-                        
-                        viewModel.saveCustomButtons()
-                    }
-                }
-                .onMove(perform: viewModel.move)
+        return NavigationView {
+                List {
+                   ForEach(self.customButtons, id: \.index) { button in
+                       ButtonRow(button: button, customButtons: self.customButtons, buttonData: ButtonData(button: button))
+                   }.onDelete { indexSet in
+                       if indexSet.first != nil {
+                           let deleteButton = self.customButtons[indexSet.first!]
+                           self.managedObjectContext.delete(deleteButton)
+                           
+                           print("Deleting button at position \(indexSet.first!)")
+                           for i in indexSet.first!...self.customButtons.count - 1 {
+                               self.customButtons[i].index = NSNumber(integerLiteral: i - 1)
+                           }
+                           
+                           viewModel.saveCustomButtons()
+                       }
+                   }
+                   .onMove(perform: viewModel.move)
+                }.navigationBarTitle(Text("Settings"))
+                .navigationBarItems(trailing: EditButton())
             }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .padding()
             
         }
         
     }
-    
-}

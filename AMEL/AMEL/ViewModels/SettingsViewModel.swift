@@ -60,7 +60,6 @@ struct SettingsViewModel {
                 buttons.move(fromOffsets: source, toOffset: destination)
                 for button in self.savedButtons{
                     button.index = buttons.firstIndex(of: button) as NSNumber?
-                    self.saveCustomButtons()
                 }
             } catch {
                 print(error)
