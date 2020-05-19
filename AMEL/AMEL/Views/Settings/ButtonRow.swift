@@ -20,34 +20,33 @@ struct ButtonRow: View {
 			viewModel.updateButton(name: self.buttonData.name, color: self.buttonData.color, button: self.button)
 			self.buttonData.updated = false
         }
-        return GeometryReader { g in
-            HStack{
-                Spacer()
-                Text("Button Name: ")
+        return HStack{
+            Spacer()
+            Text("Button Name: ")
+            GeometryReader { g in
                 TextField("", text: self.$buttonData.name, onEditingChanged: {_ in
                     self.buttonData.updated = true
                 }, onCommit: {
                     self.buttonData.updated = true
                 })
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(width: g.size.width/3)
+                    .frame(width: g.size.width - 20)
+            }
 
-                Spacer()
-                Button(action: {
-                    self.showingDetail.toggle()
-                }) {
-                    Text("Select Color")
-                        .foregroundColor(Color.blue)
-                }.sheet(isPresented: self.$showingDetail) {
-                    ColorSelector(buttonData: self.buttonData, button: self.button, viewModel: viewModel)
-                }
-                Rectangle()
-                    .fill(Color(self.colorNames[self.buttonData.color]))
-                    .frame(width:40, height: 40)
-                    .cornerRadius(5)
-            }.font(.largeTitle)
-        }
-        
+            Spacer()
+            Button(action: {
+                self.showingDetail.toggle()
+            }) {
+                Text("Select Color")
+                    .foregroundColor(Color.blue)
+            }.sheet(isPresented: self.$showingDetail) {
+                ColorSelector(buttonData: self.buttonData, button: self.button, viewModel: viewModel)
+            }
+            Rectangle()
+                .fill(Color(self.colorNames[self.buttonData.color]))
+                .frame(width:40, height: 40)
+                .cornerRadius(5)
+        }.font(.largeTitle)
     }
 }
 

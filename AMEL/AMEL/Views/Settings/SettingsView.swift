@@ -14,7 +14,9 @@ struct SettingsView: View {
 	@Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
         let viewModel = SettingsViewModel(savedButtons: self.customButtons, managedObjectContext: self.managedObjectContext)
-        return NavigationView {
+        return VStack {
+            SettingsHeader(viewModel: viewModel)
+            .edgesIgnoringSafeArea(.all)
                 List {
                    ForEach(self.customButtons, id: \.index) { button in
                        ButtonRow(button: button, customButtons: self.customButtons, buttonData: ButtonData(button: button))
@@ -31,13 +33,8 @@ struct SettingsView: View {
                            viewModel.saveCustomButtons()
                        }
                    }
-                   .onMove(perform: viewModel.move)
-                }.navigationBarTitle(Text("Settings"))
-                .navigationBarItems(trailing: EditButton())
+                }
             }
-            .navigationViewStyle(StackNavigationViewStyle())
-            .padding()
-            
         }
         
     }

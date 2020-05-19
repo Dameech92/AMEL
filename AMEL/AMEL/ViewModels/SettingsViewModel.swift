@@ -51,20 +51,4 @@ struct SettingsViewModel {
         }
         saveCustomButtons()
     }
-    
-    func move(from source: IndexSet, to destination: Int) {
-        self.managedObjectContext.perform {
-            var buttons: [CustomButton]
-            do{
-                try buttons = CustomButton.getCustomButton().execute()
-                buttons.move(fromOffsets: source, toOffset: destination)
-                for button in self.savedButtons{
-                    button.index = buttons.firstIndex(of: button) as NSNumber?
-                }
-            } catch {
-                print(error)
-            }
-        }
-    }
-    
 }
