@@ -12,8 +12,8 @@ struct ColorSelector: View {
     let colorNames = Colors().colorNames
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var buttonData: ButtonData
-    let viewModel: SettingsViewModel
     let button: CustomButton
+    let viewModel: SettingsViewModel
     var body: some View {
         VStack{
             HStack {

@@ -12,31 +12,33 @@ import SwiftUI
 import UIKit
 
 struct SettingsViewModel {
-    var savedButtons: FetchedResults<CustomButton>
+    var savedButtons:FetchedResults<CustomButton>
+    var managedObjectContext: NSManagedObjectContext
     private let colorNames = Colors().colorNames
-	func createCustomButton(managedObjectContext:NSManagedObjectContext) -> CustomButton {
+    let maxNumberOfButtons = 14
+	func createCustomButton() -> CustomButton {
 		return CustomButton(context: managedObjectContext)
 	}
 	
 	func saveCustomButton(newButton:CustomButton, buttonName:String, buttonColor:String, managedObjectContext:NSManagedObjectContext) {
 		newButton.buttonName = buttonName
-        newButton.index = (self.savedButtons.count + 1) as NSNumber
+        newButton.index = NSNumber(integerLiteral: self.savedButtons.count)
 		newButton.buttonColor = buttonColor
 		// update the object
-		saveCustomButtons(managedObjectContext: managedObjectContext)
+		saveCustomButtons()
 	}
 	
-    func updateButton(name:String, color: Int, button: CustomButton, context: NSManagedObjectContext) {
+    func updateButton(name:String, color: Int, button: CustomButton) {
         for sButton in self.savedButtons {
             if sButton == button {
                 sButton.buttonName = name
                 sButton.buttonColor = self.colorNames[color]
-                saveCustomButtons(managedObjectContext: context)
+                saveCustomButtons()
             }
         }
     }
 	
-	func saveCustomButtons(managedObjectContext:NSManagedObjectContext){
+	func saveCustomButtons(){
         do{
             try managedObjectContext.save()
         }catch{
@@ -44,16 +46,18 @@ struct SettingsViewModel {
         }
     }
     
-    func deleteAllCustomButtons(managedObjectContext:NSManagedObjectContext){
+    func deleteAllCustomButtons(){
 		self.savedButtons.forEach{(savedButton) in
 			managedObjectContext.delete(savedButton)
         }
-        saveCustomButtons(managedObjectContext: managedObjectContext)
+        saveCustomButtons()
     }
-    
-    func deleteCustomButton(eventToDelete: CustomButton, managedObjectContext:NSManagedObjectContext){
-		managedObjectContext.delete(eventToDelete)
-		saveCustomButtons(managedObjectContext: managedObjectContext)
+    func getNumberOfButtons()->String {
+        if self.savedButtons.count != maxNumberOfButtons {
+            return "Number of Buttons: \(self.savedButtons.count)"
+        } else {
+            return "Number of Buttons: 14 - Maximum"
+        }
     }
 }
 

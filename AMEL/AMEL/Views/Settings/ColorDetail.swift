@@ -25,7 +25,7 @@ struct ColorDetail: View {
                 .frame(width:40, height: 40)
                 .cornerRadius(5)
         }.onTapGesture {
-            self.viewModel.updateButton(name: self.buttonData.name, color: Colors().colorToInt(color: self.color), button: self.button, context: self.context)
+            self.viewModel.updateButton(name: self.buttonData.name, color: Colors().colorToInt(color: self.color), button: self.button)
         }.font(.largeTitle)
     }
 }

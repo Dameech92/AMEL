@@ -7,41 +7,34 @@
 //
 
 import SwiftUI
-
+import CoreData
 struct SettingsView: View {
 	@State private var colorIndex = 0
-	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
+	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButtons:FetchedResults<CustomButton>
 	@Environment(\.managedObjectContext) var managedObjectContext
     var body: some View {
-        let viewModel = SettingsViewModel(savedButtons: self.customButton)
-        return VStack {
+        let viewModel = SettingsViewModel(savedButtons: self.customButtons, managedObjectContext: self.managedObjectContext)
+        return VStack(spacing: 0) {
             SettingsHeader(viewModel: viewModel)
-                .edgesIgnoringSafeArea(.top)
+            .edgesIgnoringSafeArea(.all)
             List {
-                ForEach(self.customButton, id: \.index) { button in
-                    ButtonRow(button: button, customButtons: self.customButton, buttonData: ButtonData(button: button))
+                ForEach(self.customButtons, id: \.index) { button in
+                    ButtonRow(button: button, customButtons: self.customButtons, buttonData: ButtonData(button: button))
                 }.onDelete { indexSet in
                     if indexSet.first != nil {
-                        let deleteButton = self.customButton[indexSet.first!]
+                        let deleteButton = self.customButtons[indexSet.first!]
                         self.managedObjectContext.delete(deleteButton)
                         
                         print("Deleting button at position \(indexSet.first!)")
-                        for i in indexSet.first!...self.customButton.count - 1 {
-                            self.customButton[i].index = (i - 1) as NSNumber
+                        for i in indexSet.first!...self.customButtons.count - 1 {
+                            self.customButtons[i].index = NSNumber(integerLiteral: i - 1)
                         }
                         
-                        viewModel.saveCustomButtons(managedObjectContext: self.managedObjectContext)
+                        viewModel.saveCustomButtons()
                     }
                 }
             }
         }
     }
-}
-
-#if DEBUG
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
+        
     }
-}
-#endif

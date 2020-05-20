@@ -70,8 +70,8 @@ struct ButtonAction {
             magHeading = locationManager.heading!.magneticHeading
         }
         
-        ButtonAction.referencePointDis = ActiveRefPointVM.shared.getReferencePointDistance()
-        ButtonAction.referencePointHeading = ActiveRefPointVM.shared.getReferencePointHeading()
+        ButtonAction.referencePointDis = ActiveRefPointVM.shared.getReferencePointDistance() ?? 0
+        ButtonAction.referencePointHeading = ActiveRefPointVM.shared.getReferencePointHeading() ?? 0
         ButtonAction.referencePointName = ActiveRefPointVM.shared.getReferencePointName()
 	}
 }
