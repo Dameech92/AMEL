@@ -78,7 +78,6 @@
 		BFE19E2B2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */; };
 		CA136C5F24748A12005C428E /* TempTxtShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA136C5E24748A12005C428E /* TempTxtShareButton.swift */; };
 		CA136C6124748B3D005C428E /* TxtFileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA136C6024748B3D005C428E /* TxtFileWriter.swift */; };
-		CA136C632474AEC9005C428E /* Log.txt in Resources */ = {isa = PBXBuildFile; fileRef = CA136C622474AEC9005C428E /* Log.txt */; };
 		CA9EF8D32460DFC000059A8B /* ActiveRefPointVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9EF8D22460DFC000059A8B /* ActiveRefPointVM.swift */; };
 		CAB7E1BC245A75BF00EED129 /* ReferencePointViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */; };
 		FCB58F8C245A286A00142984 /* ClearBullsEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB58F8B245A286A00142984 /* ClearBullsEye.swift */; };
@@ -193,7 +192,6 @@
 		BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialCoordinateCalculations.swift; sourceTree = "<group>"; };
 		CA136C5E24748A12005C428E /* TempTxtShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempTxtShareButton.swift; sourceTree = "<group>"; };
 		CA136C6024748B3D005C428E /* TxtFileWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxtFileWriter.swift; sourceTree = "<group>"; };
-		CA136C622474AEC9005C428E /* Log.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Log.txt; path = ../../../../Desktop/Log.txt; sourceTree = "<group>"; };
 		CA136C642474AEEF005C428E /* Log.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Log.txt; sourceTree = "<group>"; };
 		CA9EF8D22460DFC000059A8B /* ActiveRefPointVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveRefPointVM.swift; sourceTree = "<group>"; };
 		CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePointViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -373,7 +371,6 @@
 		4CED17522404851200E6D4F6 /* AMEL */ = {
 			isa = PBXGroup;
 			children = (
-				CA136C622474AEC9005C428E /* Log.txt */,
 				4CED17532404851200E6D4F6 /* AppDelegate.swift */,
 				4CED17552404851200E6D4F6 /* SceneDelegate.swift */,
 				31C6FD20243E8217007F677F /* Models */,
@@ -532,7 +529,6 @@
 				31C6FD2B243E9241007F677F /* log_item.html in Resources */,
 				31C6FD2C243E9241007F677F /* log.html in Resources */,
 				4CED17632404851300E6D4F6 /* LaunchScreen.storyboard in Resources */,
-				CA136C632474AEC9005C428E /* Log.txt in Resources */,
 				4CED17602404851300E6D4F6 /* Preview Assets.xcassets in Resources */,
 				4CED175D2404851300E6D4F6 /* Assets.xcassets in Resources */,
 			);

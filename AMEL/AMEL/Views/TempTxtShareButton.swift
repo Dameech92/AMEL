@@ -11,15 +11,16 @@ import SwiftUI
 struct TempTxtShareButton: View {
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
     @Environment(\.managedObjectContext) var managedObjectContext
-    
+    @State var showShareSheet:Bool = false
     var body: some View {
         Button(action: {
-            TxtFileWriter.writeLogToTxtFile(events: self.events)
-            TxtFileWriter.readLogFromFile()
+            self.showShareSheet = true
         }) {
             Image(systemName: "square.and.arrow.up")
             .font(.system(size: 30))
             .frame(alignment: .leading)
+        }.sheet(isPresented: $showShareSheet){
+            ShareSheet(activityItems: [TxtFileWriter.writeLogToTxtFile(events: self.events)!])
         }
     }
 }
