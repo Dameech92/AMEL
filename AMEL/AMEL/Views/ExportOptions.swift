@@ -35,7 +35,6 @@ struct ExportOptions: View {
                             Text("Export PDF")
                                 .font(.largeTitle)
                                 .padding(.horizontal, 30)
-                                .padding(.bottom, 20)
                             Image(systemName: "doc")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -63,6 +62,7 @@ struct ExportOptions: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(height: g.size.height / 2 * self.buttonScale)
                                 .padding(.horizontal, 30)
+                                .padding(.bottom, 20)
                         }
                         .background(Color("buttonBackGround"))
                         .cornerRadius(10)
