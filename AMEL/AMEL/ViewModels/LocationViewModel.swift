@@ -13,10 +13,22 @@ struct LocationViewModel {
     init() {
     }
     
+    func getLatRaw()->Double{
+        if self.locationManager.location != nil{
+            return (locationManager.location?.coordinate.latitude)! as Double
+        }else {return 0.0}
+    }
+    
+    func getLongRaw()->Double{
+        if self.locationManager.location != nil{
+            return (locationManager.location?.coordinate.longitude)! as Double
+        }else {return 0.0}
+    }
+    
     func getLatLng()->String {
         if self.locationManager.location != nil {
-            let locFormatter = LatLngFormatter(latitude: self.locationManager.location!.coordinate.latitude, longitude: self.locationManager.location!.coordinate.longitude)
-            return locFormatter.getLatLng()
+            let locFormatter = CoordinateFormatter()
+            return locFormatter.getLatLng(latitude: self.locationManager.location!.coordinate.latitude, longitude: self.locationManager.location!.coordinate.longitude)
         }
        else{
            return "0.0"

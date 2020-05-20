@@ -15,22 +15,27 @@ struct EventView: View{
         let colOne = [viewModel.getTime(), viewModel.getLatLng(), viewModel.getAltitude()]
         let colTwo = [viewModel.getBoBR(), viewModel.getHeadingCourse(), viewModel.getGroundSpeed()]
            return ZStack {
-                HStack{
-                    EventTitleBackground(name: viewModel.getName(), color: viewModel.getColor())
-                    Spacer()
-                    DataTextColumn(dataList: colOne)
-                    Spacer()
-                    DataTextColumn(dataList: colTwo)
-                    Spacer()
-                }
-                .lineLimit(2)
-                .minimumScaleFactor(0.2)
-                .font(.title)
-                Rectangle()
-                .stroke(Color.black, lineWidth: 5)
+                VStack{
+                    EventTitleBackground(name: viewModel.getName(), color: event.color)
+                        .layoutPriority(0.5)
+                    HStack{
+                        Spacer()
+                        DataTextColumn(dataList: colOne)
+                            .font(.title)
+                        Spacer()
+                        DataTextColumn(dataList: colTwo)
+                            .font(.title)
+                        Spacer()
+                    }
+                    .layoutPriority(1)
+
+               }
+            .lineLimit(2)
+            Rectangle()
+                .stroke(Color("StealthText"), lineWidth: 5)
            }
            .background(Color("buttonBackGround"))
-        }
+    }
 }
 
 struct EventView_Previews: PreviewProvider {

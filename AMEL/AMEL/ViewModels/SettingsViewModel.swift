@@ -11,49 +11,34 @@ import CoreData
 import SwiftUI
 import UIKit
 
-class SettingsViewModel: ObservableObject {
-	private let colors = [UIColor.red, UIColor.green, UIColor.blue]
-	
-    @FetchRequest(fetchRequest: CustomButton.getCustomButton()) var savedButtons:FetchedResults<CustomButton>
-//    @Environment(\.managedObjectContext) var managedObjectContext
-
-    func getCustomButtons(buttons:FetchedResults<CustomButton>, managedObjectContext:NSManagedObjectContext)->Array<CustomButton> {
-		if buttons.count < 1 {
-			let newButton = SettingsViewModel.createCustomButton(managedObjectContext: managedObjectContext)
-			SettingsViewModel.saveCustomButton(newButton, "New Button", 0, UIColor.gray, managedObjectContext)
-		}
-		var customButtons: [CustomButton] = []
-		buttons.forEach { (buttonData) in
-			customButtons.append(buttonData)
-		}
-		return customButtons
-    }
-	
-	public static func createCustomButton(managedObjectContext:NSManagedObjectContext) -> CustomButton {
+struct SettingsViewModel {
+    var savedButtons:FetchedResults<CustomButton>
+    var managedObjectContext: NSManagedObjectContext
+    private let colorNames = Colors().colorNames
+    let maxNumberOfButtons = 14
+	func createCustomButton() -> CustomButton {
 		return CustomButton(context: managedObjectContext)
 	}
 	
-	public static func saveCustomButton(_ newButton:CustomButton, _ buttonName:String, _ index:Int, _ buttonColor:UIColor, _ managedObjectContext:NSManagedObjectContext) {
+	func saveCustomButton(newButton:CustomButton, buttonName:String, buttonColor:String, managedObjectContext:NSManagedObjectContext) {
 		newButton.buttonName = buttonName
-		newButton.index = index as NSNumber
+        newButton.index = NSNumber(integerLiteral: self.savedButtons.count)
 		newButton.buttonColor = buttonColor
-		
-		// Fetch the event color
-//		do {
-//            try newButton.buttonColor = NSKeyedArchiver.archivedData(withRootObject: buttonColor, requiringSecureCoding: false)
-//        } catch {
-//            newButton.buttonColor = nil
-//        }
-		
 		// update the object
-		do {
-            try managedObjectContext.save()
-        } catch {
-            print("Error saving")
-        }
+		saveCustomButtons()
 	}
-
-	func saveCustomButtons(managedObjectContext:NSManagedObjectContext){
+	
+    func updateButton(name:String, color: Int, button: CustomButton) {
+        for sButton in self.savedButtons {
+            if sButton == button {
+                sButton.buttonName = name
+                sButton.buttonColor = self.colorNames[color]
+                saveCustomButtons()
+            }
+        }
+    }
+	
+	func saveCustomButtons(){
         do{
             try managedObjectContext.save()
         }catch{
@@ -61,15 +46,23 @@ class SettingsViewModel: ObservableObject {
         }
     }
     
-    func deleteAllCustomButtons(managedObjectContext:NSManagedObjectContext){
+    func deleteAllCustomButtons(){
 		self.savedButtons.forEach{(savedButton) in
 			managedObjectContext.delete(savedButton)
         }
-        saveCustomButtons(managedObjectContext: managedObjectContext)
+        saveCustomButtons()
     }
-    
-    func deleteCustomButton(eventToDelete: CustomButton, managedObjectContext:NSManagedObjectContext){
-		managedObjectContext.delete(eventToDelete)
-		saveCustomButtons(managedObjectContext: managedObjectContext)
+    func getNumberOfButtons()->String {
+        if self.savedButtons.count != maxNumberOfButtons {
+            return "Number of Buttons: \(self.savedButtons.count)"
+        } else {
+            return "Number of Buttons: 14 - Maximum"
+        }
+    }
+}
+
+struct SettingsViewModel_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

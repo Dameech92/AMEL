@@ -11,8 +11,9 @@ import CoreData
 
 public class CustomButton: NSManagedObject, Identifiable {
     @NSManaged var buttonName:String?
-    @NSManaged var buttonColor:UIColor?
-    @NSManaged var index:NSNumber?
+    @NSManaged var buttonColor: String?
+    @NSManaged var index: NSNumber?
+    
 }
 extension CustomButton {
     static func getCustomButton() -> NSFetchRequest<CustomButton> {

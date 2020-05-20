@@ -3,20 +3,23 @@
 //  AMEL
 //
 //  Created by Neil Marcellini on 4/15/20.
+//Created by Dimitri Cognata on5/1/20.
 //  Copyright © 2020 Marcellini, Neil. All rights reserved.
 //
 
 import SwiftUI
 
+
 struct BullsEyeView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @State var BEName = ""
+    
     @ObservedObject var pickerData = PickerData()
     @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
     var body: some View {
         let refAction = ReferencePointAction(pickerData: self.pickerData, context: self.managedObjectContext)
         return VStack {
-            TextField("Enter B/E name", text: $BEName)
+            TextField("Enter B/E name!", text: $BEName)
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .multilineTextAlignment(.center)
             .padding(.horizontal)
@@ -32,7 +35,8 @@ struct BullsEyeView: View {
                 Text("Add B/E point")
             }
             .padding()
-            .foregroundColor(Color.green)
+            .foregroundColor(Color("Green"))
+            ClearBullsEye()
             List {
                 ForEach(self.points, id: \.time) { point in
                     RefPointView(point: point)

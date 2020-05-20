@@ -8,32 +8,34 @@
 import SwiftUI
 
 struct RecordView: View {
+    @FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
+    @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
 	private let locationVM = LocationViewModel()
 	private let headingVM = HeadingViewModel()
-	@FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
-	@Environment(\.managedObjectContext) var managedObjectContext
+    let refPointVM = ActiveRefPointVM()
 	
 	var body: some View {
-		let viewModel = SettingsViewModel()
-		let buttonList: [CustomButton] = viewModel.getCustomButtons(buttons: customButton, managedObjectContext: self.managedObjectContext)
-		
+        ActiveRefPointVM.shared.executeFetchRequest(points: points)
+
 		return ZStack {
 			Color("stealth").edgesIgnoringSafeArea(.all)
 			VStack {
-				LiveDataView()
+                LiveDataView()
                 Divider()
 				HStack {
 					VStack {
-						ForEach(Array(stride(from:0, to: buttonList.count, by: 2)), id: \.self) { i in
-							ButtonView(name: buttonList[i].buttonName!, color: buttonList[i].buttonColor!)
-						}
+                        ForEach(0 ..< self.customButton.count/2) {
+                            ButtonView(name: self.customButton[$0].buttonName!, color: self.customButton[$0].buttonColor!)
+						}.padding(10)
 					}
-					VStack {
-						ForEach(Array(stride(from:1, to: buttonList.count, by: 2)), id: \.self) { i in
-							ButtonView(name: buttonList[i].buttonName!, color: buttonList[i].buttonColor!)
-						}
-					}
-				}
+                    VStack {
+                        ForEach(self.customButton.count/2 ..< self.customButton.count) {
+                            ButtonView(name: self.customButton[$0].buttonName!, color: self.customButton[$0].buttonColor!)
+                        }.padding(10)
+                    }
+                }
 			}
 			.padding(10.0)
 		}

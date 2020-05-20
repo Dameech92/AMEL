@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-
 struct ClearAllButton: View {
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -21,6 +20,7 @@ struct ClearAllButton: View {
                         print(error)
                 }
             }
+            
         }) {
             Text("Clear All")
         }

@@ -24,7 +24,9 @@ struct EventViewModel{
     
     func getTime()->String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss (dd-MMM-YY)"
+        //formatter.dateFormat = "HH:mm:ss (dd_MMM_YY)"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         if(event.time != nil){
             return formatter.string(from: event.time!)
         }else{
@@ -34,8 +36,8 @@ struct EventViewModel{
     
     func getLatLng()->String {
         if(event.latitude != nil && event.longitude != nil){
-            let formatter = LatLngFormatter(latitude: event.latitude as! Double, longitude: event.longitude as! Double)
-            return formatter.getLatLng()
+            let formatter = CoordinateFormatter()
+            return formatter.getLatLng(latitude: event.latitude as! Double, longitude: event.longitude as! Double)
         }else{
             return "0"
         }
@@ -54,28 +56,7 @@ struct EventViewModel{
         return Double(truncating: altMeters) * 3.2808
     }
     
-    func getColor() -> Color {
-        if event.color != nil{
-            do {
-                return try Color(NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: event.color!)!)
-            } catch {
-                print(error)
-            }
-        }
-
-        return Color.blue
-    }
-
-    func getUIColor() -> UIColor {
-        if event.color != nil{
-            do {
-                return try (NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: event.color!)!)
-            } catch {
-                print(error)
-            }
-        }
-        return UIColor.blue
-    }
+    
     func getHeadingCourse()->String {
         var course = "---"
         var heading = "---"
@@ -87,11 +68,25 @@ struct EventViewModel{
                 course = String(format: "%03d", Int(truncating: event.course!))
             }
         }
-        return "Heading/Course: " + heading + "°/" + course + "°"
+        return "Heading: " + heading + "°" + " Course: " + course + "°"
     }
     
     func getBoBR()->String {
-        return "BoBR: 191/56 B/E rock 125"
+        var heading = "___"
+        var dis = "0000"
+        var name = "name"
+        
+        if(event.referencePointHeading != nil){
+            heading = String(format: "%.3f",event.referencePointHeading as! Double)
+        }
+        if(event.referencePointDis != nil){
+            dis = String(format: "%d",Int(truncating: event.referencePointDis!))
+        }
+        if(event.referencePointName != nil){
+            name = event.referencePointName!
+        }
+        
+        return "RP:" + name + " " + heading + "/" + dis
     }
     func getGroundSpeed()->String {
         var groundSpeed = "Groundspeed: unavailable"
@@ -110,18 +105,11 @@ struct EventViewModel{
     
     // gets hex color from UIColor for use in log
     func getHexColor()->String {
-        let uiColor = getUIColor()
-        let components = uiColor.cgColor.components
+        let uiColor = UIColor(named: event.color!)
+        let components = uiColor!.cgColor.components
         let r: CGFloat = components?[0] ?? 0.0
         let g: CGFloat = components?[1] ?? 0.0
-        let b: CGFloat
-        if components!.count > 2 {
-            b = components?[2] ?? 0.0
-        }
-        else {
-            b = 0.0
-        }
-        
+        let b: CGFloat = components?[2] ?? 0.0
 
         let hexString = String.init(format: "#%02lX%02lX%02lX", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)))
         return hexString

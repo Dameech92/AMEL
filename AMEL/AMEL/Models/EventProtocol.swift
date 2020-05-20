@@ -17,8 +17,12 @@ public protocol EventProtocol {
     var altitude:NSNumber? { get set }
     var magneticHeading:NSNumber? { get set }
     var course:NSNumber? { get set }
-    var color:Data? { get set }
+    var color:String? { get set }
     var speed:NSNumber? { get set }
+    var referencePointName:String? { get set}
+    var referencePointDis:NSNumber? { get set}
+    var referencePointHeading:NSNumber? { get set}
+    
     static func getEvents() -> NSFetchRequest<Event>
     
 }

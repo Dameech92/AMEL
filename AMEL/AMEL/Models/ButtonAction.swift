@@ -19,6 +19,9 @@ struct ButtonAction {
 	private static var magHeading: CLLocationDirection = 0.0
     private static var course: CLLocationDirection = 0.0
     private static var speed: CLLocationSpeed = 0.0
+    private static var referencePointHeading: Double = 0.0
+    private static var referencePointDis: Double = 0.0
+    private static var referencePointName: String = " "
 	
     
 	private static func fetchCurrentLocationData(_ locationManager: LocationManager) {
@@ -34,7 +37,8 @@ struct ButtonAction {
 		return Event(context: managedObjectContext)
 	}
 	
-	public static func saveEvent(_ newEvent:Event, _ eventName:String, _ color:UIColor, _ managedObjectContext:NSManagedObjectContext) {
+	public static func saveEvent(_ newEvent:Event, _ eventName:String, _ color:
+        String, _ managedObjectContext:NSManagedObjectContext) {
 		// Store the data calculated from the record function within newEvent
 		newEvent.name = eventName
         newEvent.latitude = latitude as NSNumber
@@ -44,7 +48,11 @@ struct ButtonAction {
         newEvent.time = Date()
         newEvent.course = course as NSNumber
         newEvent.speed = speed as NSNumber
-        newEvent.color = saveColor(color: color)
+        newEvent.color = color
+        
+        newEvent.referencePointHeading = referencePointHeading as NSNumber
+        newEvent.referencePointDis = referencePointDis as NSNumber
+        newEvent.referencePointName = referencePointName
 		
 		do {
             try managedObjectContext.save()
@@ -53,7 +61,7 @@ struct ButtonAction {
         }
     }
     
-    public static func record(_ eventName:String, _ color:UIColor, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
+      public static func record(_ eventName:String, _ color:String, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
 		if locationManager.location != nil {
             fetchCurrentLocationData(locationManager)
 		}
@@ -61,14 +69,9 @@ struct ButtonAction {
         if locationManager.heading != nil {
             magHeading = locationManager.heading!.magneticHeading
         }
+        
+        ButtonAction.referencePointDis = ActiveRefPointVM.shared.getReferencePointDistance() ?? 0
+        ButtonAction.referencePointHeading = ActiveRefPointVM.shared.getReferencePointHeading() ?? 0
+        ButtonAction.referencePointName = ActiveRefPointVM.shared.getReferencePointName()
 	}
-    public static func saveColor(color:UIColor)->Data? {
-        let colorData: Data?
-        do {
-            try colorData = NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false)
-        } catch {
-            colorData = nil
-        }
-        return colorData
-    }
 }
