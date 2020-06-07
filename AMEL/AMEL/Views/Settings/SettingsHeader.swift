@@ -9,17 +9,29 @@
 import SwiftUI
 
 struct SettingsHeader: View {
+    @Environment(\.horizontalSizeClass) var widthSizeClass
+    @Environment(\.verticalSizeClass) var heightSizeClass
     let viewModel: SettingsViewModel
     var body: some View {
-        HStack {
+        return HStack {
             SettingsClear()
             Spacer()
-            VStack{
-                Text("Settings")
-                .font(.title)
-                Text(self.viewModel.getNumberOfButtons())
-                .font(.title)
+            if widthSizeClass == .compact || heightSizeClass == .compact {
+                VStack{
+                    Text("Settings")
+                        .font(.title)
+                    Text(self.viewModel.getNumberOfButtons())
+                        .font(.body)
+                }.padding(.top, 40)
+            } else {
+                VStack{
+                    Text("Settings")
+                        .font(.title)
+                    Text(self.viewModel.getNumberOfButtons())
+                        .font(.title)
+                }
             }
+            
             Spacer()
             SettingsAddButton(viewModel: self.viewModel)
         }.padding()
