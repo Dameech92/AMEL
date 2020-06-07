@@ -10,7 +10,6 @@ import SwiftUI
 
 struct SettingsHeader: View {
     @Environment(\.horizontalSizeClass) var widthSizeClass
-    @Environment(\.verticalSizeClass) var heightSizeClass
     let viewModel: SettingsViewModel
     var body: some View {
         let needsTopPadding = widthSizeClass == .compact

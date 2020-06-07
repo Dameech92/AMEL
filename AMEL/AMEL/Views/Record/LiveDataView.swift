@@ -14,9 +14,11 @@ struct LiveDataView: View {
 
     @ObservedObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) var managedObjectContext
-    
+    @Environment(\.horizontalSizeClass) var widthSizeClass
+    @Environment(\.verticalSizeClass) var heightSizeClass
     var body: some View {
-        ZStack{
+        let smallFont = widthSizeClass == .compact || heightSizeClass == .compact
+        return ZStack{
             Rectangle()
                 .fill(Color("buttonBackGround"))
                 .layoutPriority(0.5)
@@ -28,9 +30,7 @@ struct LiveDataView: View {
 
                     VStack{
                         Text(locationVM.getLatLng())
-                            .font(.title)
                         Text(locationVM.getAltitude())
-                            .font(.title)
 
                     }
                     
@@ -42,19 +42,17 @@ struct LiveDataView: View {
                     
                     VStack{
                         Text(headingVM.getCourse())
-                            .font(.title)
-
                         Text(locationVM.getGroundSpeed())
-                            .font(.title)
                     }
                     Spacer()
                 }
+                .font(smallFont ? .body : .title)
                 
                 Divider()
                     .background(Color.primary)
                 
                 Text(ActiveRefPointVM.shared.getFormatedReferencePointHeading() + "/" + ActiveRefPointVM.shared.getFormatedReferencePointDistance())
-                    .font(.system(size: 45))
+                    .font(smallFont ? .title : .system(size: 45))
                 Text(ActiveRefPointVM.shared.getReferencePointName())
             }
             .padding()
