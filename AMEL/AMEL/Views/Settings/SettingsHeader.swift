@@ -16,7 +16,7 @@ struct SettingsHeader: View {
         return HStack {
             SettingsClear()
             Spacer()
-            if widthSizeClass == .compact || heightSizeClass == .compact {
+            if widthSizeClass == .compact {
                 VStack{
                     Text("Settings")
                         .font(.title)
