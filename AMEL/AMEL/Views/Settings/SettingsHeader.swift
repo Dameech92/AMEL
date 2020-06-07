@@ -20,7 +20,7 @@ struct SettingsHeader: View {
                 Text("Settings")
                     .font(.title)
                 Text(self.viewModel.getNumberOfButtons())
-                    .font(.title)
+                    .font(.headline)
             }
             Spacer()
             SettingsAddButton(viewModel: self.viewModel)
