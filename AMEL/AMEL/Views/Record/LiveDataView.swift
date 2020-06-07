@@ -27,23 +27,35 @@ struct LiveDataView: View {
                 
                 HStack{
                     Spacer()
-
-                    VStack{
+                    if heightSizeClass == .compact {
                         Text(locationVM.getLatLng())
                         Text(locationVM.getAltitude())
+                    }else {
+                        VStack{
+                            Text(locationVM.getLatLng())
+                            Text(locationVM.getAltitude())
 
+                        }
                     }
+                    
                     
                     Spacer()
                     Divider()
                         .frame(minHeight: 0, maxHeight: 50)
                         .background(Color.primary)
                     Spacer()
-                    
-                    VStack{
+                    if heightSizeClass == .compact {
                         Text(headingVM.getCourse())
                         Text(locationVM.getGroundSpeed())
+                        
+                    }else {
+                        VStack{
+                            Text(headingVM.getCourse())
+                            Text(locationVM.getGroundSpeed())
+                        }
                     }
+                    
+                    
                     Spacer()
                 }
                 .font(smallFont ? .body : .title)
