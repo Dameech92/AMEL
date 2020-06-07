@@ -11,13 +11,14 @@ import SwiftUI
 struct EventTitleBackground: View {
     var name: String?
     var color: String?
+    let smallText: Bool
     var body: some View {
         ZStack {
             Rectangle()
             .fill(Color(self.color!))
             
             Text(self.name!)
-            .font(.title)
+                .font(self.smallText ? .subheadline : .title)
             .foregroundColor(Color.black)
             .padding(5)
         }
@@ -27,6 +28,6 @@ struct EventTitleBackground: View {
 
 struct EventTitleBackground_Previews: PreviewProvider {
     static var previews: some View {
-        EventTitleBackground(name: "Test", color: "Red")
+        EventTitleBackground(name: "Test", color: "Red", smallText: false)
     }
 }
