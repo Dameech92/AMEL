@@ -14,7 +14,6 @@ struct SaveNewPoint: View {
     let refAction: ReferencePointAction
     var body: some View {
         HStack {
-            Spacer()
             Button(action: {
                 self.refAction.setErrors()
                 if self.refAction.dataIsValid() {
@@ -26,6 +25,6 @@ struct SaveNewPoint: View {
             }){
                 Text("Save New")
             }
-        }.padding(.trailing)
+        }
     }
 }
