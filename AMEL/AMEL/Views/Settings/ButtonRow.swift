@@ -9,6 +9,8 @@ import SwiftUI
 import CoreData
 import Combine
 struct ButtonRow: View {
+    @Environment(\.horizontalSizeClass) var widthSizeClass
+    @Environment(\.verticalSizeClass) var heightSizeClass
     let button: CustomButton
     @Environment(\.managedObjectContext) var context
     var customButtons: FetchedResults<CustomButton>
@@ -16,6 +18,7 @@ struct ButtonRow: View {
     private let colorNames = Colors().colorNames
     @State var showingDetail = false
     var body: some View {
+        var smallFont = widthSizeClass == .compact
         let viewModel = SettingsViewModel(savedButtons: self.customButtons, managedObjectContext: self.context)
         if buttonData.updated {
 			viewModel.updateButton(name: self.buttonData.name, color: self.buttonData.color, button: self.button)
@@ -47,7 +50,7 @@ struct ButtonRow: View {
                 .fill(Color(self.colorNames[self.buttonData.color]))
                 .frame(width:40, height: 40)
                 .cornerRadius(5)
-        }.font(.largeTitle)
+        }.font(smallFont ? .body : .largeTitle)
     }
 }
 

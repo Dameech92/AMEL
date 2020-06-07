@@ -13,28 +13,20 @@ struct SettingsHeader: View {
     @Environment(\.verticalSizeClass) var heightSizeClass
     let viewModel: SettingsViewModel
     var body: some View {
+        let needsTopPadding = widthSizeClass == .compact
         return HStack {
             SettingsClear()
             Spacer()
-            if widthSizeClass == .compact {
-                VStack{
-                    Text("Settings")
-                        .font(.title)
-                    Text(self.viewModel.getNumberOfButtons())
-                        .font(.body)
-                }.padding(.top, 40)
-            } else {
-                VStack{
-                    Text("Settings")
-                        .font(.title)
-                    Text(self.viewModel.getNumberOfButtons())
-                        .font(.title)
-                }
+            VStack{
+                Text("Settings")
+                    .font(.title)
+                Text(self.viewModel.getNumberOfButtons())
+                    .font(.title)
             }
-            
             Spacer()
             SettingsAddButton(viewModel: self.viewModel)
-        }.padding()
+        }.padding(.top, needsTopPadding ? 40 : (10))
+        .padding()
         .background(Color("buttonBackGround"))
         
     }
