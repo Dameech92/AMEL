@@ -26,22 +26,103 @@ struct ButtonView: View {
 			let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
             ButtonAction.saveEvent(newEvent, self.name, self.color, self.managedObjectContext)
         }){
-            VStack {
-                Text(self.name)
+            GeometryReader { g in
+                VStack {
+                    Text(self.name)
+                }.frame(minWidth: 0, maxWidth: .infinity)
+                .frame(minHeight: 0, maxHeight: .infinity)
+                .font(smallText ? .body : .largeTitle)
+                .padding(10)
+                .foregroundColor(.black)
+                .background(Color(self.color))
+                .cornerRadius(self.getRadius(size: g.size))
+                .buttonStyle(CustomButtonStyle())
             }
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .frame(minHeight: 0, maxHeight: .infinity)
-            .font(smallText ? .body : .largeTitle)
-            .padding(10)
-            .foregroundColor(.black)
-            .background(Color(self.color))
-            .cornerRadius(40)
-		}.buttonStyle(CustomButtonStyle())
+        }
+    }
+    func getRadius(size: CGSize)->CGFloat {
+        return sqrt(size.width * size.height) / 8
     }
 }
 
-struct ButtonView_Previews: PreviewProvider {
+struct IPhone_ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(name: "test", color: "Blue")
+        let numButtons = 6;
+        return Group{
+            //portrait
+            HStack {
+                VStack {
+                    ForEach(0 ..< numButtons / 2) {_ in
+                        ButtonView(name: "test", color: "Blue")
+                    }
+                }
+                
+                VStack {
+                    ForEach(numButtons / 2 ..< numButtons) {_ in
+                       ButtonView(name: "test", color: "Blue")
+                   }
+                }
+                
+            }.padding(2)
+            .previewDevice(PreviewDevice(rawValue: "iPhone 11"))
+                .previewDisplayName("iPhone 11")
+            VStack {
+                HStack {
+                    ForEach(0 ..< numButtons / 2) {_ in
+                        ButtonView(name: "test", color: "Blue")
+                    }
+                }
+                
+                HStack {
+                    ForEach(numButtons / 2 ..< numButtons) {_ in
+                       ButtonView(name: "test", color: "Blue")
+                   }
+                }
+                
+            }.padding(2)
+            .previewLayout(PreviewLayout.fixed(width: 812, height: 375))
+            .previewDisplayName("Iphone 11 Landscape")
+        }
+        
+    }
+}
+
+struct IPad_ButtonView_Previews: PreviewProvider {
+    static var previews: some View {
+        let numButtons = 6;
+        return Group {
+            HStack {
+                VStack {
+                    ForEach(0 ..< numButtons / 2) {_ in
+                        ButtonView(name: "test", color: "Blue")
+                    }
+                }
+                
+                VStack {
+                    ForEach(numButtons / 2 ..< numButtons) {_ in
+                       ButtonView(name: "test", color: "Blue")
+                   }
+                }
+                
+            }.padding(2)
+            .previewDevice(PreviewDevice(rawValue: "iPad Pro (11-inch) (2nd generation)"))
+            .previewDisplayName("Ipad Pro 11-inch")
+            HStack {
+               VStack {
+                   ForEach(0 ..< numButtons / 2) {_ in
+                       ButtonView(name: "test", color: "Blue")
+                   }
+               }
+               
+               VStack {
+                   ForEach(numButtons / 2 ..< numButtons) {_ in
+                      ButtonView(name: "test", color: "Blue")
+                  }
+               }
+                           
+           }.padding(2)
+            .previewLayout(PreviewLayout.fixed(width: 1024, height: 768))
+            .previewDisplayName("IPad Pro 11 Landscape")
+        }
     }
 }
