@@ -28,6 +28,10 @@ struct PickerUpdater {
             let afterDot = minutesDotm.index(after: dotIndex ?? minutesDotm.startIndex)
             let minTenth = String(minutesDotm.suffix(from: afterDot))
             self.latlngData.minuteTenth = Int(minTenth) ?? 0
+        } else {
+            self.latlngData.degree = 0
+            self.latlngData.minute = 0
+            self.latlngData.minuteTenth = 0
         }
     }
     func directionToInt(direction: String)->Int {

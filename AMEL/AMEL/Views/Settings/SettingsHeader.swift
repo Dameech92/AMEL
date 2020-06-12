@@ -9,20 +9,24 @@
 import SwiftUI
 
 struct SettingsHeader: View {
+    @Environment(\.horizontalSizeClass) var widthSizeClass
+    @Environment(\.verticalSizeClass) var heightSizeClass
     let viewModel: SettingsViewModel
     var body: some View {
-        HStack {
+        let needsTopPadding = widthSizeClass == .compact && heightSizeClass != .compact
+        return HStack {
             SettingsClear()
             Spacer()
             VStack{
                 Text("Settings")
-                .font(.title)
+                    .font(.title)
                 Text(self.viewModel.getNumberOfButtons())
-                .font(.title)
+                    .font(.headline)
             }
             Spacer()
             SettingsAddButton(viewModel: self.viewModel)
-        }.padding()
+        }.padding(.top, needsTopPadding ? 40 : (10))
+        .padding()
         .background(Color("buttonBackGround"))
         
     }

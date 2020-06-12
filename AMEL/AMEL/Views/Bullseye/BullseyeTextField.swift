@@ -14,17 +14,19 @@ struct BullseyeTextField: View {
     let pickerUpdater: PickerUpdater
     let numberInputs = "-.0123456789"
     var body: some View {
-        TextField("Degrees", text: self.$data)
+        TextField(!self.error ? "Degrees" : "", text: self.$data)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.decimalPad)
                 .onReceive(Just(self.data)) { newValue in
-                    let filtered = newValue.filter { self.numberInputs.contains($0) }
+                    if(!newValue.isEmpty && self.error){
+                        self.error = false
+                    }
+                    let filtered = newValue.filter { self.numberInputs.contains($0)}
                     if filtered != newValue {
                         self.data = filtered
                     }
                     self.pickerUpdater.updatePicker(latOrLng: self.data)
                 }
-        .overlay(self.error ? Text("Out of range").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
+                .overlay(self.error ? Text("Out of range").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
     }
 }
 

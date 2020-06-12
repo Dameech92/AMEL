@@ -12,7 +12,7 @@ import SwiftUI
 
 class TxtFileWriter{
     static func writeLogToTxtFile(events: FetchedResults<Event>)->NSURL? {
-        let fileName = "Log.txt"
+        let fileName = getFileName(event: events[0])
         let filename = getDocumentsDirectory().appendingPathComponent(fileName)
 
         var EventString = ""
@@ -38,6 +38,11 @@ class TxtFileWriter{
     static func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
+    }
+    
+    static func getFileName(event: Event)->String {
+        let eventVM = EventViewModel(event: event)
+        return eventVM.getTime() + ".pdf"
     }
     
 }

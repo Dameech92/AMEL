@@ -77,7 +77,6 @@
 		BF91963D2449373700F6D5C1 /* ReferencePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF91963C2449373700F6D5C1 /* ReferencePoint.swift */; };
 		BFE19E2A2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */; };
 		BFE19E2B2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */; };
-		CA136C5F24748A12005C428E /* TempTxtShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA136C5E24748A12005C428E /* TempTxtShareButton.swift */; };
 		CA136C6124748B3D005C428E /* TxtFileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA136C6024748B3D005C428E /* TxtFileWriter.swift */; };
 		CA9EF8D32460DFC000059A8B /* ActiveRefPointVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9EF8D22460DFC000059A8B /* ActiveRefPointVM.swift */; };
 		CAB7E1BC245A75BF00EED129 /* ReferencePointViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */; };
@@ -192,9 +191,7 @@
 		7E9E1681241C4EC10043EEE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF91963C2449373700F6D5C1 /* ReferencePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePoint.swift; sourceTree = "<group>"; };
 		BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialCoordinateCalculations.swift; sourceTree = "<group>"; };
-		CA136C5E24748A12005C428E /* TempTxtShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempTxtShareButton.swift; sourceTree = "<group>"; };
 		CA136C6024748B3D005C428E /* TxtFileWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxtFileWriter.swift; sourceTree = "<group>"; };
-		CA136C642474AEEF005C428E /* Log.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Log.txt; sourceTree = "<group>"; };
 		CA9EF8D22460DFC000059A8B /* ActiveRefPointVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveRefPointVM.swift; sourceTree = "<group>"; };
 		CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencePointViewModelProtocol.swift; sourceTree = "<group>"; };
 		FCB58F8B245A286A00142984 /* ClearBullsEye.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearBullsEye.swift; sourceTree = "<group>"; };
@@ -225,6 +222,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31436C97248D6F98007B1D62 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				313061F424452AB200876981 /* ClearAllButton.swift */,
+				313061F02445250000876981 /* DataTextColumn.swift */,
+				5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */,
+				318DA7072405B1F9007D79B6 /* EventView.swift */,
+				31757AA22415B64700A92EF8 /* LogView.swift */,
+				313061F624452B1000876981 /* ShareButton.swift */,
+				310EF2E32474D939004C7E9A /* ExportOptions.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		31436C98248D7024007B1D62 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				31E1CDF82416A84900643653 /* ButtonView.swift */,
+				31AB3CAD244648D300154696 /* LiveDataView.swift */,
+				1F9FABCF24158555002FF99B /* RecordView.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
 		31B604722471DDF1005B3399 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,20 +280,10 @@
 		31C6FD1F243E819D007F677F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				31D235F02456376B006A0475 /* Bullseye */,
-				31E1CDF82416A84900643653 /* ButtonView.swift */,
-				313061F424452AB200876981 /* ClearAllButton.swift */,
-				FCB58F8B245A286A00142984 /* ClearBullsEye.swift */,
 				31E860582415F6EE00B4BAE6 /* ContentView.swift */,
-				313061F02445250000876981 /* DataTextColumn.swift */,
-				5A23230E2416EDC50055BAF8 /* EventTitleBackground.swift */,
-				318DA7072405B1F9007D79B6 /* EventView.swift */,
-				31AB3CAD244648D300154696 /* LiveDataView.swift */,
-				31757AA22415B64700A92EF8 /* LogView.swift */,
-				1F9FABCF24158555002FF99B /* RecordView.swift */,
-				313061F624452B1000876981 /* ShareButton.swift */,
-				CA136C5E24748A12005C428E /* TempTxtShareButton.swift */,
-				310EF2E32474D939004C7E9A /* ExportOptions.swift */,
+				31D235F02456376B006A0475 /* Bullseye */,
+				31436C97248D6F98007B1D62 /* Log */,
+				31436C98248D7024007B1D62 /* Record */,
 				31B604722471DDF1005B3399 /* Settings */,
 			);
 			path = Views;
@@ -281,7 +292,6 @@
 		31C6FD20243E8217007F677F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CA136C642474AEEF005C428E /* Log.txt */,
 				1F944147240E193600E3F633 /* ButtonAction.swift */,
 				CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */,
 				31C93ADC244BD4990041809D /* CustomButton.swift */,
@@ -322,6 +332,7 @@
 		31D235F02456376B006A0475 /* Bullseye */ = {
 			isa = PBXGroup;
 			children = (
+				FCB58F8B245A286A00142984 /* ClearBullsEye.swift */,
 				31ECF4EB2447B86500101158 /* BullsEyeView.swift */,
 				31272C9B245DCAA3002A321E /* BullseyeTextField.swift */,
 				312BA2892464975200F6D921 /* PointsHeader.swift */,
@@ -619,7 +630,6 @@
 				4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */,
 				312BA28A2464975200F6D921 /* PointsHeader.swift in Sources */,
 				1FA7B2782442AC8400ABD3BF /* SettingsViewModel.swift in Sources */,
-				CA136C5F24748A12005C428E /* TempTxtShareButton.swift in Sources */,
 				31B6046F2471CEFD005B3399 /* SettingsHeader.swift in Sources */,
 				317D9AFC244A5BF2005C89B1 /* LatLngPicker.swift in Sources */,
 				FCB58F8C245A286A00142984 /* ClearBullsEye.swift in Sources */,

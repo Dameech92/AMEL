@@ -14,9 +14,11 @@ struct LiveDataView: View {
 
     @ObservedObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) var managedObjectContext
-    
+    @Environment(\.horizontalSizeClass) var widthSizeClass
+    @Environment(\.verticalSizeClass) var heightSizeClass
     var body: some View {
-        ZStack{
+        let smallFont = widthSizeClass == .compact || heightSizeClass == .compact
+        return ZStack{
             Rectangle()
                 .fill(Color("buttonBackGround"))
                 .layoutPriority(0.5)
@@ -25,36 +27,44 @@ struct LiveDataView: View {
                 
                 HStack{
                     Spacer()
-
-                    VStack{
+                    if heightSizeClass == .compact {
                         Text(locationVM.getLatLng())
-                            .font(.title)
                         Text(locationVM.getAltitude())
-                            .font(.title)
+                    }else {
+                        VStack{
+                            Text(locationVM.getLatLng())
+                            Text(locationVM.getAltitude())
 
+                        }
                     }
+                    
                     
                     Spacer()
                     Divider()
                         .frame(minHeight: 0, maxHeight: 50)
                         .background(Color.primary)
                     Spacer()
-                    
-                    VStack{
+                    if heightSizeClass == .compact {
                         Text(headingVM.getCourse())
-                            .font(.title)
-
                         Text(locationVM.getGroundSpeed())
-                            .font(.title)
+                        
+                    }else {
+                        VStack{
+                            Text(headingVM.getCourse())
+                            Text(locationVM.getGroundSpeed())
+                        }
                     }
+                    
+                    
                     Spacer()
                 }
+                .font(smallFont ? .body : .title)
                 
                 Divider()
                     .background(Color.primary)
                 
                 Text(ActiveRefPointVM.shared.getFormatedReferencePointHeading() + "/" + ActiveRefPointVM.shared.getFormatedReferencePointDistance())
-                    .font(.system(size: 45))
+                    .font(smallFont ? .title : .system(size: 45))
                 Text(ActiveRefPointVM.shared.getReferencePointName())
             }
             .padding()

@@ -12,6 +12,8 @@ import CoreData
 
 struct PointSelector: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.verticalSizeClass) var heightSizeClass
+    @Environment(\.horizontalSizeClass) var widthSizeClass
     let points: FetchedResults<ReferencePoint>
     @ObservedObject var pickerData: PickerData
     @ObservedObject var pointSetter: ActivePointSetter
@@ -27,43 +29,70 @@ struct PointSelector: View {
         let lngDegrees = Array(0...180)
         let latDirs = ["N", "S"]
         let lngDirs = ["E", "W"]
-        return VStack {
-            HStack {
-                SaveChanges(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
-                SaveNewPoint(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
-            }
-            
-            Text("Reference Point:")
-                .font(.title)
-            TextField("Name", text: self.$pointSetter.selectorData.pointName)
-               .textFieldStyle(RoundedBorderTextFieldStyle())
-               .multilineTextAlignment(.center)
-               .frame(width: 400)
-                .overlay(self.errors.name_error ? Text("Invalid name").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
-            
-            HStack {
-                VStack {
-                    Text("Latitude")
-                        .font(.title)
-                    BullseyeTextField(data: self.$pointSetter.selectorData.latitude, error: self.$errors.lat_error, pickerUpdater: latUpdater)
-                    GeometryReader { geometry in
-                        LatLngPicker(pickerData: self.pickerData.latPicker, screenSize: geometry.size, directions: latDirs, degrees: latDegrees)
-                    }.frame(height: 100)
-                        .clipped()
+        let smallText = heightSizeClass == .compact
+       return VStack() {
+            if smallText {
+                    HStack {
+                        SaveChanges(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+                        Spacer()
+                        Text("Reference Point:")
+                        Spacer()
+                        SaveNewPoint(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+                    }
+                } else {
+                    HStack {
+                        SaveChanges(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+                        Spacer()
+                        SaveNewPoint(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+                    }.font({self.widthSizeClass == .compact}() ? .body : .title)
+                        
+                    Text("Reference Point:")
+                        
                 }
-                Spacer()
-                VStack{
-                    Text("Longitude")
-                        .font(.title)
-                    BullseyeTextField(data: self.$pointSetter.selectorData.longitude, error: self.$errors.lng_error, pickerUpdater: lngUpdater)
-                    GeometryReader { geometry in
-                        LatLngPicker(pickerData: self.pickerData.lngPicker, screenSize: geometry.size, directions: lngDirs, degrees: lngDegrees)
-                    }.frame(height: 100)
-                        .clipped()
+                
+                
+                    TextField("Name", text: self.$pointSetter.selectorData.pointName)
+                       .textFieldStyle(RoundedBorderTextFieldStyle())
+                       .multilineTextAlignment(.center)
+                        .overlay(self.errors.name_error ? Text("Invalid name").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
+                        
+                
+                
+                HStack {
+                    if smallText {
+                        Text("Lat")
+                        BullseyeTextField(data: self.$pointSetter.selectorData.latitude, error: self.$errors.lat_error, pickerUpdater: latUpdater)
+                           
+                        
+                            LatLngPicker(pickerData: self.pickerData.latPicker, directions: latDirs, degrees: latDegrees)
+                        
+                        Spacer()
+                        Text("Lng")
+                        BullseyeTextField(data: self.$pointSetter.selectorData.longitude, error: self.$errors.lng_error, pickerUpdater: lngUpdater)
+            
+                        
+                            LatLngPicker(pickerData: self.pickerData.lngPicker, directions: lngDirs, degrees: lngDegrees)
+                    } else {
+                        VStack {
+                            Text("Latitude")
+                            BullseyeTextField(data: self.$pointSetter.selectorData.latitude, error: self.$errors.lat_error, pickerUpdater: latUpdater)
+                            
+                                LatLngPicker(pickerData: self.pickerData.latPicker, directions: latDirs, degrees: latDegrees)
+                                    
+                            
+                        }
+                        Spacer()
+                        VStack{
+                            Text("Longitude")
+                            BullseyeTextField(data: self.$pointSetter.selectorData.longitude, error: self.$errors.lng_error, pickerUpdater: lngUpdater)
+                            
+                                LatLngPicker(pickerData: self.pickerData.lngPicker, directions: lngDirs, degrees: lngDegrees)
+                            
+                        }
+                    }
                     
                 }
             }
-            
-        }
+       .font(smallText ? .body : .title)
     }
 }
