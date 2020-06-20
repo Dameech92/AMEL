@@ -48,6 +48,7 @@ struct PointSelector: View {
                             .padding(.trailing)
                         
                     }.font({self.widthSizeClass == .compact}() ? .body : .title)
+                        .padding(.bottom, {self.widthSizeClass == .compact}() ? 10 : 0)
                         
                     Text("Reference Point:")
                 }
@@ -99,7 +100,7 @@ struct PointSelector: View {
                     }
                     
                 }
-            }
+        }
        .font(smallText ? .body : .title)
     }
 }
