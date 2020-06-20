@@ -16,7 +16,8 @@ struct SettingsView: View {
         let viewModel = SettingsViewModel(savedButtons: self.customButtons, managedObjectContext: self.managedObjectContext)
         return VStack(spacing: 0) {
             SettingsHeader(viewModel: viewModel)
-            .edgesIgnoringSafeArea(.all)
+            
+            Divider()
             List {
                 ForEach(self.customButtons, id: \.index) { button in
                     ButtonRow(button: button, customButtons: self.customButtons, buttonData: ButtonData(button: button))
