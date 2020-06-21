@@ -20,6 +20,7 @@ struct RecordView: View {
         let landscapeLayout = heightSizeClass == .compact
         ReviewPrompter.requestReviewIfAppropriate()
 		return ZStack {
+
 			Color("stealth").edgesIgnoringSafeArea(.all)
 			VStack {
                 LiveDataView()
@@ -54,8 +55,8 @@ struct RecordView: View {
 				
 			}
 			.padding(10)
-		}
-	}
+        }
+    }
 }
 
 struct RecordView_Previews: PreviewProvider {
