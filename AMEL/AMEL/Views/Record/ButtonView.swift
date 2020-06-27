@@ -15,9 +15,12 @@ struct ButtonView: View {
     @Environment(\.horizontalSizeClass) var widthSizeClass
     private var name:String
     private var color:String
-    init(name:String, color: String) {
+    @ObservedObject private var popups: PopupCreator
+   
+    public init(name: String, color: String, popups: PopupCreator){
         self.name = name
-		self.color = color
+        self.color = color
+        self.popups = popups
     }
     var body: some View {
         let smallText = heightSizeClass == .compact || widthSizeClass == .compact
@@ -25,6 +28,7 @@ struct ButtonView: View {
             ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext)
 			let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
             ButtonAction.saveEvent(newEvent, self.name, self.color, self.managedObjectContext)
+            self.popups.nextTipOnButtonPress()
         }){
             GeometryReader { g in
                 VStack {
@@ -53,13 +57,13 @@ struct IPhone_ButtonView_Previews: PreviewProvider {
             HStack {
                 VStack {
                     ForEach(0 ..< numButtons / 2) {_ in
-                        ButtonView(name: "test", color: "Blue")
+                        ButtonView(name: "test", color: "Blue", popups: PopupCreator(length: 0, showingTutorial: false))
                     }
                 }
                 
                 VStack {
                     ForEach(numButtons / 2 ..< numButtons) {_ in
-                       ButtonView(name: "test", color: "Blue")
+                        ButtonView(name: "test", color: "Blue", popups: PopupCreator(length: 0, showingTutorial: false))
                    }
                 }
                 
@@ -69,13 +73,13 @@ struct IPhone_ButtonView_Previews: PreviewProvider {
             VStack {
                 HStack {
                     ForEach(0 ..< numButtons / 2) {_ in
-                        ButtonView(name: "test", color: "Blue")
+                        ButtonView(name: "test", color: "Blue", popups: PopupCreator(length: 0, showingTutorial: false))
                     }
                 }
                 
                 HStack {
                     ForEach(numButtons / 2 ..< numButtons) {_ in
-                       ButtonView(name: "test", color: "Blue")
+                       ButtonView(name: "test", color: "Blue", popups: PopupCreator(length: 0, showingTutorial: false))
                    }
                 }
                 
@@ -94,13 +98,13 @@ struct IPad_ButtonView_Previews: PreviewProvider {
             HStack {
                 VStack {
                     ForEach(0 ..< numButtons / 2) {_ in
-                        ButtonView(name: "test", color: "Blue")
+                        ButtonView(name: "test", color: "Blue", popups: PopupCreator(length: 0, showingTutorial: false))
                     }
                 }
                 
                 VStack {
                     ForEach(numButtons / 2 ..< numButtons) {_ in
-                       ButtonView(name: "test", color: "Blue")
+                        ButtonView(name: "test", color: "Blue", popups: PopupCreator(length: 0, showingTutorial: false))
                    }
                 }
                 
@@ -110,13 +114,13 @@ struct IPad_ButtonView_Previews: PreviewProvider {
             HStack {
                VStack {
                    ForEach(0 ..< numButtons / 2) {_ in
-                       ButtonView(name: "test", color: "Blue")
+                    ButtonView(name: "test", color: "Blue", popups: PopupCreator(length: 0, showingTutorial: false))
                    }
                }
                
                VStack {
                    ForEach(numButtons / 2 ..< numButtons) {_ in
-                      ButtonView(name: "test", color: "Blue")
+                    ButtonView(name: "test", color: "Blue", popups: PopupCreator(length: 0, showingTutorial: false))
                   }
                }
                            

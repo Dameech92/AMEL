@@ -16,6 +16,7 @@ struct LiveDataView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.horizontalSizeClass) var widthSizeClass
     @Environment(\.verticalSizeClass) var heightSizeClass
+    let popups: PopupCreator
     var body: some View {
         let smallFont = widthSizeClass == .compact || heightSizeClass == .compact
         return ZStack{
@@ -66,6 +67,9 @@ struct LiveDataView: View {
                 Text(ActiveRefPointVM.shared.getFormatedReferencePointHeading() + "/" + ActiveRefPointVM.shared.getFormatedReferencePointDistance())
                     .font(smallFont ? .title : .system(size: 45))
                 Text(ActiveRefPointVM.shared.getReferencePointName())
+                if(self.popups.index == 1){
+                    RefPointPopup()
+                }
             }
             .padding()
             .layoutPriority(1)
@@ -76,6 +80,6 @@ struct LiveDataView: View {
 
 struct LiveDataView_Previews: PreviewProvider {
     static var previews: some View {
-        LiveDataView()
+        LiveDataView(popups: PopupCreator(length: 9, showingTutorial: false))
     }
 }

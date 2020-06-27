@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    init() {
-        // initialize the appearance of the tab bar
-        UITabBar.appearance().backgroundColor = UIColor.darkGray
-    }
+    let popups: PopupCreator
     @State var selected = 0
     var body: some View {
-        TabView(selection: $selected) {
-            
-            RecordView().tabItem({
+        return TabView(selection: $selected) {
+            RecordView(popups: self.popups).tabItem({
                 VStack{
                     Image(systemName: "rectangle.grid.2x2").font(.title)
                     Text("Record Events")
@@ -41,11 +37,6 @@ struct ContentView: View {
                 }
             }).tag(3)
         }.accentColor(Color.blue)
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        .background(Color("Gray"))
     }
 }

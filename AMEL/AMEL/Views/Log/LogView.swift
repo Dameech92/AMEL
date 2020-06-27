@@ -11,7 +11,7 @@ import UIKit
 struct LogView: View {
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
     @Environment(\.managedObjectContext) var managedObjectContext
-    
+    @ObservedObject var popups = PopupCreator(length: 4, showingTutorial: true)
     var body: some View {
         return VStack {
             Spacer()
@@ -27,6 +27,9 @@ struct LogView: View {
             }
             Spacer()
             Divider()
+            if(self.popups.index == 0){
+                EventsExplanation()
+            }
            List {
            ForEach(self.events, id: \.time) { event in
                EventView(event: event)
@@ -49,6 +52,6 @@ struct LogView: View {
 
 struct LogView_Previews: PreviewProvider {
     static var previews: some View {
-        LogView()
+        LogView(popups: PopupCreator(length: 0, showingTutorial: false))
     }
 }
