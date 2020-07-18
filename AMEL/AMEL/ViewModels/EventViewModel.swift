@@ -47,7 +47,7 @@ struct EventViewModel{
     func getAltitude()->String{
         if(event.altitude != nil){
             let altitude =  String(format: "%d", Int(altToFeet(altMeters: event.altitude!)))
-            return "Altitude: " + altitude + "ft HAE"
+            return "Altitude: " + altitude + "ft MSL"
         }else{
             return "Altitude: unavailable"
         }

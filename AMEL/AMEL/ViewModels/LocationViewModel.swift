@@ -77,7 +77,7 @@ struct LocationViewModel {
     func getAltitude()->String{
         if(locationManager.location != nil){
             let altitude =  String(format: "%d", Int(altToFeet(altMeters: locationManager.location!.altitude)))
-            return "Altitude: " + altitude + "ft HAE"
+            return "Altitude: " + altitude + "ft MSL"
         }else{
             return "Altitude: unavailable"
         }

@@ -13,10 +13,11 @@ struct GenericPopup: View {
     let symbolName: String
     var body: some View {
         HStack {
+            Image(systemName: self.symbolName)
+            .padding()
             Text(self.text)
                .padding()
-            Image(systemName: self.symbolName)
-                .padding()
+                .lineLimit(nil)
         }.background(Color("Teal"))
         .cornerRadius(6)
     }
