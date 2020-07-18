@@ -11,7 +11,7 @@ import UIKit
 struct LogView: View {
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
     @Environment(\.managedObjectContext) var managedObjectContext
-    @ObservedObject var popups = PopupCreator(length: 4, showingTutorial: true)
+    @ObservedObject var popups: PopupCreator
     var body: some View {
         return VStack {
             Spacer()
@@ -31,19 +31,19 @@ struct LogView: View {
                 EventsExplanation()
             }
            List {
-           ForEach(self.events, id: \.time) { event in
-               EventView(event: event)
-              }.onDelete { indexSet in
-                   for index in indexSet {
-                       let event = self.events[index]
-                       self.managedObjectContext.delete(event)
-                   }
-                  do {
-                      try self.managedObjectContext.save()
-                  }catch {
-                          print(error)
+            ForEach(self.events.indices) { index in
+                EventView(event: self.events[index], popups: self.popups, logIndex: index)
+             }.onDelete { indexSet in
+                  for index in indexSet {
+                      let event = self.events[index]
+                      self.managedObjectContext.delete(event)
                   }
-              }
+                 do {
+                     try self.managedObjectContext.save()
+                 }catch {
+                         print(error)
+                 }
+             }
            }
         }
     }

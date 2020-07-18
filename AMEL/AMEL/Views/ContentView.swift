@@ -18,7 +18,7 @@ struct ContentView: View {
                     Text("Record Events")
                 }
             }).tag(0)
-            LogView().tabItem({
+            LogView(popups: self.popups).tabItem({
                 VStack{
                     Image(systemName: "list.dash").font(.title)
                     Text("Log")

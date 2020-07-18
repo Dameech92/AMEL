@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 struct TutorialVM {
     @State var tabSelected = 0
-    @ObservedObject var popups = PopupCreator(length: 6, showingTutorial: true)
+    @ObservedObject var popups = PopupCreator(length: 20, showingTutorial: true)
     
     func nextPopup() {
         self.popups.toggleNext()
