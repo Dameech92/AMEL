@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct LaunchView: View {
-    @State var showTutorial: Bool = true //UserDefaults.standard.integer(forKey: "launchCount") == 1
+    let showTutorial: Bool = true //UserDefaults.standard.integer(forKey: "launchCount") == 1
     var body: some View {
         VStack {
             if(self.showTutorial){
-                TutorialView()
+                TutorialView(showingTut: self.showTutorial)
             } else {
-                ContentView(popups: PopupCreator(length: 0, showingTutorial: false))
+                ContentView()
             }
         }
     }

@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    let popups: PopupCreator
     @State var selected = 0
     var body: some View {
         return TabView(selection: $selected) {
-            RecordView(popups: self.popups).tabItem({
+            RecordView().tabItem({
                 VStack{
                     Image(systemName: "rectangle.grid.2x2").font(.title)
                     Text("Record Events")
                 }
             }).tag(0)
-            LogView(popups: self.popups).tabItem({
+            LogView().tabItem({
                 VStack{
                     Image(systemName: "list.dash").font(.title)
                     Text("Log")

@@ -10,60 +10,64 @@ import SwiftUI
 
 struct TutorialView: View {
     @State var selectionMade = false
-    let tutorialVM = TutorialVM()
+    @State private var offset = CGSize.zero
+    @State private var currentIndex = 0
+    @State private var selectedImage = 0
+    @State var showingTut: Bool
+    private let imageNames = ["record", "log", "bullseye", "settings"]
     var body: some View {
-        return VStack {
-            if(!selectionMade){
-                Text("Welcome to AMEL!")
-                Button(action:{
-                    self.selectionMade = true
-                }) {
-                    Text("Show Me Around")
+//        if #available(iOS 14.0, *) {
+//            TabView(selection: $currentIndex) {
+//                ForEach(0..<messages.count, id: \.self) { index in
+//                    Text(messages[index])
+//
+//                }
+//            }
+//            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+//            .background(Color.gray)
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//        }
+        VStack {
+            if(showingTut) {
+                Image(self.imageNames[self.selectedImage])
+                    .resizable()
+                    .offset(x: offset.width, y: 0)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { gesture in
+                                self.offset = gesture.translation
+                        }
+                        .onEnded { _ in
+                            if self.offset.width < -100 {
+                                self.selectedImage += 1
+                                self.offset = .zero
+                            } else if self.offset.width > 100 {
+                                self.selectedImage -= 1
+                                self.offset = .zero
+                            }
+                            else {
+                                self.offset = .zero
+                            }
+                        }
+                    )
+                Image(systemName: "circle")
+                Button("End Tutorial"){
+                    self.showingTut = false
                 }
-                Button(action:{
-                    self.tutorialVM.end()
-                    self.selectionMade = true
-                }){
-                    Text("No Thanks")
-                }
+            } else {
+                ContentView()
             }
-            else if(self.tutorialVM.popups.showingTutorial) {
-                VStack {
-                    HStack {
-                        Button(action: {
-                            self.tutorialVM.prevPopup()
-                        }){
-                            Image(systemName: "arrow.left")
-                        }
-                        Button(action: {
-                            self.tutorialVM.nextPopup()
-                            
-                        }){
-                            Image(systemName: "arrow.right")
-                        }
-                        Button(action: {
-                            self.tutorialVM.nextPage()
-                            
-                        }){
-                            Text("Next Page")
-                        }
-                        Button(action: {
-                            self.tutorialVM.end()
-                        }){
-                            Text("End Tutorial")
-                        }
-                    }
-                    ContentView(popups: self.tutorialVM.popups)
-                }
-                
-            }
+            
         }
         
     }
+                
 }
 
 struct TutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialView()
+        TutorialView(showingTut: true)
     }
 }
