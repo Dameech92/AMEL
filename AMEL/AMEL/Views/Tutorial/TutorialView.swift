@@ -29,15 +29,15 @@ struct TutorialView: View {
                         }
                         .onEnded { _ in
                             if self.offset.width < -100 {
-                                self.circles[selectedImage] = false
+                                self.circles[self.selectedImage] = false
                                 self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage + 1, numImages: self.cards.count - 1)
   
                             } else if self.offset.width > 100 {
-                                self.circles[selectedImage] = false
+                                self.circles[self.selectedImage] = false
                                 self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage - 1, numImages: self.cards.count - 1)
                             }
                             self.offset = .zero
-                            self.circles[selectedImage] = true
+                            self.circles[self.selectedImage] = true
                         }
                     )
                     
@@ -53,9 +53,9 @@ struct TutorialView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            self.circles[selectedImage] = false
+                            self.circles[self.selectedImage] = false
                             self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage - 1, numImages: self.cards.count - 1)
-                            self.circles[selectedImage] = true
+                            self.circles[self.selectedImage] = true
                             
                         }, label: {
                             
@@ -66,9 +66,9 @@ struct TutorialView: View {
                         })
                         Spacer()
                         Button(action: {
-                            self.circles[selectedImage] = false
+                            self.circles[self.selectedImage] = false
                             self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage + 1, numImages: self.cards.count - 1)
-                            self.circles[selectedImage] = true
+                            self.circles[self.selectedImage] = true
                             
                         }, label: {
                             Image(systemName: "arrowtriangle.right.fill")

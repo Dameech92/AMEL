@@ -16,6 +16,7 @@ struct TutorialCard: View {
         VStack {
             Text(name)
                 .font(.largeTitle)
+                .bold()
             Text(self.text)
                 .font(.title)
                 .padding()
