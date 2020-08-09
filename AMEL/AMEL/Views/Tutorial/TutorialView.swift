@@ -14,13 +14,14 @@ struct TutorialView: View {
     @State private var currentIndex = 0
     @State private var selectedImage = 0
     @State var showingTut: Bool
-    private let cards = [TutorialCard(text: "This is the main page where you can record events and see real time data.", imageName: "record"), TutorialCard(text: "The log page shows all the events you have recorded and their associated data", imageName: "log"), TutorialCard(text: "On the bullseye page you can enter reference points and choose which one is actively tracked.", imageName: "bullseye"), TutorialCard(text: "In Settings you can add and remove buttons, as well as change their name and color", imageName: "settings")]
+    private let cards = [TutorialCard(name: "Record", text: "This is the main page where you can record events and see real time data.", imageName: "record"), TutorialCard(name: "Log", text: "The log page shows all the events you have recorded and their associated data", imageName: "log"), TutorialCard(name: "Bullseye", text: "On the bullseye page you can enter reference points and choose which one is actively tracked.", imageName: "bullseye"), TutorialCard(name: "Settings", text: "In Settings you can add and remove buttons, as well as change their name and color", imageName: "settings")]
     @State private var circles = [true, false, false, false]
     var body: some View {
         VStack {
             if(showingTut) {
                 cards[selectedImage]
                     .offset(x: offset.width, y: 0)
+                    .opacity(3 - Double(abs(offset.width / 100)))
                     .gesture(
                         DragGesture()
                             .onChanged { gesture in
@@ -39,23 +40,51 @@ struct TutorialView: View {
                             self.circles[selectedImage] = true
                         }
                     )
-                
+                    
+                Divider()
                 VStack {
                     HStack {
                         ForEach(self.circles, id: \.self) { circle in
                             Image(systemName: circle ? "circle.fill" : "circle")
+                                .imageScale(.small)
                        
                         }
                     }.padding()
-                    
-                    Button("End Tutorial"){
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            self.circles[selectedImage] = false
+                            self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage - 1, numImages: self.cards.count - 1)
+                            self.circles[selectedImage] = true
+                            
+                        }, label: {
+                            
+                            Image(systemName: "arrowtriangle.left.fill")
+                                    
+                             
+                            
+                        })
+                        Spacer()
+                        Button(action: {
+                            self.circles[selectedImage] = false
+                            self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage + 1, numImages: self.cards.count - 1)
+                            self.circles[selectedImage] = true
+                            
+                        }, label: {
+                            Image(systemName: "arrowtriangle.right.fill")
+                        })
+                        Spacer()
+                    }.font(.largeTitle)
+                    .padding()
+                    Button(action: {
                         self.showingTut = false
-                    }.padding()
-                    .background(Color.black)
+                    }, label: {
+                        Text("End Tutorial")
+                            .padding()
+                            .background(Color.red)
+                            .cornerRadius(20)
+                    }).buttonStyle(PlainButtonStyle())
                 }
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .background(Color(red: 66 / 255, green: 155 / 255, blue: 245 / 255).edgesIgnoringSafeArea(.all))
-                
                 
                 
             } else {
@@ -79,6 +108,12 @@ func changeImage(oldIndex: Int, newIndex: Int, numImages: Int) -> Int{
 
 struct TutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialView(showingTut: true)
+        Group {
+            TutorialView(showingTut: true)
+                .preferredColorScheme(.dark)
+            TutorialView(showingTut: true)
+                .previewDevice("iPhone 11")
+                .preferredColorScheme(.dark)
+        }
     }
 }
