@@ -14,25 +14,11 @@ struct TutorialView: View {
     @State private var currentIndex = 0
     @State private var selectedImage = 0
     @State var showingTut: Bool
-    private let imageNames = ["record", "log", "bullseye", "settings"]
+    private let cards = [TutorialCard(text: "This is the main page where you can record events and see real time data.", imageName: "record"), TutorialCard(text: "The log page shows all the events you have recorded and their associated data", imageName: "log"), TutorialCard(text: "On the bullseye page you can enter reference points and choose which one is actively tracked.", imageName: "bullseye"), TutorialCard(text: "In Settings you can add and remove buttons, as well as change their name and color", imageName: "settings")]
     var body: some View {
-//        if #available(iOS 14.0, *) {
-//            TabView(selection: $currentIndex) {
-//                ForEach(0..<messages.count, id: \.self) { index in
-//                    Text(messages[index])
-//
-//                }
-//            }
-//            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-//            .background(Color.gray)
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//        }
         VStack {
             if(showingTut) {
-                Image(self.imageNames[self.selectedImage])
-                    .resizable()
+                cards[selectedImage]
                     .offset(x: offset.width, y: 0)
                     .gesture(
                         DragGesture()
@@ -41,10 +27,10 @@ struct TutorialView: View {
                         }
                         .onEnded { _ in
                             if self.offset.width < -100 {
-                                self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage + 1, numImages: self.imageNames.count - 1)
+                                self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage + 1, numImages: self.cards.count - 1)
   
                             } else if self.offset.width > 100 {
-                                self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage - 1, numImages: self.imageNames.count - 1)
+                                self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage - 1, numImages: self.cards.count - 1)
                             }
                             self.offset = .zero
                         }
