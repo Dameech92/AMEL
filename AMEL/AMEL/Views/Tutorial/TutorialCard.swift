@@ -22,10 +22,6 @@ struct TutorialCard: View {
                 .padding()
         }
         .padding()
-        .overlay(
-            RoundedRectangle(cornerRadius: 16)
-                .stroke(Color.black, lineWidth: 4)
-        )
         
     }
 }

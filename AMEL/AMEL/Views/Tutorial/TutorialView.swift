@@ -39,16 +39,25 @@ struct TutorialView: View {
                             self.circles[selectedImage] = true
                         }
                     )
-                HStack {
-                    ForEach(self.circles, id: \.self) { circle in
-                        Image(systemName: circle ? "circle.fill" : "circle")
-                   
-                    }
-                }
                 
-                Button("End Tutorial"){
-                    self.showingTut = false
+                VStack {
+                    HStack {
+                        ForEach(self.circles, id: \.self) { circle in
+                            Image(systemName: circle ? "circle.fill" : "circle")
+                       
+                        }
+                    }.padding()
+                    
+                    Button("End Tutorial"){
+                        self.showingTut = false
+                    }.padding()
+                    .background(Color.black)
                 }
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .background(Color(red: 66 / 255, green: 155 / 255, blue: 245 / 255).edgesIgnoringSafeArea(.all))
+                
+                
+                
             } else {
                 ContentView()
             }
