@@ -41,15 +41,12 @@ struct TutorialView: View {
                         }
                         .onEnded { _ in
                             if self.offset.width < -100 {
-                                self.selectedImage += 1
-                                self.offset = .zero
+                                self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage + 1, numImages: self.imageNames.count - 1)
+  
                             } else if self.offset.width > 100 {
-                                self.selectedImage -= 1
-                                self.offset = .zero
+                                self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage - 1, numImages: self.imageNames.count - 1)
                             }
-                            else {
-                                self.offset = .zero
-                            }
+                            self.offset = .zero
                         }
                     )
                 Image(systemName: "circle")
@@ -65,6 +62,15 @@ struct TutorialView: View {
     }
                 
 }
+
+func changeImage(oldIndex: Int, newIndex: Int, numImages: Int) -> Int{
+    if (newIndex > numImages || newIndex < 0 ) {
+        return oldIndex
+    } else {
+        return newIndex
+    }
+}
+
 
 struct TutorialView_Previews: PreviewProvider {
     static var previews: some View {
