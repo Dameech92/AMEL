@@ -14,8 +14,8 @@ struct TutorialView: View {
     @State private var currentIndex = 0
     @State private var selectedImage = 0
     @State var showingTut: Bool
-    private let cards = [TutorialCard(name: "Record", text: "This is the main page where you can record events and see real time data.", imageName: "record"), TutorialCard(name: "Log", text: "The log page shows all the events you have recorded and their associated data", imageName: "log"), TutorialCard(name: "Bullseye", text: "On the bullseye page you can enter reference points and choose which one is actively tracked.", imageName: "bullseye"), TutorialCard(name: "Settings", text: "In Settings you can add and remove buttons, as well as change their name and color", imageName: "settings")]
-    @State private var circles = [true, false, false, false]
+    private let cards = [TutorialCard(name: "Welcome to AMEL!", text: "Since this is your first time here, how about a quick tutorial?\nClick the arrow or swipe left to get started!\nYou may end the tutorial at any time.", imageName: "launch_logo"), TutorialCard(name: "Record", text: "This is the main page where you can record events and see real time data.", imageName: "record"), TutorialCard(name: "Log", text: "The log page shows all the events you have recorded and their associated data", imageName: "log"), TutorialCard(name: "Bullseye", text: "On the bullseye page you can enter reference points and choose which one is actively tracked.", imageName: "bullseye"), TutorialCard(name: "Settings", text: "In Settings you can add and remove buttons, as well as change their name and color", imageName: "settings")]
+    @State private var circles = [true, false, false, false, false]
     var body: some View {
         VStack {
             if(showingTut) {
@@ -110,7 +110,7 @@ struct TutorialView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             TutorialView(showingTut: true)
-                .preferredColorScheme(.dark)
+                .preferredColorScheme(.light)
             TutorialView(showingTut: true)
                 .previewDevice("iPhone 11")
                 .preferredColorScheme(.dark)
