@@ -14,9 +14,18 @@ struct TutorialCard: View {
     var body: some View {
         VStack {
             Text(self.text)
+                .font(.title)
+                .padding()
             Image(self.imageName)
                 .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding()
         }
+        .padding()
+        .overlay(
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(Color.black, lineWidth: 4)
+        )
         
     }
 }

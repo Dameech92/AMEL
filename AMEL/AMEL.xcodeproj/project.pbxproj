@@ -64,8 +64,6 @@
 		31D235F324563B99006A0475 /* PointSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D235F224563B99006A0475 /* PointSelector.swift */; };
 		31D2CB36243FBDB500356BCF /* HTMLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D2CB35243FBDB500356BCF /* HTMLGenerator.swift */; };
 		31D8C4B2249FDAA700D7B9CF /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D8C4B1249FDAA700D7B9CF /* LaunchView.swift */; };
-		31D8C4BD24A00C2E00D7B9CF /* TutorialVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D8C4BC24A00C2E00D7B9CF /* TutorialVM.swift */; };
-		31D8C4BF24A00FAC00D7B9CF /* PopupCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D8C4BE24A00FAC00D7B9CF /* PopupCreator.swift */; };
 		31DF3724244CF40600905903 /* ButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DF3723244CF40600905903 /* ButtonRow.swift */; };
 		31E1CDF92416A84900643653 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E1CDF82416A84900643653 /* ButtonView.swift */; };
 		31E204492471E6D100B87913 /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E204482471E6D100B87913 /* ColorSelector.swift */; };
@@ -179,8 +177,6 @@
 		31D235F224563B99006A0475 /* PointSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointSelector.swift; sourceTree = "<group>"; };
 		31D2CB35243FBDB500356BCF /* HTMLGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLGenerator.swift; sourceTree = "<group>"; };
 		31D8C4B1249FDAA700D7B9CF /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
-		31D8C4BC24A00C2E00D7B9CF /* TutorialVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialVM.swift; sourceTree = "<group>"; };
-		31D8C4BE24A00FAC00D7B9CF /* PopupCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupCreator.swift; sourceTree = "<group>"; };
 		31DF3723244CF40600905903 /* ButtonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRow.swift; sourceTree = "<group>"; };
 		31E1CDF82416A84900643653 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		31E204482471E6D100B87913 /* ColorSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
@@ -275,7 +271,6 @@
 		31C6FD1E243E816C007F677F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				31D8C4BC24A00C2E00D7B9CF /* TutorialVM.swift */,
 				31272CA5245DE8EC002A321E /* CoordinateFormatter.swift */,
 				1FA7B2772442AC8400ABD3BF /* SettingsViewModel.swift */,
 				31C6FD1C243E7B9B007F677F /* EventViewModel.swift */,
@@ -308,7 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				1F944147240E193600E3F633 /* ButtonAction.swift */,
-				31D8C4BE24A00FAC00D7B9CF /* PopupCreator.swift */,
 				CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */,
 				3128F1BE249578D9006192CA /* ReviewPrompter.swift */,
 				31C93ADC244BD4990041809D /* CustomButton.swift */,
@@ -604,7 +598,6 @@
 				31272CA2245DCFD1002A321E /* LatFormatter.swift in Sources */,
 				1F2962032416E41400BBC97F /* HeadingViewModel.swift in Sources */,
 				31738E7F244A2B5B0073022A /* PickerData.swift in Sources */,
-				31D8C4BF24A00FAC00D7B9CF /* PopupCreator.swift in Sources */,
 				313061F524452AB200876981 /* ClearAllButton.swift in Sources */,
 				31C6FD19243E75FF007F677F /* PDFRenderer.swift in Sources */,
 				CAB7E1BC245A75BF00EED129 /* ReferencePointViewModelProtocol.swift in Sources */,
@@ -626,7 +619,6 @@
 				31D8C4B2249FDAA700D7B9CF /* LaunchView.swift in Sources */,
 				3195918324DFD2D700131EFF /* TutorialCard.swift in Sources */,
 				1F4175BF245CD9EE003A3625 /* CustomButtonStyle.swift in Sources */,
-				31D8C4BD24A00C2E00D7B9CF /* TutorialVM.swift in Sources */,
 				BFE19E2A2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */,
 				31272C9C245DCAA3002A321E /* BullseyeTextField.swift in Sources */,
 				31272CAA245E2150002A321E /* LatLngFormatter.swift in Sources */,
