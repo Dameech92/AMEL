@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // get current number of times app has been launched
         let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
-        preloadData(currentCount)
+        preloadData(currentCount: currentCount)
 
         // increment received number by one
         UserDefaults.standard.set(currentCount+1, forKey:"launchCount")
@@ -42,11 +42,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func preloadData(currentCount: Int) {
         if(currentCount == 0) {
-            guard let urlPath = Bundle.main.url(forResource: "InitialData", withExtension: "plist") else {
+            guard let urlPath = Bundle.main.url(forResource: "InitialData", withExtension: "plist")
+            else {
                 return
             }
+            let backgroundContext = persistentContainer.newBackgroundContext()
+            backgroundContext.perform {
+                    if let data = NSArray(contentsOf: urlPath) {
+                        let buttons = data[0] as! [Any]
+                        let reference_points = data[1] as! [Any]
+                        for button in buttons {
+                            let currButton = button as! [Any]
+                            let newButton = CustomButton(context: backgroundContext)
+                            newButton.buttonColor = currButton[0] as? String
+                            newButton.buttonName = currButton[1] as? String
+                            newButton.index = currButton[2] as? NSNumber
+                            
+                        }
+                        for point in reference_points {
+                            let currPoint = point as! [Any]
+                            let newPoint = ReferencePoint(context: backgroundContext)
+                            newPoint.latitude = currPoint[0] as? NSNumber
+                            newPoint.longitude = currPoint[1] as? NSNumber
+                            newPoint.name = currPoint[2] as? String
+                            newPoint.time = Date()
+                            newPoint.isActive = currPoint[3] as! Bool
+                            
+                        }
+                            
+                    }
+                    do {
+                        try backgroundContext.save()
+                    } catch {
+                        print("Error saving initial data")
+                    }
+                    
+                }
+            }
+            
+            
         }
-    }
 
     // MARK: - Core Data stack
 

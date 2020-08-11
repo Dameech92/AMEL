@@ -1,70 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>Buttons</key>
-	<dict>
-		<key>Bomb</key>
-		<dict>
-			<key>buttonName</key>
+<array>
+	<array>
+		<array>
 			<string>Bomb</string>
-			<key>buttonColor</key>
 			<string>Blue</string>
-			<key>index</key>
 			<integer>0</integer>
-		</dict>
-		<key>Missile</key>
-		<dict>
-			<key>buttonName</key>
+		</array>
+		<array>
 			<string>Missile</string>
-			<key>buttonColor</key>
 			<string>Red</string>
-			<key>index</key>
 			<integer>1</integer>
-		</dict>
-		<key>Radar_Jam</key>
-		<dict>
-			<key>buttonName</key>
+		</array>
+		<array>
 			<string>Radar Jam</string>
-			<key>buttonColor</key>
 			<string>Green</string>
-			<key>index</key>
 			<string>2</string>
-		</dict>
-		<key>Evasive_Maneuver</key>
-		<dict>
-			<key>buttonName</key>
+		</array>
+		<array>
 			<string>Evasive Maneuver</string>
-			<key>buttonColor</key>
 			<string>Teal</string>
-			<key>index</key>
 			<integer>3</integer>
-		</dict>
-	</dict>
-	<key>Reference_Points</key>
-	<dict>
-		<key>Rock</key>
-		<dict>
-			<key>latitude</key>
+		</array>
+	</array>
+	<array>
+		<array>
 			<real>34.0855794</real>
-			<key>longitude</key>
 			<real>-119.0631237</real>
-			<key>name</key>
 			<string>Rock</string>
-			<key>isActive</key>
 			<true/>
-		</dict>
-		<key>Origin</key>
-		<dict>
-			<key>latitude</key>
+		</array>
+		<array>
 			<real>34.1619319</real>
-			<key>longitude</key>
 			<real>-119.0459552</real>
-			<key>name</key>
 			<string>Origin</string>
-			<key>isActive</key>
 			<false/>
-		</dict>
-	</dict>
-</dict>
+		</array>
+	</array>
+</array>
 </plist>
