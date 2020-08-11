@@ -27,9 +27,9 @@ struct LogView: View {
             Spacer()
             Divider()
            List {
-            ForEach(self.events.indices) { index in
-                EventView(event: self.events[index], logIndex: index)
-             }.onDelete { indexSet in
+            ForEach(self.events, id: \.time) { event in
+                EventView(event: event)
+            }.onDelete { indexSet in
                   for index in indexSet {
                       let event = self.events[index]
                       self.managedObjectContext.delete(event)

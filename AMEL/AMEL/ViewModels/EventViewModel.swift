@@ -77,7 +77,7 @@ struct EventViewModel{
         var name = "name"
         
         if(event.referencePointHeading != nil){
-            heading = String(format: "%.3f",event.referencePointHeading as! Double)
+            heading = String(format: "%d", Double(truncating: event.referencePointHeading!))
         }
         if(event.referencePointDis != nil){
             dis = String(format: "%d",Int(truncating: event.referencePointDis!))

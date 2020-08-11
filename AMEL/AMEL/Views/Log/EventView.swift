@@ -12,7 +12,6 @@ struct EventView: View{
     let event: Event
     @Environment(\.verticalSizeClass) var heightSizeClass
     @Environment(\.horizontalSizeClass) var widthSizeClass
-    let logIndex: Int
     var body: some View {
         let viewModel = EventViewModel(event: event)
         let smallText = heightSizeClass == .compact || widthSizeClass == .compact
@@ -77,6 +76,6 @@ struct EventView: View{
 
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        return EventView(event: Event(), logIndex: 0)
+        return EventView(event: Event())
     }
 }
