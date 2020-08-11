@@ -89,9 +89,14 @@ struct LocationViewModel {
     func getLocationAccuracy() -> String {
         var display = ""
         if (locationManager.location != nil) {
-            display = "Location Accuracy: " +  String(format: "%.2f", locationManager.location!.horizontalAccuracy) + " m"
+            let locationAccuracy = metersToFeet(meters: locationManager.location!.horizontalAccuracy)
+            display = "Location Accuracy: " +  String(format: "%.2f", locationAccuracy) + " ft"
         }
         return display
     }
+    func metersToFeet(meters: Double)-> Double{
+        return meters * 3.28084
+    }
+    
         
 }
