@@ -27,18 +27,18 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
     }
         
     func getFormatedReferencePointHeading() -> String {
-        return String(format:"%.0f",getReferencePointHeading() ?? "-.-")
+        return String(format:"%.0f",getReferencePointHeading())
     }
     
     func getFormatedReferencePointDistance() -> String {
-        return String(format:"%.0f",getReferencePointDistance() ?? "-.-")
+        return String(format:"%.0f", getReferencePointDistance())
     }
     
     func getReferencePointName() -> String {
         return currentActiveRefPoint?.name ?? "NoActiveRefPoint"
     }
     
-    func getReferencePointHeading() -> Double? {
+    func getReferencePointHeading() -> Double {
         if(currentActiveRefPoint != nil){
             let pilotLat = LocationVM.getLatRaw()
             let pilotLong = LocationVM.getLongRaw()
@@ -46,11 +46,11 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
             let RPLong = Double(truncating: currentActiveRefPoint?.longitude ?? 0)
             let headingDouble = RadialCoordinateCalculations.getAngle(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)
             return headingDouble
-        }else{return nil}
+        }else{return 0}
 
     }
     
-    func getReferencePointDistance() -> Double? {
+    func getReferencePointDistance() -> Double {
         if(currentActiveRefPoint != nil){
             let pilotLat = LocationVM.getLatRaw()
             let pilotLong = LocationVM.getLongRaw()
@@ -62,6 +62,6 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
                 distance = RadialCoordinateCalculations.getDistance(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)
             }
             return distance
-        }else{return nil}
+        }else{return 0}
     }
 }
