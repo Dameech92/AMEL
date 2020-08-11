@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // get current number of times app has been launched
         let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
+        preloadData(currentCount)
 
         // increment received number by one
         UserDefaults.standard.set(currentCount+1, forKey:"launchCount")
@@ -37,6 +38,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    func preloadData(currentCount: Int) {
+        if(currentCount == 0) {
+            guard let urlPath = Bundle.main.url(forResource: "InitialData", withExtension: "plist") else {
+                return
+            }
+        }
     }
 
     // MARK: - Core Data stack
