@@ -54,8 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         for button in buttons {
                             let currButton = button as! [Any]
                             let newButton = CustomButton(context: backgroundContext)
-                            newButton.buttonColor = currButton[0] as? String
-                            newButton.buttonName = currButton[1] as? String
+                            newButton.buttonName = currButton[0] as? String
+                            newButton.buttonColor = currButton[1] as? String
                             newButton.index = currButton[2] as? NSNumber
                             
                         }
