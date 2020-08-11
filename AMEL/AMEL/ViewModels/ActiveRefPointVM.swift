@@ -27,11 +27,11 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
     }
         
     func getFormatedReferencePointHeading() -> String {
-        return String(format:"%.0f",getReferencePointHeading())
+        return String(format: "%03d", Int(getReferencePointHeading())) + "°"
     }
     
     func getFormatedReferencePointDistance() -> String {
-        return String(format:"%.0f", getReferencePointDistance())
+        return String(format:"%.0f", getReferencePointDistance()) + " nm"
     }
     
     func getReferencePointName() -> String {
