@@ -85,5 +85,13 @@ struct LocationViewModel {
     private func altToFeet(altMeters: CLLocationDistance)->Double {
         return altMeters * 3.2808
     }
+    
+    func getLocationAccuracy() -> String {
+        var display = ""
+        if (locationManager.location != nil) {
+            display = "Location Accuracy: " +  String(format: "%.2f", locationManager.location!.horizontalAccuracy) + " m"
+        }
+        return display
+    }
         
 }

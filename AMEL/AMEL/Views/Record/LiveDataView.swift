@@ -24,6 +24,10 @@ struct LiveDataView: View {
                 .layoutPriority(0.5)
                 .cornerRadius(10)
             VStack{
+                HStack {
+                    Spacer()
+                    Text(locationVM.getLocationAccuracy())
+                }
                 
                 HStack{
                     Spacer()
