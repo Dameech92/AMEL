@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<array>
+			<string>Bomb</string>
+			<string>Blue</string>
+			<integer>0</integer>
+		</array>
+		<array>
+			<string>Missile</string>
+			<string>Red</string>
+			<integer>1</integer>
+		</array>
+		<array>
+			<string>Radar Jam</string>
+			<string>Green</string>
+			<string>2</string>
+		</array>
+		<array>
+			<string>Evasive Maneuver</string>
+			<string>Teal</string>
+			<integer>3</integer>
+		</array>
+	</array>
+	<array>
+		<array>
+			<real>34.0855794</real>
+			<real>-119.0631237</real>
+			<string>Rock</string>
+			<true/>
+		</array>
+		<array>
+			<real>34.1619319</real>
+			<real>-119.0459552</real>
+			<string>Origin</string>
+			<false/>
+		</array>
+	</array>
+</array>
+</plist>

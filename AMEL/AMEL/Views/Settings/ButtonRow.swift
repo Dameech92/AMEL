@@ -18,7 +18,7 @@ struct ButtonRow: View {
     private let colorNames = Colors().colorNames
     @State var showingDetail = false
     var body: some View {
-        var smallFont = widthSizeClass == .compact
+        let smallFont = widthSizeClass == .compact
         let viewModel = SettingsViewModel(savedButtons: self.customButtons, managedObjectContext: self.context)
         if buttonData.updated {
 			viewModel.updateButton(name: self.buttonData.name, color: self.buttonData.color, button: self.button)

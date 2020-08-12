@@ -15,10 +15,10 @@ struct RecordView: View {
 	private let locationVM = LocationViewModel()
 	private let headingVM = HeadingViewModel()
     let refPointVM = ActiveRefPointVM()
-	
 	var body: some View {
         ActiveRefPointVM.shared.executeFetchRequest(points: points)
         let landscapeLayout = heightSizeClass == .compact
+        ReviewPrompter.requestReviewIfAppropriate()
 		return ZStack {
 			Color("stealth").edgesIgnoringSafeArea(.all)
 			VStack {
@@ -51,15 +51,9 @@ struct RecordView: View {
                         }.padding(2)
                     }
                 }
-				
 			}
 			.padding(10)
-		}
-	}
-}
-
-struct RecordView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecordView()
+        }
     }
 }
+

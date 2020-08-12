@@ -8,14 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    init() {
-        // initialize the appearance of the tab bar
-        UITabBar.appearance().backgroundColor = UIColor.darkGray
-    }
     @State var selected = 0
     var body: some View {
-        TabView(selection: $selected) {
-            
+        return TabView(selection: $selected) {
             RecordView().tabItem({
                 VStack{
                     Image(systemName: "rectangle.grid.2x2").font(.title)
@@ -41,11 +36,5 @@ struct ContentView: View {
                 }
             }).tag(3)
         }.accentColor(Color.blue)
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

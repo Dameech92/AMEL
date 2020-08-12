@@ -42,12 +42,15 @@ struct PointSelector: View {
                 } else {
                     HStack {
                         SaveChanges(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+                            .padding(.leading)
                         Spacer()
                         SaveNewPoint(selectorData: self.pointSetter.selectorData, errors: self.errors, refAction: refAction)
+                            .padding(.trailing)
+                        
                     }.font({self.widthSizeClass == .compact}() ? .body : .title)
+                        .padding(.bottom, {self.widthSizeClass == .compact}() ? 10 : 0)
                         
                     Text("Reference Point:")
-                        
                 }
                 
                 
@@ -55,27 +58,31 @@ struct PointSelector: View {
                        .textFieldStyle(RoundedBorderTextFieldStyle())
                        .multilineTextAlignment(.center)
                         .overlay(self.errors.name_error ? Text("Invalid name").foregroundColor(Color.red).padding() : nil, alignment: .trailing)
+                        .padding(.horizontal)
                         
                 
                 
                 HStack {
                     if smallText {
-                        Text("Lat")
-                        BullseyeTextField(data: self.$pointSetter.selectorData.latitude, error: self.$errors.lat_error, pickerUpdater: latUpdater)
-                           
-                        
-                            LatLngPicker(pickerData: self.pickerData.latPicker, directions: latDirs, degrees: latDegrees)
-                        
-                        Spacer()
-                        Text("Lng")
-                        BullseyeTextField(data: self.$pointSetter.selectorData.longitude, error: self.$errors.lng_error, pickerUpdater: lngUpdater)
-            
-                        
-                            LatLngPicker(pickerData: self.pickerData.lngPicker, directions: lngDirs, degrees: lngDegrees)
-                    } else {
                         VStack {
                             Text("Latitude")
                             BullseyeTextField(data: self.$pointSetter.selectorData.latitude, error: self.$errors.lat_error, pickerUpdater: latUpdater)
+                        }
+                        LatLngPicker(pickerData: self.pickerData.latPicker, directions: latDirs, degrees: latDegrees)
+                        
+                        Spacer()
+                        VStack {
+                            Text("Longitude")
+                            BullseyeTextField(data: self.$pointSetter.selectorData.longitude, error: self.$errors.lng_error, pickerUpdater: lngUpdater)
+                        }
+                        
+                        LatLngPicker(pickerData: self.pickerData.lngPicker, directions: lngDirs, degrees: lngDegrees)
+                    } else {
+                        VStack {
+                            Text("Latitude")
+                            BullseyeTextField(data: self.$pointSetter.selectorData.latitude, error:
+                                self.$errors.lat_error, pickerUpdater: latUpdater)
+                                .padding(.leading)
                             
                                 LatLngPicker(pickerData: self.pickerData.latPicker, directions: latDirs, degrees: latDegrees)
                                     
@@ -85,6 +92,7 @@ struct PointSelector: View {
                         VStack{
                             Text("Longitude")
                             BullseyeTextField(data: self.$pointSetter.selectorData.longitude, error: self.$errors.lng_error, pickerUpdater: lngUpdater)
+                                .padding(.trailing)
                             
                                 LatLngPicker(pickerData: self.pickerData.lngPicker, directions: lngDirs, degrees: lngDegrees)
                             
@@ -92,7 +100,7 @@ struct PointSelector: View {
                     }
                     
                 }
-            }
+        }
        .font(smallText ? .body : .title)
     }
 }

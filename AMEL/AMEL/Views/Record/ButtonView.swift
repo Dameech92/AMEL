@@ -15,9 +15,10 @@ struct ButtonView: View {
     @Environment(\.horizontalSizeClass) var widthSizeClass
     private var name:String
     private var color:String
-    init(name:String, color: String) {
+   
+    public init(name: String, color: String){
         self.name = name
-		self.color = color
+        self.color = color
     }
     var body: some View {
         let smallText = heightSizeClass == .compact || widthSizeClass == .compact
@@ -59,7 +60,7 @@ struct IPhone_ButtonView_Previews: PreviewProvider {
                 
                 VStack {
                     ForEach(numButtons / 2 ..< numButtons) {_ in
-                       ButtonView(name: "test", color: "Blue")
+                        ButtonView(name: "test", color: "Blue")
                    }
                 }
                 
@@ -100,7 +101,7 @@ struct IPad_ButtonView_Previews: PreviewProvider {
                 
                 VStack {
                     ForEach(numButtons / 2 ..< numButtons) {_ in
-                       ButtonView(name: "test", color: "Blue")
+                        ButtonView(name: "test", color: "Blue")
                    }
                 }
                 
@@ -110,13 +111,13 @@ struct IPad_ButtonView_Previews: PreviewProvider {
             HStack {
                VStack {
                    ForEach(0 ..< numButtons / 2) {_ in
-                       ButtonView(name: "test", color: "Blue")
+                    ButtonView(name: "test", color: "Blue")
                    }
                }
                
                VStack {
                    ForEach(numButtons / 2 ..< numButtons) {_ in
-                      ButtonView(name: "test", color: "Blue")
+                    ButtonView(name: "test", color: "Blue")
                   }
                }
                            

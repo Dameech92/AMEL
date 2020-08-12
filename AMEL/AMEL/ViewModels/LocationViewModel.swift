@@ -77,7 +77,7 @@ struct LocationViewModel {
     func getAltitude()->String{
         if(locationManager.location != nil){
             let altitude =  String(format: "%d", Int(altToFeet(altMeters: locationManager.location!.altitude)))
-            return "Altitude: " + altitude + "ft HAE"
+            return "Altitude: " + altitude + "ft MSL"
         }else{
             return "Altitude: unavailable"
         }
@@ -85,5 +85,18 @@ struct LocationViewModel {
     private func altToFeet(altMeters: CLLocationDistance)->Double {
         return altMeters * 3.2808
     }
+    
+    func getLocationAccuracy() -> String {
+        var display = ""
+        if (locationManager.location != nil) {
+            let locationAccuracy = metersToFeet(meters: locationManager.location!.horizontalAccuracy)
+            display = "Location Accuracy: " +  String(format: "%.2f", locationAccuracy) + " ft"
+        }
+        return display
+    }
+    func metersToFeet(meters: Double)-> Double{
+        return meters * 3.28084
+    }
+    
         
 }

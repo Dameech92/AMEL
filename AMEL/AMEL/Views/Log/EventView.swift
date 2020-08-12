@@ -14,7 +14,6 @@ struct EventView: View{
     @Environment(\.horizontalSizeClass) var widthSizeClass
     var body: some View {
         let viewModel = EventViewModel(event: event)
-        let colOne = [viewModel.getTime(), viewModel.getLatLng(), viewModel.getAltitude(), viewModel.getBoBR(), viewModel.getHeadingCourse(), viewModel.getGroundSpeed()]
         let smallText = heightSizeClass == .compact || widthSizeClass == .compact
            return ZStack {
                 VStack{
@@ -22,9 +21,16 @@ struct EventView: View{
                         .layoutPriority(0.5)
                     if widthSizeClass == .compact {
                         VStack {
-                            ForEach(0 ..< colOne.count){
-                                Text(colOne[$0])
-                            }
+        
+                            Text(viewModel.getTime())
+                            
+                            Text(viewModel.getLatLng())
+                            
+                            Text(viewModel.getAltitude())
+                            
+                            Text(viewModel.getBoBR())
+                            Text(viewModel.getHeadingCourse())
+                            Text(viewModel.getGroundSpeed())
                         }.layoutPriority(1)
                             .padding(.bottom, 5)
                     } else {
@@ -32,19 +38,26 @@ struct EventView: View{
                             Spacer()
                             VStack(alignment: .leading) {
                                 Spacer()
-                                ForEach(0 ..< colOne.count/2){
-                                    Text(colOne[$0])
-                                    Spacer()
-                                }
+                                
+                                Text(viewModel.getTime())
+                                Spacer()
+                                
+                                Text(viewModel.getLatLng())
+                                Spacer()
+                               
+                                Text(viewModel.getAltitude())
+                                Spacer()
                             }
                             Spacer()
                             VStack(alignment: .leading) {
                                 Spacer()
+                                
+                                Text(viewModel.getBoBR())
                                 Spacer()
-                                ForEach(colOne.count/2 ..< colOne.count){
-                                    Text(colOne[$0])
-                                    Spacer()
-                                }
+                                Text(viewModel.getHeadingCourse())
+                                Spacer()
+                                Text(viewModel.getGroundSpeed())
+                                Spacer()
                             }
                             Spacer()
                         }

@@ -11,7 +11,6 @@ import UIKit
 struct LogView: View {
     @FetchRequest(fetchRequest: Event.getEvents()) var events:FetchedResults<Event>
     @Environment(\.managedObjectContext) var managedObjectContext
-    
     var body: some View {
         return VStack {
             Spacer()
@@ -28,19 +27,19 @@ struct LogView: View {
             Spacer()
             Divider()
            List {
-           ForEach(self.events, id: \.time) { event in
-               EventView(event: event)
-              }.onDelete { indexSet in
-                   for index in indexSet {
-                       let event = self.events[index]
-                       self.managedObjectContext.delete(event)
-                   }
-                  do {
-                      try self.managedObjectContext.save()
-                  }catch {
-                          print(error)
+            ForEach(self.events, id: \.time) { event in
+                EventView(event: event)
+            }.onDelete { indexSet in
+                  for index in indexSet {
+                      let event = self.events[index]
+                      self.managedObjectContext.delete(event)
                   }
-              }
+                 do {
+                     try self.managedObjectContext.save()
+                 }catch {
+                         print(error)
+                 }
+             }
            }
         }
     }
