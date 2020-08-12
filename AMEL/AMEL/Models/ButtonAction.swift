@@ -19,7 +19,7 @@ struct ButtonAction {
 	private static var magHeading: CLLocationDirection = 0.0
     private static var course: CLLocationDirection = 0.0
     private static var speed: CLLocationSpeed = 0.0
-    private static var referencePointHeading: Double = 0.0
+    private static var referencePointHeading: Int = 0
     private static var referencePointDis: Double = 0.0
     private static var referencePointName: String = " "
 	

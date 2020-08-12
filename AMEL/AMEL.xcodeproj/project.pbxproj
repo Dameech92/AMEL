@@ -55,6 +55,7 @@
 		31B604712471CF29005B3399 /* SettingsAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B604702471CF29005B3399 /* SettingsAddButton.swift */; };
 		31B604742471DF95005B3399 /* SettingsClear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B604732471DF95005B3399 /* SettingsClear.swift */; };
 		31BBA3732460C3E900A803A7 /* ReferencePointAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BBA3722460C3E900A803A7 /* ReferencePointAction.swift */; };
+		31BC896624E4959D00A29BA2 /* RefPointCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BC896524E4959D00A29BA2 /* RefPointCalculationsTests.swift */; };
 		31C6FD19243E75FF007F677F /* PDFRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6FD18243E75FF007F677F /* PDFRenderer.swift */; };
 		31C6FD1B243E781B007F677F /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6FD1A243E781B007F677F /* ShareSheet.swift */; };
 		31C6FD1D243E7B9B007F677F /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6FD1C243E7B9B007F677F /* EventViewModel.swift */; };
@@ -169,6 +170,7 @@
 		31B604702471CF29005B3399 /* SettingsAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAddButton.swift; sourceTree = "<group>"; };
 		31B604732471DF95005B3399 /* SettingsClear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsClear.swift; sourceTree = "<group>"; };
 		31BBA3722460C3E900A803A7 /* ReferencePointAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReferencePointAction.swift; path = ../ReferencePointAction.swift; sourceTree = "<group>"; };
+		31BC896524E4959D00A29BA2 /* RefPointCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefPointCalculationsTests.swift; sourceTree = "<group>"; };
 		31C6FD18243E75FF007F677F /* PDFRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFRenderer.swift; sourceTree = "<group>"; };
 		31C6FD1A243E781B007F677F /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		31C6FD1C243E7B9B007F677F /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 			children = (
 				7E9E1671241C4EB50043EEE1 /* EventViewModelTests.swift */,
 				31317A3D24575F5200521ECE /* RefPointActionTests.swift */,
+				31BC896524E4959D00A29BA2 /* RefPointCalculationsTests.swift */,
 				31AFA1EC244900B2000D6CFC /* LatLngTests.swift */,
 				7E9E1673241C4EB50043EEE1 /* Info.plist */,
 			);
@@ -668,6 +671,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31BC896624E4959D00A29BA2 /* RefPointCalculationsTests.swift in Sources */,
 				BFE19E2B2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */,
 				7E9E1672241C4EB50043EEE1 /* EventViewModelTests.swift in Sources */,
 				31317A3E24575F5300521ECE /* RefPointActionTests.swift in Sources */,

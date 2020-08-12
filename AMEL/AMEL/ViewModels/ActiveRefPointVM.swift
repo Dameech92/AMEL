@@ -38,14 +38,14 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
         return currentActiveRefPoint?.name ?? "NoActiveRefPoint"
     }
     
-    func getReferencePointHeading() -> Double {
+    func getReferencePointHeading() -> Int {
         if(currentActiveRefPoint != nil){
             let pilotLat = LocationVM.getLatRaw()
             let pilotLong = LocationVM.getLongRaw()
             let RPLat = Double(truncating: currentActiveRefPoint?.latitude ?? 0)
             let RPLong = Double(truncating: currentActiveRefPoint?.longitude ?? 0)
-            let headingDouble = RadialCoordinateCalculations.getAngle(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)
-            return headingDouble
+            let heading = RadialCoordinateCalculations.referencePointBearing(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)
+            return heading
         }else{return 0}
 
     }
