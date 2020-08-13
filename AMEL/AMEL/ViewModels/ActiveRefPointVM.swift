@@ -34,7 +34,12 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
     }
     
     func getFormatedReferencePointDistance() -> String {
-        return String(format:"%.0f", getReferencePointDistance()) + " nm"
+        var display = "- nm"
+        let distance = self.getReferencePointDistance()
+        if distance != nil {
+            display = String(format:"%.0f", distance!) + " nm"
+        }
+        return display
     }
     
     func getReferencePointName() -> String {
@@ -53,7 +58,7 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
 
     }
     
-    func getReferencePointDistance() -> Double {
+    func getReferencePointDistance() -> Double? {
         if(currentActiveRefPoint != nil){
             let pilotLat = LocationVM.getLatRaw()
             let pilotLong = LocationVM.getLongRaw()
@@ -65,6 +70,6 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
                 distance = RadialCoordinateCalculations.getDistance(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)
             }
             return distance
-        }else{return 0}
+        }else{return nil}
     }
 }
