@@ -11,13 +11,13 @@ import SwiftUI
 struct LiveDataView: View {
     private let locationVM = LocationViewModel()
     private let headingVM = HeadingViewModel()
-    let activePointVM = ActiveRefPointVM()
-
+    @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
     @ObservedObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.horizontalSizeClass) var widthSizeClass
     @Environment(\.verticalSizeClass) var heightSizeClass
     var body: some View {
+        let activePointVM = ActiveRefPointVM(points: self.points)
         let smallFont = widthSizeClass == .compact || heightSizeClass == .compact
         return ZStack{
             Rectangle()

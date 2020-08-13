@@ -13,15 +13,9 @@ import SwiftUI
 class ActiveRefPointVM : ReferencePointViewModelProtocol{
     
     var LocationVM = LocationViewModel()
-    var currentActiveRefPoint: ReferencePoint?
-    
-
-    func executeFetchRequest(points: FetchedResults<ReferencePoint>){
-        for savedPoint in points {
-            if savedPoint.isActive {
-                currentActiveRefPoint = savedPoint
-            }
-        }
+    @ObservedObject var activePoint: ActivePoint
+    init(points:FetchedResults<ReferencePoint>){
+        self.activePoint = ActivePoint(points: points)
     }
         
     func getFormatedReferencePointHeading() -> String {
@@ -43,15 +37,15 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
     }
     
     func getReferencePointName() -> String {
-        return currentActiveRefPoint?.name ?? "NoActiveRefPoint"
+        return activePoint.point?.name ?? "NoActiveRefPoint"
     }
     
     func getReferencePointHeading() -> Int? {
-        if(currentActiveRefPoint != nil){
+        if(activePoint.point != nil){
             let pilotLat = LocationVM.getLatRaw()
             let pilotLong = LocationVM.getLongRaw()
-            let RPLat = Double(truncating: currentActiveRefPoint?.latitude ?? 0)
-            let RPLong = Double(truncating: currentActiveRefPoint?.longitude ?? 0)
+            let RPLat = Double(truncating: activePoint.point?.latitude ?? 0)
+            let RPLong = Double(truncating: activePoint.point?.longitude ?? 0)
             let heading = RadialCoordinateCalculations.referencePointBearing(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)
             return heading
         }else{return nil}
@@ -59,12 +53,12 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
     }
     
     func getReferencePointDistance() -> Double? {
-        if(currentActiveRefPoint != nil){
+        if(activePoint.point != nil){
             let pilotLat = LocationVM.getLatRaw()
             let pilotLong = LocationVM.getLongRaw()
 
-            let RPLat = Double(truncating: currentActiveRefPoint?.latitude ?? 0)
-            let RPLong = Double(truncating: currentActiveRefPoint?.longitude ?? 0)
+            let RPLat = Double(truncating: activePoint.point?.latitude ?? 0)
+            let RPLong = Double(truncating: activePoint.point?.longitude ?? 0)
             var distance: Double = 0
             if RPLat != 0 && RPLong != 0{
                 distance = RadialCoordinateCalculations.getDistance(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)

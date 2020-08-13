@@ -60,7 +60,7 @@ struct ButtonAction {
         }
     }
     
-      public static func record(_ eventName:String, _ color:String, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
+    public static func record(_ eventName:String, _ color:String, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext, points: FetchedResults<ReferencePoint>) {
 		if locationManager.location != nil {
             fetchCurrentLocationData(locationManager)
 		}
@@ -68,7 +68,7 @@ struct ButtonAction {
         if locationManager.heading != nil {
             magHeading = locationManager.heading!.magneticHeading
         }
-        let activePointVM = ActiveRefPointVM()
+        let activePointVM = ActiveRefPointVM(points: points)
         let distance = activePointVM.getReferencePointDistance()
         if distance != nil {
             ButtonAction.referencePointDis = distance!
