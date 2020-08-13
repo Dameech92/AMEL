@@ -14,10 +14,8 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
     
     var LocationVM = LocationViewModel()
     var currentActiveRefPoint: ReferencePoint?
-    static let shared = ActiveRefPointVM()
     
 
-    
     func executeFetchRequest(points: FetchedResults<ReferencePoint>){
         for savedPoint in points {
             if savedPoint.isActive {
@@ -27,7 +25,12 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
     }
         
     func getFormatedReferencePointHeading() -> String {
-        return String(format: "%03d", Int(getReferencePointHeading())) + "°"
+        var display = "---°"
+        let heading = self.getReferencePointHeading()
+        if heading != nil {
+            display = String(format: "%03d", Int(heading!)) + "°"
+        }
+        return display
     }
     
     func getFormatedReferencePointDistance() -> String {
@@ -38,7 +41,7 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
         return currentActiveRefPoint?.name ?? "NoActiveRefPoint"
     }
     
-    func getReferencePointHeading() -> Int {
+    func getReferencePointHeading() -> Int? {
         if(currentActiveRefPoint != nil){
             let pilotLat = LocationVM.getLatRaw()
             let pilotLong = LocationVM.getLongRaw()
@@ -46,7 +49,7 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
             let RPLong = Double(truncating: currentActiveRefPoint?.longitude ?? 0)
             let heading = RadialCoordinateCalculations.referencePointBearing(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)
             return heading
-        }else{return 0}
+        }else{return nil}
 
     }
     

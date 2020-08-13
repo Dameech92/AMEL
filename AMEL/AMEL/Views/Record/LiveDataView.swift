@@ -11,6 +11,7 @@ import SwiftUI
 struct LiveDataView: View {
     private let locationVM = LocationViewModel()
     private let headingVM = HeadingViewModel()
+    let activePointVM = ActiveRefPointVM()
 
     @ObservedObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -67,9 +68,9 @@ struct LiveDataView: View {
                 Divider()
                     .background(Color.primary)
                 
-                Text(ActiveRefPointVM.shared.getFormatedReferencePointHeading() + "/" + ActiveRefPointVM.shared.getFormatedReferencePointDistance())
+                Text(activePointVM.getFormatedReferencePointHeading() + "/" + activePointVM.getFormatedReferencePointDistance())
                     .font(smallFont ? .title : .system(size: 45))
-                Text(ActiveRefPointVM.shared.getReferencePointName())
+                Text(activePointVM.getReferencePointName())
             }
             .padding()
             .layoutPriority(1)

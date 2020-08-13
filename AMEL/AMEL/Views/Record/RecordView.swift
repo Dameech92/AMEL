@@ -16,7 +16,7 @@ struct RecordView: View {
 	private let headingVM = HeadingViewModel()
     let refPointVM = ActiveRefPointVM()
 	var body: some View {
-        ActiveRefPointVM.shared.executeFetchRequest(points: points)
+        refPointVM.executeFetchRequest(points: points)
         let landscapeLayout = heightSizeClass == .compact
         ReviewPrompter.requestReviewIfAppropriate()
 		return ZStack {

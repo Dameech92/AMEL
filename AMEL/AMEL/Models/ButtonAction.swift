@@ -68,9 +68,15 @@ struct ButtonAction {
         if locationManager.heading != nil {
             magHeading = locationManager.heading!.magneticHeading
         }
+        let activePointVM = ActiveRefPointVM()
         
-        ButtonAction.referencePointDis = ActiveRefPointVM.shared.getReferencePointDistance()
-        ButtonAction.referencePointHeading = ActiveRefPointVM.shared.getReferencePointHeading()
-        ButtonAction.referencePointName = ActiveRefPointVM.shared.getReferencePointName()
+        ButtonAction.referencePointDis = activePointVM.getReferencePointDistance()
+        let heading = activePointVM.getReferencePointHeading()
+        if heading != nil {
+            ButtonAction.referencePointHeading = heading!
+        } else {
+            ButtonAction.referencePointHeading = -1
+        }
+        ButtonAction.referencePointName = activePointVM.getReferencePointName()
 	}
 }
