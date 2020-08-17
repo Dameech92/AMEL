@@ -19,75 +19,79 @@ struct TutorialCard: View {
         let landscape = self.heightSizeClass == .compact
         return ZStack {
             Color(.systemBackground) //makes whole view draggable
-            if landscape {
-                VStack {
-                    HStack(alignment: .top) {
-                        VStack(alignment: .leading) {
-                            Text(self.name)
-                                .font(.headline)
-                                .bold()
+            GeometryReader { g in
+                
+                if landscape {
+                    VStack {
+                        HStack(alignment: .top) {
+                            VStack(alignment: .leading) {
+                                Text(self.name)
+                                    .font(.headline)
+                                    .bold()
+                                    .padding()
+                            }
+                            VStack(alignment: .leading) {
+                                Text(self.text)
+                                .lineLimit(nil)
                                 .padding()
-                        }
-                        VStack(alignment: .leading) {
-                            Text(self.text)
-                            .lineLimit(nil)
-                            .padding()
+                            }
+                            
                         }
                         
-                    }
-                    GeometryReader { g in
                         if smallText {
                             Image(self.imageName + ".landscape.small")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .padding()
-                         .position(x: g.size.width / 2, y: g.size.height / 2)
                         } else {
                             Image(self.imageName + ".landscape")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .padding()
-                         .position(x: g.size.width / 2, y: g.size.height / 2)
                         }
+                        
                     }
-                }
-                
-                
-            } else {
-                VStack {
-                   
-                        HStack {
-                            Text(self.name)
-                                .font(smallText ? .largeTitle : .system(size: 50.0))
-                                .bold()
-                                .padding()
-                            Spacer()
-                        }
-                        HStack {
-                            Text(self.text)
-                                .font(smallText ? .body : .title)
-                                .lineLimit(nil)
-                                .padding()
-                            Spacer()
-                        }
-                            GeometryReader { g in
-                               if smallText {
-                                   Image(self.imageName + ".small")
+                    
+                    
+                } else {
+                    VStack {
+                       
+                            HStack {
+                                Text(self.name)
+                                    .font(smallText ? .largeTitle : .system(size: 50.0))
+                                    .bold()
+                                    .padding()
+                                Spacer()
+                            }
+                            HStack {
+                                Text(self.text)
+                                    .font(smallText ? .body : .title)
+                                    .lineLimit(nil)
+                                    .padding()
+                                Spacer()
+                            }
+                               
+                            if g.size.width > g.size.height {
+                                Image(self.imageName + ".landscape")
                                        .resizable()
                                        .aspectRatio(contentMode: .fit)
                                        .padding()
-                                .position(x: g.size.width / 2, y: g.size.height / 2)
-                               } else {
-                                   Image(self.imageName)
+                            } else if smallText {
+                               Image(self.imageName + ".small")
                                    .resizable()
                                    .aspectRatio(contentMode: .fit)
                                    .padding()
-                                .position(x: g.size.width / 2, y: g.size.height / 2)
-                               }
+                           } else {
+                               Image(self.imageName)
+                               .resizable()
+                               .aspectRatio(contentMode: .fit)
+                               .padding()
                            }
-                       
+                               
+                           
+                    }
+                    .padding()
                 }
-                .padding()
             }
             
         }

@@ -50,6 +50,7 @@ struct TutorialView: View {
                         }
                     }
                     HStack {
+                        Spacer()
                         Button(action: {
                             self.circles[self.selectedImage] = false
                             self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage - 1, numImages: self.cards.count - 1)
@@ -78,6 +79,7 @@ struct TutorialView: View {
                             Image(systemName: "arrow.right.circle.fill")
                             .font(.largeTitle)
                         })
+                        Spacer()
                     }
                     .padding()
                     
