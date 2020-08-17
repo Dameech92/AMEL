@@ -9,11 +9,11 @@
 import SwiftUI
 
 struct LaunchView: View {
-    let showTutorial: Bool = true//UserDefaults.standard.integer(forKey: "launchCount") == 1
+    let showTutorial: Bool = UserDefaults.standard.integer(forKey: "launchCount") == 1
     var body: some View {
         VStack {
             if(self.showTutorial){
-                TutorialView(showingTut: self.showTutorial)
+                TutorialView()
             } else {
                 ContentView()
             }

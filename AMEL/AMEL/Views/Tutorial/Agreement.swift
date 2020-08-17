@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct Agreement: View {
+    @Binding var showingTutorial: Bool
     @State private var agreed = false
     var body: some View {
         ZStack {
@@ -34,29 +35,39 @@ struct Agreement: View {
                     Spacer()
                 }.padding()
                 Divider()
-                HStack(alignment: .lastTextBaseline) {
-                    Text("I have read and agree to the end user license agreement")
-                    Button(action: {
-                        self.agreed = !self.agreed
-                    }) {
-                        Image(systemName: self.agreed ? "checkmark.square" : "square")
-                            .font(.title)
-                        
+                HStack() {
+                    VStack {
+                        Button(action: {
+                            self.agreed = !self.agreed
+                        }) {
+                            Image(systemName: self.agreed ? "checkmark.square" : "square")
+                                .font(.title)
+                        }
                     }
+                    VStack {
+                         Text("I agree to the end user license agreement")
+                    }
+                    
                 
                 }
                 Divider()
+                Spacer()
+                Button(action: {
+                    self.showingTutorial = false
+                }, label: {
+                    Text("End Tutorial")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.red)
+                        .cornerRadius(40)
+                    }).buttonStyle(PlainButtonStyle())
+                    .disabled(!self.agreed)
+            
                 Spacer()
                 
             }
             
             
         }
-    }
-}
-
-struct Agreement_Previews: PreviewProvider {
-    static var previews: some View {
-        Agreement().previewDevice("iPhone 11")
     }
 }
