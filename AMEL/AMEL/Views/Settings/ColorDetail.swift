@@ -16,14 +16,17 @@ struct ColorDetail: View {
     let colorNames = Colors().colorNames
     let button: CustomButton
     var body: some View {
-        HStack {
-            Image(systemName: self.color == self.colorNames[self.buttonData.color] ? "circle.fill": "circle")
-            Text(self.color)
-            Spacer()
-            Rectangle()
-                .fill(Color(self.color))
-                .frame(width:40, height: 40)
-                .cornerRadius(5)
+        ZStack {
+            Color(.systemBackground) //makes whole view draggable
+            HStack {
+                Image(systemName: self.color == self.colorNames[self.buttonData.color] ? "circle.fill": "circle")
+                Text(self.color)
+                Spacer()
+                Rectangle()
+                    .fill(Color(self.color))
+                    .frame(width:40, height: 40)
+                    .cornerRadius(5)
+            }
         }.onTapGesture {
             self.viewModel.updateButton(name: self.buttonData.name, color: Colors().colorToInt(color: self.color), button: self.button)
         }.font(.largeTitle)
