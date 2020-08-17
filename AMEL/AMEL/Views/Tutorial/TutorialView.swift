@@ -46,12 +46,10 @@ struct TutorialView: View {
                     HStack {
                         ForEach(self.circles, id: \.self) { circle in
                             Image(systemName: circle ? "circle.fill" : "circle")
-                                .imageScale(.small)
-                       
+                                .font(.system(size: 8))
                         }
-                    }.padding()
+                    }
                     HStack {
-                        Spacer()
                         Button(action: {
                             self.circles[self.selectedImage] = false
                             self.selectedImage = changeImage(oldIndex: self.selectedImage, newIndex: self.selectedImage - 1, numImages: self.cards.count - 1)
@@ -59,11 +57,17 @@ struct TutorialView: View {
                             
                         }, label: {
                             
-                            Image(systemName: "arrowtriangle.left.fill")
-                                    
-                             
-                            
+                            Image(systemName: "arrow.left.circle.fill")
+                            .font(.largeTitle)
+
                         })
+                        Spacer()
+                        Button(action: {
+                            self.showingTut = false
+                        }, label: {
+                            Text("End Tutorial")
+                            .underline()
+                            })
                         Spacer()
                         Button(action: {
                             self.circles[self.selectedImage] = false
@@ -71,19 +75,12 @@ struct TutorialView: View {
                             self.circles[self.selectedImage] = true
                             
                         }, label: {
-                            Image(systemName: "arrowtriangle.right.fill")
+                            Image(systemName: "arrow.right.circle.fill")
+                            .font(.largeTitle)
                         })
-                        Spacer()
-                    }.font(.largeTitle)
+                    }
                     .padding()
-                    Button(action: {
-                        self.showingTut = false
-                    }, label: {
-                        Text("End Tutorial")
-                            .padding()
-                            .background(Color.red)
-                            .cornerRadius(20)
-                    }).buttonStyle(PlainButtonStyle())
+                    
                 }
                 
                 
@@ -112,7 +109,7 @@ struct TutorialView_Previews: PreviewProvider {
             TutorialView(showingTut: true)
                 .preferredColorScheme(.light)
             TutorialView(showingTut: true)
-                .previewDevice("iPhone 11")
+                .previewDevice("iPhone 8")
                 .preferredColorScheme(.dark)
         }
     }
