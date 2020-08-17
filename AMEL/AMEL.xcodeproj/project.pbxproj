@@ -17,6 +17,7 @@
 		1FDA34EB2463868A00D3FE7F /* SaveNewPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272C99245DC918002A321E /* SaveNewPoint.swift */; };
 		310AE7A4243E632800796D11 /* PrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310AE7A3243E632800796D11 /* PrintPageRenderer.swift */; };
 		310EF2E42474D939004C7E9A /* ExportOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310EF2E32474D939004C7E9A /* ExportOptions.swift */; };
+		311C08A724EB39A40060A31F /* Agreement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311C08A624EB39A40060A31F /* Agreement.swift */; };
 		311DD835245F502A007E214D /* ActivePointCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311DD834245F502A007E214D /* ActivePointCreator.swift */; };
 		311DD83B245F893B007E214D /* SelectorUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311DD83A245F893B007E214D /* SelectorUpdater.swift */; };
 		31272C94245DC599002A321E /* SelectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272C93245DC599002A321E /* SelectorData.swift */; };
@@ -131,6 +132,7 @@
 		1FA7B2772442AC8400ABD3BF /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		310AE7A3243E632800796D11 /* PrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintPageRenderer.swift; sourceTree = "<group>"; };
 		310EF2E32474D939004C7E9A /* ExportOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportOptions.swift; sourceTree = "<group>"; };
+		311C08A624EB39A40060A31F /* Agreement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agreement.swift; sourceTree = "<group>"; };
 		311DD834245F502A007E214D /* ActivePointCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePointCreator.swift; sourceTree = "<group>"; };
 		311DD83A245F893B007E214D /* SelectorUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorUpdater.swift; sourceTree = "<group>"; };
 		31272C93245DC599002A321E /* SelectorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorData.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 			children = (
 				314FFF06249F083900EDA24F /* TutorialView.swift */,
 				3195918224DFD2D700131EFF /* TutorialCard.swift */,
+				311C08A624EB39A40060A31F /* Agreement.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				BFE19E2A2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */,
 				31272C9C245DCAA3002A321E /* BullseyeTextField.swift in Sources */,
 				31272CAA245E2150002A321E /* LatLngFormatter.swift in Sources */,
+				311C08A724EB39A40060A31F /* Agreement.swift in Sources */,
 				31B604712471CF29005B3399 /* SettingsAddButton.swift in Sources */,
 				31B604742471DF95005B3399 /* SettingsClear.swift in Sources */,
 				31D235F324563B99006A0475 /* PointSelector.swift in Sources */,
