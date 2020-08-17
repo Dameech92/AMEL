@@ -15,7 +15,6 @@ struct RecordView: View {
 	private let headingVM = HeadingViewModel()
 	var body: some View {
         let landscapeLayout = heightSizeClass == .compact
-        ReviewPrompter.requestReviewIfAppropriate()
 		return ZStack {
 			Color("stealth").edgesIgnoringSafeArea(.all)
 			VStack {
