@@ -11,14 +11,16 @@ import SwiftUI
 struct Agreement: View {
     @Binding var showingTutorial: Bool
     @State private var agreed = false
+    @Environment(\.verticalSizeClass) var heightSizeClass
+    @Environment(\.horizontalSizeClass) var widthSizeClass
     var body: some View {
-        ZStack {
+        let smallView = self.heightSizeClass == .compact || self.widthSizeClass == .compact
+        return ZStack {
             Color(.systemBackground)
             VStack {
                 HStack {
                     Text("End User License Agreement")
-                    .font(.largeTitle)
-                    //.font(.system(size: 50.0))
+                        .font(smallView ? .largeTitle : .system(size: 50.0))
                     .bold()
                     .padding()
                     Spacer()
@@ -32,9 +34,10 @@ struct Agreement: View {
                         +
                         Text("end user license agreement.")
                         .underline()
-                    }
+                    }.font(smallView ? .body : .title)
                     Spacer()
                 }.padding()
+                Spacer()
                 Divider()
                 HStack() {
                     VStack {
@@ -50,7 +53,7 @@ struct Agreement: View {
                     }
                     
                 
-                }
+                }.font(smallView ? .body : .title)
                 Divider()
                 Spacer()
                 Button(action: {
