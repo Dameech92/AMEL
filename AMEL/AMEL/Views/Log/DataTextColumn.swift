@@ -10,8 +10,9 @@ import SwiftUI
 
 struct DataTextColumn: View {
     let dataList: [String]
+    let smallText: Bool
     var body: some View {
-        VStack(alignment: .leading){
+        Group {
             Spacer()
             Text(dataList[0])
             Spacer()
@@ -27,6 +28,6 @@ struct DataTextColumn: View {
 
 struct DataTextColumn_Previews: PreviewProvider {
     static var previews: some View {
-        DataTextColumn(dataList: ["test1", "test2","test3"])
+        DataTextColumn(dataList: ["test1", "test2","test3"], smallText: false)
     }
 }

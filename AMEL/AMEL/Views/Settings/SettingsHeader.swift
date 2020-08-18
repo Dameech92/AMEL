@@ -11,19 +11,18 @@ import SwiftUI
 struct SettingsHeader: View {
     let viewModel: SettingsViewModel
     var body: some View {
-        HStack {
+        return HStack {
             SettingsClear()
             Spacer()
             VStack{
                 Text("Settings")
-                .font(.title)
+                    .font(.title)
                 Text(self.viewModel.getNumberOfButtons())
-                .font(.title)
+                    .font(.headline)
             }
             Spacer()
             SettingsAddButton(viewModel: self.viewModel)
         }.padding()
-        .background(Color("buttonBackGround"))
         
     }
 }

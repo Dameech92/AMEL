@@ -35,5 +35,6 @@ struct HeadingViewModel {
         return course >= 0
     }
     
+    
 }
    

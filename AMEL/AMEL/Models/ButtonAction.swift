@@ -49,7 +49,6 @@ struct ButtonAction {
         newEvent.course = course as NSNumber
         newEvent.speed = speed as NSNumber
         newEvent.color = color
-        
         newEvent.referencePointHeading = referencePointHeading as NSNumber
         newEvent.referencePointDis = referencePointDis as NSNumber
         newEvent.referencePointName = referencePointName
@@ -70,8 +69,8 @@ struct ButtonAction {
             magHeading = locationManager.heading!.magneticHeading
         }
         
-        ButtonAction.referencePointDis = ActiveRefPointVM.shared.getReferencePointDistance() ?? 0
-        ButtonAction.referencePointHeading = ActiveRefPointVM.shared.getReferencePointHeading() ?? 0
+        ButtonAction.referencePointDis = ActiveRefPointVM.shared.getReferencePointDistance()
+        ButtonAction.referencePointHeading = ActiveRefPointVM.shared.getReferencePointHeading()
         ButtonAction.referencePointName = ActiveRefPointVM.shared.getReferencePointName()
 	}
 }

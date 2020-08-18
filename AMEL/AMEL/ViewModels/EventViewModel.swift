@@ -47,7 +47,7 @@ struct EventViewModel{
     func getAltitude()->String{
         if(event.altitude != nil){
             let altitude =  String(format: "%d", Int(altToFeet(altMeters: event.altitude!)))
-            return "Altitude: " + altitude + "ft HAE"
+            return "Altitude: " + altitude + "ft MSL"
         }else{
             return "Altitude: unavailable"
         }
@@ -77,7 +77,7 @@ struct EventViewModel{
         var name = "name"
         
         if(event.referencePointHeading != nil){
-            heading = String(format: "%.3f",event.referencePointHeading as! Double)
+            heading = String(format: "%03d", Int(truncating: event.referencePointHeading!))
         }
         if(event.referencePointDis != nil){
             dis = String(format: "%d",Int(truncating: event.referencePointDis!))
@@ -86,7 +86,7 @@ struct EventViewModel{
             name = event.referencePointName!
         }
         
-        return "RP:" + name + " " + heading + "/" + dis
+        return "RP: " + name + " " + heading + "°" + "/" + dis + " nm"
     }
     func getGroundSpeed()->String {
         var groundSpeed = "Groundspeed: unavailable"
