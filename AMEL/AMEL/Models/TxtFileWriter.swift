@@ -42,7 +42,7 @@ class TxtFileWriter{
     
     static func getFileName(event: Event)->String {
         let eventVM = EventViewModel(event: event)
-        return eventVM.getTime() + ".pdf"
+        return eventVM.getTime() + ".txt"
     }
     
 }

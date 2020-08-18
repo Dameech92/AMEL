@@ -31,22 +31,22 @@ class LatLngTests: XCTestCase {
         XCTAssertEqual("58.5", self.formatter.getMinutes_Dot_m(number: -73.974895))
     }
     func testLatZero() {
-        XCTAssertEqual("N00-00.0", self.latFormatter.formatLatitude(latitude: 0))
+        XCTAssertEqual("N00-00.0", self.formatter.formatDegrees(latlng: 0))
     }
     func testLatFormatN() {
-        XCTAssertEqual("N40-45.6", self.latFormatter.formatLatitude(latitude: 40.76))
+        XCTAssertEqual("N40-45.6", self.formatter.formatDegrees(latlng: 40.76))
     }
     func testLatFormatS() {
-        XCTAssertEqual("S21-02.9", self.latFormatter.formatLatitude(latitude: -21.047977))
+        XCTAssertEqual("S21-02.9", self.formatter.formatDegrees(latlng: -21.047977))
     }
     func testLngZero() {
-        XCTAssertEqual("E000-00.0", self.lngFormatter.formatLongitude(longitude: 0))
+        XCTAssertEqual("E000-00.0", self.formatter.formatDegrees(latlng: 0))
     }
     func testLngFormatW() {
-        XCTAssertEqual("W122-00.0", self.lngFormatter.formatLongitude(longitude: -122))
+        XCTAssertEqual("W122-00.0", self.formatter.formatDegrees(latlng: -122))
     }
     func testLngFormatS() {
-        XCTAssertEqual("E122-00.0", self.lngFormatter.formatLongitude(longitude: 122))
+        XCTAssertEqual("E122-00.0", self.formatter.formatDegrees(latlng: 122))
     }
     func testLatLngFormat() {
         let formatter = CoordinateFormatter()

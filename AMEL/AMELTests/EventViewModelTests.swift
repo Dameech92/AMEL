@@ -15,6 +15,12 @@ import CoreData
 class EventViewModelTests: XCTestCase {
     
     class MockEvent: NSObject, EventProtocol {
+        var referencePointName: String?
+        
+        var referencePointDis: NSNumber?
+        
+        var referencePointHeading: NSNumber?
+        
         static func getEvents() -> NSFetchRequest<Event> {
             return NSFetchRequest<Event>()
         }

@@ -19,7 +19,7 @@ struct ButtonAction {
 	private static var magHeading: CLLocationDirection = 0.0
     private static var course: CLLocationDirection = 0.0
     private static var speed: CLLocationSpeed = 0.0
-    private static var referencePointHeading: Double = 0.0
+    private static var referencePointHeading: Int = 0
     private static var referencePointDis: Double = 0.0
     private static var referencePointName: String = " "
 	
@@ -60,7 +60,7 @@ struct ButtonAction {
         }
     }
     
-      public static func record(_ eventName:String, _ color:String, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext) {
+    public static func record(_ eventName:String, _ color:String, _ locationManager:LocationManager, _ managedObjectContext:NSManagedObjectContext, points: FetchedResults<ReferencePoint>) {
 		if locationManager.location != nil {
             fetchCurrentLocationData(locationManager)
 		}
@@ -68,9 +68,20 @@ struct ButtonAction {
         if locationManager.heading != nil {
             magHeading = locationManager.heading!.magneticHeading
         }
+        let activePointVM = ActiveRefPointVM(points: points)
+        let distance = activePointVM.getReferencePointDistance()
+        if distance != nil {
+            ButtonAction.referencePointDis = distance!
+        } else {
+            ButtonAction.referencePointDis = -1
+        }
         
-        ButtonAction.referencePointDis = ActiveRefPointVM.shared.getReferencePointDistance()
-        ButtonAction.referencePointHeading = ActiveRefPointVM.shared.getReferencePointHeading()
-        ButtonAction.referencePointName = ActiveRefPointVM.shared.getReferencePointName()
+        let heading = activePointVM.getReferencePointHeading()
+        if heading != nil {
+            ButtonAction.referencePointHeading = heading!
+        } else {
+            ButtonAction.referencePointHeading = -1
+        }
+        ButtonAction.referencePointName = activePointVM.getReferencePointName()
 	}
 }

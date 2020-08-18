@@ -13,6 +13,7 @@ struct ButtonView: View {
     @State private var buttonText = ""
     @Environment(\.verticalSizeClass) var heightSizeClass
     @Environment(\.horizontalSizeClass) var widthSizeClass
+    @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
     private var name:String
     private var color:String
    
@@ -23,8 +24,8 @@ struct ButtonView: View {
     var body: some View {
         let smallText = heightSizeClass == .compact || widthSizeClass == .compact
         return Button(action: {
-            ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext)
-			let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
+            ButtonAction.record(self.name, self.color, self.locationManager, self.managedObjectContext, points: self.points)
+            let newEvent:Event = ButtonAction.createEvent(self.managedObjectContext)
             ButtonAction.saveEvent(newEvent, self.name, self.color, self.managedObjectContext)
         }){
             GeometryReader { g in

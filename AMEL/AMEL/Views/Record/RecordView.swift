@@ -9,16 +9,12 @@ import SwiftUI
 
 struct RecordView: View {
     @FetchRequest(fetchRequest: CustomButton.getCustomButton()) var customButton:FetchedResults<CustomButton>
-    @FetchRequest(fetchRequest: ReferencePoint.getPoints()) var points:FetchedResults<ReferencePoint>
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.verticalSizeClass) var heightSizeClass
 	private let locationVM = LocationViewModel()
 	private let headingVM = HeadingViewModel()
-    let refPointVM = ActiveRefPointVM()
 	var body: some View {
-        ActiveRefPointVM.shared.executeFetchRequest(points: points)
         let landscapeLayout = heightSizeClass == .compact
-        ReviewPrompter.requestReviewIfAppropriate()
 		return ZStack {
 			Color("stealth").edgesIgnoringSafeArea(.all)
 			VStack {

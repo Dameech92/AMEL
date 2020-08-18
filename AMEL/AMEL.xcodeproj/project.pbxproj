@@ -17,6 +17,7 @@
 		1FDA34EB2463868A00D3FE7F /* SaveNewPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272C99245DC918002A321E /* SaveNewPoint.swift */; };
 		310AE7A4243E632800796D11 /* PrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310AE7A3243E632800796D11 /* PrintPageRenderer.swift */; };
 		310EF2E42474D939004C7E9A /* ExportOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310EF2E32474D939004C7E9A /* ExportOptions.swift */; };
+		311C08A724EB39A40060A31F /* Agreement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311C08A624EB39A40060A31F /* Agreement.swift */; };
 		311DD835245F502A007E214D /* ActivePointCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311DD834245F502A007E214D /* ActivePointCreator.swift */; };
 		311DD83B245F893B007E214D /* SelectorUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311DD83A245F893B007E214D /* SelectorUpdater.swift */; };
 		31272C94245DC599002A321E /* SelectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31272C93245DC599002A321E /* SelectorData.swift */; };
@@ -55,6 +56,7 @@
 		31B604712471CF29005B3399 /* SettingsAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B604702471CF29005B3399 /* SettingsAddButton.swift */; };
 		31B604742471DF95005B3399 /* SettingsClear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B604732471DF95005B3399 /* SettingsClear.swift */; };
 		31BBA3732460C3E900A803A7 /* ReferencePointAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BBA3722460C3E900A803A7 /* ReferencePointAction.swift */; };
+		31BC896624E4959D00A29BA2 /* RefPointCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BC896524E4959D00A29BA2 /* RefPointCalculationsTests.swift */; };
 		31C6FD19243E75FF007F677F /* PDFRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6FD18243E75FF007F677F /* PDFRenderer.swift */; };
 		31C6FD1B243E781B007F677F /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6FD1A243E781B007F677F /* ShareSheet.swift */; };
 		31C6FD1D243E7B9B007F677F /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C6FD1C243E7B9B007F677F /* EventViewModel.swift */; };
@@ -71,6 +73,7 @@
 		31E2044D2471EAC700B87913 /* ColorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E2044C2471EAC700B87913 /* ColorDetail.swift */; };
 		31E860592415F6EE00B4BAE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E860582415F6EE00B4BAE6 /* ContentView.swift */; };
 		31ECF4EC2447B86500101158 /* BullsEyeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ECF4EB2447B86500101158 /* BullsEyeView.swift */; };
+		31FC0AA824E5DB31006CBE1A /* ActivePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FC0AA724E5DB31006CBE1A /* ActivePoint.swift */; };
 		4CED17542404851200E6D4F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED17532404851200E6D4F6 /* AppDelegate.swift */; };
 		4CED17562404851200E6D4F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CED17552404851200E6D4F6 /* SceneDelegate.swift */; };
 		4CED175D2404851300E6D4F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CED175C2404851300E6D4F6 /* Assets.xcassets */; };
@@ -129,6 +132,7 @@
 		1FA7B2772442AC8400ABD3BF /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		310AE7A3243E632800796D11 /* PrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintPageRenderer.swift; sourceTree = "<group>"; };
 		310EF2E32474D939004C7E9A /* ExportOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportOptions.swift; sourceTree = "<group>"; };
+		311C08A624EB39A40060A31F /* Agreement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Agreement.swift; sourceTree = "<group>"; };
 		311DD834245F502A007E214D /* ActivePointCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePointCreator.swift; sourceTree = "<group>"; };
 		311DD83A245F893B007E214D /* SelectorUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorUpdater.swift; sourceTree = "<group>"; };
 		31272C93245DC599002A321E /* SelectorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorData.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 		31B604702471CF29005B3399 /* SettingsAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAddButton.swift; sourceTree = "<group>"; };
 		31B604732471DF95005B3399 /* SettingsClear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsClear.swift; sourceTree = "<group>"; };
 		31BBA3722460C3E900A803A7 /* ReferencePointAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReferencePointAction.swift; path = ../ReferencePointAction.swift; sourceTree = "<group>"; };
+		31BC896524E4959D00A29BA2 /* RefPointCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefPointCalculationsTests.swift; sourceTree = "<group>"; };
 		31C6FD18243E75FF007F677F /* PDFRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFRenderer.swift; sourceTree = "<group>"; };
 		31C6FD1A243E781B007F677F /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		31C6FD1C243E7B9B007F677F /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
@@ -185,6 +190,7 @@
 		31E2044C2471EAC700B87913 /* ColorDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetail.swift; sourceTree = "<group>"; };
 		31E860582415F6EE00B4BAE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		31ECF4EB2447B86500101158 /* BullsEyeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeView.swift; sourceTree = "<group>"; };
+		31FC0AA724E5DB31006CBE1A /* ActivePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePoint.swift; sourceTree = "<group>"; };
 		4CED17502404851200E6D4F6 /* AMEL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AMEL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CED17532404851200E6D4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CED17552404851200E6D4F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -305,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				1F944147240E193600E3F633 /* ButtonAction.swift */,
+				31FC0AA724E5DB31006CBE1A /* ActivePoint.swift */,
 				CAB7E1BB245A75BF00EED129 /* ReferencePointViewModelProtocol.swift */,
 				3128F1BE249578D9006192CA /* ReviewPrompter.swift */,
 				31C93ADC244BD4990041809D /* CustomButton.swift */,
@@ -379,6 +386,7 @@
 			children = (
 				314FFF06249F083900EDA24F /* TutorialView.swift */,
 				3195918224DFD2D700131EFF /* TutorialCard.swift */,
+				311C08A624EB39A40060A31F /* Agreement.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -436,6 +444,7 @@
 			children = (
 				7E9E1671241C4EB50043EEE1 /* EventViewModelTests.swift */,
 				31317A3D24575F5200521ECE /* RefPointActionTests.swift */,
+				31BC896524E4959D00A29BA2 /* RefPointCalculationsTests.swift */,
 				31AFA1EC244900B2000D6CFC /* LatLngTests.swift */,
 				7E9E1673241C4EB50043EEE1 /* Info.plist */,
 			);
@@ -619,6 +628,7 @@
 				31272C94245DC599002A321E /* SelectorData.swift in Sources */,
 				31272C96245DC744002A321E /* SelectorError.swift in Sources */,
 				31C93ADD244BD4990041809D /* CustomButton.swift in Sources */,
+				31FC0AA824E5DB31006CBE1A /* ActivePoint.swift in Sources */,
 				3128F1BF249578D9006192CA /* ReviewPrompter.swift in Sources */,
 				31D8C4B2249FDAA700D7B9CF /* LaunchView.swift in Sources */,
 				3195918324DFD2D700131EFF /* TutorialCard.swift in Sources */,
@@ -626,6 +636,7 @@
 				BFE19E2A2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */,
 				31272C9C245DCAA3002A321E /* BullseyeTextField.swift in Sources */,
 				31272CAA245E2150002A321E /* LatLngFormatter.swift in Sources */,
+				311C08A724EB39A40060A31F /* Agreement.swift in Sources */,
 				31B604712471CF29005B3399 /* SettingsAddButton.swift in Sources */,
 				31B604742471DF95005B3399 /* SettingsClear.swift in Sources */,
 				31D235F324563B99006A0475 /* PointSelector.swift in Sources */,
@@ -668,6 +679,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31BC896624E4959D00A29BA2 /* RefPointCalculationsTests.swift in Sources */,
 				BFE19E2B2468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift in Sources */,
 				7E9E1672241C4EB50043EEE1 /* EventViewModelTests.swift in Sources */,
 				31317A3E24575F5300521ECE /* RefPointActionTests.swift in Sources */,
