@@ -19,17 +19,6 @@ class RefPointActionTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testConvertToDecimalDegrees() {
-        let pickerData = PickerData()
-        pickerData.latPicker.direction = 0
-        pickerData.latPicker.degree = 38
-        pickerData.latPicker.minute = 26
-        pickerData.latPicker.minuteTenth = 2
-        let refAction = ReferencePointAction(pickerData: pickerData, context: NSManagedObjectContext())
-        let latitude = refAction.convertToDecimalDegrees(data: pickerData.latPicker)
-        let result = 38.43666666666667 as NSNumber
-        XCTAssertEqual(result, latitude)
-    }
     func testUpdateLatPicker() {
         let pickerData = PickerData()
         let latitude = "-18.23"

@@ -16,12 +16,26 @@ public class RadialCoordinateCalculations {
         return (acos(sin(latOfPilot) * sin(latOfBE) + cos(latOfPilot) * cos(latOfBE) * cos(lngOfBE - lngOfPilot)) * 6371)/1.852
     }
     
-    //Note this is not tested so I might need to change to lngOfPilot - lngOfBE instead of how it is currently
-    static func getAngle(latOfPilot: Double, lngOfPilot: Double, latOfBE: Double, lngOfBE: Double) -> Double {
-        //let step1 = sin(lngOfBE - lngOfPilot)*cos(latOfBE) * cos(latOfPilot) * sin(latOfBE)
-        //let step2 = sin(latOfPilot) * cos(latOfBE) * cos(lngOfBE - lngOfPilot)
-        //let step3 = atan(step1 - step2)
-        //return step3
-        return atan((sin(lngOfBE - lngOfPilot)*cos(latOfBE) * cos(latOfPilot) * sin(latOfBE)) - (sin(latOfPilot) * cos(latOfBE) * cos(lngOfBE - lngOfPilot))) * 1000
+    static func referencePointBearing(latOfPilot: Double, lngOfPilot: Double, latOfBE: Double, lngOfBE: Double) -> Int {
+        // returns the bearing from the reference point to the pilot
+        
+        let fromLat = degreesToRadians(latOfBE)
+        let fromLon = degreesToRadians(lngOfBE)
+        let toLat = degreesToRadians(latOfPilot)
+        let toLon = degreesToRadians(lngOfPilot)
+        
+        let y = sin(fromLon - toLon) * cos(fromLat)
+        let x = cos(toLat) * sin(fromLat) - sin(toLat) * cos(fromLat) * cos(fromLon - toLon)
+        var rawBearing = radiansToDegrees( atan2(y, x))
+        
+        rawBearing = (rawBearing + 180.0).truncatingRemainder(dividingBy: 360.0)
+        
+        return Int(abs(rawBearing))
+    }
+    static func degreesToRadians(_ number: Double) -> Double {
+        return number * .pi / 180
+    }
+    static func radiansToDegrees(_ number: Double) -> Double {
+        return number * 180 / .pi
     }
 }

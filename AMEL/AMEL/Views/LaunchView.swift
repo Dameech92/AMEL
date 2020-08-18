@@ -13,7 +13,7 @@ struct LaunchView: View {
     var body: some View {
         VStack {
             if(self.showTutorial){
-                TutorialView(showingTut: self.showTutorial)
+                TutorialView()
             } else {
                 ContentView()
             }

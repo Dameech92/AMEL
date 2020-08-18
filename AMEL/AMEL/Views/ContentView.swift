@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var selected = 0
     var body: some View {
+        ReviewPrompter.requestReviewIfAppropriate()
         return TabView(selection: $selected) {
             RecordView().tabItem({
                 VStack{

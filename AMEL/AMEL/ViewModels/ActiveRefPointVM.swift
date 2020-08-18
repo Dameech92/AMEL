@@ -13,55 +13,57 @@ import SwiftUI
 class ActiveRefPointVM : ReferencePointViewModelProtocol{
     
     var LocationVM = LocationViewModel()
-    var currentActiveRefPoint: ReferencePoint?
-    static let shared = ActiveRefPointVM()
-    
-
-    
-    func executeFetchRequest(points: FetchedResults<ReferencePoint>){
-        for savedPoint in points {
-            if savedPoint.isActive {
-                currentActiveRefPoint = savedPoint
-            }
-        }
+    @ObservedObject var activePoint: ActivePoint
+    init(points:FetchedResults<ReferencePoint>){
+        self.activePoint = ActivePoint(points: points)
     }
         
     func getFormatedReferencePointHeading() -> String {
-        return String(format: "%03d", Int(getReferencePointHeading())) + "°"
+        var display = "---°"
+        let heading = self.getReferencePointHeading()
+        if heading != nil {
+            display = String(format: "%03d", Int(heading!)) + "°"
+        }
+        return display
     }
     
     func getFormatedReferencePointDistance() -> String {
-        return String(format:"%.0f", getReferencePointDistance()) + " nm"
+        var display = "- nm"
+        let distance = self.getReferencePointDistance()
+        if distance != nil {
+            display = String(format:"%.0f", distance!) + " nm"
+        }
+        return display
     }
     
     func getReferencePointName() -> String {
-        return currentActiveRefPoint?.name ?? "NoActiveRefPoint"
+        return activePoint.point?.name ?? "NoActiveRefPoint"
     }
     
-    func getReferencePointHeading() -> Double {
-        if(currentActiveRefPoint != nil){
+    func getReferencePointHeading() -> Int? {
+        if(activePoint.point != nil){
             let pilotLat = LocationVM.getLatRaw()
             let pilotLong = LocationVM.getLongRaw()
-            let RPLat = Double(truncating: currentActiveRefPoint?.latitude ?? 0)
-            let RPLong = Double(truncating: currentActiveRefPoint?.longitude ?? 0)
-            let headingDouble = RadialCoordinateCalculations.getAngle(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)
-            return headingDouble
-        }else{return 0}
+            let RPLat = Double(truncating: activePoint.point?.latitude ?? 0)
+            let RPLong = Double(truncating: activePoint.point?.longitude ?? 0)
+            let heading = RadialCoordinateCalculations.referencePointBearing(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)
+            return heading
+        }else{return nil}
 
     }
     
-    func getReferencePointDistance() -> Double {
-        if(currentActiveRefPoint != nil){
+    func getReferencePointDistance() -> Double? {
+        if(activePoint.point != nil){
             let pilotLat = LocationVM.getLatRaw()
             let pilotLong = LocationVM.getLongRaw()
 
-            let RPLat = Double(truncating: currentActiveRefPoint?.latitude ?? 0)
-            let RPLong = Double(truncating: currentActiveRefPoint?.longitude ?? 0)
+            let RPLat = Double(truncating: activePoint.point?.latitude ?? 0)
+            let RPLong = Double(truncating: activePoint.point?.longitude ?? 0)
             var distance: Double = 0
             if RPLat != 0 && RPLong != 0{
                 distance = RadialCoordinateCalculations.getDistance(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)
             }
             return distance
-        }else{return 0}
+        }else{return nil}
     }
 }

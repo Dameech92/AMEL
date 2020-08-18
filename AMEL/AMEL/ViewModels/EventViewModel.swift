@@ -72,21 +72,15 @@ struct EventViewModel{
     }
     
     func getBoBR()->String {
-        var heading = "___"
-        var dis = "0000"
-        var name = "name"
-        
-        if(event.referencePointHeading != nil){
-            heading = String(format: "%03d", Int(truncating: event.referencePointHeading!))
+        var display = "RP: No Active Reference Point"
+        let activePointExists = event.referencePointName != "NoActiveRefPoint"
+        if(activePointExists){
+            let heading = String(format: "%03d", Int(truncating: event.referencePointHeading!))
+            let distance = String(format: "%d",Int(truncating: event.referencePointDis!))
+            let name = event.referencePointName!
+            display = "RP: " + name + " " + heading + "°" + "/" + distance + " nm"
         }
-        if(event.referencePointDis != nil){
-            dis = String(format: "%d",Int(truncating: event.referencePointDis!))
-        }
-        if(event.referencePointName != nil){
-            name = event.referencePointName!
-        }
-        
-        return "RP: " + name + " " + heading + "°" + "/" + dis + " nm"
+        return display
     }
     func getGroundSpeed()->String {
         var groundSpeed = "Groundspeed: unavailable"
