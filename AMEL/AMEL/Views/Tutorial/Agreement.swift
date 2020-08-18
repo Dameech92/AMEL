@@ -17,7 +17,8 @@ struct Agreement: View {
             VStack {
                 HStack {
                     Text("End User License Agreement")
-                    .font(.system(size: 50.0))
+                    .font(.largeTitle)
+                    //.font(.system(size: 50.0))
                     .bold()
                     .padding()
                     Spacer()
