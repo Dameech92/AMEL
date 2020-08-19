@@ -42,7 +42,7 @@ struct Agreement: View {
                         .underline()
                         .foregroundColor(Color.blue)
                         .onTapGesture {
-                    UIApplication.shared.open(URL(string: "https://pdfhost.io/v/u2JYy3yn0_AMEL_End_User_License_Agreement_EULApdf.pdf")!)
+                    UIApplication.shared.open(URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
                         }
                     Spacer()
                 }.font(self.widthSizeClass == .compact ? .body : .title)
