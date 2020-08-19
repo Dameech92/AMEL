@@ -19,42 +19,53 @@ struct Agreement: View {
             Color(.systemBackground)
             VStack {
                 HStack {
-                    Text("End User License Agreement")
+                    Text("Almost Done!")
                         .font(smallView ? .largeTitle : .system(size: 50.0))
                     .bold()
-                    .padding()
                     Spacer()
                 }
                 HStack {
-                    Button(action: {
-                        UIApplication.shared.open(URL(string: "https://pdfhost.io/v/u2JYy3yn0_AMEL_End_User_License_Agreement_EULApdf.pdf")!)
-                    }) {
-                        Text("We're almost done! Before using the app please familiarize yourself with our ")
-                            .foregroundColor(.primary)
-                        +
-                        Text("end user license agreement.")
-                        .underline()
-                    }.font(smallView ? .body : .title)
+                    Text("Before using the app you must read our ")
+                        .foregroundColor(.primary)
                     Spacer()
-                }.padding()
-                Spacer()
-                Divider()
-                HStack() {
-                    VStack {
-                        Button(action: {
-                            self.agreed = !self.agreed
-                        }) {
-                            Image(systemName: self.agreed ? "checkmark.square" : "square")
-                                .font(.title)
+                }.font(self.widthSizeClass == .compact ? .body : .title)
+                HStack(spacing: 0){
+                    Text("privacy policy")
+                        .underline()
+                        .foregroundColor(Color.blue)
+                        .onTapGesture {
+                            UIApplication.shared.open(URL(string: "https://pdfhost.io/v/lXQ8ZUIkh_AMEL_Privacy_Policypdf.pdf")!)
+                    }
+                    Text(" and ")
+                    .foregroundColor(.primary)
+                    Text("user agreement")
+                        .underline()
+                        .foregroundColor(Color.blue)
+                        .onTapGesture {
+                    UIApplication.shared.open(URL(string: "https://pdfhost.io/v/u2JYy3yn0_AMEL_End_User_License_Agreement_EULApdf.pdf")!)
                         }
-                    }
-                    VStack {
-                         Text("I agree to the end user license agreement")
-                    }
+                    Spacer()
+                }.font(self.widthSizeClass == .compact ? .body : .title)
+                Spacer()
+                Group {
+                    Divider()
+                    HStack() {
+                        VStack {
+                            Button(action: {
+                                self.agreed = !self.agreed
+                            }) {
+                                Image(systemName: self.agreed ? "checkmark.square" : "square")
+                                    .font(.title)
+                            }
+                        }
+                        VStack {
+                             Text("I agree to the privacy policy and user agreement")
+                        }
+                        Spacer()
                     
-                
-                }.font(smallView ? .body : .title)
-                Divider()
+                    }.font(smallView ? .body : .title)
+                    Divider()
+                }
                 Spacer()
                 Button(action: {
                     self.showingTutorial = false
@@ -66,12 +77,18 @@ struct Agreement: View {
                         .cornerRadius(40)
                     }).buttonStyle(PlainButtonStyle())
                     .disabled(!self.agreed)
-            
-                Spacer()
+            Spacer()
                 
-            }
+            }.padding()
             
             
         }
     }
 }
+
+struct Agreement_Previews: PreviewProvider {
+    static var previews: some View {
+        Agreement(showingTutorial: .constant(true)).previewDevice("iPhone 11")
+        }
+}
+

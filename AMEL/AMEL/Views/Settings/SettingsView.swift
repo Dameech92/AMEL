@@ -45,6 +45,15 @@ struct SettingsView: View {
                     .font(.caption)
                     .padding()
                 }
+                Button(action: {
+                    UIApplication.shared.open(URL(string: "https://pdfhost.io/v/lXQ8ZUIkh_AMEL_Privacy_Policypdf.pdf")!)
+                }) {
+                    Text("Privay Policy")
+                    .underline()
+                    .font(.caption)
+                    .padding()
+                }
+                
             }
                 
         }
