@@ -39,6 +39,7 @@
 		314721F3244D1BE50045DE74 /* ButtonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314721F2244D1BE50045DE74 /* ButtonData.swift */; };
 		314721F5244D1D940045DE74 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314721F4244D1D940045DE74 /* Colors.swift */; };
 		314FFF07249F083900EDA24F /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314FFF06249F083900EDA24F /* TutorialView.swift */; };
+		3155FCD42617B92C0071B562 /* Geomagnetism.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3155FCD32617B92C0071B562 /* Geomagnetism.swift */; };
 		316561722447D9D400261AEB /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316561712447D9D400261AEB /* EventProtocol.swift */; };
 		31738E7F244A2B5B0073022A /* PickerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31738E7E244A2B5B0073022A /* PickerData.swift */; };
 		31738E81244A2D430073022A /* RefPointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31738E80244A2D430073022A /* RefPointViewModel.swift */; };
@@ -156,6 +157,7 @@
 		314721F2244D1BE50045DE74 /* ButtonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonData.swift; sourceTree = "<group>"; };
 		314721F4244D1D940045DE74 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		314FFF06249F083900EDA24F /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		3155FCD32617B92C0071B562 /* Geomagnetism.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geomagnetism.swift; sourceTree = "<group>"; };
 		316561712447D9D400261AEB /* EventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
 		31738E7E244A2B5B0073022A /* PickerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerData.swift; sourceTree = "<group>"; };
 		31738E80244A2D430073022A /* RefPointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefPointViewModel.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				316561712447D9D400261AEB /* EventProtocol.swift */,
 				BFE19E292468ECAB00FC2BF3 /* RadialCoordinateCalculations.swift */,
 				CA136C6024748B3D005C428E /* TxtFileWriter.swift */,
+				3155FCD32617B92C0071B562 /* Geomagnetism.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				31B4DF752415C91B00C567E7 /* SettingsView.swift in Sources */,
 				31272CA4245DDAB7002A321E /* LngFormatter.swift in Sources */,
 				31E860592415F6EE00B4BAE6 /* ContentView.swift in Sources */,
+				3155FCD42617B92C0071B562 /* Geomagnetism.swift in Sources */,
 				312BA28C2464990700F6D921 /* SaveChanges.swift in Sources */,
 				31AB3CAE244648D300154696 /* LiveDataView.swift in Sources */,
 				318DA7062405A84A007D79B6 /* Event.swift in Sources */,

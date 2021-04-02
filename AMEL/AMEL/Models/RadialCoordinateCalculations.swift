@@ -18,20 +18,34 @@ public class RadialCoordinateCalculations {
     
     static func referencePointBearing(latOfPilot: Double, lngOfPilot: Double, latOfBE: Double, lngOfBE: Double) -> Int {
         // returns the bearing from the reference point to the pilot
+        // http://stackoverflow.com/questions/3925942/cllocation-category-for-calculating-bearing-w-haversine-function
+        let lat1 = Double.pi * latOfBE / 180.0
+        let long1 = Double.pi * lngOfBE / 180.0
+        let lat2 = Double.pi * latOfPilot / 180.0
+        let long2 = Double.pi * lngOfPilot / 180.0
         
-        let fromLat = degreesToRadians(latOfBE)
-        let fromLon = degreesToRadians(lngOfBE)
-        let toLat = degreesToRadians(latOfPilot)
-        let toLon = degreesToRadians(lngOfPilot)
+        // Formula: θ = atan2( sin Δλ ⋅ cos φ2 , cos φ1 ⋅ sin φ2 − sin φ1 ⋅ cos φ2 ⋅ cos Δλ )
+        // Source: http://www.movable-type.co.uk/scripts/latlong.html
+        let rads = atan2(
+            sin(long2 - long1) * cos(lat2),
+            cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(long2 - long1))
+        let degrees = rads * 180 / Double.pi
         
-        let y = sin(fromLon - toLon) * cos(fromLat)
-        let x = cos(toLat) * sin(fromLat) - sin(toLat) * cos(fromLat) * cos(fromLon - toLon)
-        var rawBearing = radiansToDegrees( atan2(y, x))
-        
-        rawBearing = (rawBearing + 180.0).truncatingRemainder(dividingBy: 360.0)
-        
-        return Int(abs(rawBearing))
+        let trueBearing = (degrees + 360).truncatingRemainder(dividingBy: 360)
+        let declination = getBullseyeDeclination(latOfBE: latOfBE, lngOfBE: lngOfBE)
+        // apply declination to trueBearing
+        // declination is the opposite of variation
+        // declination is positive when eastward and negative when westward
+        let magVar = (declination + trueBearing).rounded()
+        return Int(magVar)
     }
+    
+    static func getBullseyeDeclination(latOfBE: Double, lngOfBE: Double) -> Double {
+        // get the declination at the bullseye point
+        let gm = Geomagnetism(longitude: lngOfBE, latitude: latOfBE, date: Date())
+        return gm.declination
+    }
+    
     static func degreesToRadians(_ number: Double) -> Double {
         return number * .pi / 180
     }
