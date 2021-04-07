@@ -36,8 +36,21 @@ public class RadialCoordinateCalculations {
         // apply declination to trueBearing
         // declination is the opposite of variation
         // declination is positive when eastward and negative when westward
-        let magVar = (declination + trueBearing).rounded()
-        return Int(magVar)
+        let magBearingRaw:Double = (declination + trueBearing).rounded()
+        var magBearing = Int(magBearingRaw)
+        print("magVar before mod = \(magBearing)")
+        // modulo 360 too keep it as a valid compass heading
+        magBearing = mod(magBearing, 360)
+        print("magVar after mod = \(magBearing)")
+        return magBearing
+    }
+    
+    // this function does an actual modulus, as opposed to
+    // % which does not work for negative values!
+    static func mod(_ a: Int, _ n: Int) -> Int {
+        precondition(n > 0, "modulus must be positive")
+        let r = a % n
+        return r >= 0 ? r : r + n
     }
     
     static func getBullseyeDeclination(latOfBE: Double, lngOfBE: Double) -> Double {
