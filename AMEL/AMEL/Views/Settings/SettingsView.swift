@@ -38,13 +38,22 @@ struct SettingsView: View {
             }
             HStack {
                 Button(action: {
-                    UIApplication.shared.open(URL(string: "https://pdfhost.io/v/u2JYy3yn0_AMEL_End_User_License_Agreement_EULApdf.pdf")!)
+                    UIApplication.shared.open(URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
                 }) {
                     Text("EULA")
                     .underline()
                     .font(.caption)
                     .padding()
                 }
+                Button(action: {
+                    UIApplication.shared.open(URL(string: "https://pdfhost.io/v/lXQ8ZUIkh_AMEL_Privacy_Policypdf.pdf")!)
+                }) {
+                    Text("Privay Policy")
+                    .underline()
+                    .font(.caption)
+                    .padding()
+                }
+                
             }
                 
         }
