@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import CoreLocation
 import SwiftUI
 
 class ActiveRefPointVM : ReferencePointViewModelProtocol{
@@ -56,12 +57,17 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
         if(activePoint.point != nil){
             let pilotLat = LocationVM.getLatRaw()
             let pilotLong = LocationVM.getLongRaw()
-
+            
             let RPLat = Double(truncating: activePoint.point?.latitude ?? 0)
             let RPLong = Double(truncating: activePoint.point?.longitude ?? 0)
+            
+            let coordinate = CLLocation(latitude: pilotLat, longitude: pilotLong)
+            let coordinate2 = CLLocation(latitude: RPLat, longitude: RPLong)
+           
             var distance: Double = 0
             if RPLat != 0 && RPLong != 0{
-                distance = RadialCoordinateCalculations.getDistance(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)
+                //distance = RadialCoordinateCalculations.getDistance(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)
+                distance = (coordinate.distance(from: coordinate2) / 1852)
             }
             return distance
         }else{return nil}
