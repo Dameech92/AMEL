@@ -12,7 +12,7 @@ class LngFormatter: LatLngFormatter {
         let minDotm = getMinutes_Dot_m(number: longitude)
         let degrees = formatDegrees(latlng: longitude)
         let direction = getDir(lat_lng: longitude)
-        return direction + degrees + "-" + minDotm
+        return direction + degrees + " " + minDotm
     }
     override func getDir(lat_lng: Double)->String {
         if lat_lng >= 0 {

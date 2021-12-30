@@ -19,6 +19,8 @@ struct LiveDataView: View {
     var body: some View {
         let activePointVM = ActiveRefPointVM(points: self.points)
         let smallFont = widthSizeClass == .compact || heightSizeClass == .compact
+        let pLat = locationVM.getLatRaw()
+        let pLong = locationVM.getLongRaw()
         return ZStack{
             Rectangle()
                 .fill(Color("buttonBackGround"))
@@ -68,7 +70,7 @@ struct LiveDataView: View {
                 Divider()
                     .background(Color.primary)
                 
-                Text(activePointVM.getFormatedReferencePointHeading() + "/" + activePointVM.getFormatedReferencePointDistance())
+                Text(activePointVM.getFormatedReferencePointHeading(pLat: pLat, pLong: pLong) + "/" + activePointVM.getFormatedReferencePointDistance(pLat: pLat, pLong: pLong))
                     .font(smallFont ? .title : .system(size: 45))
                 Text(activePointVM.getReferencePointName())
             }

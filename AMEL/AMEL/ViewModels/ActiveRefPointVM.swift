@@ -13,24 +13,24 @@ import SwiftUI
 
 class ActiveRefPointVM : ReferencePointViewModelProtocol{
     
-    var LocationVM = LocationViewModel()
+    //var LocationVM = LocationViewModel()
     @ObservedObject var activePoint: ActivePoint
     init(points:FetchedResults<ReferencePoint>){
         self.activePoint = ActivePoint(points: points)
     }
         
-    func getFormatedReferencePointHeading() -> String {
+    func getFormatedReferencePointHeading(pLat: Double, pLong: Double) -> String {
         var display = "---°"
-        let heading = self.getReferencePointHeading()
+        let heading = self.getReferencePointHeading(pLat: pLat, pLong: pLong)
         if heading != nil {
             display = String(format: "%03d", Int(heading!)) + "°"
         }
         return display
     }
     
-    func getFormatedReferencePointDistance() -> String {
+    func getFormatedReferencePointDistance(pLat: Double, pLong: Double) -> String {
         var display = "- nm"
-        let distance = self.getReferencePointDistance()
+        let distance = self.getReferencePointDistance(pLat: pLat, pLong: pLong)
         if distance != nil {
             display = String(format:"%.0f", distance!) + " nm"
         }
@@ -41,10 +41,10 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
         return activePoint.point?.name ?? "NoActiveRefPoint"
     }
     
-    func getReferencePointHeading() -> Int? {
+    func getReferencePointHeading(pLat: Double, pLong: Double) -> Int? {
         if(activePoint.point != nil){
-            let pilotLat = LocationVM.getLatRaw()
-            let pilotLong = LocationVM.getLongRaw()
+            let pilotLat = pLat
+            let pilotLong = pLong
             let RPLat = Double(truncating: activePoint.point?.latitude ?? 0)
             let RPLong = Double(truncating: activePoint.point?.longitude ?? 0)
             let heading = RadialCoordinateCalculations.referencePointBearing(latOfPilot: pilotLat, lngOfPilot: pilotLong, latOfBE: RPLat, lngOfBE: RPLong)
@@ -53,10 +53,10 @@ class ActiveRefPointVM : ReferencePointViewModelProtocol{
 
     }
     
-    func getReferencePointDistance() -> Double? {
+    func getReferencePointDistance(pLat: Double, pLong: Double) -> Double? {
         if(activePoint.point != nil){
-            let pilotLat = LocationVM.getLatRaw()
-            let pilotLong = LocationVM.getLongRaw()
+            let pilotLat = pLat
+            let pilotLong = pLong
             
             let RPLat = Double(truncating: activePoint.point?.latitude ?? 0)
             let RPLong = Double(truncating: activePoint.point?.longitude ?? 0)

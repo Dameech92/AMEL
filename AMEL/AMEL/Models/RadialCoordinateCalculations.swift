@@ -32,11 +32,12 @@ public class RadialCoordinateCalculations {
         let degrees = rads * 180 / Double.pi
         
         let trueBearing = (degrees + 360).truncatingRemainder(dividingBy: 360)
-        let declination = getBullseyeDeclination(latOfBE: latOfBE, lngOfBE: lngOfBE)
+        let declination = getBullseyeDeclination(latOfBE: latOfBE, lngOfBE: lngOfBE) * -1
         // apply declination to trueBearing
         // declination is the opposite of variation
-        // declination is positive when eastward and negative when westward
+        // declination is positive when eastward and negative when westward - we need variation so we multiply the result of getBullseyeDeclination by -1 in order to convert from declination back to variation
         let magBearingRaw:Double = (declination + trueBearing).rounded()
+        //let magBearingRaw:Double = (trueBearing - declination).rounded()
         var magBearing = Int(magBearingRaw)
         print("magVar before mod = \(magBearing)")
         // modulo 360 too keep it as a valid compass heading
